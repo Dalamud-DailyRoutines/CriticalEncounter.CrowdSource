@@ -1,0 +1,3587 @@
+{
+  "areas": [
+    {
+      "ces": [
+        {
+          "ceID": 33,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 27.43,
+            "y": 36.18
+          },
+          "localizedNames": {
+            "CHS": "脑髓爱好者——夺心魔",
+            "DE": "Die Geißel des Geistes",
+            "EN": "Scourge of the Mind",
+            "FR": "Défi : l'encéphalophage",
+            "JA": "脳髄愛好家「マインドフレイア」",
+            "KO": "뇌수 애호가 '정신탈취자'"
+          },
+          "order": 1,
+          "triggerDescriptions": {
+            "CHS": "15级 新月鬼鱼",
+            "DE": "Stufe 15 Kreszentia-Mönch",
+            "EN": "Level 15 crescent monk",
+            "FR": "Niveau 15 moine de Lunule",
+            "JA": "レベル15 クレセント・モンク",
+            "KO": "레벨 15 초승달 문어"
+          }
+        },
+        {
+          "ceID": 34,
+          "iconID": 63911,
+          "mapPosition": {
+            "x": 31.19,
+            "y": 28.57
+          },
+          "localizedNames": {
+            "CHS": "黑色连队",
+            "DE": "Das schwarze Regiment",
+            "EN": "The Black Regiment",
+            "FR": "Plumes d'encre",
+            "JA": "黒の連隊",
+            "KO": "검은 연대"
+          },
+          "order": 2,
+          "triggerDescriptions": {
+            "CHS": "14级 新月猎豹",
+            "DE": "Stufe 14 Kreszentia-Panther",
+            "EN": "Level 14 crescent panther",
+            "FR": "Niveau 14 coeurl de Lunule",
+            "JA": "レベル14 クレセント・パンサー",
+            "KO": "레벨 14 초승달 흑표범"
+          }
+        },
+        {
+          "ceID": 35,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 33.91,
+            "y": 37.67
+          },
+          "localizedNames": {
+            "CHS": "愤怒的人造人——新月狂战士",
+            "DE": "Zorn auf zwei Beinen",
+            "EN": "The Unbridled",
+            "FR": "Défi : le rageux",
+            "JA": "怒れる人造人「クレセント・バーサーカー」",
+            "KO": "분노한 인조인간 '초승달 광전사'"
+          },
+          "order": 3,
+          "triggerDescriptions": {
+            "CHS": "17级 新月恶魔兵卒",
+            "DE": "Stufe 17 dämonischer Kreszentia-Schlächter",
+            "EN": "Level 17 crescent demon pawn",
+            "FR": "Niveau 17 pion démon de Lunule",
+            "JA": "レベル17 クレセント・デーモンポーン",
+            "KO": "레벨 17 초승달 악마 병졸"
+          }
+        },
+        {
+          "ceID": 36,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 35.05,
+            "y": 32.31
+          },
+          "localizedNames": {
+            "CHS": "潜影撕裂者——死亡爪",
+            "DE": "Das messerscharfe Schicksal",
+            "EN": "Crawling Death",
+            "FR": "Défi : face de griffes",
+            "JA": "忍び寄る爪「デスクロー」",
+            "KO": "은밀히 다가오는 손톱 '죽음손아귀'"
+          },
+          "order": 4,
+          "triggerDescriptions": {
+            "CHS": "16级 新月黑卫",
+            "DE": "Stufe 16 Kreszentia-Düsterwächter",
+            "EN": "Level 16 crescent blackguard",
+            "FR": "Niveau 16 garde noir de Lunule",
+            "JA": "レベル16 クレセント・ブラックガード",
+            "KO": "레벨 16 초승달 검은 파수꾼"
+          }
+        },
+        {
+          "ceID": 37,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 14.75,
+            "y": 37.65
+          },
+          "localizedNames": {
+            "CHS": "挣脱封印的大妖异——回廊恶魔",
+            "DE": "Das versiegelte Unheil",
+            "EN": "Calamity Bound",
+            "FR": "Défi : Cloître à perpétuité",
+            "JA": "封印大妖「クロイスターデーモン」",
+            "KO": "봉인된 대요마 '회랑 악마'"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "20级 新月墨渍",
+            "DE": "Stufe 20 Kreszentia-Tintenfleck",
+            "EN": "Level 20 crescent inkstain",
+            "FR": "Niveau 20 tache d'encre de Lunule",
+            "JA": "レベル20 クレセント・インクステイン",
+            "KO": "레벨 20 초승달 잉크 얼룩"
+          }
+        },
+        {
+          "ceID": 38,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 12.99,
+            "y": 22.91
+          },
+          "localizedNames": {
+            "CHS": "拟造使魔——水晶龙",
+            "DE": "Tödliche Schönheit",
+            "EN": "Trial by Claw",
+            "FR": "Défi : écailles de cristal",
+            "JA": "模造されしもの「水晶竜」",
+            "KO": "모조된 존재 '수정룡'"
+          },
+          "order": 6,
+          "triggerDescriptions": {
+            "CHS": "19级 新月巨钳虾",
+            "DE": "Stufe 19 Kreszentia-Lehmskorpion",
+            "EN": "Level 19 crescent claw",
+            "FR": "Niveau 19 griffe d'argile de Lunule",
+            "JA": "レベル19 クレセント・クレイクロウ",
+            "KO": "레벨 19 초승달 찰흙발톱"
+          }
+        },
+        {
+          "ceID": 39,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 5.57,
+            "y": 26.49
+          },
+          "localizedNames": {
+            "CHS": "双极的造物——神秘土偶",
+            "DE": "Von uralten Magien",
+            "EN": "From Times Bygone",
+            "FR": "Défi : idole surprise",
+            "JA": "神秘の偶像「ミシカルアイドル」",
+            "KO": "수수께끼에 싸인 토우 '신비로운 우상'"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "13级 新月比布鲁斯",
+            "DE": "Stufe 13 Kreszentia-Byblos",
+            "EN": "Level 13 crescent Byblos",
+            "FR": "Niveau 13 byblos de Lunule",
+            "JA": "レベル13 クレセント・ビブロス",
+            "KO": "레벨 13 초승달 비블로스"
+          }
+        },
+        {
+          "ceID": 40,
+          "iconID": 63911,
+          "mapPosition": {
+            "x": 35.13,
+            "y": 15.53
+          },
+          "localizedNames": {
+            "CHS": "石制骑士团",
+            "DE": "Die steinerne Staffel",
+            "EN": "Company of Stone",
+            "FR": "L'armée des argileux",
+            "JA": "石造りの守護騎士たち",
+            "KO": "돌로 만들어진 수호 기사들"
+          },
+          "order": 8,
+          "triggerDescriptions": {
+            "CHS": "4级 新月马洛里石",
+            "DE": "Stufe 4 Kreszentia-Marolith",
+            "EN": "Level 4 crescent marolith",
+            "FR": "Niveau 4 marolithe de Lunule",
+            "JA": "レベル4 クレセント・マロリス",
+            "KO": "레벨 4 초승달 마롤리스"
+          }
+        },
+        {
+          "ceID": 41,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 19.15,
+            "y": 4.57
+          },
+          "localizedNames": {
+            "CHS": "传说中的鲨鱼——尼姆瓣齿鲨",
+            "DE": "Jäger aus alten Legenden",
+            "EN": "Shark Attack",
+            "FR": "Défi : homo selachus",
+            "JA": "伝説の鮫「ニーム・ペタロドゥス」",
+            "KO": "전설의 상어 '니므 페탈로두스'"
+          },
+          "order": 9,
+          "triggerDescriptions": {
+            "CHS": "7级 新月小瓣齿鲨",
+            "DE": "Stufe 7 niederer Kreszentia-Petalodus",
+            "EN": "Level 7 crescent petalodite",
+            "FR": "Niveau 7 petalodus inférieur de Lunule",
+            "JA": "レベル7 クレセント・レッサーペタロドゥス",
+            "KO": "레벨 7 초승달 작은 페탈로두스"
+          }
+        },
+        {
+          "ceID": 42,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 34.23,
+            "y": 20.37
+          },
+          "localizedNames": {
+            "CHS": "双足狮人——跃立狮",
+            "DE": "Gefürchtetes Gebrüll",
+            "EN": "On the Hunt",
+            "FR": "Défi : à rugir debout",
+            "JA": "二足の獅子「ランパントライオン」",
+            "KO": "두 발로 선 사자 '직립 사자'"
+          },
+          "order": 10,
+          "triggerDescriptions": {
+            "CHS": "5级 新月风扇",
+            "DE": "Stufe 5 Kreszentia-Ventilator",
+            "EN": "Level 5 crescent fan",
+            "FR": "Niveau 5 ventilateur de Lunule",
+            "JA": "レベル5 クレセント・ファン",
+            "KO": "레벨 5 초승달 선풍기"
+          }
+        },
+        {
+          "ceID": 43,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 14.35,
+            "y": 9.43
+          },
+          "localizedNames": {
+            "CHS": "防卫指令",
+            "DE": "Mit absoluter Sicherheit",
+            "EN": "With Extreme Prejudice",
+            "FR": "Cordon de sécurité",
+            "JA": "セキュリティ・コマンドー",
+            "KO": "보안 명령"
+          },
+          "order": 11,
+          "triggerDescriptions": {
+            "CHS": "8级 新月乌菊石",
+            "DE": "Stufe 8 Kreszentia-Uragnit",
+            "EN": "Level 8 crescent uragnite",
+            "FR": "Niveau 8 uragnite de Lunule",
+            "JA": "レベル8 クレセント・ウラグナイト",
+            "KO": "레벨 8 초승달 오징어조개"
+          }
+        },
+        {
+          "ceID": 44,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 30.09,
+            "y": 14.53
+          },
+          "localizedNames": {
+            "CHS": "厌鸟巨兽——进化加鲁拉",
+            "DE": "Keine Gnade dem Gefieder",
+            "EN": "Noise Complaint",
+            "FR": "Défi : mammouth fâché",
+            "JA": "鳥嫌いの巨獣「ネオガルラ」",
+            "KO": "새를 싫어하는 거대 짐승 '네오 가루라'"
+          },
+          "order": 12,
+          "triggerDescriptions": {
+            "CHS": "1级 新月加鲁拉",
+            "DE": "Stufe 1 Kreszentia-Garula",
+            "EN": "Level 1 crescent Garula",
+            "FR": "Niveau 1 garula de Lunule",
+            "JA": "レベル1 クレセント・ガルラ",
+            "KO": "레벨 1 초승달 가루라"
+          }
+        },
+        {
+          "ceID": 45,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 21.97,
+            "y": 11.39
+          },
+          "localizedNames": {
+            "CHS": "贩卖诅咒的商贩——金钱龟",
+            "DE": "Das Feilschen ums Verfluchte",
+            "EN": "Cursed Concern",
+            "FR": "Défi : être aux pièces",
+            "JA": "呪いの商亀「コイントートス」",
+            "KO": "저주를 파는 거북 '동전거북'"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "7级 新月刻托斯",
+            "DE": "Stufe 7 Kreszentia-Cetus",
+            "EN": "Level 7 crescent Cetus",
+            "FR": "Niveau 7 cetus de Lunule",
+            "JA": "レベル7 クレセント・ケートス",
+            "KO": "레벨 7 초승달 케투스"
+          }
+        },
+        {
+          "ceID": 46,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 38.87,
+            "y": 25.23
+          },
+          "localizedNames": {
+            "CHS": "城塞守卫——复原狮像",
+            "DE": "Ausgebessert und verbessert",
+            "EN": "Eternal Watch",
+            "FR": "Défi : comme un lion nouveau",
+            "JA": "復元された獅子像「リペアドライオン」",
+            "KO": "오래된 사자상 '복원된 사자'"
+          },
+          "order": 14,
+          "triggerDescriptions": {
+            "CHS": "20级 新月立狮",
+            "DE": "Stufe 20 Kreszentia-Steiger",
+            "EN": "Level 20 crescent lion statant",
+            "FR": "Niveau 20 lion passant de Lunule",
+            "JA": "レベル20 クレセント・ステータント",
+            "KO": "레벨 20 초승달 문장사자"
+          }
+        },
+        {
+          "ceID": 47,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 11.69,
+            "y": 17.59
+          },
+          "localizedNames": {
+            "CHS": "昏暗妖魂——鬼火苗",
+            "DE": "Das finsterste Feuer",
+            "EN": "Flame of Dusk",
+            "FR": "Défi : les ailes de pierre",
+            "JA": "昏き篝火「ヒンキーパンク」",
+            "KO": "어둑한 화톳불 '힝키펑크'"
+          },
+          "order": 15,
+          "triggerDescriptions": {
+            "CHS": "11级 新月哈耳庇厄鸟妖",
+            "DE": "Stufe 11 Kreszentia-Harpuia",
+            "EN": "Level 11 crescent harpuia",
+            "FR": "Niveau 11 harpyia de Lunule",
+            "JA": "レベル11 クレセント・ハルピュイア",
+            "KO": "레벨 11 초승달 하르퓌아"
+          }
+        },
+        {
+          "ceID": 48,
+          "iconID": 63978,
+          "localizedNames": {
+            "CHS": "两歧塔 力之塔",
+            "DE": "Der Turm des Blutes",
+            "EN": "The Forked Tower: Blood",
+            "FR": "Tour fourchue de la Force",
+            "JA": "フォークタワー：力の塔",
+            "KO": "포크 타워: 힘의 탑"
+          },
+          "order": 16,
+          "triggerDescriptions": {}
+        }
+      ],
+      "code": "SouthHorn",
+      "fates": [
+        {
+          "fateID": 1976,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 26.03,
+            "y": 17.09
+          },
+          "localizedNames": {
+            "CHS": "幸福的魔法罐",
+            "DE": "Freude im Pott",
+            "EN": "Persistent Pots",
+            "FR": "Pas de pot pour les pots",
+            "JA": "しあわせのマジックポット",
+            "KO": "행복한 마법 항아리"
+          },
+          "order": 17
+        },
+        {
+          "fateID": 1977,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 11.88,
+            "y": 32.08
+          },
+          "localizedNames": {
+            "CHS": "瑟瑟发抖的魔法罐",
+            "DE": "Wunder im Pott",
+            "EN": "Pleading Pots",
+            "FR": "Mauvais œil pour les pots",
+            "JA": "カチカチのマジックポット",
+            "KO": "고집불통 마법 항아리"
+          },
+          "order": 18
+        }
+      ],
+      "localizedNames": {
+        "CHS": "南征之章",
+        "DE": "Südexpedition",
+        "EN": "South Horn",
+        "FR": "Partie méridionale",
+        "JA": "南征編",
+        "KO": "남부편"
+      },
+      "mapID": 967,
+      "mapNames": {
+        "CHS": "新月岛南部",
+        "DE": "Südliches Kreszentia",
+        "EN": "South Horn",
+        "FR": "Île de Lunule méridionale",
+        "JA": "三日月島南部",
+        "KO": "초승달 섬 남부"
+      },
+      "name": "南征之章",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        1252
+      ],
+      "gameplay": "OccultCrescent"
+    },
+    {
+      "ces": [
+        {
+          "ceID": 49,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 4,
+            "y": 10.2
+          },
+          "localizedNames": {
+            "CHS": "四颚斧花——提蔛",
+            "DE": "Verfressen bis in die Wurzeln",
+            "EN": "Many Mouths to Feed",
+            "FR": "Défi : appétit vorace",
+            "JA": "四つ顎の魔樹「ペレキュス」",
+            "KO": "턱 네 개 마수 '펠레키스'"
+          },
+          "order": 1,
+          "triggerDescriptions": {
+            "CHS": "46级 新月瓦魔蛾",
+            "DE": "Stufe 46 Kreszentia-Wamoura",
+            "EN": "Level 46 crescent wamoura",
+            "FR": "Niveau 46 wamoura de Lunule",
+            "JA": "レベル46 クレセント・ワモーラ",
+            "KO": "레벨 46 초승달 와무라"
+          }
+        },
+        {
+          "ceID": 50,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 17.1,
+            "y": 20.1
+          },
+          "localizedNames": {
+            "CHS": "魔女复制体——卡洛菲斯提莉二重身",
+            "DE": "Doppelt gehext hält besser",
+            "EN": "Doubled Trouble",
+            "FR": "Défi : les dérives du clonage",
+            "JA": "魔女の複製体「カロフィステリ・ダブル」",
+            "KO": "마녀의 복제 '칼로피스테리 분신'"
+          },
+          "order": 2,
+          "triggerDescriptions": {
+            "CHS": "39级 新月黑卫",
+            "DE": "Stufe 39 Kreszentia-Düsterwächter",
+            "EN": "Level 39 crescent blackguard",
+            "FR": "Niveau 39 garde noir de Lunule",
+            "JA": "レベル39 クレセント・ブラックガード",
+            "KO": "레벨 39 초승달 검은 파수꾼"
+          }
+        },
+        {
+          "ceID": 51,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 11.1,
+            "y": 8.6
+          },
+          "localizedNames": {
+            "CHS": "纯白守护者——雪石膏之剑",
+            "DE": "Schwert und Stein",
+            "EN": "Quarried Away",
+            "FR": "Défi : l'homme à albâtre",
+            "JA": "白の守護者「アラバスターブレード」",
+            "KO": "하얀 수호자 '설화석고 검사'"
+          },
+          "order": 3,
+          "triggerDescriptions": {
+            "CHS": "38级 新月祸蛛蝎",
+            "DE": "Stufe 38 Kreszentia-Terrormilbe",
+            "EN": "Level 38 crescent banemite",
+            "FR": "Niveau 38 sarcopte de Lunule",
+            "JA": "レベル38 クレセント・ベーンマイト",
+            "KO": "레벨 38 초승달 독거미전갈"
+          }
+        },
+        {
+          "ceID": 52,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 34.6,
+            "y": 34.5
+          },
+          "localizedNames": {
+            "CHS": "禁书化形——古术魔典",
+            "DE": "Verbotenes Wissen",
+            "EN": "Forbidden Folios",
+            "FR": "Défi : magie taboue",
+            "JA": "禁忌の魔道書「アルバテル」",
+            "KO": "금단의 마도서 '아르바텔'"
+          },
+          "order": 4
+        },
+        {
+          "ceID": 53,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 7.7,
+            "y": 24.4
+          },
+          "localizedNames": {
+            "CHS": "暗红尸骸——赤龙",
+            "DE": "Gift und Kralle",
+            "EN": "Cursed Resurgence",
+            "FR": "Défi : dragon en décomposition",
+            "JA": "暗紅の屍竜「ルブルムドラゴン」",
+            "KO": "검붉은 시룡 '루브룸 드래곤'"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "34级 新月大角牛",
+            "DE": "Stufe 34 Kreszentia-Großhorn",
+            "EN": "Level 34 crescent big horn",
+            "FR": "Niveau 34 encorné de Lunule",
+            "JA": "レベル34 クレセント・ビッグホーン",
+            "KO": "레벨 34 초승달 거대뿔"
+          }
+        },
+        {
+          "ceID": 54,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 36.7,
+            "y": 21.2
+          },
+          "localizedNames": {
+            "CHS": "暴食咒鬼——阿尔戈尔",
+            "DE": "Unersättliches Unheil",
+            "EN": "Imbalanced Diet",
+            "FR": "Défi : Algol l'insatiable",
+            "JA": "大食の呪鬼「アルゴル」",
+            "KO": "폭식의 저주괴물 '알골'"
+          },
+          "order": 6
+        },
+        {
+          "ceID": 55,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 24.8,
+            "y": 18.7
+          },
+          "localizedNames": {
+            "CHS": "残暴的母蜘蛛——新月阿剌克涅",
+            "DE": "Wie eine Fliege im Netz",
+            "EN": "Web of Terror",
+            "FR": "Défi : cruelles chasseresses",
+            "JA": "猟奇の母蜘蛛「クレセント・アルケニー」",
+            "KO": "엽기적인 어미 거미 '초승달 아라크네'"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "38级 新月地狱犬",
+            "DE": "Stufe 38 Kreszentia-Höllenhund",
+            "EN": "Level 38 crescent hellhound",
+            "FR": "Niveau 38 limier de Lunule",
+            "JA": "レベル38 クレセント・ヘルハウンド",
+            "KO": "레벨 38 초승달 지옥견"
+          }
+        },
+        {
+          "ceID": 56,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 26.2,
+            "y": 28.5
+          },
+          "localizedNames": {
+            "CHS": "叛逆使魔——负隅宝石兽",
+            "DE": "Rubinrote Rebellion",
+            "EN": "A Beast Unleashed",
+            "FR": "Défi : le familier se rebelle",
+            "JA": "反逆の使い魔「アトラス・カーバンクル」",
+            "KO": "반역의 사역마 '아틀라스 카벙클'"
+          },
+          "order": 8
+        },
+        {
+          "ceID": 57,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 25.9,
+            "y": 4.2
+          },
+          "localizedNames": {
+            "CHS": "天道好轮回——魔亡灵法师",
+            "DE": "Auf Tod komm raus",
+            "EN": "Dark Artistry",
+            "FR": "Défi : croisade pour un cadavre",
+            "JA": "死霊使いの亡霊「マギ・ネクロマンサー」",
+            "KO": "사령을 다루는 망령 '마기 강령술사'"
+          },
+          "order": 9
+        },
+        {
+          "ceID": 58,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 13.6,
+            "y": 35.4
+          },
+          "localizedNames": {
+            "CHS": "求道的人造人——神木巨人",
+            "DE": "Auf dem Weg der Erleuchtung",
+            "EN": "Familiar Tactics",
+            "FR": "Défi : la voie de l'orme",
+            "JA": "求道の人造人間「エルムギガース」",
+            "KO": "수행하는 인조 인형 '엘름 기가스'"
+          },
+          "order": 10
+        },
+        {
+          "ceID": 59,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 37.6,
+            "y": 10.2
+          },
+          "localizedNames": {
+            "CHS": "诅咒的继承者——惨白魔人",
+            "DE": "Verflucht noch eins",
+            "EN": "Appalling Behavior",
+            "FR": "Défi : vert de rancœur",
+            "JA": "呪いを継ぐ者「ペイルマギア」",
+            "KO": "저주를 잇는 자 '창백한 마기아'"
+          },
+          "order": 11,
+          "triggerDescriptions": {
+            "CHS": "29级 新月胡瓦西",
+            "DE": "Stufe 29 Kreszentia-Huwasi",
+            "EN": "Level 29 crescent huwasi",
+            "FR": "Niveau 29 huwasi de Lunule",
+            "JA": "レベル29 クレセント・フワシ",
+            "KO": "레벨 29 초승달 후와시"
+          }
+        },
+        {
+          "ceID": 60,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 24.5,
+            "y": 35.7
+          },
+          "localizedNames": {
+            "CHS": "魔法军团——小小法师",
+            "DE": "Klein aber oho",
+            "EN": "Tiny Terror",
+            "FR": "Défi : petits mais costauds",
+            "JA": "魔道兵団「タイニーメイジ」",
+            "KO": "마도병단 '타이니 메이지'"
+          },
+          "order": 12
+        },
+        {
+          "ceID": 61,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 18.3,
+            "y": 4.2
+          },
+          "localizedNames": {
+            "CHS": "孤岛的绑架犯——诱拐魔",
+            "DE": "Vom Winde verweht",
+            "EN": "Lost on the Wind",
+            "FR": "Défi : alerte enlèvement",
+            "JA": "絶島の誘拐者「アブダクター」",
+            "KO": "외딴섬의 납치범 '유괴자'"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "27级 新月幽灵",
+            "DE": "Stufe 27 Kreszentia-Geist",
+            "EN": "Level 27 crescent wraith",
+            "FR": "Niveau 27 spectre de Lunule",
+            "JA": "レベル27 クレセント・レイス",
+            "KO": "레벨 27 초승달 망령"
+          }
+        },
+        {
+          "ceID": 62,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 19.8,
+            "y": 31.1
+          },
+          "localizedNames": {
+            "CHS": "苏醒的多头龙——魔许德拉",
+            "DE": "Mehr Köpfe als Verstand",
+            "EN": "Ahead of the Competition",
+            "FR": "Défi : têtes à claques",
+            "JA": "覚醒の多頭竜「マギ・ヒュドラ」",
+            "KO": "각성한 다두룡 '마기 히드라'"
+          },
+          "order": 14
+        },
+        {
+          "ceID": 63,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 31.3,
+            "y": 15.1
+          },
+          "localizedNames": {
+            "CHS": "拟态使魔——变形法师",
+            "DE": "Mieses Mimikry",
+            "EN": "Accept No Imitators",
+            "FR": "Défi : attention aux contrefaçons",
+            "JA": "変化の使い魔「メタモルファ」",
+            "KO": "변화하는 사역마 '메타몰퍼'"
+          },
+          "order": 15
+        },
+        {
+          "ceID": 64,
+          "iconID": 63978,
+          "localizedNames": {
+            "CHS": "两歧塔 魔之塔",
+            "DE": "Der Turm der Magie",
+            "EN": "The Forked Tower: Magic",
+            "FR": "Tour fourchue de la Magie",
+            "JA": "フォークタワー：魔の塔",
+            "KO": "포크 타워: 마의 탑"
+          },
+          "order": 16,
+          "triggerDescriptions": {}
+        }
+      ],
+      "code": "NorthHorn",
+      "fates": [
+        {
+          "fateID": 2072,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 26.1,
+            "y": 12.1
+          },
+          "localizedNames": {
+            "CHS": "被欺负的魔法罐",
+            "DE": "Versteckt im Pott",
+            "EN": "Daylight Pottery",
+            "FR": "Cache-cache avec le pot",
+            "JA": "隠されのマジックポット",
+            "KO": "찾아다니는 마법 항아리"
+          },
+          "order": 17
+        },
+        {
+          "fateID": 2073,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 11.3,
+            "y": 26.2
+          },
+          "localizedNames": {
+            "CHS": "被吹飞的魔法罐",
+            "DE": "Wind im Pott",
+            "EN": "In a Pot of Bother",
+            "FR": "Se prendre un vent, c'est pas de pot",
+            "JA": "飛ばされのマジックポット",
+            "KO": "날아가는 마법 항아리"
+          },
+          "order": 18
+        }
+      ],
+      "localizedNames": {
+        "CHS": "北征之章",
+        "DE": "Nordexpedition",
+        "EN": "North Horn",
+        "FR": "Partie septentrionale",
+        "JA": "北征編",
+        "KO": "북부편"
+      },
+      "mapID": 1135,
+      "mapNames": {
+        "CHS": "新月岛北部",
+        "DE": "Nördliches Kreszentia",
+        "EN": "North Horn",
+        "FR": "Île de Lunule septentrionale",
+        "JA": "三日月島北部",
+        "KO": "초승달 섬 북부"
+      },
+      "name": "北征之章",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        1346
+      ],
+      "gameplay": "OccultCrescent"
+    },
+    {
+      "ces": [
+        {
+          "ceID": 16,
+          "iconID": 63912,
+          "localizedNames": {
+            "CHS": "帝国湖岸堡攻城战",
+            "DE": "Sturm auf Castrum Lacus Litore",
+            "EN": "The Battle of Castrum Lacus Litore",
+            "FR": "Assaut sur Castrum Lacus Litore",
+            "JA": "カストルム・ラクスリトレ攻城戦",
+            "KO": "카스트룸 라쿠스리토레 공성전"
+          },
+          "order": 1
+        },
+        {
+          "ceID": 1,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 17.1,
+            "y": 27.0
+          },
+          "localizedNames": {
+            "CHS": "腐烂蔬菜——皮里福尔",
+            "DE": "Peeriefool, das faule Gemüse",
+            "EN": "Kill It with Fire",
+            "FR": "Grandeur et pestilence",
+            "JA": "腐乱野菜「ピーリフール」",
+            "KO": "썩은 야채 '피어리풀'"
+          },
+          "order": 2,
+          "triggerDescriptions": {
+            "CHS": "华丽魔女的珍兽使者（冲突战）",
+            "DE": "Ungeheuerlich!",
+            "EN": "All Pets Are Off",
+            "FR": "Belles plantes",
+            "JA": "華麗なる珍獣使い",
+            "KO": "화려한 희귀마수 조련사"
+          }
+        },
+        {
+          "ceID": 2,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 22.0,
+            "y": 28.6
+          },
+          "localizedNames": {
+            "CHS": "战争妖犬——恐惧妖犬",
+            "DE": "Die drei Mäuler des Canis dirus",
+            "EN": "The Baying of the Hound(s)",
+            "FR": "Le chien des enfers",
+            "JA": "戦争の妖犬「カニスディルス」",
+            "KO": "전쟁 요마견 '카니스 디루스'"
+          },
+          "order": 3
+        },
+        {
+          "ceID": 3,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 28,
+            "y": 29
+          },
+          "localizedNames": {
+            "CHS": "高火力陆战魔导兵器——守夜",
+            "DE": "Vigil, Feuerkraft hoch zehn",
+            "EN": "Vigil for the Lost",
+            "FR": "Vigile de feu",
+            "JA": "高火力陸戦魔導兵器「ヴィジル」",
+            "KO": "고화력 육지전 마도 병기 '비질'"
+          },
+          "order": 4,
+          "triggerDescriptions": {
+            "CHS": "迎击有人魔导兵器（冲突战）",
+            "DE": "Auf zum Gegenangriff",
+            "EN": "More Machine Now than Man",
+            "FR": "Machines aux trousses",
+            "JA": "有人魔導兵器の迎撃",
+            "KO": "유인 마도 병기 요격"
+          }
+        },
+        {
+          "ceID": 4,
+          "iconID": 63910,
+          "mapPosition": {
+            "x": 31.6,
+            "y": 26.8
+          },
+          "localizedNames": {
+            "CHS": "新型飞行型魔导装甲——加百列",
+            "DE": "Gabriel, die stählerne Schwinge",
+            "EN": "Aces High",
+            "FR": "Force divine",
+            "JA": "新型飛行型魔導アーマー「ガブリエル」",
+            "KO": "신형 비행 마도 아머 '가브리엘'"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "高火力陆战魔导兵器——守夜（紧急遭遇战）",
+            "DE": "Vigil, Feuerkraft hoch zehn",
+            "EN": "Vigil for the Lost",
+            "FR": "Vigile de feu",
+            "JA": "高火力陸戦魔導兵器「ヴィジル」",
+            "KO": "고화력 육지전 마도 병기 '비질'"
+          }
+        },
+        {
+          "ceID": 5,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 35,
+            "y": 25
+          },
+          "localizedNames": {
+            "CHS": "黑死鸟——阿克巴巴",
+            "DE": "Akbaba, Tod von oben",
+            "EN": "The Shadow of Death's Hand",
+            "FR": "Les ailes noires de la mort",
+            "JA": "黒き死鳥「アクババ」",
+            "KO": "죽음의 검은 새 '아크바바'"
+          },
+          "order": 6
+        },
+        {
+          "ceID": 6,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 32,
+            "y": 17
+          },
+          "localizedNames": {
+            "CHS": "怨念死灵——地生人",
+            "DE": "Spartoi der Gefürchtete",
+            "EN": "The Final Furlong",
+            "FR": "Menace spectrale",
+            "JA": "怨念の死霊「スパルトイ」",
+            "KO": "원념의 사령 '스파르토이'"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "洁白心的逃脱战（冲突战）",
+            "DE": "Llofii die Ausgebüxte",
+            "EN": "Unicorn Flakes",
+            "FR": "La licorne des plaines",
+            "JA": "潔白の脱走兵",
+            "KO": "결백한 탈주병"
+          }
+        },
+        {
+          "ceID": 7,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 26.7,
+            "y": 18.3
+          },
+          "localizedNames": {
+            "CHS": "红陆行鸟之王——红色彗星",
+            "DE": "Der Rote Meteor und seine Meute",
+            "EN": "The Hunt for Red Choctober",
+            "FR": "Une ruée en rouge",
+            "JA": "赤チョコボのヌシ「レッドコメット」",
+            "KO": "우두머리 초코보 '붉은 혜성'"
+          },
+          "order": 8,
+          "triggerDescriptions": {
+            "CHS": "兽性兽心与红色马鸟（冲突战）",
+            "DE": "Großes Federlassen",
+            "EN": "Red (Chocobo) Alert",
+            "FR": "Quand les chocobos voient rouge",
+            "JA": "豚面と赤い馬鳥",
+            "KO": "시크족과 붉은 초코보"
+          }
+        },
+        {
+          "ceID": 8,
+          "iconID": 63910,
+          "mapPosition": {
+            "x": 23,
+            "y": 21
+          },
+          "localizedNames": {
+            "CHS": "百兽之王——兽王莱昂",
+            "DE": "Lyon der Bestienkönig",
+            "EN": "Beast of Man",
+            "FR": "Le Roi bestial",
+            "JA": "百獣使い「獣王ライアン」",
+            "KO": "백수의 왕 '마수왕 라이언'"
+          },
+          "order": 9,
+          "triggerDescriptions": {
+            "CHS": "红陆行鸟之王——红色彗星（紧急遭遇战）",
+            "DE": "Der Rote Meteor und seine Meute",
+            "EN": "The Hunt for Red Choctober",
+            "FR": "Une ruée en rouge",
+            "JA": "赤チョコボのヌシ「レッドコメット」",
+            "KO": "우두머리 초코보 '붉은 혜성'"
+          }
+        },
+        {
+          "ceID": 9,
+          "iconID": 63911,
+          "mapPosition": {
+            "x": 20.6,
+            "y": 24.3
+          },
+          "localizedNames": {
+            "CHS": "炎兽训练师——火焰百夫队",
+            "DE": "Die Flammenden Hundert",
+            "EN": "The Fires of War",
+            "FR": "Brasier de guerre",
+            "JA": "炎獣使い「火焔百人隊」",
+            "KO": "화염마수 조련사 '화염백인대'"
+          },
+          "order": 10
+        },
+        {
+          "ceID": 10,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 14.1,
+            "y": 21.2
+          },
+          "localizedNames": {
+            "CHS": "据点防卫魔导兵器——爱国者",
+            "DE": "Verteidigungsmaschine Patriot",
+            "EN": "Patriot Games",
+            "FR": "Les fusils du patriote",
+            "JA": "拠点防衛魔導兵器「パトリオット」",
+            "KO": "거점 방위 병기 '패트리어트'"
+          },
+          "order": 11
+        },
+        {
+          "ceID": 11,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 9.9,
+            "y": 18.2
+          },
+          "localizedNames": {
+            "CHS": "邪眼妖兽——耶鲁",
+            "DE": "Die bösen Blicke der Eale",
+            "EN": "Trampled under Hoof",
+            "FR": "L'œil du malin",
+            "JA": "邪眼の妖獣「エアレー」",
+            "KO": "마안의 요수 '에알레'"
+          },
+          "order": 12
+        },
+        {
+          "ceID": 12,
+          "iconID": 63910,
+          "mapPosition": {
+            "x": 18.7,
+            "y": 15.9
+          },
+          "localizedNames": {
+            "CHS": "老练魔法师——铁胆狱火萨托瓦尔",
+            "DE": "Sartauvoir Eisenfeuer",
+            "EN": "And the Flames Went Higher",
+            "FR": "L'envol du phénix",
+            "JA": "老練の魔道士「鉄火のサルトヴォアール」",
+            "KO": "노련한 마도사 '쇳불의 사르토부아르'"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "钢铁魔兽——达因斯莱瓦（紧急遭遇战）",
+            "DE": "Dáinsleif, Bestie aus Eisen",
+            "EN": "Metal Fox Chaos",
+            "FR": "Le guerrier de métal",
+            "JA": "鋼鉄の魔獣「ダーインスレイヴ」",
+            "KO": "강철 마수 '다인슬라이프'"
+          }
+        },
+        {
+          "ceID": 13,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 14,
+            "y": 18
+          },
+          "localizedNames": {
+            "CHS": "钢铁魔兽——达因斯莱瓦",
+            "DE": "Dáinsleif, Bestie aus Eisen",
+            "EN": "Metal Fox Chaos",
+            "FR": "Le guerrier de métal",
+            "JA": "鋼鉄の魔獣「ダーインスレイヴ」",
+            "KO": "강철 마수 '다인슬라이프'"
+          },
+          "order": 14,
+          "triggerDescriptions": {
+            "CHS": "南方战线的续战（冲突战）",
+            "DE": "Auf und ab",
+            "EN": "Of Steel and Flame",
+            "FR": "Le fer et le feu",
+            "JA": "続・燃え上がる南方戦線",
+            "KO": "타오르는 남부 전선 속편"
+          }
+        },
+        {
+          "ceID": 14,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 20.9,
+            "y": 17.7
+          },
+          "localizedNames": {
+            "CHS": "新型铁巨人——魔导劳工X式",
+            "DE": "Im Schatten von Modell X",
+            "EN": "Rise of the Robots",
+            "FR": "Le soulèvement des machines",
+            "JA": "新たなる鉄巨人「魔導レイバーX型」",
+            "KO": "새로운 철거인 '마도 노동자 X형'"
+          },
+          "order": 15,
+          "triggerDescriptions": {
+            "CHS": "破坏魔导劳工B型（冲突战）",
+            "DE": "Gewaltsame Arbeitsniederlegung - Plan B",
+            "EN": "I'm a Mechanical Man",
+            "FR": "Plan B",
+            "JA": "魔導レイバーB型破壊命令",
+            "KO": "마도 노동자 B형 파괴 명령"
+          }
+        },
+        {
+          "ceID": 15,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 23.5,
+            "y": 14.9
+          },
+          "localizedNames": {
+            "CHS": "战栗之角——奇尔维尼克",
+            "DE": "Der untote Chlevnik",
+            "EN": "Where Strode the Behemoth",
+            "FR": "Le mastodonte enragé",
+            "JA": "戦慄の角「チルヴニク」",
+            "KO": "전율의 뿔 '칠레브니크'"
+          },
+          "order": 16
+        }
+      ],
+      "code": "SouthernFront",
+      "fates": [],
+      "localizedNames": {
+        "CHS": "南方博兹雅战线",
+        "DE": "Bozja-Südfront",
+        "EN": "Bozjan Southern Front",
+        "FR": "Front sud de Bozja",
+        "JA": "南方ボズヤ戦線",
+        "KO": "남부 보즈야 전선"
+      },
+      "mapID": 606,
+      "mapNames": {
+        "CHS": "南方博兹雅战线",
+        "DE": "Bozja-Südfront",
+        "EN": "Bozjan Southern Front",
+        "FR": "Front sud de Bozja",
+        "JA": "南方ボズヤ戦線",
+        "KO": "남부 보즈야 전선"
+      },
+      "name": "南方博兹雅战线",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        920
+      ],
+      "gameplay": "SaveTheQueen"
+    },
+    {
+      "ces": [
+        {
+          "ceID": 32,
+          "iconID": 63912,
+          "localizedNames": {
+            "CHS": "旗舰达尔里阿达号攻略战",
+            "DE": "Sturm auf die Dalriada",
+            "EN": "The Dalriada",
+            "FR": "Assaut sur le Dalriada",
+            "JA": "旗艦ダル･リアータ攻略戦",
+            "KO": "기함 달리아다 공략전"
+          },
+          "order": 1
+        },
+        {
+          "ceID": 17,
+          "iconID": 63911,
+          "mapPosition": {
+            "x": 31.5,
+            "y": 37.6
+          },
+          "localizedNames": {
+            "CHS": "群蛇狂舞——妖战百人队",
+            "DE": "Der Geistertrupp",
+            "EN": "On Serpents' Wings",
+            "FR": "Zirnitrop",
+            "JA": "妖霊使い「妖戦百人隊」",
+            "KO": "요귀술사 '요전백인대'"
+          },
+          "order": 2,
+          "triggerDescriptions": {
+            "CHS": "无心无惭邪道术师（冲突战）",
+            "DE": "Ketzer Fabineau gibt sich die Ehre",
+            "EN": "An Immoral Dilemma",
+            "FR": "Malheureuses retrouvailles",
+            "JA": "傍白の外道術士",
+            "KO": "잔학한 마술사"
+          }
+        },
+        {
+          "ceID": 18,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 16.7,
+            "y": 16.7
+          },
+          "localizedNames": {
+            "CHS": "试制型飞行型魔导装甲——黑色燃焰",
+            "DE": "Schwarzbrands Testflug",
+            "EN": "Feeling the Burn",
+            "FR": "On arrête le progrès",
+            "JA": "試作飛行型魔導アーマー「ブラックバーン」",
+            "KO": "시험작 비행형 마도 아머 '블랙번'"
+          },
+          "order": 3,
+          "triggerDescriptions": {
+            "CHS": "强化兵部队的强袭（冲突战）",
+            "DE": "Verstärkung für die Mech-Einheit",
+            "EN": "Attack of the Supersoldiers",
+            "FR": "Il est plus d'un",
+            "JA": "強化兵部隊の強襲",
+            "KO": "강화병 부대의 강습"
+          }
+        },
+        {
+          "ceID": 19,
+          "iconID": 63910,
+          "mapPosition": {
+            "x": 26.2,
+            "y": 35.8
+          },
+          "localizedNames": {
+            "CHS": "惨无人道的强化兵——超级调整兵达波格",
+            "DE": "Hyper-Dabog, Stärkster unter Stärksten",
+            "EN": "The Broken Blade",
+            "FR": "Dabog l'hyper-renforcé",
+            "JA": "非業の強化兵「ハイパーチューンド・ダボグ」",
+            "KO": "비운의 강화병 '특수강화병 다보그'"
+          },
+          "order": 4,
+          "triggerDescriptions": {
+            "CHS": "复制统治者——第四军团哈修马利姆（紧急遭遇战）",
+            "DE": "Hashmallim der Einiger",
+            "EN": "A Familiar Face",
+            "FR": "Le Grand Ordonnateur",
+            "JA": "模造統制者「IVレギオン・ハシュマリム」",
+            "KO": "모조 통제자 'IV군단 하쉬말림'"
+          }
+        },
+        {
+          "ceID": 20,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 20.3,
+            "y": 37.5
+          },
+          "localizedNames": {
+            "CHS": "复制告密者——第四军团谢米哈扎",
+            "DE": "Shemhazai der Verräter",
+            "EN": "From Beyond the Grave",
+            "FR": "Le Sycophante",
+            "JA": "模造密告者「IVレギオン・シュミハザ」",
+            "KO": "모조 밀고자 'IV군단 셰미하자'"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "第四军团步兵",
+            "DE": "Infanterist[p] der IV. Legion",
+            "EN": "4th Legion infantry",
+            "FR": "fantassin de la 4 légion",
+            "JA": "IVレギオン・インファントリー",
+            "KO": "IV군단 보병"
+          }
+        },
+        {
+          "ceID": 21,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 17,
+            "y": 32
+          },
+          "localizedNames": {
+            "CHS": "焦土魔蝎——赫德提特",
+            "DE": "Hedetet, Stachel des Karglands",
+            "EN": "With Diremite and Main",
+            "FR": "C'est dans ma nature",
+            "JA": "焦土の魔蠍「ヘデテト」",
+            "KO": "초토의 마수 전갈 '헤데테트'"
+          },
+          "order": 6,
+          "triggerDescriptions": {
+            "CHS": "第四军团魔导强猎手",
+            "DE": "Nimrod[p] der IV. Legion",
+            "EN": "4th Legion nimrod",
+            "FR": "nimrod de la 4e légion",
+            "JA": "IVレギオン・ニムロッド",
+            "KO": "IV군단 니므롯"
+          }
+        },
+        {
+          "ceID": 22,
+          "iconID": 63911,
+          "mapPosition": {
+            "x": 6.4,
+            "y": 37.6
+          },
+          "localizedNames": {
+            "CHS": "钢铁人马——魔导骑兵大队",
+            "DE": "Halb Pferd, halb Garlear",
+            "EN": "Here Comes the Cavalry",
+            "FR": "Un cavalier qui surgit hors de la nuit",
+            "JA": "鋼鉄の人馬「魔導騎兵大隊」",
+            "KO": "강철의 인마 '마도기병대대'"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "仿制青龙壁的生命线（冲突战）",
+            "DE": "Energie für Seiryu Zwo",
+            "EN": "Tanking Up",
+            "FR": "Y a qu'à se baisser",
+            "JA": "疑似青龍壁の生命線",
+            "KO": "유사 청룡벽의 생명줄"
+          }
+        },
+        {
+          "ceID": 23,
+          "iconID": 63910,
+          "mapPosition": {
+            "x": 5.2,
+            "y": 32
+          },
+          "localizedNames": {
+            "CHS": "第四军团军政官——梅内纽斯",
+            "DE": "Menenius, Tribunus der IV. Legion",
+            "EN": "Head of the Snake",
+            "FR": "Mener par l'exemple",
+            "JA": "第IV軍団分遣隊長「メネニウス」",
+            "KO": "제IV군단 분견대장 '메네니우스'"
+          },
+          "order": 8,
+          "triggerDescriptions": {
+            "CHS": "邪恶冰狼——恶名苍狼（紧急遭遇战）",
+            "DE": "Eiswolf Hrodvitnir",
+            "EN": "Never Cry Wolf",
+            "FR": "Et n'y Hród'viens plus !",
+            "JA": "邪悪なる氷狼「フローズヴィトニル」",
+            "KO": "사악한 얼음늑대 '흐로드비트니르'"
+          }
+        },
+        {
+          "ceID": 24,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 13.7,
+            "y": 26.3
+          },
+          "localizedNames": {
+            "CHS": "异界魔王——汉比",
+            "DE": "Hanbi, König im Exil",
+            "EN": "There Would Be Blood",
+            "FR": "Le Roi des cendres",
+            "JA": "異界の廃王「ハンビ」",
+            "KO": "이계의 폐왕 '한비'"
+          },
+          "order": 9,
+          "triggerDescriptions": {
+            "CHS": "第四军团辅助机甲",
+            "DE": "Satellit[p] der IV. Legion",
+            "EN": "4th Legion satellite",
+            "FR": "satellite de la 4e légion",
+            "JA": "IVレギオン・サテライト",
+            "KO": "IV군단 위성"
+          }
+        },
+        {
+          "ceID": 25,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 4.8,
+            "y": 25.2
+          },
+          "localizedNames": {
+            "CHS": "邪恶冰狼——恶名苍狼",
+            "DE": "Eiswolf Hrodvitnir",
+            "EN": "Never Cry Wolf",
+            "FR": "Et n'y Hród'viens plus !",
+            "JA": "邪悪なる氷狼「フローズヴィトニル」",
+            "KO": "사악한 얼음늑대 '흐로드비트니르'"
+          },
+          "order": 10,
+          "triggerDescriptions": {
+            "CHS": "与邪道术师一决胜负（冲突战）",
+            "DE": "Endkampf mit dem Ketzer",
+            "EN": "An End to Atrocities",
+            "FR": "L'immaculée contre le malsain",
+            "JA": "外道術士との決着",
+            "KO": "잔학한 마술사와 결판내다"
+          }
+        },
+        {
+          "ceID": 26,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 10.4,
+            "y": 21.6
+          },
+          "localizedNames": {
+            "CHS": "复制魔人——第四军团贝利亚斯",
+            "DE": "Dämonid Belias",
+            "EN": "Time to Burn",
+            "FR": "Le Titan",
+            "JA": "模造魔人「IVレギオン・ベリアス」",
+            "KO": "모조 마인 'IV군단 벨리아스'"
+          },
+          "order": 11,
+          "triggerDescriptions": {
+            "CHS": "第四军团魔导巨兵",
+            "DE": "Colossus[p] der IV. Legion",
+            "EN": "4th Legion colossus",
+            "FR": "colosse de la 4e légion",
+            "JA": "IVレギオン・コロッサス",
+            "KO": "IV군단 콜로서스"
+          }
+        },
+        {
+          "ceID": 27,
+          "iconID": 63911,
+          "mapPosition": {
+            "x": 15,
+            "y": 13
+          },
+          "localizedNames": {
+            "CHS": "新兵器投入——机甲百人队",
+            "DE": "Die Gepanzerte Zenturie",
+            "EN": "Lean, Mean, Magitek Machines",
+            "FR": "Réusinage de code",
+            "JA": "新兵器投入「機甲百人隊」",
+            "KO": "신병기 투입 '기갑백인대'"
+          },
+          "order": 12,
+          "triggerDescriptions": {
+            "CHS": "第四军团地狱潜者",
+            "DE": "Höllentaucher[p] der IV. Legion",
+            "EN": "4th Legion helldiver",
+            "FR": "plongeur infernal de la 4e légion",
+            "JA": "IVレギオン・ヘルダイバー",
+            "KO": "IV군단 헬다이버"
+          }
+        },
+        {
+          "ceID": 28,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 11.5,
+            "y": 7.6
+          },
+          "localizedNames": {
+            "CHS": "有角凶鸟——阿尔科诺斯特",
+            "DE": "Alkonost, schrecklich und gefiedert",
+            "EN": "Worn to a Shadow",
+            "FR": "Oiseau d'enfer",
+            "JA": "有角の凶鳥「アルコノスト」",
+            "KO": "뿔 달린 흉조 '알코노스트'"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "不屈不挠的我见我执（冲突战）",
+            "DE": "Die Allergrößte gibt nicht auf",
+            "EN": "The Beasts Are Back",
+            "FR": "Des bêtes en pagagaille",
+            "JA": "折れない我執",
+            "KO": "꺾이지 않는 아집"
+          }
+        },
+        {
+          "ceID": 29,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 28,
+            "y": 29
+          },
+          "localizedNames": {
+            "CHS": "复制统治者——第四军团哈修马利姆",
+            "DE": "Hashmallim der Einiger",
+            "EN": "A Familiar Face",
+            "FR": "Le Grand Ordonnateur",
+            "JA": "模造統制者「IVレギオン・ハシュマリム」",
+            "KO": "모조 통제자 'IV군단 하쉬말림'"
+          },
+          "order": 14,
+          "triggerDescriptions": {
+            "CHS": "强化兵再度袭来（冲突战）",
+            "DE": "Rückkehr des Magitek-Soldaten",
+            "EN": "Another Pilot Episode",
+            "FR": "Dabog, soldat augmenté",
+            "JA": "再来の強化兵",
+            "KO": "다시 나타난 강화병"
+          }
+        },
+        {
+          "ceID": 30,
+          "iconID": 63909,
+          "mapPosition": {
+            "x": 17,
+            "y": 10
+          },
+          "localizedNames": {
+            "CHS": "光辉虹蛇——阿依达",
+            "DE": "Regenbogenschlange Ayida",
+            "EN": "Looks to Die For",
+            "FR": "Écaillage en règle",
+            "JA": "輝ける虹蛇「アイダ」",
+            "KO": "빛나는 무지개뱀 '아이다'"
+          },
+          "order": 15,
+          "triggerDescriptions": {
+            "CHS": "第四军团魔导骑兵",
+            "DE": "Reiter[p] der IV. Legion",
+            "EN": "4th Legion cavalry",
+            "FR": "cavalier de la 4e légion",
+            "JA": "IVレギオン・キャバルリー",
+            "KO": "IV군단 기마병"
+          }
+        },
+        {
+          "ceID": 31,
+          "iconID": 63910,
+          "mapPosition": {
+            "x": 22.4,
+            "y": 13.5
+          },
+          "localizedNames": {
+            "CHS": "战栗的百兽之王——兽王莱昂",
+            "DE": "Revanche: Lyon der Bestienkönig",
+            "EN": "Taking the Lyon's Share",
+            "FR": "La revanche de Lyon",
+            "JA": "戦慄の百獣使い「獣王ライアン」",
+            "KO": "전율하는 백수의 왕 '마수왕 라이언'"
+          },
+          "order": 16,
+          "triggerDescriptions": {
+            "CHS": "试制型飞行型魔导装甲——黑色燃焰（紧急遭遇战）",
+            "DE": "Schwarzbrands Testflug",
+            "EN": "Feeling the Burn",
+            "FR": "On arrête le progrès",
+            "JA": "試作飛行型魔導アーマー「ブラックバーン」",
+            "KO": "시험작 비행형 마도 아머 '블랙번'"
+          }
+        }
+      ],
+      "code": "Zadnor",
+      "fates": [],
+      "localizedNames": {
+        "CHS": "扎杜诺尔高原",
+        "DE": "Zadnor-Hochebene",
+        "EN": "Zadnor",
+        "FR": "Hauts plateaux de Zadnor",
+        "JA": "ザトゥノル高原",
+        "KO": "자트노르 고원"
+      },
+      "mapID": 665,
+      "mapNames": {
+        "CHS": "扎杜诺尔高原",
+        "DE": "Zadnor-Hochebene",
+        "EN": "Zadnor",
+        "FR": "Hauts plateaux de Zadnor",
+        "JA": "ザトゥノル高原",
+        "KO": "자트노르 고원"
+      },
+      "name": "扎杜诺尔高原",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        975
+      ],
+      "gameplay": "SaveTheQueen"
+    },
+    {
+      "ces": [],
+      "code": "Anemos",
+      "fates": [
+        {
+          "fateID": 1332,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 13.9,
+            "y": 21.6
+          },
+          "localizedNames": {
+            "CHS": "舞动花王——科里多仙人刺",
+            "DE": "Schmerzvoller Hüftschwung",
+            "EN": "Unsafety Dance",
+            "FR": "Défi: la fleur d'Eurêka",
+            "JA": "舞踏の大花「サボテンダー・コリード」",
+            "KO": "춤추는 선인장"
+          },
+          "order": 1,
+          "triggerDescriptions": {
+            "CHS": "击杀：6级 仙人花",
+            "EN": "Level 6 flowering sabotender",
+            "DE": "Stufe 6 blühend[a] Kaktor",
+            "FR": "Niveau 6 pampa à fleurs",
+            "JA": "レベル6 フラワーテンダー",
+            "KO": "레벨 6 꽃텐더"
+          }
+        },
+        {
+          "fateID": 1348,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 29.7,
+            "y": 27.1
+          },
+          "localizedNames": {
+            "CHS": "章鱼统领——常风领主",
+            "DE": "Küssen verboten",
+            "EN": "The Shadow over Anemos",
+            "FR": "Défi: le Seigneur de la terre interdite",
+            "JA": "大蛸の王者「ロード・オブ・アネモス」",
+            "KO": "거대 문어의 왕"
+          },
+          "order": 2,
+          "triggerDescriptions": {
+            "CHS": "击杀：7级 海祭司",
+            "EN": "Level 7 sea bishop",
+            "DE": "Stufe 7 Seebischof",
+            "FR": "Niveau 7 évêque de mer",
+            "JA": "レベル7 シー・ビショップ",
+            "KO": "레벨 7 아네모스 표범문어"
+          }
+        },
+        {
+          "fateID": 1333,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 25.6,
+            "y": 27.4
+          },
+          "localizedNames": {
+            "CHS": "绝命美声——忒勒斯",
+            "DE": "Zurück zu den Toten",
+            "EN": "Teles House",
+            "FR": "Défi: l'ultime soupir de la beauté",
+            "JA": "最後の美声「テレス」",
+            "KO": "마지막 미성"
+          },
+          "order": 3,
+          "triggerDescriptions": {
+            "CHS": "击杀：8级 常风哈佩亚鸟妖",
+            "EN": "Level 8 Anemos harpeia",
+            "DE": "Stufe 8 Anemos-Harpeia",
+            "FR": "Niveau 8 harpie Anemos",
+            "JA": "レベル8 アネモス・ハルペイア",
+            "KO": "레벨 8 아네모스 하르페이아"
+          }
+        },
+        {
+          "fateID": 1328,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 17.2,
+            "y": 22.2
+          },
+          "localizedNames": {
+            "CHS": "御驾亲征——常风皇帝",
+            "DE": "Herr Kaiser",
+            "EN": "The Swarm Never Sets",
+            "FR": "Défi: l'empereur des bourrasques",
+            "JA": "疾風の帝王「アネモス・エンペラー」",
+            "KO": "질풍의 황제"
+          },
+          "order": 4,
+          "triggerDescriptions": {
+            "CHS": "击杀：9级 晏蜓",
+            "EN": "Level 9 darner",
+            "DE": "Stufe 9 Königslibelle",
+            "FR": "Niveau 9 calopteryx",
+            "JA": "レベル9 ダーナー",
+            "KO": "레벨 9 큰잠자리"
+          }
+        },
+        {
+          "fateID": 1344,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 25.5,
+            "y": 22.3
+          },
+          "localizedNames": {
+            "CHS": "行尸走肉——卡利斯托",
+            "DE": "Ränkeschmiede",
+            "EN": "One Missed Callisto",
+            "FR": "Défi: un cadavre tout sauf exquis",
+            "JA": "蠢く死体「カリスト」",
+            "KO": "꿈틀거리는 사체"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "击杀：10级 瓦尔巨熊",
+            "EN": "Level 10 Val bear",
+            "DE": "Stufe 10 Val-Bär",
+            "FR": "Niveau 10 ours de la Val",
+            "JA": "レベル10 バル・ベアー",
+            "KO": "레벨 10 발 곰"
+          }
+        },
+        {
+          "fateID": 1347,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 23.5,
+            "y": 22.7
+          },
+          "localizedNames": {
+            "CHS": "无主傀儡——群偶",
+            "DE": "Zahlenmäßige Überlegenheit",
+            "EN": "By Numbers",
+            "FR": "Défi: régler son compte à Number",
+            "JA": "主なき人形「ナンバーズ」",
+            "KO": "주인 잃은 인형"
+          },
+          "order": 6,
+          "triggerDescriptions": {
+            "CHS": "击杀：11级 夺灵魔",
+            "EN": "Level 11 pneumaflayer",
+            "DE": "Stufe 11 Pneumaschinder",
+            "FR": "Niveau 11 flagelleur pneumatique",
+            "JA": "レベル11 ニューマフレア",
+            "KO": "레벨 11 정령지배자"
+          }
+        },
+        {
+          "fateID": 1345,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 17.7,
+            "y": 18.6
+          },
+          "localizedNames": {
+            "CHS": "强风妖精——哲罕南",
+            "DE": "Raus aus meinem Revier",
+            "EN": "Disinherit the Wind",
+            "FR": "Défi: tempête sur Eurêka",
+            "JA": "強風の妖精「ジャハンナム」",
+            "KO": "강풍의 요정"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "在强风天气下 击杀：12级 台风元精",
+            "EN": "Gales – Level 12 typhoon sprite",
+            "DE": "Stürmisch – Stufe 12 Taifun-Exergon",
+            "FR": "Vents violents – Niveau 12 élémentaire de typhon",
+            "JA": "暴風 – レベル12 タイフーンスプライト",
+            "KO": "폭풍 – 레벨 12 폭풍 정령"
+          }
+        },
+        {
+          "fateID": 1334,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 15.0,
+            "y": 15.6
+          },
+          "localizedNames": {
+            "CHS": "贪食者——阿米特",
+            "DE": "Ich will so bleiben wie ich bin",
+            "EN": "Prove Your Amemettle",
+            "FR": "Défi: le dévoreur",
+            "JA": "貪り喰らう者「アメミット」",
+            "KO": "탐식하는 자"
+          },
+          "order": 8,
+          "triggerDescriptions": {
+            "CHS": "击杀：13级 阿卜拉克萨斯",
+            "EN": "Level 13 abraxas",
+            "DE": "Stufe 13 Abraxas",
+            "FR": "Niveau 13 abraxas",
+            "JA": "レベル13 アブラクサス",
+            "KO": "레벨 13 아브락사스"
+          }
+        },
+        {
+          "fateID": 1335,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 13.8,
+            "y": 12.5
+          },
+          "localizedNames": {
+            "CHS": "兽脚怪人——盖因",
+            "DE": "Gerippeimpfung empfohlen",
+            "EN": "Caym What May",
+            "FR": "Défi: la bête humaine",
+            "JA": "獣脚の怪人「カイム」",
+            "KO": "수각류 괴인"
+          },
+          "order": 9,
+          "triggerDescriptions": {
+            "CHS": "击杀：14级 追踪席兹",
+            "EN": "Level 14 stalker ziz",
+            "DE": "Stufe 14 schleichend[a] Ziz",
+            "FR": "Niveau 14 ziz traqueur",
+            "JA": "レベル14 ストーカー・ジズ",
+            "KO": "레벨 14 지즈 추적자"
+          }
+        },
+        {
+          "fateID": 1336,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 28.3,
+            "y": 20.4
+          },
+          "localizedNames": {
+            "CHS": "腐臭贤者——庞巴德",
+            "DE": "Den Ball halte flach, den Witz lieber nicht",
+            "EN": "The Killing of a Sacred Bombardier",
+            "FR": "Défi: le sage putréfié",
+            "JA": "腐臭の賢者「ボンバディール」",
+            "KO": "썩은내 현자"
+          },
+          "order": 10,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：15级 古老贪吃鬼",
+            "EN": "At night – Level 15 traveling gourmand",
+            "DE": "Bei Nacht – Stufe 15 uralt[a] Gourmet",
+            "FR": "De nuit – Niveau 15 gourmand bourlingueur",
+            "JA": "夜間 – レベル15 オールド・グルマン",
+            "KO": "밤 – 레벨 15 고대 대식가"
+          }
+        },
+        {
+          "fateID": 1339,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 24.8,
+            "y": 17.9
+          },
+          "localizedNames": {
+            "CHS": "幻魔蝎——塞尔凯特",
+            "DE": "Wütend wie ein Hurrikan",
+            "EN": "Short Serket 2",
+            "FR": "Défi: le scorpion mythique",
+            "JA": "幻の魔蠍「セルケト」",
+            "KO": "환상의 전갈 마물"
+          },
+          "order": 11,
+          "triggerDescriptions": {
+            "CHS": "击杀：16级 河道巨钳虾",
+            "EN": "Level 16 khor claw",
+            "DE": "Stufe 16 Khor-Klaue",
+            "FR": "Niveau 16 griffe de khor",
+            "JA": "レベル16 コールクロウ",
+            "KO": "레벨 16 계곡 전갈"
+          }
+        },
+        {
+          "fateID": 1346,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 21.9,
+            "y": 15.6
+          },
+          "localizedNames": {
+            "CHS": "播种者——武断魔花茱莉卡",
+            "DE": "Vernichtendes Unkraut",
+            "EN": "Don't Judge Me, Morbol",
+            "FR": "Défi: le jugement de Julika",
+            "JA": "種まき「ジャッジメンタル・ジュリカ」",
+            "KO": "씨뿌리기"
+          },
+          "order": 12,
+          "triggerDescriptions": {
+            "CHS": "击杀：17级 天仙子",
+            "EN": "Level 17 henbane",
+            "DE": "Stufe 17 Bilsenkraut",
+            "FR": "Niveau 17 jusquiame noire",
+            "JA": "レベル17 ヘンベイン",
+            "KO": "레벨 17 사리풀"
+          }
+        },
+        {
+          "fateID": 1343,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 20.3,
+            "y": 13.0
+          },
+          "localizedNames": {
+            "CHS": "胜利象征——白骑士",
+            "DE": "Kopflos",
+            "EN": "When You Ride Alone",
+            "FR": "Défi: on m'appelle le cavalier blanc",
+            "JA": "勝利の騎士「ホワイトライダー」",
+            "KO": "승리의 기사"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：18级 黄昏无头骑士",
+            "EN": "At night – Level 18 duskfall dullahan",
+            "DE": "Bei Nacht – Stufe 18 Dämmer-Dullahan",
+            "FR": "De nuit – Niveau 18 dullahan nocturne",
+            "JA": "夜間 – レベル18 ナイト・デュラハン",
+            "KO": "밤 – 레벨 18 황혼 둘라한"
+          }
+        },
+        {
+          "fateID": 1337,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 26.4,
+            "y": 14.3
+          },
+          "localizedNames": {
+            "CHS": "巨人的复仇——波吕斐摩斯",
+            "DE": "Große Probleme auf kleiner Insel",
+            "EN": "Sing, Muse",
+            "FR": "Défi: le géant légendaire",
+            "JA": "高名なる巨人「ポリュペモス」",
+            "KO": "이름 높은 거인"
+          },
+          "order": 14,
+          "triggerDescriptions": {
+            "CHS": "击杀：19级 独眼怪",
+            "EN": "Level 19 monoeye",
+            "DE": "Stufe 19 Einauge",
+            "FR": "Niveau 19 n'a-qu'un-œil",
+            "JA": "レベル19 モノアイ",
+            "KO": "레벨 19 외눈박이"
+          }
+        },
+        {
+          "fateID": 1342,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 28.6,
+            "y": 13.0
+          },
+          "localizedNames": {
+            "CHS": "狂怒怪鸟——阔步西牟鸟",
+            "DE": "Futterneid",
+            "EN": "Simurghasbord",
+            "FR": "Défi: colère aviaire",
+            "JA": "憤怒の怪鳥「シームルグ・ストライダー」",
+            "KO": "분노한 괴조"
+          },
+          "order": 15,
+          "triggerDescriptions": {
+            "CHS": "击杀：20级 旧世界祖",
+            "EN": "Level 20 Old World zu",
+            "DE": "Stufe 20 sharlayanisch[a] Zu",
+            "FR": "Niveau 20 zu du vieux continent",
+            "JA": "レベル20 オールドワールド・ズー",
+            "KO": "레벨 20 구세계 즈"
+          }
+        },
+        {
+          "fateID": 1341,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 35.3,
+            "y": 18.3
+          },
+          "localizedNames": {
+            "CHS": "放火大王——极其危险物质",
+            "DE": "Heizkostenreduzierung",
+            "EN": "To the Mat",
+            "FR": "Défi: douche froide pour le hazmat roi",
+            "JA": "燃える大王「キング・ハズマット」",
+            "KO": "불타는 대왕"
+          },
+          "order": 16,
+          "triggerDescriptions": {
+            "CHS": "击杀：21级 常风阿那罗",
+            "EN": "Level 21 Anemos anala",
+            "DE": "Stufe 21 Anemos-Anala",
+            "FR": "Niveau 21 anala Anemos",
+            "JA": "レベル21 アネモス・アナラ",
+            "KO": "레벨 21 아네모스 아날라"
+          }
+        },
+        {
+          "fateID": 1331,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 35.5,
+            "y": 21.5
+          },
+          "localizedNames": {
+            "CHS": "狂乱暗龙——法夫纳",
+            "DE": "Schlafende Drachen soll man nicht wecken",
+            "EN": "Wine and Honey",
+            "FR": "Défi: le dragon démentiel",
+            "JA": "狂乱の暗竜「ファヴニル」",
+            "KO": "광란의 암룡"
+          },
+          "order": 17,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：22级 龙化石",
+            "EN": "At night – Level 22 fossil dragon",
+            "DE": "Bei Nacht – Stufe 22 fossil[a] Drache",
+            "FR": "De nuit – Niveau 22 dragon fossile",
+            "JA": "夜間 – レベル22 ドラゴンフォシル",
+            "KO": "밤 – 레벨 22 화석용"
+          }
+        },
+        {
+          "fateID": 1340,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 7.6,
+            "y": 18.2
+          },
+          "localizedNames": {
+            "CHS": "异界魔犬——阿玛洛克",
+            "DE": "Widerlegte Weisheit",
+            "EN": "I Amarok",
+            "FR": "Défi: l'insatiable cerbère",
+            "JA": "異界の魔犬「アマロック」",
+            "KO": "이계의 마견"
+          },
+          "order": 18,
+          "triggerDescriptions": {
+            "CHS": "击杀：23级 虚无鳞龙",
+            "EN": "Level 23 voidscale",
+            "DE": "Stufe 23 Nichtsschuppe",
+            "FR": "Niveau 23 vidécailles",
+            "JA": "レベル23 ヴォイドスケイル",
+            "KO": "레벨 23 보이드비늘"
+          }
+        },
+        {
+          "fateID": 1338,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 7.7,
+            "y": 23.3
+          },
+          "localizedNames": {
+            "CHS": "魔王之后——拉玛什图",
+            "DE": "Ein Königreich für kein Lama",
+            "EN": "Drama Lamashtu",
+            "FR": "Défi: la reine infernale",
+            "JA": "魔の王妃「ラマシュトゥ」",
+            "KO": "마의 왕비"
+          },
+          "order": 19,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：24级 瓦尔妖影",
+            "EN": "At night – Level 24 Val specter",
+            "DE": "Bei Nacht – Stufe 24 Val-Schemen",
+            "FR": "De nuit – Niveau 24 spector de la Val",
+            "JA": "夜間 – レベル24 バル・スペクター",
+            "KO": "밤 – 레벨 24 발 그림자요괴"
+          }
+        },
+        {
+          "fateID": 1329,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 7.4,
+            "y": 21.7
+          },
+          "localizedNames": {
+            "CHS": "暴风魔王——帕祖祖",
+            "DE": "Ein windiger Kerl",
+            "EN": "Wail in the Willows",
+            "FR": "Défi: le démon des tempêtes",
+            "JA": "暴風の魔王「パズズ」",
+            "KO": "폭풍의 마왕"
+          },
+          "order": 20,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：25级 暗影幽灵后 在强风天气下刷新",
+            "EN": "At night – Gales – Level 25 shadow wraith",
+            "DE": "Bei Nacht – Stürmisch – Stufe 25 Schatten-Geist",
+            "FR": "De nuit – Vents violents – Niveau 25 spectre des ombres",
+            "JA": "夜間 – 暴風 – レベル25 シャドウ・レイス",
+            "KO": "밤 – 폭풍 – 레벨 25 그림자 망령"
+          }
+        }
+      ],
+      "localizedNames": {
+        "CHS": "常风之地",
+        "DE": "Anemos",
+        "EN": "Anemos",
+        "FR": "Anemos",
+        "JA": "アネモス帯",
+        "KO": "아네모스 지대"
+      },
+      "mapID": 414,
+      "mapNames": {
+        "CHS": "优雷卡常风之地",
+        "DE": "Eureka Anemos",
+        "EN": "Eureka Anemos",
+        "FR": "Eurêka Anemos",
+        "JA": "エウレカ：アネモス帯",
+        "KO": "에우레카: 아네모스 지대"
+      },
+      "name": "常风之地",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        732
+      ],
+      "gameplay": "Eureka"
+    },
+    {
+      "ces": [],
+      "code": "Pagos",
+      "fates": [
+        {
+          "fateID": 1367,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 18,
+            "y": 27.5
+          },
+          "localizedNames": {
+            "CHS": "雪上的幸福兔",
+            "DE": "Bibbernde Glückshasen",
+            "EN": "Down the Rabbit Hole",
+            "FR": "Défi: petits bonds dans la neige",
+            "JA": "雪上のしあわせうさぎ",
+            "KO": "눈 위의 행운토끼"
+          },
+          "order": 1
+        },
+        {
+          "fateID": 1368,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 21,
+            "y": 21.5
+          },
+          "localizedNames": {
+            "CHS": "盯上宝石的幸福兔",
+            "DE": "Gierige Glückshasen",
+            "EN": "Curiouser and Curiouser",
+            "FR": "Défi: lapereaux apeurés",
+            "JA": "宝石狙いのしあわせうさぎ",
+            "KO": "보석을 노리는 행운토끼"
+          },
+          "order": 2
+        },
+        {
+          "fateID": 1351,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 21.9,
+            "y": 26.8
+          },
+          "localizedNames": {
+            "CHS": "纯白的支配者——雪之女王",
+            "DE": "Eiskalte Königin",
+            "EN": "Eternity",
+            "FR": "Défi: neige écarlate",
+            "JA": "白き支配者「雪の女王」",
+            "KO": "하얀 지배자"
+          },
+          "order": 3,
+          "triggerDescriptions": {
+            "CHS": "击杀：25级 雪童子",
+            "EN": "Level 25 yukinko",
+            "DE": "Stufe 25 Flöckchen",
+            "FR": "Niveau 25 yukinko",
+            "JA": "レベル25 ユキンコ",
+            "KO": "레벨 25 눈요정"
+          }
+        },
+        {
+          "fateID": 1369,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 25.4,
+            "y": 27.4
+          },
+          "localizedNames": {
+            "CHS": "腐烂的读书家——塔克西姆",
+            "DE": "Die Leserotte",
+            "EN": "Cairn Blight 451",
+            "FR": "Défi: zombi-bliophile",
+            "JA": "腐れる読書家「タキシム」",
+            "KO": "부패한 독서가"
+          },
+          "order": 4,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：26级 珍卷恶魔",
+            "EN": "At night – Level 26 demon of the incunable",
+            "DE": "Bei Nacht – Stufe 26 Dämon[p] der Inkunabel",
+            "FR": "De nuit – Niveau 26 démon de l'incunable",
+            "JA": "夜間 – レベル26 デモン・オブ・レアブック",
+            "KO": "밤 – 레벨 26 희귀본 악마"
+          }
+        },
+        {
+          "fateID": 1353,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 29,
+            "y": 30
+          },
+          "localizedNames": {
+            "CHS": "灰壳的鳞王——灰烬龙",
+            "DE": "Asche zu Asche",
+            "EN": "Ash the Magic Dragon",
+            "FR": "Défi: des cendres aux cendres",
+            "JA": "灰殻の鱗王「アッシュドラゴン」",
+            "KO": "잿더미 비늘왕"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "击杀：27级 血魔",
+            "EN": "Level 27 blood demon",
+            "DE": "Stufe 27 Blutdämon",
+            "FR": "Niveau 27 démon de sang",
+            "JA": "レベル27 ブラッドデーモン",
+            "KO": "레벨 27 흡혈 악마"
+          }
+        },
+        {
+          "fateID": 1354,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 33,
+            "y": 27
+          },
+          "localizedNames": {
+            "CHS": "地壳变动之谜——异形魔虫",
+            "DE": "Mächtig gewurmt",
+            "EN": "Conqueror Worm",
+            "FR": "Défi: la mort vient d'en bas",
+            "JA": "地殻変動の謎「グラヴォイド」",
+            "KO": "지각 변동의 수수께끼"
+          },
+          "order": 6,
+          "triggerDescriptions": {
+            "CHS": "击杀：28级 瓦尔巨虫",
+            "EN": "Level 28 Val worm",
+            "DE": "Stufe 28 Val-Wurm",
+            "FR": "Niveau 28 ver de la Val",
+            "JA": "レベル28 バル・ウォーム",
+            "KO": "레벨 28 발 지렁이"
+          }
+        },
+        {
+          "fateID": 1355,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 33,
+            "y": 21.5
+          },
+          "localizedNames": {
+            "CHS": "融雪的化身——安娜波",
+            "DE": "Verheerende Schmelze",
+            "EN": "Melting Point",
+            "FR": "Défi: cycle thermodynamique",
+            "JA": "雪解けの化身「アナポ」",
+            "KO": "해빙의 화신"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "薄雾天气下 击杀：29级 融雪元精",
+            "EN": "Fog – Level 29 snowmelt sprite",
+            "DE": "Neblig – Stufe 29 Schneeschmelzen-Exergon",
+            "FR": "Brouillard – Niveau 29 élémentaire de neige fondue",
+            "JA": "霧 – レベル29 スノウメルトスプライト",
+            "KO": "안개 – 레벨 29 해빙 정령"
+          }
+        },
+        {
+          "fateID": 1366,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 29,
+            "y": 22
+          },
+          "localizedNames": {
+            "CHS": "五行眼的主人——白泽",
+            "DE": "Schau mir in die Augen",
+            "EN": "The Wobbler in Darkness",
+            "FR": "Défi: les yeux dans les yeux dans les yeux",
+            "JA": "五行眼の主「ハクタク」",
+            "KO": "오행안의 주인"
+          },
+          "order": 8,
+          "triggerDescriptions": {
+            "CHS": "击杀：30级 啜泣百目妖",
+            "EN": "Level 30 blubber eyes",
+            "DE": "Stufe 30 Tranauge",
+            "FR": "Niveau 30 onctueux oculaire",
+            "JA": "レベル30 ブラバーアイズ",
+            "KO": "레벨 30 흐느끼는 눈"
+          }
+        },
+        {
+          "fateID": 1357,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 17,
+            "y": 16
+          },
+          "localizedNames": {
+            "CHS": "移动的雪洞——雪屋王",
+            "DE": "Das wahre Schneekleid trag ich",
+            "EN": "Does It Have to Be a Snowman",
+            "FR": "Défi: malhomme de neige",
+            "JA": "動く雪洞「キングイグルー」",
+            "KO": "움직이는 눈 동굴"
+          },
+          "order": 9,
+          "triggerDescriptions": {
+            "CHS": "击杀：31级 胡瓦西",
+            "EN": "Level 31 huwasi",
+            "DE": "Stufe 31 Huwasi",
+            "FR": "Niveau 31 huwasi",
+            "JA": "レベル31 フワシ",
+            "KO": "레벨 31 후와시"
+          }
+        },
+        {
+          "fateID": 1356,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 10.4,
+            "y": 11.4
+          },
+          "localizedNames": {
+            "CHS": "硬质的病魔——阿萨格",
+            "DE": "Stumme Schreie",
+            "EN": "Disorder in the Court",
+            "FR": "Défi: ni chair ni poisson",
+            "JA": "硬質の病魔「アサグ」",
+            "KO": "단단한 병마"
+          },
+          "order": 10,
+          "triggerDescriptions": {
+            "CHS": "击杀：32级 徘徊欧浦肯",
+            "EN": "Level 32 wandering opken",
+            "DE": "Stufe 32 wandernd[a] Opken",
+            "FR": "Niveau 32 opken errant",
+            "JA": "レベル32 ワンダリング・オプケン",
+            "KO": "레벨 32 떠도는 오프켄"
+          }
+        },
+        {
+          "fateID": 1352,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 10.3,
+            "y": 19.5
+          },
+          "localizedNames": {
+            "CHS": "家畜的慈母——苏罗毗",
+            "DE": "Mächtig unter Dampf",
+            "EN": "Cows for Concern",
+            "FR": "Défi: les chèvres à lait",
+            "JA": "家畜の慈母「スラビー」",
+            "KO": "가축의 어머니"
+          },
+          "order": 11,
+          "triggerDescriptions": {
+            "CHS": "击杀：33级 恒冰公山羊",
+            "EN": "Level 33 Pagos billygoat",
+            "DE": "Stufe 33 Pagos-Bock",
+            "FR": "Niveau 33 bouquetin Pagos",
+            "JA": "レベル33 パゴス・ビリー",
+            "KO": "레벨 33 파고스 숫염소"
+          }
+        },
+        {
+          "fateID": 1360,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 8.7,
+            "y": 15.5
+          },
+          "localizedNames": {
+            "CHS": "圆桌的雾王——亚瑟罗王",
+            "DE": "Jetzt geht's rund",
+            "EN": "Morte Arthro",
+            "FR": "Défi: le retour du roi",
+            "JA": "円卓の霧王「キングアースロ」",
+            "KO": "원탁의 안개왕"
+          },
+          "order": 12,
+          "triggerDescriptions": {
+            "CHS": "击杀：34级 瓦尔利螯陆蟹后 在薄雾天气下刷新",
+            "EN": "Fog – Level 34 Val snipper",
+            "DE": "Neblig – Stufe 34 Val-Schnippler",
+            "FR": "Brouillard – Niveau 34 cisailleur de la Val",
+            "JA": "霧 – レベル34 バル・スニッパー",
+            "KO": "안개 – 레벨 34 발 싹둑게"
+          }
+        },
+        {
+          "fateID": 1358,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 14,
+            "y": 19
+          },
+          "localizedNames": {
+            "CHS": "唇亡齿寒",
+            "DE": "Die Unzertrennlichen",
+            "EN": "Brothers",
+            "FR": "Défi: les deux frères",
+            "JA": "唇亡びて歯寒し",
+            "KO": "순망치한"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "击杀：35级 研究所弥诺陶洛斯",
+            "EN": "Level 35 lab minotaur",
+            "DE": "Stufe 35 experimentell[a] Minotaurus",
+            "FR": "Niveau 35 minotaure du laboratoire",
+            "JA": "レベル35 ラボラトリー・ミノタウロス",
+            "KO": "레벨 35 연구실 미노타우로스"
+          }
+        },
+        {
+          "fateID": 1361,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 26,
+            "y": 16
+          },
+          "localizedNames": {
+            "CHS": "野牛的救世主——优雷卡圣牛",
+            "DE": "Den Tiger rauslassen",
+            "EN": "Apocalypse Cow",
+            "FR": "Défi: oh, la vache!",
+            "JA": "野牛の救い主「エウレカの聖牛」",
+            "KO": "야생 소의 구세주"
+          },
+          "order": 14,
+          "triggerDescriptions": {
+            "CHS": "击杀：36级 古老水牛",
+            "EN": "Level 36 elder buffalo",
+            "DE": "Stufe 36 alt[a] Büffel",
+            "FR": "Niveau 36 buffle ancien",
+            "JA": "レベル36 エルダーバッファロー",
+            "KO": "레벨 36 장로 물소"
+          }
+        },
+        {
+          "fateID": 1362,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 30,
+            "y": 19
+          },
+          "localizedNames": {
+            "CHS": "雷云的魔兽——哈达约什",
+            "DE": "Eindeutiges Omen",
+            "EN": "Third Impact",
+            "FR": "Défi: un cri dans la tempête",
+            "JA": "雷雲の魔獣「ハダヨッシュ」",
+            "KO": "번개구름의 마수"
+          },
+          "order": 15,
+          "triggerDescriptions": {
+            "CHS": "击杀：37级 虚无小龙后 在打雷天气下刷新",
+            "EN": "Thunder – Level 37 lesser void dragon",
+            "DE": "Gewittrig – Stufe 37 nieder[a] Nichts-Drache",
+            "FR": "Orages – Niveau 37 dragon inférieur du néant",
+            "JA": "雷 – レベル37 ヴォイド・レッサードラゴン",
+            "KO": "번개 – 레벨 37 보이드 하급 드래곤"
+          }
+        },
+        {
+          "fateID": 1359,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 26,
+            "y": 20
+          },
+          "localizedNames": {
+            "CHS": "太阳的使者——荷鲁斯",
+            "DE": "Wem die Stunde schlägt",
+            "EN": "Eye of Horus",
+            "FR": "Défi: du jour à la nuit",
+            "JA": "太陽の使者「ホルス」",
+            "KO": "태양의 사자"
+          },
+          "order": 16,
+          "triggerDescriptions": {
+            "CHS": "击杀：38级 虚无薇薇尔飞龙后 在热浪天气下刷新",
+            "EN": "Heat Waves – Level 38 void vouivre",
+            "DE": "Gluthitze – Stufe 38 Nichts-Vivel",
+            "FR": "Torride – Niveau 38 vouivre du néant",
+            "JA": "灼熱波 – レベル38 ヴォイド・ヴィーヴル",
+            "KO": "작열파 – 레벨 38 보이드 뷔브르"
+          }
+        },
+        {
+          "fateID": 1363,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 24,
+            "y": 25
+          },
+          "localizedNames": {
+            "CHS": "暗眼王——总领安哥拉·曼纽",
+            "DE": "Tränen voll Hass",
+            "EN": "Eye Scream for Ice Cream",
+            "FR": "Défi: mon œil!",
+            "JA": "闇眼王「アーチ・アンラ・マンユ」",
+            "KO": "암안왕"
+          },
+          "order": 17,
+          "triggerDescriptions": {
+            "CHS": "击杀：39级 瞪视之眼",
+            "EN": "Level 39 gawper",
+            "DE": "Stufe 39 Glubscher",
+            "FR": "Niveau 39 ahuri",
+            "JA": "レベル39 ガウパー",
+            "KO": "레벨 39 주시자"
+          }
+        },
+        {
+          "fateID": 1365,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 22.3,
+            "y": 14.4
+          },
+          "localizedNames": {
+            "CHS": "模仿犯——复制魔花凯西",
+            "DE": "Es kann nur eine geben",
+            "EN": "Cassie and the Copycats",
+            "FR": "Défi: morbole de neige",
+            "JA": "模倣犯「コピーキャット・キャシー」",
+            "KO": "모방범"
+          },
+          "order": 18,
+          "triggerDescriptions": {
+            "CHS": "击杀：40级 阿米雷戴后 在暴雪天气下刷新",
+            "EN": "Blizzards – Level 40 ameretat",
+            "DE": "Schneesturm – Stufe 40 Ameretat",
+            "FR": "Blizzard – Niveau 40 ameretât",
+            "JA": "吹雪 – レベル40 アムルタート",
+            "KO": "눈보라 – 레벨 40 아메레타트"
+          }
+        },
+        {
+          "fateID": 1364,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 36,
+            "y": 19
+          },
+          "localizedNames": {
+            "CHS": "苍蓝冰刃——娄希",
+            "DE": "Eisige Klingen",
+            "EN": "Louhi on Ice",
+            "FR": "Défi: lames glacées",
+            "JA": "蒼き氷刃「ロウヒ」",
+            "KO": "푸른 얼음 칼날"
+          },
+          "order": 19,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：40级 瓦尔腐尸",
+            "EN": "At night – Level 40 Val corpse",
+            "DE": "Bei Nacht – Stufe 40 Val-Leiche",
+            "FR": "De nuit – Niveau 40 cadavre de la Val",
+            "JA": "夜間 – レベル40 バル・コープス",
+            "KO": "밤 – 레벨 40 발 송장"
+          }
+        }
+      ],
+      "localizedNames": {
+        "CHS": "恒冰之地",
+        "DE": "Pagos",
+        "EN": "Pagos",
+        "FR": "Pagos",
+        "JA": "パゴス帯",
+        "KO": "파고스 지대"
+      },
+      "mapID": 467,
+      "mapNames": {
+        "CHS": "优雷卡恒冰之地",
+        "DE": "Eureka Pagos",
+        "EN": "Eureka Pagos",
+        "FR": "Eurêka Pagos",
+        "JA": "エウレカ：パゴス帯",
+        "KO": "에우레카: 파고스 지대"
+      },
+      "name": "恒冰之地",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        763
+      ],
+      "gameplay": "Eureka"
+    },
+    {
+      "ces": [],
+      "code": "Pyros",
+      "fates": [
+        {
+          "fateID": 1407,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 24.0,
+            "y": 26.0
+          },
+          "localizedNames": {
+            "CHS": "瞄准珊瑚的幸福兔",
+            "DE": "Glückliche Glückshasen",
+            "EN": "We're All Mad Here",
+            "FR": "Défi: les coraux de la colère",
+            "JA": "珊瑚狙いのしあわせうさぎ",
+            "KO": "산호를 노리는 행운토끼"
+          },
+          "order": 1
+        },
+        {
+          "fateID": 1408,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 25.0,
+            "y": 11.1
+          },
+          "localizedNames": {
+            "CHS": "困入岩石的幸福兔",
+            "DE": "Versteinerte Glückshasen",
+            "EN": "Uncommon Nonsense",
+            "FR": "Défi: roches porte-bonheur",
+            "JA": "岩封じのしあわせうさぎ",
+            "KO": "바위에 갇힌 행운토끼"
+          },
+          "order": 2
+        },
+        {
+          "fateID": 1388,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 26.9,
+            "y": 26.6
+          },
+          "localizedNames": {
+            "CHS": "洁白的惨叫——琉科西亚",
+            "DE": "Leukosia, das eisige Wehklagen",
+            "EN": "Medias Res",
+            "FR": "Défi: la blanche créature",
+            "JA": "白き叫声「レウコシアー」",
+            "KO": "하얀 외침"
+          },
+          "order": 3,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：40级 涌火浮灵",
+            "EN": "At night – Level 40 Pyros bhoot",
+            "DE": "Bei Nacht – Stufe 40 Pyros-Bhut",
+            "FR": "De nuit – Niveau 40 bhut Pyros",
+            "JA": "夜間 – レベル40 ピューロス・ブフート",
+            "KO": "밤 – 레벨 40 피로스 브후트"
+          }
+        },
+        {
+          "fateID": 1389,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 30.0,
+            "y": 28.4
+          },
+          "localizedNames": {
+            "CHS": "狰狞的雷兽——佛劳洛斯",
+            "DE": "Flauros, die grausame Sturmbestie",
+            "EN": "High Voltage",
+            "FR": "Défi: les foudres de Flauros",
+            "JA": "獰猛なる雷獣「フラウロス」",
+            "KO": "사나운 번개야수"
+          },
+          "order": 4,
+          "triggerDescriptions": {
+            "CHS": "打雷天气下 击杀：41级 雷暴元精",
+            "EN": "Thunder – Level 41 thunderstorm sprite",
+            "DE": "Gewittrig – Stufe 41 Gewitter-Exergon",
+            "FR": "Orages – Niveau 41 élémentaire des tempêtes de foudre",
+            "JA": "雷 – レベル41 サンダーストームスプライト",
+            "KO": "번개 – 레벨 41 뇌우 정령"
+          }
+        },
+        {
+          "fateID": 1390,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 31.9,
+            "y": 31.3
+          },
+          "localizedNames": {
+            "CHS": "妖异中的辩论家——诡辩者",
+            "DE": "Der Sophist und seine Meute",
+            "EN": "On the Nonexistent",
+            "FR": "Défi: monstres sophistiqués",
+            "JA": "妖異の弁論家「ソフィスト」",
+            "KO": "요마 변론가"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "击杀：42级 涌火阿班达",
+            "EN": "Level 42 Pyros apanda",
+            "DE": "Stufe 42 Pyros-Apanda",
+            "FR": "Niveau 42 apanda Pyros",
+            "JA": "レベル42 ピューロス・アパンダ",
+            "KO": "레벨 42 피로스 아판다"
+          }
+        },
+        {
+          "fateID": 1391,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 23.0,
+            "y": 37.2
+          },
+          "localizedNames": {
+            "CHS": "恐怖的人偶——格拉菲亚卡内",
+            "DE": "Mörderische Marionetten",
+            "EN": "Creepy Doll",
+            "FR": "Défi: une méchante griffe",
+            "JA": "恐怖の人形「グラッフアカーネ」",
+            "KO": "공포의 인형"
+          },
+          "order": 6,
+          "triggerDescriptions": {
+            "CHS": "击杀：43级 瓦尔维京人偶",
+            "EN": "Level 43 Valking",
+            "DE": "Stufe 43 Val-Wikinger",
+            "FR": "Niveau 43 viking de la Val",
+            "JA": "レベル43 バル・バイキング",
+            "KO": "레벨 43 발 바이킹"
+          }
+        },
+        {
+          "fateID": 1392,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 19.1,
+            "y": 29.1
+          },
+          "localizedNames": {
+            "CHS": "图书守护者——阿斯卡拉福斯",
+            "DE": "Askalaphos, tödliche Wissbegier",
+            "EN": "Quiet, Please",
+            "FR": "Défi: livrez les irrévérents!",
+            "JA": "書の守護者「アスカラポス」",
+            "KO": "책의 수호자"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "击杀：44级 过期魔导书后 灵风天气下刷新",
+            "EN": "Umbral Wind – Level 44 overdue tome",
+            "DE": "Schattenwind – Stufe 44 überfällig[a] Buch",
+            "FR": "Vent ombral – Niveau 44 tome de la Grande bibliothèque",
+            "JA": "霊風 – レベル44 グブラトーム",
+            "KO": "그림자바람 – 레벨 44 구브라 학술서"
+          }
+        },
+        {
+          "fateID": 1393,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 17.7,
+            "y": 14.5
+          },
+          "localizedNames": {
+            "CHS": "深渊贵族——巴钦大公爵",
+            "DE": "Aus den Tiefen des Abyssus",
+            "EN": "Up and Batym",
+            "FR": "Défi: les cousins de Machin",
+            "JA": "深淵の大公「グランドデューク・バティム」",
+            "KO": "심연의 대공"
+          },
+          "order": 8,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：45级 暗黑行吟诗人",
+            "EN": "At night – Level 45 dark troubadour",
+            "DE": "Bei Nacht – Stufe 45 Dunkel-Troubadour",
+            "FR": "De nuit – Niveau 45 troubadour sombre",
+            "JA": "夜間 – レベル45 ダーク・トルバドゥール",
+            "KO": "밤 – 레벨 45 어둠의 음악가"
+          }
+        },
+        {
+          "fateID": 1394,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 10,
+            "y": 14
+          },
+          "localizedNames": {
+            "CHS": "闪电的指挥者——埃托洛斯",
+            "DE": "Aetolus, Herr der Blitze",
+            "EN": "Rondo Aetolus",
+            "FR": "Défi: les éclairs de génie d'Aetolos",
+            "JA": "稲妻の指揮者「アイトロス」",
+            "KO": "번개의 지휘자"
+          },
+          "order": 9,
+          "triggerDescriptions": {
+            "CHS": "击杀：46级 瓦尔独爪妖禽",
+            "EN": "Level 46 Islandhander",
+            "DE": "Stufe 46 Val-Einhänder",
+            "FR": "Niveau 46 einhänder de la Val",
+            "JA": "レベル46 バル・アインハンダー",
+            "KO": "레벨 46 발 아인핸더"
+          }
+        },
+        {
+          "fateID": 1395,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 13.7,
+            "y": 11.5
+          },
+          "localizedNames": {
+            "CHS": "灼热的刺剑——来萨特",
+            "DE": "Lesath, der Lavaskorpion",
+            "EN": "Scorchpion King",
+            "FR": "Défi: chaud comme la braise",
+            "JA": "灼熱の突剣「レサト」",
+            "KO": "작열하는 검"
+          },
+          "order": 10,
+          "triggerDescriptions": {
+            "CHS": "击杀：47级 食鸟者",
+            "EN": "Level 47 bird eater",
+            "DE": "Stufe 47 Vogelfresser",
+            "FR": "Niveau 47 dévoreur d'oiseaux",
+            "JA": "レベル47 バードイーター",
+            "KO": "레벨 47 새잡이전갈"
+          }
+        },
+        {
+          "fateID": 1396,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 15.4,
+            "y": 7.0
+          },
+          "localizedNames": {
+            "CHS": "炎热霸主——火巨人",
+            "DE": "Eldthurs, der feurige Gigant",
+            "EN": "Burning Hunger",
+            "FR": "Défi: un peu gluantes, mais ap-pé-tis-san-tes!",
+            "JA": "炎熱の巨人「エルドスルス」",
+            "KO": "염열의 거인"
+          },
+          "order": 11,
+          "triggerDescriptions": {
+            "CHS": "击杀：48级 涌火陆蟹",
+            "EN": "Level 48 Pyros crab",
+            "DE": "Stufe 48 Pyros-Krabbe",
+            "FR": "Niveau 48 crabe Pyros",
+            "JA": "レベル48 ピューロス・クラブ",
+            "KO": "레벨 48 피로스 게"
+          }
+        },
+        {
+          "fateID": 1397,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 21.3,
+            "y": 11.8
+          },
+          "localizedNames": {
+            "CHS": "落泪的海燕——伊丽丝",
+            "DE": "Die trauernde Sturmschwalbe",
+            "EN": "Dry Iris",
+            "FR": "Défi: ses larmes n'y pourront rien changer",
+            "JA": "落涙の海燕「イリス」",
+            "KO": "눈물 흘리는 바다제비"
+          },
+          "order": 12,
+          "triggerDescriptions": {
+            "CHS": "击杀：49级 北境盐蓝燕",
+            "EN": "Level 49 northern swallow",
+            "DE": "Stufe 49 nördlich[a] Schwalbe",
+            "FR": "Niveau 49 hirondelle du Nord",
+            "JA": "レベル49 ノーザンスワロー",
+            "KO": "레벨 49 북방 제비"
+          }
+        },
+        {
+          "fateID": 1398,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 22.1,
+            "y": 8.3
+          },
+          "localizedNames": {
+            "CHS": "奇迹的生还者——佣兵雷姆普里克斯",
+            "DE": "Wüterix, der Söldner",
+            "EN": "Thirty Whacks",
+            "FR": "Défi: la détresse des mots qu'ils envoient",
+            "JA": "奇跡の生還者「傭兵のレイムプリクス」",
+            "KO": "기적의 생환자"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "击杀：50级 青蓝之手逃亡者",
+            "EN": "Level 50 Illuminati escapee",
+            "DE": "Stufe 50 Indigohand-Ausbrecher",
+            "FR": "Niveau 50 échappé de la Main indigo",
+            "JA": "レベル50 ブルーハンド・エスケーピー",
+            "KO": "레벨 50 푸른손 도망자"
+          }
+        },
+        {
+          "fateID": 1399,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 27.1,
+            "y": 9.0
+          },
+          "localizedNames": {
+            "CHS": "雷兽统领——闪电督军",
+            "DE": "Donnernder Dux",
+            "EN": "Put Up Your Dux",
+            "FR": "Défi: coup de foudre à Eurêka Pyros",
+            "JA": "電影将軍「ライトニング・ドゥクス」",
+            "KO": "전광의 사령관"
+          },
+          "order": 14,
+          "triggerDescriptions": {
+            "CHS": "击杀：51级 遗弃象魔后 在打雷天气下刷新",
+            "EN": "Thunder – Level 51 Matanga castaway",
+            "DE": "Gewittrig – Stufe 51 Matanga-Vertrieben[a]",
+            "FR": "Orages – Niveau 51 Matanga égaré",
+            "JA": "雷 – レベル51 マタンガ・ドリフター",
+            "KO": "번개 – 레벨 51 표류하는 마탕가"
+          }
+        },
+        {
+          "fateID": 1400,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 29.9,
+            "y": 11.8
+          },
+          "localizedNames": {
+            "CHS": "樵夫杰科的死亡对决",
+            "DE": "Die Axt im Walde",
+            "EN": "You Do Know Jack",
+            "FR": "Défi: rencontre de deux sales types",
+            "JA": "ランバージャック・デスマッチ",
+            "KO": "럼버잭 사투"
+          },
+          "order": 15,
+          "triggerDescriptions": {
+            "CHS": "击杀：52级 涌火树精",
+            "EN": "Level 52 Pyros treant",
+            "DE": "Stufe 52 Pyros-Baumschrat",
+            "FR": "Niveau 52 tréant Pyros",
+            "JA": "レベル52 ピューロス・トレント",
+            "KO": "레벨 52 피로스 나무정령"
+          }
+        },
+        {
+          "fateID": 1401,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 31.8,
+            "y": 15.1
+          },
+          "localizedNames": {
+            "CHS": "智慧与战斗之母——明眸",
+            "DE": "Glaukopis und ihre geflügelten Töchter",
+            "EN": "Mister Bright-eyes",
+            "FR": "Défi: les yeux qui brillent",
+            "JA": "知恵と戦の母「グラウコピス」",
+            "KO": "지혜와 전쟁의 어머니"
+          },
+          "order": 16,
+          "triggerDescriptions": {
+            "CHS": "击杀：53级 瓦尔斯卡尼特",
+            "EN": "Level 53 Val skatene",
+            "DE": "Stufe 53 Val-Skatene",
+            "FR": "Niveau 53 skate'ne de la Val",
+            "JA": "レベル53 バル・スカネテ",
+            "KO": "레벨 53 발 스카네테"
+          }
+        },
+        {
+          "fateID": 1402,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 11.7,
+            "y": 34.3
+          },
+          "localizedNames": {
+            "CHS": "相反的双子——阴·阳",
+            "DE": "Zwillinge wider Willen",
+            "EN": "Haunter of the Dark",
+            "FR": "Défi: frères ennemis",
+            "JA": "相反する双子「イン・ヤン」",
+            "KO": "전혀 다른 쌍둥이"
+          },
+          "order": 17,
+          "triggerDescriptions": {
+            "CHS": "击杀：54级 涌火百目妖",
+            "EN": "Level 54 Pyros hecteyes",
+            "DE": "Stufe 54 Pyros-Hektokulus",
+            "FR": "Niveau 54 hectoculus Pyros",
+            "JA": "レベル54 ピューロス・ヘクトアイズ",
+            "KO": "레벨 54 피로스 백눈깔이"
+          }
+        },
+        {
+          "fateID": 1403,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 24.0,
+            "y": 30.0
+          },
+          "localizedNames": {
+            "CHS": "嘲讽的霜狼——斯库尔",
+            "DE": "Eisiges Wolfsgeheul",
+            "EN": "Heavens' Warg",
+            "FR": "Défi: Sköll, offenses-tu?",
+            "JA": "嘲りの月狼「スコル」",
+            "KO": "비웃는 달의 늑대"
+          },
+          "order": 18,
+          "triggerDescriptions": {
+            "CHS": "击杀：55级 涌火狗灵 后 在暴雪天气下刷新",
+            "EN": "Blizzards – Level 55 Pyros shuck",
+            "DE": "Schneesturm – Stufe 55 Pyros-Shuck",
+            "FR": "Blizzard – Niveau 55 shuck Pyros",
+            "JA": "吹雪 – レベル55 ピューロス・シャック",
+            "KO": "눈보라 – 레벨 55 피로스 번견"
+          }
+        },
+        {
+          "fateID": 1404,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 36.0,
+            "y": 6.0
+          },
+          "localizedNames": {
+            "CHS": "炎蝶的女王——彭忒西勒亚",
+            "DE": "Penthesilea, Königin der Flammenfeen",
+            "EN": "Lost Epic",
+            "FR": "Défi: papillons de la reine",
+            "JA": "炎蝶の女王「ペンテシレイア」",
+            "KO": "불나비 여왕"
+          },
+          "order": 19,
+          "triggerDescriptions": {
+            "CHS": "击杀：55级 瓦尔血飞蛾后 在热浪天气下刷新",
+            "EN": "Heat Waves – Level 55 Val bloodglider",
+            "DE": "Gluthitze – Stufe 55 Val-Blutgleiter",
+            "FR": "Torride – Niveau 55 lunigère sanguine de la Val",
+            "JA": "灼熱波 – レベル55 バル・ブラッドグライダー",
+            "KO": "작열파 – 레벨 55 발 핏빛날개나방"
+          }
+        }
+      ],
+      "localizedNames": {
+        "CHS": "涌火之地",
+        "DE": "Pyros",
+        "EN": "Pyros",
+        "FR": "Pyros",
+        "JA": "ピューロス帯",
+        "KO": "피로스 지대"
+      },
+      "mapID": 484,
+      "mapNames": {
+        "CHS": "优雷卡涌火之地",
+        "DE": "Eureka Pyros",
+        "EN": "Eureka Pyros",
+        "FR": "Eurêka Pyros",
+        "JA": "エウレカ：ピューロス帯",
+        "KO": "에우레카: 피로스 지대"
+      },
+      "name": "涌火之地",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        795
+      ],
+      "gameplay": "Eureka"
+    },
+    {
+      "ces": [],
+      "code": "Hydatos",
+      "fates": [
+        {
+          "fateID": 1425,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 14.4,
+            "y": 22
+          },
+          "localizedNames": {
+            "CHS": "戏水的幸福兔",
+            "DE": "Planschende Glückshasen",
+            "EN": "Drink Me",
+            "FR": "Rien que de l'eau",
+            "JA": "水遊びのしあわせうさぎ",
+            "KO": "물놀이하는 행운토끼"
+          },
+          "order": 1
+        },
+        {
+          "fateID": 1412,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 10.8,
+            "y": 25.5
+          },
+          "localizedNames": {
+            "CHS": "奇怪的乌贼——卡拉墨鱼",
+            "DE": "Kalamari, die unheimliche Sepia",
+            "EN": "I Ink, Therefore I Am",
+            "FR": "Saison seiche",
+            "JA": "奇怪なる烏賊「カラマリ」",
+            "KO": "기괴한 오징어"
+          },
+          "order": 2,
+          "triggerDescriptions": {
+            "CHS": "击杀：55级 左米特",
+            "EN": "Level 55 xzomit",
+            "DE": "Stufe 55 Xzomit",
+            "FR": "Niveau 55 xzomit",
+            "JA": "レベル55 ゾミト",
+            "KO": "레벨 55 조미트"
+          }
+        },
+        {
+          "fateID": 1413,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 9,
+            "y": 17
+          },
+          "localizedNames": {
+            "CHS": "暴虐的魔兽——剑齿象",
+            "DE": "Knochenschädel Stegodon",
+            "EN": "From Tusk till Dawn",
+            "FR": "Défi: Gros comme un Stegodon",
+            "JA": "暴虐の魔獣「ステゴドン」",
+            "KO": "포악한 마수"
+          },
+          "order": 3,
+          "triggerDescriptions": {
+            "CHS": "击杀：56级 丰水曙象",
+            "EN": "Level 56 Hydatos primelephas",
+            "DE": "Stufe 56 Hydatos-Primelephas",
+            "FR": "Niveau 56 primelephas d'Hydatos",
+            "JA": "レベル56 ヒュダトス・プリメレファス",
+            "KO": "레벨 56 히다토스 프리멜레파스"
+          }
+        },
+        {
+          "fateID": 1414,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 7.8,
+            "y": 22.2
+          },
+          "localizedNames": {
+            "CHS": "落泪的君主——摩洛",
+            "DE": "Tränenkönig Molek",
+            "EN": "Bullheaded Berserker",
+            "FR": "Défi: Va te faire cuire un œuf, Molech!",
+            "JA": "落涙の君主「モレク」",
+            "KO": "눈물 흘리는 군주"
+          },
+          "order": 4,
+          "triggerDescriptions": {
+            "CHS": "击杀：57级 瓦尔泥口花",
+            "EN": "Level 57 Val Nullchu",
+            "DE": "Stufe 57 Val-Nullchu",
+            "FR": "Niveau 57 nullchu de la Val",
+            "JA": "レベル57 バル・ヌルチュー",
+            "KO": "레벨 57 발 누루츄"
+          }
+        },
+        {
+          "fateID": 1415,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 7,
+            "y": 14
+          },
+          "localizedNames": {
+            "CHS": "惊鸿艳影——皮艾萨邪鸟",
+            "DE": "Piasa, der Paradiesvogel",
+            "EN": "Mad, Bad, and Fabulous to Know",
+            "FR": "Défi: Petits oiseaux, si vous n'avez pas d'ailes",
+            "JA": "極彩色の怪鳥「ピアサ」",
+            "KO": "화려한 괴조"
+          },
+          "order": 5,
+          "triggerDescriptions": {
+            "CHS": "击杀：58级 多彩冠恐鸟",
+            "EN": "Level 58 vivid gastornis",
+            "DE": "Stufe 58 unberechenbar[a] Gastornis",
+            "FR": "Niveau 58 gastornis pétulant",
+            "JA": "レベル58 ヴィヴィット・ガストルニス",
+            "KO": "레벨 58 밝은 가스토르니스"
+          }
+        },
+        {
+          "fateID": 1416,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 8,
+            "y": 25
+          },
+          "localizedNames": {
+            "CHS": "高傲的猎人——霜鬃猎魔",
+            "DE": "Frosticore, die Klauenbestie",
+            "EN": "Fearful Symmetry",
+            "FR": "Défi: Tigre et Crinière-de-givre",
+            "JA": "孤高の狩人「フロストメーン」",
+            "KO": "고고한 사냥꾼"
+          },
+          "order": 6,
+          "triggerDescriptions": {
+            "CHS": "击杀：59级 北方猛虎",
+            "EN": "Level 59 northern tiger",
+            "DE": "Stufe 59 nördlich[a] Tiger",
+            "FR": "Niveau 59 tigre du Nord",
+            "JA": "レベル59 ノーザン・タイガー",
+            "KO": "레벨 59 북방 호랑이"
+          }
+        },
+        {
+          "fateID": 1417,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 25,
+            "y": 15
+          },
+          "localizedNames": {
+            "CHS": "浴血的妖妃——达佛涅",
+            "DE": "Blutdurst",
+            "EN": "Crawling Chaos",
+            "FR": "Défi: Les lauriers de la colère",
+            "JA": "血濡れの妖妃「ダフネ」",
+            "KO": "피에 젖은 요비"
+          },
+          "order": 7,
+          "triggerDescriptions": {
+            "CHS": "击杀：60级 暗黑虚无鬼鱼",
+            "EN": "Level 60 dark void monk",
+            "DE": "Stufe 60 finster[a] Nichtsmönch",
+            "FR": "Niveau 60 moine sombre du néant",
+            "JA": "レベル60 ダーク・ヴォイドモンク",
+            "KO": "레벨 60 어둠의 보이드 문어"
+          }
+        },
+        {
+          "fateID": 1418,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 29,
+            "y": 23.5
+          },
+          "localizedNames": {
+            "CHS": "异界的锻冶王——戈尔德马尔王",
+            "DE": "Der Schmiedemeister des Äthers, König Goldemar",
+            "EN": "Duty-free",
+            "FR": "Défi: Retourne d'où tu viens",
+            "JA": "異界の鍛冶王「キング・ゴルデマール」",
+            "KO": "이계의 대장장이 왕"
+          },
+          "order": 8,
+          "triggerDescriptions": {
+            "CHS": "在夜晚时间 击杀：61级 丰水幽灵",
+            "EN": "At night – Level 61 Hydatos wraith",
+            "DE": "Bei Nacht – Stufe 61 Hydatos-Geist",
+            "FR": "De nuit – Niveau 61 spectre d'Hydatos",
+            "JA": "夜間 – レベル61 ヒュダトス・レイス",
+            "KO": "밤 – 레벨 61 히다토스 망령"
+          }
+        },
+        {
+          "fateID": 1419,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 37,
+            "y": 26
+          },
+          "localizedNames": {
+            "CHS": "食妖植物——琉刻",
+            "DE": "Vegetarischer Karnivor",
+            "EN": "Leukewarm Reception",
+            "FR": "Défi: Une plante d'enfer",
+            "JA": "食妖植物「レウケー」",
+            "KO": "식요식물"
+          },
+          "order": 9,
+          "triggerDescriptions": {
+            "CHS": "击杀：62级 虎鹰",
+            "EN": "Level 62 tigerhawk",
+            "DE": "Stufe 62 Tigerfalke",
+            "FR": "Niveau 62 faucon-tigre",
+            "JA": "レベル62 タイガーホーク",
+            "KO": "레벨 62 범매"
+          }
+        },
+        {
+          "fateID": 1420,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 32.5,
+            "y": 24.5
+          },
+          "localizedNames": {
+            "CHS": "业火狮子王——巴龙",
+            "DE": "Baron Feuermähne",
+            "EN": "Robber Barong",
+            "FR": "Défi: Rugir de déplaisir",
+            "JA": "業炎の獅子王「バロン」",
+            "KO": "업화의 사자왕"
+          },
+          "order": 10,
+          "triggerDescriptions": {
+            "CHS": "击杀：63级 研究所雄狮",
+            "EN": "Level 63 laboratory lion",
+            "DE": "Stufe 63 Laborlöwe",
+            "FR": "Niveau 63 lion de laboratoire",
+            "JA": "レベル63 ラボラトリー・ライオン",
+            "KO": "레벨 63 연구실 사자"
+          }
+        },
+        {
+          "fateID": 1421,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 36,
+            "y": 14
+          },
+          "localizedNames": {
+            "CHS": "魔蛇女王——刻托",
+            "DE": "Ceto, die Gorgonenkönigin",
+            "EN": "Stone-cold Killer",
+            "FR": "Défi: La reine des langues de vipère",
+            "JA": "魔蛇の女王「ケートー」",
+            "KO": "뱀의 여왕"
+          },
+          "order": 11,
+          "triggerDescriptions": {
+            "CHS": "击杀：64级 丰水达菲妮",
+            "EN": "Level 64 Hydatos Delphyne",
+            "DE": "Stufe 64 Delphyne der Gezeiten",
+            "FR": "Niveau 64 Delphyné d'Hydatos",
+            "JA": "レベル64 ヒュダトス・デルピュネ",
+            "KO": "레벨 64 히다토스 델피네"
+          }
+        },
+        {
+          "fateID": 1423,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 32.8,
+            "y": 19.7
+          },
+          "localizedNames": {
+            "CHS": "水晶之龙——起源守望者",
+            "DE": "Der Kristallwächter",
+            "EN": "Crystalline Provenance",
+            "FR": "Défi: Provenance indéfinie",
+            "JA": "水晶の龍「プロヴェナンス・ウォッチャー」",
+            "KO": "수정룡"
+          },
+          "order": 12,
+          "triggerDescriptions": {
+            "CHS": "击杀：65级 水晶爪",
+            "EN": "Level 65 crystal claw",
+            "DE": "Stufe 65 Kristallklaue",
+            "FR": "Niveau 65 griffe de cristal",
+            "JA": "レベル65 クリスタルクロー",
+            "KO": "레벨 65 크리스탈 손아귀"
+          }
+        },
+        {
+          "fateID": 1424,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 27.1,
+            "y": 29
+          },
+          "localizedNames": {
+            "CHS": "未知的威胁——未确认飞行物体",
+            "DE": "Ovni, die unerkannte Bedrohung",
+            "EN": "I Don't Want to Believe",
+            "FR": "Défi: La vérité est à Hydatos",
+            "JA": "未知なる脅威「オヴニ」",
+            "KO": "미지의 위협"
+          },
+          "order": 13,
+          "triggerDescriptions": {
+            "CHS": "特殊",
+            "EN": "Special",
+            "DE": "Speziell",
+            "FR": "Spécial",
+            "JA": "特殊",
+            "KO": "특수"
+          }
+        },
+        {
+          "fateID": 1422,
+          "iconID": 60958,
+          "mapPosition": {
+            "x": 18.8,
+            "y": 28.9
+          },
+          "localizedNames": {
+            "CHS": "兵武塔调查支援",
+            "DE": "Son-der-ein-satz-kom-man-do „Baldesions Arsenal“",
+            "EN": "The Baldesion Arsenal: Expedition Support",
+            "FR": "Eurêka et son arsenal",
+            "JA": "「バルデシオンアーセナル」調査支援",
+            "KO": "발데시온 무기고 조사 지원"
+          },
+          "order": 14,
+          "triggerDescriptions": {
+            "CHS": "兵武塔内部触发",
+            "EN": "Triggered inside the Baldesion Arsenal",
+            "DE": "Auslösbar in der Baldesion-Festung",
+            "FR": "Déclenché à l'intérieur du bastion Baldesion",
+            "JA": "バルデシオン兵器庫内部で発動",
+            "KO": "발데시온 무기고 내부에서 발동"
+          }
+        }
+      ],
+      "localizedNames": {
+        "CHS": "丰水之地",
+        "DE": "Hydatos",
+        "EN": "Hydatos",
+        "FR": "Hydatos",
+        "JA": "ヒュダトス帯",
+        "KO": "히다토스 지대"
+      },
+      "mapID": 515,
+      "mapNames": {
+        "CHS": "优雷卡丰水之地",
+        "DE": "Eureka Hydatos",
+        "EN": "Eureka Hydatos",
+        "FR": "Eurêka Hydatos",
+        "JA": "エウレカ：ヒュダトス帯",
+        "KO": "에우레카: 히다토스 지대"
+      },
+      "name": "丰水之地",
+      "serverGroups": [
+        "Global",
+        "China",
+        "Korea"
+      ],
+      "territoryIDs": [
+        827
+      ],
+      "gameplay": "Eureka"
+    }
+  ],
+  "gameplays": [
+    {
+      "code": "OccultCrescent",
+      "iconID": 61851,
+      "localizedNames": {
+        "CHS": "蜃景幻界新月岛",
+        "DE": "Kreszentia",
+        "EN": "Occult Crescent",
+        "FR": "Île de Lunule",
+        "JA": "蜃気楼の島 クレセントアイル",
+        "KO": "초승달 섬"
+      }
+    },
+    {
+      "code": "SaveTheQueen",
+      "iconID": 61838,
+      "localizedNames": {
+        "CHS": "天佑女王",
+        "DE": "Königinnenwache",
+        "EN": "Save the Queen",
+        "FR": "Garde-la-Reine",
+        "JA": "セイブ・ザ・クイーン",
+        "KO": "세이브 더 퀸"
+      }
+    },
+    {
+      "code": "Eureka",
+      "iconID": 61833,
+      "localizedNames": {
+        "CHS": "禁地优雷卡",
+        "DE": "Eureka",
+        "EN": "Eureka",
+        "FR": "Eurêka",
+        "JA": "禁断の地エウレカ",
+        "KO": "금단의 땅 에우레카"
+      }
+    }
+  ],
+  "source": {
+    "fateRetrievedAt": "2026-08-02",
+    "fateService": "https://strings.ffcafe.cn/api/search",
+    "gameplayRetrievedAt": "2026-08-03",
+    "gameplayService": "https://strings.ffcafe.cn/api/search",
+    "service": "https://xivapi-v2.xivcdn.com",
+    "version": "2026061000000000"
+  },
+  "version": 8
+}

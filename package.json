@@ -1,0 +1,23 @@
+{
+  "name": "critical-encounter-crowdsource",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "types": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260801.1",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.86.0"
+  },
+  "dependencies": {
+    "jquery": "3.7.1",
+    "leaflet": "1.9.4",
+    "marked": "^18.0.7",
+    "marked-alert": "^2.1.2"
+  }
+}

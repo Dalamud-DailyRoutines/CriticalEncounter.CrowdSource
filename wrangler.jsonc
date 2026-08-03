@@ -1,0 +1,42 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "critical-encounter-crowdsource",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./web/public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": [
+      "/health",
+      "/v1/*"
+    ]
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "DATA_CENTER_STATE",
+        "class_name": "DataCenterState"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "DataCenterState"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "ce-crowdsource.atmoomen.top",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

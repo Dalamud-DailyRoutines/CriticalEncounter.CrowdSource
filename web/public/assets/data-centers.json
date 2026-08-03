@@ -1,0 +1,153 @@
+{
+  "version": 2,
+  "source": {
+    "service": "https://xivapi-v2.xivcdn.com",
+    "version": "2026061000000000"
+  },
+  "languages": [
+    { "code": "CHS", "xivapiCode": "chs", "locale": "zh-CN", "name": "简体中文", "serverGroup": "China", "defaultDataCenterID": 101 },
+    { "code": "JA", "xivapiCode": "ja", "locale": "ja-JP", "name": "日本語", "serverGroup": "Global", "defaultDataCenterID": 1 },
+    { "code": "EN", "xivapiCode": "en", "locale": "en-US", "name": "English", "serverGroup": "Global", "defaultDataCenterID": 4 },
+    { "code": "DE", "xivapiCode": "de", "locale": "de-DE", "name": "Deutsch", "serverGroup": "Global", "defaultDataCenterID": 6 },
+    { "code": "FR", "xivapiCode": "fr", "locale": "fr-FR", "name": "Français", "serverGroup": "Global", "defaultDataCenterID": 6 },
+    { "code": "KO", "xivapiCode": "ko", "locale": "ko-KR", "name": "한국어", "serverGroup": "Korea", "defaultDataCenterID": 201 }
+  ],
+  "dataCenters": [
+    {
+      "id": 1,
+      "name": "Elemental",
+      "region": "Japan",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":45,"name":"Carbuncle"},{"id":49,"name":"Kujata"},{"id":50,"name":"Typhon"},{"id":58,"name":"Garuda"},{"id":68,"name":"Atomos"},{"id":72,"name":"Tonberry"},{"id":90,"name":"Aegis"},{"id":94,"name":"Gungnir"}]
+    },
+    {
+      "id": 2,
+      "name": "Gaia",
+      "region": "Japan",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":43,"name":"Alexander"},{"id":46,"name":"Fenrir"},{"id":51,"name":"Ultima"},{"id":59,"name":"Ifrit"},{"id":69,"name":"Bahamut"},{"id":76,"name":"Tiamat"},{"id":92,"name":"Durandal"},{"id":98,"name":"Ridill"}]
+    },
+    {
+      "id": 3,
+      "name": "Mana",
+      "region": "Japan",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":23,"name":"Asura"},{"id":28,"name":"Pandaemonium"},{"id":44,"name":"Anima"},{"id":47,"name":"Hades"},{"id":48,"name":"Ixion"},{"id":61,"name":"Titan"},{"id":70,"name":"Chocobo"},{"id":96,"name":"Masamune"}]
+    },
+    {
+      "id": 4,
+      "name": "Aether",
+      "region": "North America",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":40,"name":"Jenova"},{"id":54,"name":"Faerie"},{"id":57,"name":"Siren"},{"id":63,"name":"Gilgamesh"},{"id":65,"name":"Midgardsormr"},{"id":73,"name":"Adamantoise"},{"id":79,"name":"Cactuar"},{"id":99,"name":"Sargatanas"}]
+    },
+    {
+      "id": 5,
+      "name": "Primal",
+      "region": "North America",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":35,"name":"Famfrit"},{"id":53,"name":"Exodus"},{"id":55,"name":"Lamia"},{"id":64,"name":"Leviathan"},{"id":77,"name":"Ultros"},{"id":78,"name":"Behemoth"},{"id":93,"name":"Excalibur"},{"id":95,"name":"Hyperion"}]
+    },
+    {
+      "id": 6,
+      "name": "Chaos",
+      "region": "Europe",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":39,"name":"Omega"},{"id":71,"name":"Moogle"},{"id":80,"name":"Cerberus"},{"id":83,"name":"Louisoix"},{"id":85,"name":"Spriggan"},{"id":97,"name":"Ragnarok"},{"id":400,"name":"Sagittarius"},{"id":401,"name":"Phantom"}]
+    },
+    {
+      "id": 7,
+      "name": "Light",
+      "region": "Europe",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":33,"name":"Twintania"},{"id":36,"name":"Lich"},{"id":42,"name":"Zodiark"},{"id":56,"name":"Phoenix"},{"id":66,"name":"Odin"},{"id":67,"name":"Shiva"},{"id":402,"name":"Alpha"},{"id":403,"name":"Raiden"}]
+    },
+    {
+      "id": 8,
+      "name": "Crystal",
+      "region": "North America",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":34,"name":"Brynhildr"},{"id":37,"name":"Mateus"},{"id":41,"name":"Zalera"},{"id":62,"name":"Diabolos"},{"id":74,"name":"Coeurl"},{"id":75,"name":"Malboro"},{"id":81,"name":"Goblin"},{"id":91,"name":"Balmung"}]
+    },
+    {
+      "id": 9,
+      "name": "Materia",
+      "region": "Oceania",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":21,"name":"Ravana"},{"id":22,"name":"Bismarck"},{"id":86,"name":"Sephirot"},{"id":87,"name":"Sophia"},{"id":88,"name":"Zurvan"}]
+    },
+    {
+      "id": 10,
+      "name": "Meteor",
+      "region": "Japan",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":24,"name":"Belias"},{"id":29,"name":"Shinryu"},{"id":30,"name":"Unicorn"},{"id":31,"name":"Yojimbo"},{"id":32,"name":"Zeromus"},{"id":52,"name":"Valefor"},{"id":60,"name":"Ramuh"},{"id":82,"name":"Mandragora"}]
+    },
+    {
+      "id": 11,
+      "name": "Dynamis",
+      "region": "North America",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":404,"name":"Marilith"},{"id":405,"name":"Seraph"},{"id":406,"name":"Halicarnassus"},{"id":407,"name":"Maduin"},{"id":408,"name":"Cuchulainn"},{"id":409,"name":"Kraken"},{"id":410,"name":"Rafflesia"},{"id":411,"name":"Golem"}]
+    },
+    {
+      "id": 12,
+      "name": "Shadow",
+      "region": "Europe",
+      "serverGroup": "Global",
+      "languageCodes": ["JA", "EN", "DE", "FR"],
+      "worlds": [{"id":412,"name":"Titania"},{"id":413,"name":"Innocence"},{"id":414,"name":"Pixie"},{"id":415,"name":"Tycoon"},{"id":416,"name":"Wyvern"},{"id":417,"name":"Lakshmi"},{"id":418,"name":"Eden"},{"id":419,"name":"Syldra"}]
+    },
+    {
+      "id": 101,
+      "name": "陆行鸟",
+      "region": "China",
+      "serverGroup": "China",
+      "languageCodes": ["CHS"],
+      "worlds": [{"id":1042,"name":"拉诺西亚"},{"id":1044,"name":"幻影群岛"},{"id":1060,"name":"萌芽池"},{"id":1081,"name":"神意之地"},{"id":1167,"name":"红玉海"},{"id":1173,"name":"宇宙和音"},{"id":1174,"name":"沃仙曦染"},{"id":1175,"name":"晨曦王座"}]
+    },
+    {
+      "id": 102,
+      "name": "莫古力",
+      "region": "China",
+      "serverGroup": "China",
+      "languageCodes": ["CHS"],
+      "worlds": [{"id":1076,"name":"白金幻象"},{"id":1113,"name":"旅人栈桥"},{"id":1121,"name":"拂晓之间"},{"id":1166,"name":"龙巢神殿"},{"id":1170,"name":"潮风亭"},{"id":1171,"name":"神拳痕"},{"id":1172,"name":"白银乡"},{"id":1176,"name":"梦羽宝境"}]
+    },
+    {
+      "id": 103,
+      "name": "猫小胖",
+      "region": "China",
+      "serverGroup": "China",
+      "languageCodes": ["CHS"],
+      "worlds": [{"id":1043,"name":"紫水栈桥"},{"id":1045,"name":"摩杜纳"},{"id":1106,"name":"静语庄园"},{"id":1169,"name":"延夏"},{"id":1177,"name":"海猫茶屋"},{"id":1178,"name":"柔风海湾"},{"id":1179,"name":"琥珀原"}]
+    },
+    {
+      "id": 104,
+      "name": "豆豆柴",
+      "region": "China",
+      "serverGroup": "China",
+      "languageCodes": ["CHS"],
+      "worlds": [{"id":1180,"name":"太阳海岸"},{"id":1183,"name":"银泪湖"},{"id":1186,"name":"伊修加德"},{"id":1192,"name":"水晶塔"},{"id":1200,"name":"亚马乌罗提"},{"id":1201,"name":"红茶川"}]
+    },
+    {
+      "id": 201,
+      "name": "Eorzea",
+      "region": "Korea",
+      "serverGroup": "Korea",
+      "languageCodes": ["KO"],
+      "worlds": [{"id":2075,"name":"카벙클"},{"id":2076,"name":"초코보"},{"id":2077,"name":"모그리"},{"id":2078,"name":"톤베리"},{"id":2080,"name":"펜리르"},{"id":2081,"name":"오메가"}]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4f6f3">
+  <title data-i18n="siteTitle">紧急遭遇战众包网</title>
+  <link rel="icon" href="/assets/icons/63909.png" type="image/png">
+  <link rel="stylesheet" href="/assets/vendor/eorzea-map/leaflet.css">
+  <link rel="stylesheet" href="/assets/vendor/eorzea-map/map.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/i18n/zh.js" defer></script>
+  <script src="/assets/i18n/en.js" defer></script>
+  <script src="/assets/i18n/ja.js" defer></script>
+  <script src="/assets/i18n/de.js" defer></script>
+  <script src="/assets/i18n/fr.js" defer></script>
+  <script src="/assets/i18n/ko.js" defer></script>
+  <script src="/assets/vendor/eorzea-map/jquery.min.js" defer></script>
+  <script src="/assets/vendor/eorzea-map/map.js" defer></script>
+  <script src="/assets/vendor/marked/marked.umd.js" defer></script>
+  <script src="/assets/vendor/marked-alert/index.umd.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <img src="/assets/icons/63909.png" width="32" height="32" alt="">
+      <div>
+        <h1 data-i18n="siteTitle">紧急遭遇战众包网</h1>
+        <p data-i18n="brandSubtitle">特殊场景探索区域事件发生信息众包记录</p>
+      </div>
+    </a>
+    <div class="topbar-actions">
+      <a class="guide-link" href="/articles/0001" data-i18n-title="instanceGuideLink" title="如何获取副本实例 ID？">
+        <svg class="guide-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <path d="M12 17h.01"></path>
+        </svg>
+        <span class="guide-label" data-i18n="instanceGuideLink">如何获取副本实例 ID？</span>
+      </a>
+      <span class="topbar-divider" aria-hidden="true"></span>
+      <div id="connectionStatus" class="connection" role="status" aria-live="polite" data-state="connecting">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-copy">
+          <span class="status-label" data-i18n="statusConnecting">正在连接</span>
+          <time class="status-time"></time>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="control-band" aria-label="实时筛选" data-i18n-aria-label="filtersAriaLabel">
+      <label class="field compact-field">
+        <span data-i18n="uiLanguage">界面语言</span>
+        <select id="uiLanguageSelect"></select>
+      </label>
+      <label class="field">
+        <span data-i18n="dataCenter">大区</span>
+        <select id="dataCenterSelect"></select>
+      </label>
+      <label class="field compact-field">
+        <span data-i18n="instanceSort">实例排序</span>
+        <select id="sortSelect">
+          <option value="recent" data-i18n="sortRecent">最近更新</option>
+          <option value="server" data-i18n="sortServer">副本实例 ID</option>
+        </select>
+      </label>
+      <dl class="summary">
+        <div>
+          <dt data-i18n="activeInstances">活跃实例</dt>
+          <dd id="activeCount">0</dd>
+        </div>
+        <div>
+          <dt data-i18n="lastUpdate">更新时间</dt>
+          <dd id="lastUpdate">-</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="workspace">
+      <aside class="instance-panel" aria-labelledby="instanceHeading">
+        <div class="panel-heading">
+          <div>
+            <h2 id="instanceHeading" data-i18n="instances">副本实例</h2>
+            <p id="dataCenterName">-</p>
+          </div>
+          <span id="instanceCount" class="count-badge">0</span>
+        </div>
+        <div class="instance-search">
+          <svg class="instance-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <input id="instanceSearch" type="search" data-i18n-placeholder="instanceSearch" data-i18n-aria-label="instanceSearch" placeholder="搜索副本实例 ID" aria-label="搜索副本实例 ID" autocomplete="off">
+        </div>
+        <div id="instanceList" class="instance-list"></div>
+      </aside>
+
+      <section class="detail-panel" aria-labelledby="detailHeading">
+        <div class="detail-heading">
+          <div>
+            <p class="eyebrow" data-i18n="currentInstance">当前副本实例</p>
+            <h2 id="detailHeading" data-i18n="selectInstanceHint">请在侧边栏选择对应的副本实例 ID</h2>
+          </div>
+          <div id="instanceMeta" class="instance-meta"></div>
+        </div>
+        <div id="emptyState" class="empty-state">
+          <img src="/assets/icons/63909.png" width="48" height="48" alt="">
+          <p id="emptyStateText" data-i18n="currentDataCenter">当前大区</p>
+        </div>
+        <div id="areaList" class="area-list" hidden></div>
+      </section>
+    </section>
+
+    <section id="articleView" class="article-view" hidden>
+      <div class="article-toolbar">
+        <label class="article-language">
+          <span data-i18n="uiLanguage">界面语言</span>
+          <select id="articleLanguageSelect"></select>
+        </label>
+      </div>
+      <article id="articleContent" class="article-content"></article>
+    </section>
+  </main>
+
+  <dialog id="mapDialog" class="map-dialog" aria-labelledby="mapDialogTitle">
+    <div class="map-dialog-header">
+      <h2 id="mapDialogTitle"></h2>
+      <button id="mapDialogClose" class="map-dialog-close" type="button" data-i18n-aria-label="closeMap" data-i18n-title="closeMap" aria-label="关闭地图" title="关闭地图">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mapStatus" class="map-status" role="status" aria-live="polite"></div>
+    <div id="mapCanvas" class="map-canvas"></div>
+  </dialog>
+</body>
+</html>
