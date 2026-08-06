@@ -21,7 +21,8 @@ const state = {
   map: null,
   mapImageOverlay: null,
   mapMarker: null,
-  mapRequestToken: 0
+  mapRequestToken: 0,
+  copyToastTimer: 0
 };
 
 const elements = {
@@ -32,6 +33,7 @@ const elements = {
   areaList: document.querySelector("#areaList"),
   controlBand: document.querySelector(".control-band"),
   connectionStatus: document.querySelector("#connectionStatus"),
+  copyToast: document.querySelector("#copyToast"),
   dataCenterName: document.querySelector("#dataCenterName"),
   dataCenterSelect: document.querySelector("#dataCenterSelect"),
   detailHeading: document.querySelector("#detailHeading"),
@@ -84,8 +86,8 @@ const copyConfiguration = {
         { eventType: "CE", eventIDs: [48, 64], format: "lastSeen" }
       ],
       linkedGroups: [
-        { areaCodes: ["SouthHorn"], eventType: "FATE", eventIDs: [1976, 1977], intervalMinutes: 30 },
-        { areaCodes: ["NorthHorn"], eventType: "FATE", eventIDs: [2073, 2072], intervalMinutes: 30 }
+        { areaCodes: ["SouthHorn"], eventType: "FATE", eventIDs: [1976, 1977], intervalMinutes: 30, predictionToleranceMinutes: 35 },
+        { areaCodes: ["NorthHorn"], eventType: "FATE", eventIDs: [2073, 2072], intervalMinutes: 30, predictionToleranceMinutes: 35 }
       ]
     },
     Eureka: {
@@ -671,8 +673,18 @@ function renderDetails() {
   });
   const body = document.createElement("tbody");
   const rows = [];
+  const renderedLinkedGroups = new Set();
 
   for (const catalogEvent of area.events) {
+    const linkedGroup = getLinkedCopyGroup(copyProfile, area, catalogEvent);
+    if (linkedGroup) {
+      if (renderedLinkedGroups.has(linkedGroup))
+        continue;
+      renderedLinkedGroups.add(linkedGroup);
+      rows.push(createLinkedEventRows(area, linkedGroup, instance, contentLanguageCode, copyEnabled));
+      continue;
+    }
+
     const event = instance.eventLastSeen[
       `${area.territoryIDs[0]}:${catalogEvent.eventType}:${catalogEvent.eventID}`
     ];
@@ -708,7 +720,7 @@ function renderDetails() {
       copyButton.dataset.eventID = String(catalogEvent.eventID);
       row.querySelector(".ce-actions").append(copyButton);
     }
-    rows.push({ event, row });
+    rows.push({ event, rows: [row] });
   }
 
   if (state.eventSort !== "default") {
@@ -716,14 +728,81 @@ function renderDetails() {
       ? (left, right) => (right.event?.lastSpawnedAt ?? -Infinity) - (left.event?.lastSpawnedAt ?? -Infinity)
       : (left, right) => (left.event?.lastSpawnedAt ?? Infinity) - (right.event?.lastSpawnedAt ?? Infinity));
   }
-  for (const { row } of rows)
-    body.append(row);
+  for (const { rows: rowGroup } of rows)
+    body.append(...rowGroup);
 
   table.append(body);
   wrapper.append(table);
   section.append(wrapper);
   fragment.append(section);
   elements.areaList.replaceChildren(fragment);
+}
+
+function createLinkedEventRows(area, group, instance, contentLanguageCode, copyEnabled) {
+  const entries = getLinkedGroupEntries(area, group);
+  const records = entries.map(event => ({ event, lastSeen: getEventLastSeen(area, event, instance) }));
+  const latest = records
+    .filter(item => item.lastSeen)
+    .reduce((current, item) => !current || item.lastSeen.lastSpawnedAt > current.lastSeen.lastSpawnedAt ? item : current, null);
+  const now = getServerNowSeconds();
+  const predictionToleranceMinutes = group.predictionToleranceMinutes ?? group.intervalMinutes + 5;
+  const predictionExpiresAt = latest
+    ? latest.lastSeen.lastSpawnedAt + predictionToleranceMinutes * 60
+    : 0;
+  const predictionActive = latest && now <= predictionExpiresAt;
+  const latestIndex = predictionActive ? records.indexOf(latest) : -1;
+  const nextIndex = predictionActive ? (latestIndex + 1) % records.length : -1;
+  const refreshAt = predictionActive
+    ? latest.lastSeen.lastSpawnedAt + group.intervalMinutes * 60
+    : 0;
+  const rows = [];
+  for (const [index, catalogEvent] of entries.entries()) {
+    const name = getLocalizedEventName(catalogEvent, contentLanguageCode);
+    const triggerDescription = catalogEvent.triggerDescriptions
+      ? catalogEvent.triggerDescriptions[contentLanguageCode] ?? catalogEvent.triggerDescriptions.CHS ?? ""
+      : t("naturalOccurrence");
+    const row = document.createElement("tr");
+    row.className = "ce-linked-row";
+    if (predictionActive)
+      row.dataset.linkedPredictionExpires = String(predictionExpiresAt);
+    row.innerHTML = `
+      <td class="ce-name"><span class="ce-name-inner">${catalogEvent.iconID
+      ? `<img src="/assets/icons/${catalogEvent.iconID}.png" alt="" width="20" height="20" class="ce-icon">`
+      : ""}<span class="ce-name-content"><span class="ce-name-text"></span>${triggerDescription ? `<span class="ce-trigger"></span>` : ""}</span>${catalogEvent.mapPosition
+      ? `<button class="ce-map-link" type="button"><img src="/assets/icons/60561.png" alt="" width="20" height="20"></button>`
+      : ""}</span></td>
+      <td class="ce-last-seen"></td>${copyEnabled ? `<td class="ce-actions"></td>` : ""}`;
+    row.querySelector(".ce-name-text").textContent = name;
+    if (triggerDescription)
+      row.querySelector(".ce-trigger").textContent = triggerDescription;
+    const mapButton = row.querySelector(".ce-map-link");
+    if (mapButton) {
+      mapButton.setAttribute("aria-label", t("openMap"));
+      mapButton.title = t("openMap");
+      mapButton.addEventListener("click", () => openEventMap(area, catalogEvent, name));
+    }
+    const statusCell = row.querySelector(".ce-last-seen");
+    if (index === nextIndex) {
+      statusCell.innerHTML = `
+        <span class="ce-relative ce-linked-future" data-future-time="${refreshAt}">${formatFutureMinutes(refreshAt)}</span>
+        <span class="ce-linked-future-time">${t("futureRefreshAt", { time: formatCopyRefreshTime(refreshAt) })}</span>`;
+    } else if (records[index].lastSeen) {
+      statusCell.innerHTML = `
+        <span class="ce-relative" data-relative-time="${records[index].lastSeen.lastSpawnedAt}">${formatRelativeTime(records[index].lastSeen.lastSpawnedAt)}</span>
+        <span class="ce-absolute">${formatAbsoluteTime(records[index].lastSeen.lastSpawnedAt)}</span>`;
+    } else {
+      statusCell.innerHTML = `<span class="ce-relative placeholder">-</span>`;
+    }
+    if (copyEnabled) {
+      const copyButton = createCopyButton(getCopyText(area, catalogEvent, instance, contentLanguageCode));
+      copyButton.dataset.eventType = catalogEvent.eventType;
+      copyButton.dataset.eventID = String(catalogEvent.eventID);
+      row.querySelector(".ce-actions").append(copyButton);
+    }
+    rows.push(row);
+  }
+
+  return { event: latest?.lastSeen, rows };
 }
 
 function clearMapSelection() {
@@ -932,8 +1011,17 @@ function createAreaPanel(instance, areas, contentLanguageCode) {
 }
 
 function updateRelativeTimes() {
+  const now = getServerNowSeconds();
+  if ([...document.querySelectorAll("[data-linked-prediction-expires]")]
+    .some(element => Number(element.dataset.linkedPredictionExpires) < now)) {
+    renderDetails();
+    renderSummary();
+    return;
+  }
   for (const element of document.querySelectorAll("[data-relative-time]"))
     element.textContent = formatRelativeTime(Number(element.dataset.relativeTime));
+  for (const element of document.querySelectorAll("[data-future-time]"))
+    element.textContent = formatFutureMinutes(Number(element.dataset.futureTime));
   updateCopyButtonTexts();
   renderSummary();
 }
@@ -954,6 +1042,13 @@ function getLinkedCopyGroup(profile, area, catalogEvent) {
     group.eventType === catalogEvent.eventType &&
     group.areaCodes.includes(area.code) &&
     group.eventIDs.includes(catalogEvent.eventID));
+}
+
+function getLinkedGroupEntries(area, group) {
+  return group.eventIDs
+    .map(eventID => area.events.find(event =>
+      event.eventType === group.eventType && event.eventID === eventID))
+    .filter(Boolean);
 }
 
 function getEventLastSeen(area, catalogEvent, instance) {
@@ -1017,46 +1112,38 @@ function formatCopyRelativeTime(unixSeconds) {
 }
 
 function formatLinkedCopyText(area, group, instance, contentLanguageCode) {
-  const entries = group.eventIDs
-    .map(eventID => area.events.find(event =>
-      event.eventType === group.eventType && event.eventID === eventID))
-    .filter(Boolean);
-  const names = entries.map(event => getLocalizedEventName(event, contentLanguageCode));
+  const entries = getLinkedGroupEntries(area, group);
   const records = entries.map(event => ({ event, lastSeen: getEventLastSeen(area, event, instance) }));
   if (records.every(item => !item.lastSeen))
-    return `${names.join("/")}【${t("copyNaturalRefresh")}】`;
+    return `${entries.map(event => getLocalizedEventName(event, contentLanguageCode)).join("/")}【${t("copyNaturalRefresh")}】`;
 
   const latest = records
     .filter(item => item.lastSeen)
     .reduce((current, item) => item.lastSeen.lastSpawnedAt > current.lastSeen.lastSpawnedAt ? item : current);
   const now = getServerNowSeconds();
-  if (now - latest.lastSeen.lastSpawnedAt >= 21_600)
-    return `${names.join("/")}【${t("copyNaturalRefresh")}】`;
+  const predictionToleranceMinutes = group.predictionToleranceMinutes ?? group.intervalMinutes + 5;
+  if (now - latest.lastSeen.lastSpawnedAt > predictionToleranceMinutes * 60)
+    return `${entries.map(event => getLocalizedEventName(event, contentLanguageCode)).join("/")}【${t("copyNaturalRefresh")}】`;
 
   const intervalSeconds = group.intervalMinutes * 60;
   const latestIndex = records.indexOf(latest);
-  let naturalRefreshCount = 0;
-  const lines = records.map((item, index) => {
-    const steps = (index - latestIndex + records.length) % records.length || records.length;
-    const refreshAt = latest.lastSeen.lastSpawnedAt + intervalSeconds * steps;
-    if (refreshAt <= now) {
-      naturalRefreshCount++;
-      return `${getLocalizedEventName(item.event, contentLanguageCode)}【${t("copyNaturalRefresh")}】`;
-    }
-    const minutes = Math.ceil((refreshAt - now) / 60);
-    return `${formatCopyRefreshTime(refreshAt)}（${t("copyWaitingMinutes", { minutes })}）${t("copyRefreshSuffix")}【${getLocalizedEventName(item.event, contentLanguageCode)}】`;
-  });
-  if (naturalRefreshCount === records.length)
-    return `${names.join("/")}【${t("copyNaturalRefresh")}】`;
-  return lines.join("\n");
+  const nextIndex = (latestIndex + 1) % records.length;
+  const nextEvent = entries[nextIndex];
+  const refreshAt = latest.lastSeen.lastSpawnedAt + intervalSeconds;
+  const nextName = getLocalizedEventName(nextEvent, contentLanguageCode);
+  if (refreshAt <= now)
+    return `${nextName}【${t("copyNaturalRefresh")}】`;
+  const minutes = Math.ceil((refreshAt - now) / 60);
+  return `${formatCopyRefreshTime(refreshAt)}（${t("copyWaitingMinutes", { minutes })}）${t("copyRefreshSuffix")}【${nextName}】`;
 }
 
 function formatCopyRefreshTime(unixSeconds) {
-  return new Intl.DateTimeFormat(getSelectedLanguage().locale, {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  }).format(new Date(unixSeconds * 1000));
+  return formatAbsoluteTime(unixSeconds);
+}
+
+function formatFutureMinutes(unixSeconds) {
+  const minutes = Math.max(0, Math.ceil((unixSeconds - getServerNowSeconds()) / 60));
+  return t("futureMinutes", { minutes });
 }
 
 function updateCopyButtonTexts() {
@@ -1092,11 +1179,23 @@ function createCopyButton(copyText) {
       await copyTextToClipboard(button.title);
       button.classList.add("is-copied");
       window.setTimeout(() => button.classList.remove("is-copied"), 1_200);
+      showCopyToast();
     } catch (error) {
       console.error(error);
     }
   });
   return button;
+}
+
+function showCopyToast() {
+  window.clearTimeout(state.copyToastTimer);
+  elements.copyToast.textContent = t("copySuccess");
+  elements.copyToast.setAttribute("aria-hidden", "false");
+  elements.copyToast.classList.add("is-visible");
+  state.copyToastTimer = window.setTimeout(() => {
+    elements.copyToast.classList.remove("is-visible");
+    elements.copyToast.setAttribute("aria-hidden", "true");
+  }, 2_200);
 }
 
 async function copyTextToClipboard(text) {

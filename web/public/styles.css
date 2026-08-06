@@ -31,6 +31,34 @@ body {
   margin: 0;
 }
 
+.copy-toast {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  left: 50%;
+  z-index: 2000;
+  max-width: calc(100vw - 32px);
+  padding: 9px 14px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 6px;
+  background: #202522;
+  box-shadow: 0 8px 24px rgb(18 24 20 / 20%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -8px);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+  visibility: hidden;
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
+
 button,
 select {
   color: inherit;
@@ -230,6 +258,10 @@ select {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .copy-toast {
+    transition: none;
+  }
+
   .connection[data-state="connecting"] .status-dot,
   .connection[data-state="reconnecting"] .status-dot {
     animation: none;
@@ -866,6 +898,19 @@ select:focus-visible,
   display: block;
   flex: 1 1 auto;
   min-width: 0;
+}
+
+.ce-linked-future {
+  color: var(--amber);
+}
+
+.ce-linked-future-time {
+  display: block;
+  margin-top: 2px;
+  color: #4b554f;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 550;
 }
 
 .ce-map-link {
