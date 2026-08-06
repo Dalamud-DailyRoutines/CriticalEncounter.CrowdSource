@@ -623,8 +623,8 @@ function renderDetails() {
       ? { ariaSort: "ascending", indicator: "↑" }
       : { ariaSort: "none", indicator: "↕" };
   table.innerHTML = `
-    <colgroup><col style="width:50%"><col style="width:36%"><col style="width:14%"></colgroup>
-    <thead><tr><th scope="col">${t("eventName")}</th><th scope="col" class="ce-sortable" aria-sort="${sortState.ariaSort}"><button type="button" class="ce-sort-button">${t("lastSeen")}<span class="ce-sort-indicator" aria-hidden="true">${sortState.indicator}</span></button></th><th scope="col">${t("source")}</th></tr></thead>`;
+    <colgroup><col style="width:60%"><col style="width:40%"></colgroup>
+    <thead><tr><th scope="col">${t("eventName")}</th><th scope="col" class="ce-sortable" aria-sort="${sortState.ariaSort}"><button type="button" class="ce-sort-button">${t("lastSeen")}<span class="ce-sort-indicator" aria-hidden="true">${sortState.indicator}</span></button></th></tr></thead>`;
   table.querySelector(".ce-sort-button").addEventListener("click", () => {
     state.eventSort = state.eventSort === "default"
       ? "desc"
@@ -657,8 +657,7 @@ function renderDetails() {
       <td class="ce-name"><span class="ce-name-inner">${icon}<span class="ce-name-content"><span class="ce-name-text"></span>${triggerDescription ? `<span class="ce-trigger"></span>` : ""}</span>${mapButton}</span></td>
       <td class="ce-last-seen">${event
         ? `<span class="ce-relative" data-relative-time="${event.lastSpawnedAt}">${formatRelativeTime(event.lastSpawnedAt)}</span><span class="ce-absolute">${formatAbsoluteTime(event.lastSpawnedAt)}</span>`
-        : `<span class="ce-relative placeholder">-</span>`}</td>
-      <td><span class="state-label${event?.sourceCount >= 2 ? " confirmed" : ""}">${event ? (event.sourceCount >= 2 ? t("confirmed") : t("observed")) : t("none")}</span></td>`;
+        : `<span class="ce-relative placeholder">-</span>`}</td>`;
     row.querySelector(".ce-name-text").textContent = name;
     if (triggerDescription)
       row.querySelector(".ce-trigger").textContent = triggerDescription;

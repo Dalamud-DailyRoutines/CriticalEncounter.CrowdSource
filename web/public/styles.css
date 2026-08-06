@@ -895,23 +895,6 @@ select:focus-visible,
   font-variant-numeric: tabular-nums;
 }
 
-.state-label {
-  display: inline-flex;
-  align-items: center;
-  min-height: 22px;
-  padding: 2px 7px;
-  border-radius: 999px;
-  background: var(--surface-muted);
-  color: var(--ink-muted);
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.state-label.confirmed {
-  background: var(--teal-soft);
-  color: var(--teal);
-}
-
 .map-dialog {
   width: fit-content;
   min-width: min(360px, calc(100vw - 32px));
