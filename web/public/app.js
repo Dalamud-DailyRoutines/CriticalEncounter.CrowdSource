@@ -63,6 +63,39 @@ const uiLanguages = [
 
 marked.use(markedAlert());
 
+const copyConfiguration = {
+  default: {
+    enabled: true,
+    cooldownMinutesByEventType: {},
+    rules: []
+  },
+  gameplays: {
+    SaveTheQueen: {
+      enabled: true,
+      cooldownMinutesByEventType: { CE: 80 },
+      rules: [
+        { eventType: "CE", eventIDs: [16, 32], format: "lastSeen" }
+      ]
+    },
+    OccultCrescent: {
+      enabled: true,
+      cooldownMinutesByEventType: { CE: 60, FATE: 60 },
+      rules: [
+        { eventType: "CE", eventIDs: [48, 64], format: "lastSeen" }
+      ],
+      linkedGroups: [
+        { areaCodes: ["SouthHorn"], eventType: "FATE", eventIDs: [1976, 1977], intervalMinutes: 30 },
+        { areaCodes: ["NorthHorn"], eventType: "FATE", eventIDs: [2073, 2072], intervalMinutes: 30 }
+      ]
+    },
+    Eureka: {
+      enabled: false,
+      cooldownMinutesByEventType: {},
+      rules: []
+    }
+  }
+};
+
 async function initialize() {
   const [dataCenters, catalog] = await Promise.all([
     fetch("/assets/data-centers.json").then(response => response.json()),
@@ -611,6 +644,8 @@ function renderDetails() {
   const gameplay = state.catalog.gameplays.find(item => item.code === area.gameplay);
   const header = createAreaHeader(gameplay, chapterName, mapName, observed, area.events.length);
   const panel = createAreaPanel(instance, areas, contentLanguageCode);
+  const copyProfile = getCopyProfile(area.gameplay);
+  const copyEnabled = copyProfile.enabled !== false;
   section.append(header, panel);
 
   const wrapper = document.createElement("div");
@@ -623,8 +658,8 @@ function renderDetails() {
       ? { ariaSort: "ascending", indicator: "↑" }
       : { ariaSort: "none", indicator: "↕" };
   table.innerHTML = `
-    <colgroup><col style="width:60%"><col style="width:40%"></colgroup>
-    <thead><tr><th scope="col">${t("eventName")}</th><th scope="col" class="ce-sortable" aria-sort="${sortState.ariaSort}"><button type="button" class="ce-sort-button">${t("lastSeen")}<span class="ce-sort-indicator" aria-hidden="true">${sortState.indicator}</span></button></th></tr></thead>`;
+    <colgroup><col style="width:${copyEnabled ? "54%" : "60%"}"><col style="width:${copyEnabled ? "31%" : "40%"}">${copyEnabled ? "<col style=\"width:15%\">" : ""}</colgroup>
+    <thead><tr><th scope="col">${t("eventName")}</th><th scope="col" class="ce-sortable" aria-sort="${sortState.ariaSort}"><button type="button" class="ce-sort-button">${t("lastSeen")}<span class="ce-sort-indicator" aria-hidden="true">${sortState.indicator}</span></button></th>${copyEnabled ? `<th scope="col" class="ce-actions-heading">${t("copyColumn")}</th>` : ""}</tr></thead>`;
   table.querySelector(".ce-sort-button").addEventListener("click", () => {
     state.eventSort = state.eventSort === "default"
       ? "desc"
@@ -657,7 +692,7 @@ function renderDetails() {
       <td class="ce-name"><span class="ce-name-inner">${icon}<span class="ce-name-content"><span class="ce-name-text"></span>${triggerDescription ? `<span class="ce-trigger"></span>` : ""}</span>${mapButton}</span></td>
       <td class="ce-last-seen">${event
         ? `<span class="ce-relative" data-relative-time="${event.lastSpawnedAt}">${formatRelativeTime(event.lastSpawnedAt)}</span><span class="ce-absolute">${formatAbsoluteTime(event.lastSpawnedAt)}</span>`
-        : `<span class="ce-relative placeholder">-</span>`}</td>`;
+        : `<span class="ce-relative placeholder">-</span>`}</td>${copyEnabled ? `<td class="ce-actions"></td>` : ""}`;
     row.querySelector(".ce-name-text").textContent = name;
     if (triggerDescription)
       row.querySelector(".ce-trigger").textContent = triggerDescription;
@@ -666,6 +701,12 @@ function renderDetails() {
       mapButtonElement.setAttribute("aria-label", t("openMap"));
       mapButtonElement.title = t("openMap");
       mapButtonElement.addEventListener("click", () => openEventMap(area, catalogEvent, name));
+    }
+    if (copyEnabled) {
+      const copyButton = createCopyButton(getCopyText(area, catalogEvent, instance, contentLanguageCode));
+      copyButton.dataset.eventType = catalogEvent.eventType;
+      copyButton.dataset.eventID = String(catalogEvent.eventID);
+      row.querySelector(".ce-actions").append(copyButton);
     }
     rows.push({ event, row });
   }
@@ -893,7 +934,192 @@ function createAreaPanel(instance, areas, contentLanguageCode) {
 function updateRelativeTimes() {
   for (const element of document.querySelectorAll("[data-relative-time]"))
     element.textContent = formatRelativeTime(Number(element.dataset.relativeTime));
+  updateCopyButtonTexts();
   renderSummary();
+}
+
+function getCopyProfile(gameplayCode) {
+  return copyConfiguration.gameplays[gameplayCode] ?? copyConfiguration.default;
+}
+
+function getCopyRule(profile, area, catalogEvent) {
+  return profile.rules?.find(rule =>
+    (!rule.eventType || rule.eventType === catalogEvent.eventType) &&
+    (!rule.eventIDs || rule.eventIDs.includes(catalogEvent.eventID)) &&
+    (!rule.areaCodes || rule.areaCodes.includes(area.code)));
+}
+
+function getLinkedCopyGroup(profile, area, catalogEvent) {
+  return profile.linkedGroups?.find(group =>
+    group.eventType === catalogEvent.eventType &&
+    group.areaCodes.includes(area.code) &&
+    group.eventIDs.includes(catalogEvent.eventID));
+}
+
+function getEventLastSeen(area, catalogEvent, instance) {
+  return instance.eventLastSeen[
+    `${area.territoryIDs[0]}:${catalogEvent.eventType}:${catalogEvent.eventID}`
+  ];
+}
+
+function getLocalizedEventName(catalogEvent, contentLanguageCode) {
+  return catalogEvent.localizedNames[contentLanguageCode] ??
+    catalogEvent.localizedNames.CHS ??
+    `${catalogEvent.eventType} ${catalogEvent.eventID}`;
+}
+
+function getCopyText(area, catalogEvent, instance, contentLanguageCode) {
+  const profile = getCopyProfile(area.gameplay);
+  const linkedGroup = getLinkedCopyGroup(profile, area, catalogEvent);
+  if (linkedGroup)
+    return formatLinkedCopyText(area, linkedGroup, instance, contentLanguageCode);
+
+  const name = getLocalizedEventName(catalogEvent, contentLanguageCode);
+  const event = getEventLastSeen(area, catalogEvent, instance);
+  const rule = getCopyRule(profile, area, catalogEvent);
+  const cooldownMinutes = rule?.cooldownMinutes ??
+    profile.cooldownMinutesByEventType?.[catalogEvent.eventType] ??
+    null;
+  const format = rule?.format ?? (cooldownMinutes === null ? "lastSeen" : "cooldown");
+  return format === "lastSeen"
+    ? formatLastSeenCopyText(name, event)
+    : formatCooldownCopyText(name, event, cooldownMinutes);
+}
+
+function formatLastSeenCopyText(name, event) {
+  return `${name}【${t("copyLastSeen", { time: formatCopyLastSeenTime(event) })}】`;
+}
+
+function formatCooldownCopyText(name, event, cooldownMinutes) {
+  const now = getServerNowSeconds();
+  const difference = event ? Math.max(0, now - event.lastSpawnedAt) : Number.POSITIVE_INFINITY;
+  const status = difference >= cooldownMinutes * 60
+    ? t("copyAvailable")
+    : t("copyWaitingMinutes", { minutes: Math.max(1, Math.ceil((cooldownMinutes * 60 - difference) / 60)) });
+  return `${name}（${status}）【${t("copyLastSeen", { time: formatCopyLastSeenTime(event) })}】`;
+}
+
+function formatCopyLastSeenTime(event) {
+  if (!event)
+    return t("copyNoRecord");
+  if (getServerNowSeconds() - event.lastSpawnedAt >= 21_600)
+    return t("copyLongAgo");
+  return `${formatAbsoluteTime(event.lastSpawnedAt)}（${formatCopyRelativeTime(event.lastSpawnedAt)}）`;
+}
+
+function formatCopyRelativeTime(unixSeconds) {
+  const difference = Math.max(0, getServerNowSeconds() - unixSeconds);
+  if (difference < 60)
+    return t("copySecondsAgo", { value: difference });
+  if (difference < 3600)
+    return t("copyMinutesAgo", { value: Math.floor(difference / 60) });
+  return t("copyHoursAgo", { value: Math.floor(difference / 3600) });
+}
+
+function formatLinkedCopyText(area, group, instance, contentLanguageCode) {
+  const entries = group.eventIDs
+    .map(eventID => area.events.find(event =>
+      event.eventType === group.eventType && event.eventID === eventID))
+    .filter(Boolean);
+  const names = entries.map(event => getLocalizedEventName(event, contentLanguageCode));
+  const records = entries.map(event => ({ event, lastSeen: getEventLastSeen(area, event, instance) }));
+  if (records.every(item => !item.lastSeen))
+    return `${names.join("/")}【${t("copyNaturalRefresh")}】`;
+
+  const latest = records
+    .filter(item => item.lastSeen)
+    .reduce((current, item) => item.lastSeen.lastSpawnedAt > current.lastSeen.lastSpawnedAt ? item : current);
+  const now = getServerNowSeconds();
+  if (now - latest.lastSeen.lastSpawnedAt >= 21_600)
+    return `${names.join("/")}【${t("copyNaturalRefresh")}】`;
+
+  const intervalSeconds = group.intervalMinutes * 60;
+  const latestIndex = records.indexOf(latest);
+  let naturalRefreshCount = 0;
+  const lines = records.map((item, index) => {
+    const steps = (index - latestIndex + records.length) % records.length || records.length;
+    const refreshAt = latest.lastSeen.lastSpawnedAt + intervalSeconds * steps;
+    if (refreshAt <= now) {
+      naturalRefreshCount++;
+      return `${getLocalizedEventName(item.event, contentLanguageCode)}【${t("copyNaturalRefresh")}】`;
+    }
+    const minutes = Math.ceil((refreshAt - now) / 60);
+    return `${formatCopyRefreshTime(refreshAt)}（${t("copyWaitingMinutes", { minutes })}）${t("copyRefreshSuffix")}【${getLocalizedEventName(item.event, contentLanguageCode)}】`;
+  });
+  if (naturalRefreshCount === records.length)
+    return `${names.join("/")}【${t("copyNaturalRefresh")}】`;
+  return lines.join("\n");
+}
+
+function formatCopyRefreshTime(unixSeconds) {
+  return new Intl.DateTimeFormat(getSelectedLanguage().locale, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  }).format(new Date(unixSeconds * 1000));
+}
+
+function updateCopyButtonTexts() {
+  const instance = state.selectedZoneServerID === null
+    ? null
+    : state.instances.get(state.selectedZoneServerID);
+  const area = state.catalog?.areas.find(item => item.code === state.selectedAreaCode);
+  if (!instance || !area)
+    return;
+  const contentLanguageCode = getSelectedLanguage().code;
+  for (const button of document.querySelectorAll(".ce-copy-button")) {
+    const catalogEvent = area.events.find(event =>
+      event.eventType === button.dataset.eventType &&
+      String(event.eventID) === button.dataset.eventID);
+    if (catalogEvent)
+      button.title = getCopyText(area, catalogEvent, instance, contentLanguageCode);
+  }
+}
+
+function createCopyButton(copyText) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "ce-copy-button";
+  button.setAttribute("aria-label", t("copy"));
+  button.title = copyText;
+  button.innerHTML = `
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>`;
+  button.addEventListener("click", async () => {
+    try {
+      await copyTextToClipboard(button.title);
+      button.classList.add("is-copied");
+      window.setTimeout(() => button.classList.remove("is-copied"), 1_200);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+  return button;
+}
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch (error) {
+      console.debug("Clipboard API unavailable, using fallback.", error);
+    }
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.append(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+  if (!copied)
+    throw new Error("Clipboard access is unavailable");
 }
 
 function getServerNowSeconds() {

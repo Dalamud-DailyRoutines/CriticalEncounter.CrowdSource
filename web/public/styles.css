@@ -805,6 +805,41 @@ select:focus-visible,
   opacity: 0.6;
 }
 
+.ce-table .ce-actions-heading,
+.ce-table .ce-actions {
+  text-align: center;
+}
+
+.ce-copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.ce-copy-button:hover,
+.ce-copy-button:focus-visible {
+  border-color: var(--line);
+  background: var(--surface-muted);
+  color: var(--ink);
+}
+
+.ce-copy-button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+.ce-copy-button.is-copied {
+  color: var(--teal);
+}
+
 .ce-sort-button:hover .ce-sort-indicator,
 .ce-sort-button:focus-visible .ce-sort-indicator {
   opacity: 1;
