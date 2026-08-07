@@ -32,8 +32,8 @@
   ],
   "routes": [
     {
-      "pattern": "ce-crowdsource.atmoomen.top",
-      "custom_domain": true
+      "pattern": "ce-crowdsource.atmoomen.top/*",
+      "zone_name": "atmoomen.top"
     }
   ],
   "observability": {
