@@ -785,7 +785,7 @@ function createLinkedEventRows(area, group, instance, contentLanguageCode, copyE
     if (index === nextIndex) {
       statusCell.innerHTML = `
         <span class="ce-relative ce-linked-future" data-future-time="${refreshAt}">${formatFutureMinutes(refreshAt)}</span>
-        <span class="ce-linked-future-time">${t("futureRefreshAt", { time: formatCopyRefreshTime(refreshAt) })}</span>`;
+        <span class="ce-linked-future-time">${t("futureRefreshAt", { time: formatAbsoluteTime(refreshAt) })}</span>`;
     } else if (records[index].lastSeen) {
       statusCell.innerHTML = `
         <span class="ce-relative" data-relative-time="${records[index].lastSeen.lastSpawnedAt}">${formatRelativeTime(records[index].lastSeen.lastSpawnedAt)}</span>
@@ -1138,7 +1138,11 @@ function formatLinkedCopyText(area, group, instance, contentLanguageCode) {
 }
 
 function formatCopyRefreshTime(unixSeconds) {
-  return formatAbsoluteTime(unixSeconds);
+  return new Intl.DateTimeFormat(getSelectedLanguage().locale, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  }).format(new Date(unixSeconds * 1000));
 }
 
 function formatFutureMinutes(unixSeconds) {

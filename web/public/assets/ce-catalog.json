@@ -402,12 +402,12 @@
             "y": 17.09
           },
           "localizedNames": {
-            "CHS": "幸福的魔法罐",
-            "DE": "Freude im Pott",
-            "EN": "Persistent Pots",
-            "FR": "Pas de pot pour les pots",
-            "JA": "しあわせのマジックポット",
-            "KO": "행복한 마법 항아리"
+            "CHS": "幸福的魔法罐（上）",
+            "DE": "Freude im Pott (Oben)",
+            "EN": "Persistent Pots (Upper)",
+            "FR": "Pas de pot pour les pots (Haut)",
+            "JA": "しあわせのマジックポット（上）",
+            "KO": "행복한 마법 항아리（상）"
           },
           "order": 17
         },
@@ -419,12 +419,12 @@
             "y": 32.08
           },
           "localizedNames": {
-            "CHS": "瑟瑟发抖的魔法罐",
-            "DE": "Wunder im Pott",
-            "EN": "Pleading Pots",
-            "FR": "Mauvais œil pour les pots",
-            "JA": "カチカチのマジックポット",
-            "KO": "고집불통 마법 항아리"
+            "CHS": "被欺负的魔法罐（下）",
+            "DE": "Versteckt im Pott (Unten)",
+            "EN": "Daylight Pottery (Lower)",
+            "FR": "Cache-cache avec le pot (Bas)",
+            "JA": "隠されのマジックポット（下）",
+            "KO": "찾아다니는 마법 항아리（하）"
           },
           "order": 18
         }
@@ -795,12 +795,12 @@
             "y": 12.1
           },
           "localizedNames": {
-            "CHS": "被欺负的魔法罐",
-            "DE": "Versteckt im Pott",
-            "EN": "Daylight Pottery",
-            "FR": "Cache-cache avec le pot",
-            "JA": "隠されのマジックポット",
-            "KO": "찾아다니는 마법 항아리"
+            "CHS": "被欺负的魔法罐（上）",
+            "DE": "Versteckt im Pott (Oben)",
+            "EN": "Daylight Pottery (Upper)",
+            "FR": "Cache-cache avec le pot (Haut)",
+            "JA": "隠されのマジックポット（上）",
+            "KO": "찾아다니는 마법 항아리（상）"
           },
           "order": 17
         },
@@ -812,12 +812,12 @@
             "y": 26.2
           },
           "localizedNames": {
-            "CHS": "被吹飞的魔法罐",
-            "DE": "Wind im Pott",
-            "EN": "In a Pot of Bother",
-            "FR": "Se prendre un vent, c'est pas de pot",
-            "JA": "飛ばされのマジックポット",
-            "KO": "날아가는 마법 항아리"
+            "CHS": "被吹飞的魔法罐（下）",
+            "DE": "Wind im Pott (Unten)",
+            "EN": "In a Pot of Bother (Lower)",
+            "FR": "Se prendre un vent, c'est pas de pot (Bas)",
+            "JA": "飛ばされのマジックポット（下）",
+            "KO": "날아가는 마법 항아리（하）"
           },
           "order": 18
         }
