@@ -496,21 +496,25 @@ select:focus-visible,
   box-shadow: inset 3px 0 0 var(--accent);
 }
 
-.instance-top,
-.instance-content {
-  min-width: 0;
-}
-
 .instance-content {
   display: grid;
   flex: 1 1 auto;
   gap: 8px;
+  min-width: 0;
 }
 
 .instance-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
+}
+
+.instance-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
   gap: 10px;
 }
 
@@ -544,11 +548,12 @@ select:focus-visible,
 
 .instance-time {
   display: block;
+  flex: 0 1 auto;
   overflow: hidden;
   color: var(--ink-muted);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
-  text-align: right;
+  margin-left: auto;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

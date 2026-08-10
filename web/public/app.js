@@ -598,8 +598,10 @@ function createInstanceButton(instance, gameplayEventKeys) {
         <span class="instance-id">${instance.zoneServerID}</span>
         <span class="instance-state${active ? " active" : " idle"}">${active ? t("instanceActive") : t("instanceIdle")}</span>
       </span>
-      <span class="instance-gameplays">${gameplayIcons}</span>
-      <time class="instance-time" data-relative-time="${instance.lastReceivedAt}">${formatRelativeTime(instance.lastReceivedAt)}</time>
+      <span class="instance-bottom">
+        <span class="instance-gameplays">${gameplayIcons}</span>
+        <time class="instance-time" data-relative-time="${instance.lastReceivedAt}">${formatRelativeTime(instance.lastReceivedAt)}</time>
+      </span>
     </span>`;
   button.addEventListener("click", () => {
     state.selectedZoneServerID = instance.zoneServerID;
