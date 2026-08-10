@@ -472,8 +472,9 @@ select:focus-visible,
 }
 
 .instance-button {
-  display: grid;
-  gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
   padding: 11px 12px;
   border: 1px solid var(--line);
@@ -496,7 +497,17 @@ select:focus-visible,
 }
 
 .instance-top,
-.instance-bottom {
+.instance-content {
+  min-width: 0;
+}
+
+.instance-content {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 8px;
+}
+
+.instance-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -511,31 +522,35 @@ select:focus-visible,
   font-weight: 700;
 }
 
-.instance-progress {
+.instance-gameplays {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.instance-gameplay-icon {
   display: block;
-  height: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  opacity: 0.28;
+  transition: opacity 0.18s ease;
+}
+
+.instance-gameplay-icon.has-data {
+  opacity: 1;
+}
+
+.instance-time {
+  display: block;
   overflow: hidden;
-  border-radius: 999px;
-  background: var(--surface-muted);
-}
-
-.instance-progress span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--teal);
-  transition: width 0.3s ease;
-}
-
-.instance-button[aria-current="true"] .instance-progress span {
-  background: var(--accent);
-}
-
-.instance-time,
-.instance-observed {
   color: var(--ink-muted);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .instance-state {

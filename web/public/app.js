@@ -539,10 +539,14 @@ function renderSummary() {
 function renderInstances() {
   const visibleAreas = state.catalog.areas
     .filter(area => area.serverGroups.includes(getSelectedDataCenter().serverGroup));
-  const visibleEventKeys = new Set(visibleAreas.flatMap(area =>
-    area.territoryIDs.flatMap(territoryID =>
-      area.events.map(event => `${territoryID}:${event.eventType}:${event.eventID}`))));
-  const visibleEventCount = visibleAreas.reduce((count, area) => count + area.events.length, 0);
+  const gameplayEventKeys = new Map(state.catalog.gameplays.map(gameplay => [gameplay.code, new Set()]));
+  for (const area of visibleAreas) {
+    const eventKeys = gameplayEventKeys.get(area.gameplay);
+    if (!eventKeys) continue;
+    for (const territoryID of area.territoryIDs)
+      for (const event of area.events)
+        eventKeys.add(`${territoryID}:${event.eventType}:${event.eventID}`);
+  }
   const query = state.instanceSearch.trim();
   const instances = [...state.instances.values()].filter(instance =>
     query === "" || String(instance.zoneServerID).includes(query));
@@ -563,7 +567,7 @@ function renderInstances() {
   const activeInstances = instances.filter(instance => now - instance.lastReceivedAt < 3600);
   const idleInstances = instances.filter(instance => now - instance.lastReceivedAt >= 3600);
   for (const instance of activeInstances)
-    fragment.append(createInstanceButton(instance, visibleEventKeys, visibleEventCount));
+    fragment.append(createInstanceButton(instance, gameplayEventKeys));
   if (activeInstances.length > 0 && idleInstances.length > 0) {
     const divider = document.createElement("div");
     divider.className = "instance-divider";
@@ -571,27 +575,30 @@ function renderInstances() {
     fragment.append(divider);
   }
   for (const instance of idleInstances)
-    fragment.append(createInstanceButton(instance, visibleEventKeys, visibleEventCount));
+    fragment.append(createInstanceButton(instance, gameplayEventKeys));
 
   elements.instanceList.replaceChildren(fragment);
 }
 
-function createInstanceButton(instance, visibleEventKeys, visibleEventCount) {
-  const observedCount = Object.keys(instance.eventLastSeen).filter(key => visibleEventKeys.has(key)).length;
+function createInstanceButton(instance, gameplayEventKeys) {
   const active = getServerNowSeconds() - instance.lastReceivedAt < 3600;
   const button = document.createElement("button");
   button.type = "button";
   button.className = "instance-button";
   button.ariaCurrent = String(instance.zoneServerID === state.selectedZoneServerID);
-  const progress = visibleEventCount === 0 ? 0 : Math.round((observedCount / visibleEventCount) * 100);
+  const gameplayIcons = state.catalog.gameplays.map(gameplay => {
+    const eventKeys = gameplayEventKeys.get(gameplay.code) ?? [];
+    const hasData = [...eventKeys].some(key => instance.eventLastSeen[key]);
+    const gameplayName = gameplay.localizedNames[getSelectedLanguage().code] ?? gameplay.localizedNames.CHS;
+    return `<img class="instance-gameplay-icon${hasData ? " has-data" : ""}" src="/assets/icons/${gameplay.iconID}.png" alt="${gameplayName}" title="${gameplayName}">`;
+  }).join("");
   button.innerHTML = `
-    <span class="instance-top">
-      <span class="instance-id">${instance.zoneServerID}</span>
-      <span class="instance-state${active ? " active" : " idle"}">${active ? t("instanceActive") : t("instanceIdle")}</span>
-    </span>
-    <span class="instance-progress" aria-hidden="true"><span style="width:${progress}%"></span></span>
-    <span class="instance-bottom">
-      <span class="instance-observed">${observedCount} / ${visibleEventCount}</span>
+    <span class="instance-gameplays">${gameplayIcons}</span>
+    <span class="instance-content">
+      <span class="instance-top">
+        <span class="instance-id">${instance.zoneServerID}</span>
+        <span class="instance-state${active ? " active" : " idle"}">${active ? t("instanceActive") : t("instanceIdle")}</span>
+      </span>
       <time class="instance-time" data-relative-time="${instance.lastReceivedAt}">${formatRelativeTime(instance.lastReceivedAt)}</time>
     </span>`;
   button.addEventListener("click", () => {
