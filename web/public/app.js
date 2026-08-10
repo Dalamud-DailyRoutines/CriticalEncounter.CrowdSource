@@ -593,12 +593,12 @@ function createInstanceButton(instance, gameplayEventKeys) {
     return `<img class="instance-gameplay-icon${hasData ? " has-data" : ""}" src="/assets/icons/${gameplay.iconID}.png" alt="${gameplayName}" title="${gameplayName}">`;
   }).join("");
   button.innerHTML = `
-    <span class="instance-gameplays">${gameplayIcons}</span>
     <span class="instance-content">
       <span class="instance-top">
         <span class="instance-id">${instance.zoneServerID}</span>
         <span class="instance-state${active ? " active" : " idle"}">${active ? t("instanceActive") : t("instanceIdle")}</span>
       </span>
+      <span class="instance-gameplays">${gameplayIcons}</span>
       <time class="instance-time" data-relative-time="${instance.lastReceivedAt}">${formatRelativeTime(instance.lastReceivedAt)}</time>
     </span>`;
   button.addEventListener("click", () => {
