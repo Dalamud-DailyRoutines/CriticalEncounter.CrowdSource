@@ -632,7 +632,9 @@ function hasInstanceGameplayData(instance, gameplayCode, eventKeys) {
 function getSelectedAreaTrack(instance, areaCode) {
   const tracks = instance.areaTracks?.[areaCode] ?? [];
   const now = getServerNowSeconds();
-  const activeTracks = tracks.filter(track => track.expiresAt > now);
+  const activeTracks = tracks
+    .filter(track => track.expiresAt > now)
+    .sort((left, right) => right.lastReceivedAt - left.lastReceivedAt || left.ordinal - right.ordinal);
   const selectedTrackID = state.selectedTrackIDs.get(areaCode);
   const selectedTrack = activeTracks.find(track => track.trackID === selectedTrackID) ??
     activeTracks[0] ?? tracks.slice().sort((left, right) => right.lastReceivedAt - left.lastReceivedAt)[0];
@@ -654,7 +656,7 @@ function renderInstanceTrackSelector(instance, areaCode, selectedTrackID) {
   const now = getServerNowSeconds();
   const activeTracks = (instance.areaTracks?.[areaCode] ?? [])
     .filter(track => track.expiresAt > now)
-    .sort((left, right) => left.ordinal - right.ordinal);
+    .sort((left, right) => right.lastReceivedAt - left.lastReceivedAt || left.ordinal - right.ordinal);
   if (activeTracks.length < 2)
     return;
 
