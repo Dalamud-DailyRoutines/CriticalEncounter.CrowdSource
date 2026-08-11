@@ -6,6 +6,7 @@ const state = {
   uiLanguageCode: "zh",
   selectedDataCenterID: 101,
   selectedZoneServerID: null,
+  selectedTrackIDs: new Map(),
   socket: null,
   reconnectAttempt: 0,
   reconnectTimer: 0,
@@ -37,6 +38,9 @@ const elements = {
   dataCenterName: document.querySelector("#dataCenterName"),
   dataCenterSelect: document.querySelector("#dataCenterSelect"),
   detailHeading: document.querySelector("#detailHeading"),
+  instanceConflict: document.querySelector("#instanceConflict"),
+  instanceConflictWarning: document.querySelector("#instanceConflictWarning"),
+  instanceTrackSelector: document.querySelector("#instanceTrackSelector"),
   emptyState: document.querySelector("#emptyState"),
   emptyStateText: document.querySelector("#emptyStateText"),
   instanceCount: document.querySelector("#instanceCount"),
@@ -151,6 +155,7 @@ async function initialize() {
   window.setInterval(() => {
     pruneExpiredInstances();
     updateRelativeTimes();
+    updateTrackConflictVisibility();
   }, 30_000);
 }
 
@@ -175,6 +180,7 @@ function bindEvents() {
   elements.dataCenterSelect.addEventListener("change", () => {
     state.selectedDataCenterID = Number(elements.dataCenterSelect.value);
     state.selectedZoneServerID = null;
+    state.selectedTrackIDs.clear();
     state.instances.clear();
     localStorage.setItem("ce-crowdsource-data-center", String(state.selectedDataCenterID));
     updateURL();
@@ -588,7 +594,7 @@ function createInstanceButton(instance, gameplayEventKeys) {
   button.ariaCurrent = String(instance.zoneServerID === state.selectedZoneServerID);
   const gameplayIcons = state.catalog.gameplays.map(gameplay => {
     const eventKeys = gameplayEventKeys.get(gameplay.code) ?? [];
-    const hasData = [...eventKeys].some(key => instance.eventLastSeen[key]);
+    const hasData = hasInstanceGameplayData(instance, gameplay.code, eventKeys);
     const gameplayName = gameplay.localizedNames[getSelectedLanguage().code] ?? gameplay.localizedNames.CHS;
     return `<img class="instance-gameplay-icon${hasData ? " has-data" : ""}" src="/assets/icons/${gameplay.iconID}.png" alt="${gameplayName}" title="${gameplayName}">`;
   }).join("");
@@ -605,6 +611,7 @@ function createInstanceButton(instance, gameplayEventKeys) {
     </span>`;
   button.addEventListener("click", () => {
     state.selectedZoneServerID = instance.zoneServerID;
+    state.selectedTrackIDs.clear();
     state.areaSelectorOpen = false;
     updateURL();
     renderInstances();
@@ -613,10 +620,79 @@ function createInstanceButton(instance, gameplayEventKeys) {
   return button;
 }
 
+function hasInstanceGameplayData(instance, gameplayCode, eventKeys) {
+  const areaTracks = Object.entries(instance.areaTracks ?? {})
+    .filter(([areaCode]) => state.catalog.areas.find(area => area.code === areaCode)?.gameplay === gameplayCode)
+    .flatMap(([, tracks]) => tracks);
+  if (areaTracks.length > 0)
+    return areaTracks.some(track => [...eventKeys].some(key => track.eventLastSeen[key]));
+  return [...eventKeys].some(key => instance.eventLastSeen[key]);
+}
+
+function getSelectedAreaTrack(instance, areaCode) {
+  const tracks = instance.areaTracks?.[areaCode] ?? [];
+  const now = getServerNowSeconds();
+  const activeTracks = tracks.filter(track => track.expiresAt > now);
+  const selectedTrackID = state.selectedTrackIDs.get(areaCode);
+  const selectedTrack = activeTracks.find(track => track.trackID === selectedTrackID) ??
+    activeTracks[0] ?? tracks.slice().sort((left, right) => right.lastReceivedAt - left.lastReceivedAt)[0];
+  if (selectedTrack) {
+    state.selectedTrackIDs.set(areaCode, selectedTrack.trackID);
+    return selectedTrack;
+  }
+  return {
+    trackID: "legacy",
+    ordinal: 1,
+    firstObservedAt: instance.lastReceivedAt,
+    lastReceivedAt: instance.lastReceivedAt,
+    expiresAt: instance.lastReceivedAt + 3_600,
+    eventLastSeen: instance.eventLastSeen
+  };
+}
+
+function renderInstanceTrackSelector(instance, areaCode, selectedTrackID) {
+  const now = getServerNowSeconds();
+  const activeTracks = (instance.areaTracks?.[areaCode] ?? [])
+    .filter(track => track.expiresAt > now)
+    .sort((left, right) => left.ordinal - right.ordinal);
+  if (activeTracks.length < 2)
+    return;
+
+  elements.instanceConflict.hidden = false;
+  elements.instanceConflictWarning.textContent = t("instanceConflictWarning");
+  const legend = document.createElement("legend");
+  legend.textContent = t("instanceTrackSelection");
+  elements.instanceTrackSelector.append(legend);
+  const name = `instance-track-${areaCode}`;
+  for (const track of activeTracks) {
+    const label = document.createElement("label");
+    label.className = "instance-track-option";
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = name;
+    input.value = track.trackID;
+    input.checked = track.trackID === selectedTrackID;
+    input.addEventListener("change", () => {
+      if (!input.checked) return;
+      state.selectedTrackIDs.set(areaCode, track.trackID);
+      renderDetails();
+    });
+    const text = document.createElement("span");
+    text.textContent = t("instanceTrackLabel", {
+      ordinal: track.ordinal,
+      time: formatAbsoluteTime(track.firstObservedAt)
+    });
+    label.append(input, text);
+    elements.instanceTrackSelector.append(label);
+  }
+}
+
 function renderDetails() {
   const instance = state.selectedZoneServerID === null ? null : state.instances.get(state.selectedZoneServerID);
   elements.emptyState.hidden = instance !== null && instance !== undefined;
   elements.areaList.hidden = !instance;
+  elements.instanceConflict.hidden = true;
+  elements.instanceTrackSelector.replaceChildren();
 
   if (!instance) {
     elements.detailHeading.textContent = t("selectInstance");
@@ -643,12 +719,15 @@ function renderDetails() {
       ? storedAreaCode
       : areas[0].code;
 
-  const fragment = document.createDocumentFragment();
   const area = areas.find(item => item.code === state.selectedAreaCode);
+  const track = getSelectedAreaTrack(instance, area.code);
+  const viewInstance = { ...instance, eventLastSeen: track.eventLastSeen };
+  renderInstanceTrackSelector(instance, area.code, track.trackID);
+  const fragment = document.createDocumentFragment();
   const section = document.createElement("section");
   section.className = "area-section";
   const observed = area.events.filter(event =>
-    instance.eventLastSeen[`${area.territoryIDs[0]}:${event.eventType}:${event.eventID}`]).length;
+    viewInstance.eventLastSeen[`${area.territoryIDs[0]}:${event.eventType}:${event.eventID}`]).length;
   const contentLanguageCode = getSelectedLanguage().code;
   const chapterName = area.localizedNames[contentLanguageCode] ?? area.name;
   const mapName = area.mapNames[contentLanguageCode] ?? area.mapNames.CHS;
@@ -690,11 +769,11 @@ function renderDetails() {
       if (renderedLinkedGroups.has(linkedGroup))
         continue;
       renderedLinkedGroups.add(linkedGroup);
-      rows.push(createLinkedEventRows(area, linkedGroup, instance, contentLanguageCode, copyEnabled));
+      rows.push(createLinkedEventRows(area, linkedGroup, viewInstance, contentLanguageCode, copyEnabled));
       continue;
     }
 
-    const event = instance.eventLastSeen[
+    const event = viewInstance.eventLastSeen[
       `${area.territoryIDs[0]}:${catalogEvent.eventType}:${catalogEvent.eventID}`
     ];
     const row = document.createElement("tr");
@@ -724,7 +803,7 @@ function renderDetails() {
       mapButtonElement.addEventListener("click", () => openEventMap(area, catalogEvent, name));
     }
     if (copyEnabled) {
-      const copyButton = createCopyButton(getCopyText(area, catalogEvent, instance, contentLanguageCode));
+      const copyButton = createCopyButton(getCopyText(area, catalogEvent, viewInstance, contentLanguageCode));
       copyButton.dataset.eventType = catalogEvent.eventType;
       copyButton.dataset.eventID = String(catalogEvent.eventID);
       row.querySelector(".ce-actions").append(copyButton);
@@ -988,8 +1067,9 @@ function createAreaPanel(instance, areas, contentLanguageCode) {
     const options = document.createElement("div");
     options.className = "region-group-options";
     for (const area of gameplayAreas) {
+      const areaTrack = getSelectedAreaTrack(instance, area.code);
       const observed = area.events.filter(event =>
-        instance.eventLastSeen[`${area.territoryIDs[0]}:${event.eventType}:${event.eventID}`]).length;
+        areaTrack.eventLastSeen[`${area.territoryIDs[0]}:${event.eventType}:${event.eventID}`]).length;
       const selected = area.code === state.selectedAreaCode;
       const option = document.createElement("button");
       option.type = "button";
@@ -1033,6 +1113,20 @@ function updateRelativeTimes() {
     element.textContent = formatFutureMinutes(Number(element.dataset.futureTime));
   updateCopyButtonTexts();
   renderSummary();
+}
+
+function updateTrackConflictVisibility() {
+  const instance = state.selectedZoneServerID === null
+    ? null
+    : state.instances.get(state.selectedZoneServerID);
+  const area = state.catalog?.areas.find(item => item.code === state.selectedAreaCode);
+  if (!instance || !area)
+    return;
+  const activeTrackCount = (instance.areaTracks?.[area.code] ?? [])
+    .filter(track => track.expiresAt > getServerNowSeconds()).length;
+  if (elements.instanceConflict.hidden === (activeTrackCount < 2))
+    return;
+  renderDetails();
 }
 
 function getCopyProfile(gameplayCode) {
@@ -1166,13 +1260,15 @@ function updateCopyButtonTexts() {
   const area = state.catalog?.areas.find(item => item.code === state.selectedAreaCode);
   if (!instance || !area)
     return;
+  const track = getSelectedAreaTrack(instance, area.code);
+  const viewInstance = { ...instance, eventLastSeen: track.eventLastSeen };
   const contentLanguageCode = getSelectedLanguage().code;
   for (const button of document.querySelectorAll(".ce-copy-button")) {
     const catalogEvent = area.events.find(event =>
       event.eventType === button.dataset.eventType &&
       String(event.eventID) === button.dataset.eventID);
     if (catalogEvent)
-      button.title = getCopyText(area, catalogEvent, instance, contentLanguageCode);
+      button.title = getCopyText(area, catalogEvent, viewInstance, contentLanguageCode);
   }
 }
 

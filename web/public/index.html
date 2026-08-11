@@ -105,10 +105,14 @@
           <div>
             <p class="eyebrow" data-i18n="currentInstance">当前副本实例</p>
             <h2 id="detailHeading" data-i18n="selectInstanceHint">请在侧边栏选择对应的副本实例 ID</h2>
-          </div>
-          <div id="instanceMeta" class="instance-meta"></div>
         </div>
-        <div id="emptyState" class="empty-state">
+        <div id="instanceMeta" class="instance-meta"></div>
+      </div>
+      <div id="instanceConflict" class="instance-conflict" hidden>
+        <p id="instanceConflictWarning" class="instance-conflict-warning"></p>
+        <fieldset id="instanceTrackSelector" class="instance-track-selector"></fieldset>
+      </div>
+      <div id="emptyState" class="empty-state">
           <img src="/assets/icons/63909.png" width="48" height="48" alt="">
           <p id="emptyStateText" data-i18n="currentDataCenter">当前大区</p>
         </div>

@@ -60,10 +60,36 @@ export interface DurableInstanceState {
   revision: number;
   lastReceivedAt: number;
   eventLastSeen: Record<string, DurableEventState>;
+  areaTracks: Record<string, DurableAreaTrackCollection>;
   updatedAt: number;
 }
 
-export interface SnapshotInstance extends Omit<DurableInstanceState, "eventLastSeen"> {
+export interface DurableAreaTrackCollection {
+  nextTrackOrdinal: number;
+  reporterTrackIDs: Record<string, string>;
+  tracks: Record<string, DurableInstanceTrackState>;
+}
+
+export interface DurableInstanceTrackState {
+  trackID: string;
+  ordinal: number;
+  firstObservedAt: number;
+  lastReceivedAt: number;
+  eventLastSeen: Record<string, DurableEventState>;
+  sourceIDs: string[];
+}
+
+export interface SnapshotInstance extends Omit<DurableInstanceState, "eventLastSeen" | "areaTracks"> {
+  expiresAt: number;
+  eventLastSeen: Record<string, Omit<DurableEventState, "sourceIDs" | "firstReceivedAt">>;
+  areaTracks: Record<string, SnapshotInstanceTrack[]>;
+}
+
+export interface SnapshotInstanceTrack {
+  trackID: string;
+  ordinal: number;
+  firstObservedAt: number;
+  lastReceivedAt: number;
   expiresAt: number;
   eventLastSeen: Record<string, Omit<DurableEventState, "sourceIDs" | "firstReceivedAt">>;
 }

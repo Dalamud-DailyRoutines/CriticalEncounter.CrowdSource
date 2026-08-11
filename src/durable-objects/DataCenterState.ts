@@ -1,15 +1,20 @@
 import { DurableObject } from "cloudflare:workers";
-import { DATA_CENTERS } from "../catalog";
+import { DATA_CENTERS, getAreaForTerritory } from "../catalog";
+import { hasTrackConflict } from "../instanceTrackRules";
 import type {
   DurableEventState,
+  DurableAreaTrackCollection,
   DurableInstanceState,
+  DurableInstanceTrackState,
   Env,
   InstanceExpiredMessage,
   InstanceUpdatedMessage,
   NormalizedReport,
   ReportResponse,
   ReportResult,
+  ReportEvent,
   SnapshotInstance,
+  SnapshotInstanceTrack,
   SnapshotResponse
 } from "../models";
 
@@ -19,7 +24,12 @@ interface InstanceRow extends Record<string, SqlStorageValue> {
   revision: number;
   last_received_at: number;
   event_last_seen_json: string;
+  area_tracks_json: string | null;
   updated_at: number;
+}
+
+interface ColumnRow extends Record<string, SqlStorageValue> {
+  name: string;
 }
 
 interface RevisionRow extends Record<string, SqlStorageValue> {
@@ -45,6 +55,9 @@ interface Metrics {
   stale: number;
 }
 
+const TRACK_ACTIVE_WINDOW_SECONDS = 3_600;
+const INSTANCE_RETENTION_SECONDS = 86_400;
+
 export class DataCenterState extends DurableObject<Env> {
   private readonly sql: SqlStorage;
   private dataCenterID = 0;
@@ -62,6 +75,7 @@ export class DataCenterState extends DurableObject<Env> {
         revision INTEGER NOT NULL,
         last_received_at INTEGER NOT NULL,
         ce_last_seen_json TEXT NOT NULL,
+        area_tracks_json TEXT NOT NULL DEFAULT '{}',
         updated_at INTEGER NOT NULL,
         PRIMARY KEY (zone_server_id)
       ) WITHOUT ROWID;
@@ -116,6 +130,10 @@ export class DataCenterState extends DurableObject<Env> {
       ) WITHOUT ROWID;
     `);
 
+    const instanceColumns = Array.from(this.sql.exec<ColumnRow>("PRAGMA table_info(instance_state)"));
+    if (!instanceColumns.some(column => column.name === "area_tracks_json"))
+      this.sql.exec("ALTER TABLE instance_state ADD COLUMN area_tracks_json TEXT NOT NULL DEFAULT '{}'");
+
     const revisionRows = Array.from(this.sql.exec<RevisionRow>("SELECT COALESCE(MAX(revision), 0) AS revision FROM instance_state"));
     this.revision = revisionRows[0]?.revision ?? 0;
 
@@ -159,8 +177,8 @@ export class DataCenterState extends DurableObject<Env> {
     );
 
     this.metrics = { accepted: 0, duplicate: 0, invalid: 0, stale: 0 };
-    this.sql.exec("DELETE FROM instance_state WHERE last_received_at < ?", now - 86_400);
-    const oldestWindow = Math.floor((now - 86_400) / 3600) * 3600;
+    this.sql.exec("DELETE FROM instance_state WHERE last_received_at < ?", now - INSTANCE_RETENTION_SECONDS);
+    const oldestWindow = Math.floor((now - INSTANCE_RETENTION_SECONDS) / 3600) * 3600;
     this.sql.exec("DELETE FROM reporter_instance_window WHERE window_started_at < ?", oldestWindow);
     this.sql.exec("DELETE FROM reporter_instance_count WHERE window_started_at < ?", oldestWindow);
     this.sql.exec("DELETE FROM instance_window WHERE window_started_at < ?", oldestWindow);
@@ -200,95 +218,60 @@ export class DataCenterState extends DurableObject<Env> {
     const requestCount = this.updateRequestWindow(activityWindow);
     this.updateActivityWindow(activityWindow, report.reporterEpochID, report.zoneServerID);
 
-    const state = this.loadInstance(report.zoneServerID) ?? {
-      zoneServerID: report.zoneServerID,
-      instanceEpoch: 1,
-      revision: this.revision,
-      lastReceivedAt: 0,
-      eventLastSeen: {},
-      updatedAt: report.receivedAt
-    };
+    const state = this.loadInstance(report.zoneServerID) ?? this.createInstanceState(report);
 
-    if (state.lastReceivedAt > 0 && state.lastReceivedAt < report.receivedAt - 3600) {
+    if (state.lastReceivedAt > 0 && state.lastReceivedAt < report.receivedAt - TRACK_ACTIVE_WINDOW_SECONDS)
       state.instanceEpoch++;
-      state.eventLastSeen = {};
-    }
 
-    let changed = false;
-    let advancesActivity = false;
+    const area = getAreaForTerritory(report.territoryID);
+    const areaCode = area?.code ?? `territory-${report.territoryID}`;
+    const areaTracks = this.getOrCreateAreaTracks(state, areaCode, report.receivedAt);
+    const track = this.selectTrack(areaTracks, areaCode, report, report.receivedAt);
+    const previousTrackLastReceivedAt = track.lastReceivedAt;
+    track.lastReceivedAt = report.receivedAt;
+    if (!track.sourceIDs.includes(report.reporterEpochID))
+      track.sourceIDs.push(report.reporterEpochID);
+    areaTracks.reporterTrackIDs[report.reporterEpochID] = track.trackID;
+
+    let changed = previousTrackLastReceivedAt !== track.lastReceivedAt;
     const results: ReportResult[] = [];
 
     for (const event of report.events) {
-      const key = `${report.territoryID}:${event.eventType}:${event.eventID}`;
-      const current = state.eventLastSeen[key];
-
-      if (!current || event.spawnedAt > current.lastSpawnedAt) {
-        state.eventLastSeen[key] = {
-          territoryID: report.territoryID,
-          eventType: event.eventType,
-          eventID: event.eventID,
-          lastSpawnedAt: event.spawnedAt,
-          firstReceivedAt: report.receivedAt,
-          observedState: event.observedState,
-          sourceCount: 1,
-          sourceIDs: [report.reporterEpochID]
-        };
+      const result = this.mergeEvent(track.eventLastSeen, report, event);
+      this.mergeEvent(state.eventLastSeen, report, event);
+      if (result.changed)
         changed = true;
-        advancesActivity = true;
+      if (result.status === "accepted") {
         this.metrics.accepted++;
-        results.push(this.createResult(event.eventType, event.eventID, event.spawnedAt, "accepted"));
-        continue;
-      }
-
-      if (event.spawnedAt < current.lastSpawnedAt) {
+      } else if (result.status === "stale") {
         this.metrics.stale++;
-        results.push(this.createResult(event.eventType, event.eventID, event.spawnedAt, "stale", state.revision));
-        continue;
+      } else {
+        this.metrics.duplicate++;
       }
-
-      if (!current.sourceIDs.includes(report.reporterEpochID) && current.sourceCount === 1) {
-        current.sourceIDs.push(report.reporterEpochID);
-        current.sourceCount = 2;
-        changed = true;
-      }
-
-      if (current.observedState !== event.observedState) {
-        current.observedState = event.observedState;
-        changed = true;
-      }
-
-      this.metrics.duplicate++;
-      results.push(this.createResult(event.eventType, event.eventID, event.spawnedAt, "duplicate"));
+      results.push(this.createResult(event.eventType, event.eventID, event.spawnedAt, result.status));
     }
 
+    state.lastReceivedAt = Math.max(state.lastReceivedAt, report.receivedAt);
+    state.updatedAt = report.receivedAt;
     if (changed) {
       this.revision = Math.max(this.revision + 1, Date.now());
       state.revision = this.revision;
-      state.updatedAt = report.receivedAt;
-      if (advancesActivity)
-        state.lastReceivedAt = report.receivedAt;
-
-      this.saveInstance(state);
-
-      for (const result of results) {
-        if (result.revision === 0)
-          result.revision = state.revision;
-      }
-
-      const message: InstanceUpdatedMessage = {
-        type: "instance.updated",
-        serverTime: report.receivedAt,
-        dataCenterID: this.dataCenterID,
-        revision: state.revision,
-        instance: this.toSnapshotInstance(state)
-      };
-      this.broadcast(message);
-    } else {
-      for (const result of results) {
-        if (result.revision === 0)
-          result.revision = state.revision;
-      }
     }
+    this.saveInstance(state);
+
+    for (const result of results) {
+      if (result.revision === 0)
+        result.revision = state.revision;
+    }
+
+    const message: InstanceUpdatedMessage = {
+      type: "instance.updated",
+      serverTime: report.receivedAt,
+      dataCenterID: this.dataCenterID,
+      revision: state.revision,
+      instance: this.toSnapshotInstance(state, report.receivedAt)
+    };
+    this.broadcast(message);
 
     console.log(JSON.stringify({
       requestID,
@@ -327,6 +310,141 @@ export class DataCenterState extends DurableObject<Env> {
     return Response.json(response);
   }
 
+  private createInstanceState(report: NormalizedReport): DurableInstanceState {
+    return {
+      zoneServerID: report.zoneServerID,
+      instanceEpoch: 1,
+      revision: this.revision,
+      lastReceivedAt: 0,
+      eventLastSeen: {},
+      areaTracks: {},
+      updatedAt: report.receivedAt
+    };
+  }
+
+  private getOrCreateAreaTracks(
+    state: DurableInstanceState,
+    areaCode: string,
+    firstObservedAt: number
+  ): DurableAreaTrackCollection {
+    const existing = state.areaTracks[areaCode];
+    if (existing)
+      return existing;
+
+    const trackID = `${areaCode}-1`;
+    const eventLastSeen = Object.fromEntries(Object.entries(state.eventLastSeen).filter(([, event]) =>
+      getAreaForTerritory(event.territoryID)?.code === areaCode
+    ));
+    const track: DurableInstanceTrackState = {
+      trackID,
+      ordinal: 1,
+      firstObservedAt: firstObservedAt,
+      lastReceivedAt: state.lastReceivedAt,
+      eventLastSeen,
+      sourceIDs: []
+    };
+    const created: DurableAreaTrackCollection = {
+      nextTrackOrdinal: 2,
+      reporterTrackIDs: {},
+      tracks: { [trackID]: track }
+    };
+    state.areaTracks[areaCode] = created;
+    return created;
+  }
+
+  private selectTrack(
+    areaTracks: DurableAreaTrackCollection,
+    areaCode: string,
+    report: NormalizedReport,
+    receivedAt: number
+  ): DurableInstanceTrackState {
+    const tracks = Object.values(areaTracks.tracks);
+    const mappedTrackID = areaTracks.reporterTrackIDs[report.reporterEpochID];
+    const mappedTrack = mappedTrackID ? areaTracks.tracks[mappedTrackID] : undefined;
+    const splitEnabled = getAreaForTerritory(report.territoryID)?.gameplay === "OccultCrescent";
+
+    if (!splitEnabled) {
+      const track = mappedTrack ?? tracks[0] ?? this.createTrack(areaTracks, areaCode, receivedAt);
+      return track;
+    }
+
+    if (mappedTrack && !hasTrackConflict(mappedTrack, report.events, report.territoryID))
+      return mappedTrack;
+
+    const compatibleTracks = tracks
+      .filter(track => !hasTrackConflict(track, report.events, report.territoryID))
+      .sort((left, right) => right.lastReceivedAt - left.lastReceivedAt);
+    if (compatibleTracks.length > 0)
+      return compatibleTracks[0];
+
+    return this.createTrack(areaTracks, areaCode, receivedAt);
+  }
+
+  private createTrack(
+    areaTracks: DurableAreaTrackCollection,
+    areaCode: string,
+    firstObservedAt: number
+  ): DurableInstanceTrackState {
+    const ordinal = areaTracks.nextTrackOrdinal++;
+    const trackID = `${areaCode}-${ordinal}`;
+    const track: DurableInstanceTrackState = {
+      trackID,
+      ordinal,
+      firstObservedAt,
+      lastReceivedAt: firstObservedAt,
+      eventLastSeen: {},
+      sourceIDs: []
+    };
+    areaTracks.tracks[trackID] = track;
+    return track;
+  }
+
+  private mergeEvent(
+    eventLastSeen: Record<string, DurableEventState>,
+    report: NormalizedReport,
+    event: ReportEvent
+  ): { status: "accepted" | "duplicate" | "stale"; changed: boolean } {
+    const key = `${report.territoryID}:${event.eventType}:${event.eventID}`;
+    const current = eventLastSeen[key];
+    if (!current) {
+      eventLastSeen[key] = this.createEventState(report, event);
+      return { status: "accepted", changed: true };
+    }
+
+    if (event.spawnedAt > current.lastSpawnedAt) {
+      eventLastSeen[key] = this.createEventState(report, event);
+      return { status: "accepted", changed: true };
+    }
+
+    if (event.spawnedAt < current.lastSpawnedAt)
+      return { status: "stale", changed: false };
+
+    let changed = false;
+    if (!current.sourceIDs.includes(report.reporterEpochID) && current.sourceCount === 1) {
+      current.sourceIDs.push(report.reporterEpochID);
+      current.sourceCount = 2;
+      changed = true;
+    }
+    if (current.observedState !== event.observedState) {
+      current.observedState = event.observedState;
+      changed = true;
+    }
+    return { status: "duplicate", changed };
+  }
+
+  private createEventState(report: NormalizedReport, event: ReportEvent): DurableEventState {
+    return {
+      territoryID: report.territoryID,
+      eventType: event.eventType,
+      eventID: event.eventID,
+      lastSpawnedAt: event.spawnedAt,
+      firstReceivedAt: report.receivedAt,
+      observedState: event.observedState,
+      sourceCount: 1,
+      sourceIDs: [report.reporterEpochID]
+    };
+  }
+
   private acceptRealtime(request: Request, url: URL): Response {
     const dataCenterID = Number(url.pathname.split("/").at(-1));
     if (Number.isSafeInteger(dataCenterID))
@@ -344,7 +462,7 @@ export class DataCenterState extends DurableObject<Env> {
   private loadInstance(zoneServerID: number): DurableInstanceState | undefined {
     const rows = Array.from(this.sql.exec<InstanceRow>(
       `SELECT zone_server_id, instance_epoch, revision, last_received_at,
-              ce_last_seen_json AS event_last_seen_json, updated_at
+              ce_last_seen_json AS event_last_seen_json, area_tracks_json, updated_at
        FROM instance_state WHERE zone_server_id = ?`,
       zoneServerID
     ));
@@ -357,6 +475,7 @@ export class DataCenterState extends DurableObject<Env> {
       revision: row.revision,
       lastReceivedAt: row.last_received_at,
       eventLastSeen: JSON.parse(row.event_last_seen_json) as Record<string, DurableEventState>,
+      areaTracks: this.parseAreaTracks(row.area_tracks_json, row.event_last_seen_json, row.last_received_at),
       updatedAt: row.updated_at
     };
   }
@@ -364,19 +483,21 @@ export class DataCenterState extends DurableObject<Env> {
   private saveInstance(state: DurableInstanceState): void {
     this.sql.exec(
       `INSERT INTO instance_state
-       (zone_server_id, instance_epoch, revision, last_received_at, ce_last_seen_json, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?)
+       (zone_server_id, instance_epoch, revision, last_received_at, ce_last_seen_json, area_tracks_json, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?)
        ON CONFLICT(zone_server_id) DO UPDATE SET
          instance_epoch = excluded.instance_epoch,
          revision = excluded.revision,
          last_received_at = excluded.last_received_at,
          ce_last_seen_json = excluded.ce_last_seen_json,
+         area_tracks_json = excluded.area_tracks_json,
          updated_at = excluded.updated_at`,
       state.zoneServerID,
       state.instanceEpoch,
       state.revision,
       state.lastReceivedAt,
       JSON.stringify(state.eventLastSeen),
+      JSON.stringify(state.areaTracks),
       state.updatedAt
     );
   }
@@ -385,7 +506,7 @@ export class DataCenterState extends DurableObject<Env> {
     const now = Math.floor(Date.now() / 1000);
     const instances = Array.from(this.sql.exec<InstanceRow>(
       `SELECT zone_server_id, instance_epoch, revision, last_received_at,
-              ce_last_seen_json AS event_last_seen_json, updated_at
+              ce_last_seen_json AS event_last_seen_json, area_tracks_json, updated_at
        FROM instance_state WHERE last_received_at >= ? ORDER BY last_received_at DESC`,
       now - 86_400
     )).map(row => this.toSnapshotInstance({
@@ -394,8 +515,9 @@ export class DataCenterState extends DurableObject<Env> {
       revision: row.revision,
       lastReceivedAt: row.last_received_at,
       eventLastSeen: JSON.parse(row.event_last_seen_json) as Record<string, DurableEventState>,
+      areaTracks: this.parseAreaTracks(row.area_tracks_json, row.event_last_seen_json, row.last_received_at),
       updatedAt: row.updated_at
-    }));
+    }, now));
 
     return {
       type: "snapshot",
@@ -406,15 +528,14 @@ export class DataCenterState extends DurableObject<Env> {
     };
   }
 
-  private toSnapshotInstance(state: DurableInstanceState): SnapshotInstance {
-    const eventLastSeen = Object.fromEntries(Object.entries(state.eventLastSeen).map(([key, event]) => [key, {
-      territoryID: event.territoryID,
-      eventType: event.eventType,
-      eventID: event.eventID,
-      lastSpawnedAt: event.lastSpawnedAt,
-      observedState: event.observedState,
-      sourceCount: event.sourceCount
-    }]));
+  private toSnapshotInstance(state: DurableInstanceState, now = Math.floor(Date.now() / 1000)): SnapshotInstance {
+    const eventLastSeen = this.toSnapshotEvents(state.eventLastSeen);
+    const areaTracks = Object.fromEntries(Object.entries(state.areaTracks).map(([areaCode, collection]) => [
+      areaCode,
+      Object.values(collection.tracks)
+        .filter(track => track.lastReceivedAt >= now - INSTANCE_RETENTION_SECONDS)
+        .map(track => this.toSnapshotTrack(track))
+    ]));
 
     return {
       zoneServerID: state.zoneServerID,
@@ -422,9 +543,77 @@ export class DataCenterState extends DurableObject<Env> {
       revision: state.revision,
       lastReceivedAt: state.lastReceivedAt,
       eventLastSeen,
+      areaTracks,
       updatedAt: state.updatedAt,
-      expiresAt: state.lastReceivedAt + 86_400
+      expiresAt: state.lastReceivedAt + INSTANCE_RETENTION_SECONDS
     };
+  }
+
+  private toSnapshotTrack(track: DurableInstanceTrackState): SnapshotInstanceTrack {
+    return {
+      trackID: track.trackID,
+      ordinal: track.ordinal,
+      firstObservedAt: track.firstObservedAt,
+      lastReceivedAt: track.lastReceivedAt,
+      expiresAt: track.lastReceivedAt + TRACK_ACTIVE_WINDOW_SECONDS,
+      eventLastSeen: this.toSnapshotEvents(track.eventLastSeen)
+    };
+  }
+
+  private toSnapshotEvents(
+    events: Record<string, DurableEventState>
+  ): Record<string, Omit<DurableEventState, "sourceIDs" | "firstReceivedAt">> {
+    return Object.fromEntries(Object.entries(events).map(([key, event]) => [key, {
+      territoryID: event.territoryID,
+      eventType: event.eventType,
+      eventID: event.eventID,
+      lastSpawnedAt: event.lastSpawnedAt,
+      observedState: event.observedState,
+      sourceCount: event.sourceCount
+    }]));
+  }
+
+  private parseAreaTracks(
+    value: string | null,
+    eventLastSeenJSON: string,
+    lastReceivedAt: number
+  ): Record<string, DurableAreaTrackCollection> {
+    if (value) {
+      try {
+        const parsed = JSON.parse(value) as Record<string, DurableAreaTrackCollection>;
+        if (Object.keys(parsed).length > 0)
+          return parsed;
+      } catch (error) {
+        console.warn(JSON.stringify({ event: "instance.area_tracks_parse_failed", error: String(error) }));
+      }
+    }
+
+    const eventLastSeen = JSON.parse(eventLastSeenJSON) as Record<string, DurableEventState>;
+    const areaTracks: Record<string, DurableAreaTrackCollection> = {};
+    for (const event of Object.values(eventLastSeen)) {
+      const areaCode = getAreaForTerritory(event.territoryID)?.code;
+      if (!areaCode) continue;
+      const collection = areaTracks[areaCode] ?? {
+        nextTrackOrdinal: 2,
+        reporterTrackIDs: {},
+        tracks: {}
+      } satisfies DurableAreaTrackCollection;
+      if (Object.keys(collection.tracks).length === 0) {
+        const trackID = `${areaCode}-1`;
+        collection.tracks[trackID] = {
+          trackID,
+          ordinal: 1,
+          firstObservedAt: lastReceivedAt,
+          lastReceivedAt,
+          eventLastSeen: {},
+          sourceIDs: []
+        };
+      }
+      const track = Object.values(collection.tracks)[0];
+      track.eventLastSeen[`${event.territoryID}:${event.eventType}:${event.eventID}`] = event;
+      areaTracks[areaCode] = collection;
+    }
+    return areaTracks;
   }
 
   private createResult(
