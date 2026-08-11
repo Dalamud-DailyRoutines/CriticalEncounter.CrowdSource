@@ -363,7 +363,9 @@ export class DataCenterState extends DurableObject<Env> {
   ): DurableInstanceTrackState {
     const tracks = Object.values(areaTracks.tracks);
     const mappedTrackID = areaTracks.reporterTrackIDs[report.reporterEpochID];
-    const activeTracks = tracks.filter(track => track.lastReceivedAt >= receivedAt - TRACK_ACTIVE_WINDOW_SECONDS);
+    const activeTracks = tracks.filter(track =>
+      this.getTrackActivityAt(track) >= receivedAt - TRACK_ACTIVE_WINDOW_SECONDS
+    );
     const mappedTrack = mappedTrackID
       ? activeTracks.find(track => track.trackID === mappedTrackID)
       : undefined;
@@ -554,6 +556,7 @@ export class DataCenterState extends DurableObject<Env> {
 
   private toSnapshotInstance(state: DurableInstanceState, now = Math.floor(Date.now() / 1000)): SnapshotInstance {
     const eventLastSeen = this.toSnapshotEvents(state.eventLastSeen);
+    const lastReceivedAt = this.getLatestEventSpawnedAt(state.eventLastSeen) || state.lastReceivedAt;
     const areaTracks = Object.fromEntries(Object.entries(state.areaTracks).map(([areaCode, collection]) => [
       areaCode,
       this.toSnapshotTracks(collection, now)
@@ -563,11 +566,11 @@ export class DataCenterState extends DurableObject<Env> {
       zoneServerID: state.zoneServerID,
       instanceEpoch: state.instanceEpoch,
       revision: state.revision,
-      lastReceivedAt: state.lastReceivedAt,
+      lastReceivedAt,
       eventLastSeen,
       areaTracks,
       updatedAt: state.updatedAt,
-      expiresAt: state.lastReceivedAt + INSTANCE_RETENTION_SECONDS
+      expiresAt: lastReceivedAt + INSTANCE_RETENTION_SECONDS
     };
   }
 
@@ -639,14 +642,23 @@ export class DataCenterState extends DurableObject<Env> {
   }
 
   private toSnapshotTrack(track: DurableInstanceTrackState): SnapshotInstanceTrack {
+    const lastReceivedAt = this.getTrackActivityAt(track);
     return {
       trackID: track.trackID,
       ordinal: track.ordinal,
       firstObservedAt: track.firstObservedAt,
-      lastReceivedAt: track.lastReceivedAt,
-      expiresAt: track.lastReceivedAt + TRACK_ACTIVE_WINDOW_SECONDS,
+      lastReceivedAt,
+      expiresAt: lastReceivedAt + TRACK_ACTIVE_WINDOW_SECONDS,
       eventLastSeen: this.toSnapshotEvents(track.eventLastSeen)
     };
+  }
+
+  private getTrackActivityAt(track: DurableInstanceTrackState): number {
+    return this.getLatestEventSpawnedAt(track.eventLastSeen) || track.lastReceivedAt;
+  }
+
+  private getLatestEventSpawnedAt(events: Record<string, DurableEventState>): number {
+    return Object.values(events).reduce((latest, event) => Math.max(latest, event.lastSpawnedAt), 0);
   }
 
   private toSnapshotEvents(
