@@ -1,8 +1,6 @@
 import type { DurableEventState, DurableInstanceTrackState, ReportEvent } from "./models";
 
 export const CE_SPLIT_INTERVAL_SECONDS = 5 * 60;
-export const TOWER_REPEAT_INTERVAL_SECONDS = 3_600;
-export const TOWER_CE_IDS = new Set([48, 64]);
 
 function eventsConflict(
   left: Pick<DurableEventState, "eventType" | "eventID" | "lastSpawnedAt">,
@@ -13,7 +11,7 @@ function eventsConflict(
   const difference = Math.abs(left.lastSpawnedAt - right.lastSpawnedAt);
   if (left.eventID !== right.eventID)
     return difference < CE_SPLIT_INTERVAL_SECONDS;
-  return TOWER_CE_IDS.has(left.eventID) && difference > 0 && difference < TOWER_REPEAT_INTERVAL_SECONDS;
+  return false;
 }
 
 export function hasTrackConflict(
