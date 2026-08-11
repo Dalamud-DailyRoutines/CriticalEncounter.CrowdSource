@@ -29,7 +29,7 @@ window.uiTranslations.fr = {
     instanceIdle: "Inactif",
     instanceId: "ID d'instance {id}",
     instanceMeta: "Epoch {epoch} · Revision {revision}",
-    instanceConflictWarning: "L'ancienne instance est peut-être en cours de récupération et l'ID d'instance est réutilisé. Sélectionnez l'instance dans laquelle vous vous trouvez.",
+    instanceConflictWarning: "L'ancienne instance est peut-être entrée en phase de récupération, ce qui a libéré son ID d'instance. Sélectionnez l'instance dans laquelle vous vous trouvez et confirmez-la.",
     instanceTrackSelection: "Sélectionner une instance observée",
     instanceTrackLabel: "Instance {ordinal} · {time}",
     eventName: "Événement",

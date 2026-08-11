@@ -29,7 +29,7 @@ window.uiTranslations.ja = {
     instanceIdle: "アイドル",
     instanceId: "インスタンス ID {id}",
     instanceMeta: "Epoch {epoch} · Revision {revision}",
-    instanceConflictWarning: "旧インスタンスが回収段階に入り、インスタンス ID が再利用された可能性があります。現在いるインスタンスを選択してください。",
+    instanceConflictWarning: "旧インスタンスは回収段階に入り、インスタンス ID が解放された可能性があります。切り替えて、現在いるインスタンスを確認してください。",
     instanceTrackSelection: "観測されたインスタンスを選択",
     instanceTrackLabel: "インスタンス {ordinal} · {time}",
     eventName: "イベント",

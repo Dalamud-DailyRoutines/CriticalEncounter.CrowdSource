@@ -29,7 +29,7 @@ window.uiTranslations.zh = {
     instanceIdle: "闲置",
     instanceId: "副本实例 ID {id}",
     instanceMeta: "Epoch {epoch} · Revision {revision}",
-    instanceConflictWarning: "疑似旧副本实例进入回收阶段，实例 ID 已被释放使用，请切换查看并确定当前所在的副本实例",
+    instanceConflictWarning: "旧副本实例疑似已进入回收阶段导致 ID 被释放，请切换并确认当前所在的副本实例。",
     instanceTrackSelection: "请选择观测实例",
     instanceTrackLabel: "实例 {ordinal} · {time}",
     eventName: "事件",

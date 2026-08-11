@@ -29,7 +29,7 @@ window.uiTranslations.en = {
     instanceIdle: "Idle",
     instanceId: "Instance ID {id}",
     instanceMeta: "Epoch {epoch} · Revision {revision}",
-    instanceConflictWarning: "The old instance may be entering reclamation while this ID is reused. Select the instance that matches your current island.",
+    instanceConflictWarning: "The old instance may have entered reclamation, causing its instance ID to be released. Switch to and confirm the instance you are currently in.",
     instanceTrackSelection: "Select an observed instance",
     instanceTrackLabel: "Instance {ordinal} · {time}",
     eventName: "Event",

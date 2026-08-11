@@ -29,7 +29,7 @@ window.uiTranslations.de = {
     instanceIdle: "Inaktiv",
     instanceId: "Instanz-ID {id}",
     instanceMeta: "Epoch {epoch} · Revision {revision}",
-    instanceConflictWarning: "Die alte Instanz befindet sich möglicherweise in der Rückgewinnung und die Instanz-ID wird wiederverwendet. Wählen Sie die Instanz aus, in der Sie sich befinden.",
+    instanceConflictWarning: "Die alte Instanz ist möglicherweise in die Rückgewinnungsphase eingetreten, wodurch ihre Instanz-ID freigegeben wurde. Wechseln Sie zur Instanz, in der Sie sich aktuell befinden, und bestätigen Sie diese.",
     instanceTrackSelection: "Beobachtete Instanz auswählen",
     instanceTrackLabel: "Instanz {ordinal} · {time}",
     eventName: "Ereignis",

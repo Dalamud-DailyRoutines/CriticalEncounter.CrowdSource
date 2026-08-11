@@ -29,7 +29,7 @@ window.uiTranslations.ko = {
     instanceIdle: "대기",
     instanceId: "인스턴스 ID {id}",
     instanceMeta: "Epoch {epoch} · Revision {revision}",
-    instanceConflictWarning: "기존 인스턴스가 회수 단계에 들어가 인스턴스 ID가 재사용되었을 수 있습니다. 현재 있는 인스턴스를 선택하세요.",
+    instanceConflictWarning: "기존 인스턴스가 회수 단계에 들어가 인스턴스 ID가 해제되었을 수 있습니다. 전환하여 현재 있는 인스턴스를 확인하세요.",
     instanceTrackSelection: "관측된 인스턴스 선택",
     instanceTrackLabel: "인스턴스 {ordinal} · {time}",
     eventName: "이벤트",
