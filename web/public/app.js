@@ -26,6 +26,8 @@ const state = {
   copyToastTimer: 0
 };
 
+const TRACK_ACTIVE_WINDOW_SECONDS = 20 * 60;
+
 const elements = {
   articleContent: document.querySelector("#articleContent"),
   articleLanguageSelect: document.querySelector("#articleLanguageSelect"),
@@ -531,7 +533,8 @@ function render() {
 function renderSummary() {
   const dataCenter = state.dataCenters.find(item => item.id === state.selectedDataCenterID);
   const now = getServerNowSeconds();
-  const activeCount = [...state.instances.values()].filter(instance => now - instance.lastReceivedAt < 3600).length;
+  const activeCount = [...state.instances.values()]
+    .filter(instance => now - instance.lastReceivedAt < TRACK_ACTIVE_WINDOW_SECONDS).length;
   const count = state.instances.size;
   elements.activeCount.textContent = String(activeCount);
   elements.instanceCount.textContent = String(count);
@@ -570,8 +573,8 @@ function renderInstances() {
 
   const fragment = document.createDocumentFragment();
   const now = getServerNowSeconds();
-  const activeInstances = instances.filter(instance => now - instance.lastReceivedAt < 3600);
-  const idleInstances = instances.filter(instance => now - instance.lastReceivedAt >= 3600);
+  const activeInstances = instances.filter(instance => now - instance.lastReceivedAt < TRACK_ACTIVE_WINDOW_SECONDS);
+  const idleInstances = instances.filter(instance => now - instance.lastReceivedAt >= TRACK_ACTIVE_WINDOW_SECONDS);
   for (const instance of activeInstances)
     fragment.append(createInstanceButton(instance, gameplayEventKeys));
   if (activeInstances.length > 0 && idleInstances.length > 0) {
@@ -587,7 +590,7 @@ function renderInstances() {
 }
 
 function createInstanceButton(instance, gameplayEventKeys) {
-  const active = getServerNowSeconds() - instance.lastReceivedAt < 3600;
+  const active = getServerNowSeconds() - instance.lastReceivedAt < TRACK_ACTIVE_WINDOW_SECONDS;
   const button = document.createElement("button");
   button.type = "button";
   button.className = "instance-button";
@@ -647,7 +650,7 @@ function getSelectedAreaTrack(instance, areaCode) {
     ordinal: 1,
     firstObservedAt: instance.lastReceivedAt,
     lastReceivedAt: instance.lastReceivedAt,
-    expiresAt: instance.lastReceivedAt + 3_600,
+    expiresAt: instance.lastReceivedAt + TRACK_ACTIVE_WINDOW_SECONDS,
     eventLastSeen: instance.eventLastSeen
   };
 }

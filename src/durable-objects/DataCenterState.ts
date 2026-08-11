@@ -55,7 +55,8 @@ interface Metrics {
   stale: number;
 }
 
-const TRACK_ACTIVE_WINDOW_SECONDS = 3_600;
+const TRACK_ACTIVE_WINDOW_SECONDS = 20 * 60;
+const INSTANCE_EPOCH_GAP_SECONDS = 3_600;
 const INSTANCE_RETENTION_SECONDS = 86_400;
 
 export class DataCenterState extends DurableObject<Env> {
@@ -220,7 +221,7 @@ export class DataCenterState extends DurableObject<Env> {
 
     const state = this.loadInstance(report.zoneServerID) ?? this.createInstanceState(report);
 
-    if (state.lastReceivedAt > 0 && state.lastReceivedAt < report.receivedAt - TRACK_ACTIVE_WINDOW_SECONDS)
+    if (state.lastReceivedAt > 0 && state.lastReceivedAt < report.receivedAt - INSTANCE_EPOCH_GAP_SECONDS)
       state.instanceEpoch++;
 
     const area = getAreaForTerritory(report.territoryID);
