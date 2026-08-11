@@ -1,6 +1,6 @@
 import { DurableObject } from "cloudflare:workers";
 import { DATA_CENTERS, getAreaForTerritory } from "../catalog";
-import { countTrackCEMatches, hasTrackConflict, haveTrackConflict } from "../instanceTrackRules";
+import { countTrackCEMatches, hasTrackConflict, haveTrackCEMatch, haveTrackConflict } from "../instanceTrackRules";
 import type {
   DurableEventState,
   DurableAreaTrackCollection,
@@ -594,9 +594,12 @@ export class DataCenterState extends DurableObject<Env> {
     left: DurableInstanceTrackState,
     right: DurableInstanceTrackState
   ): boolean {
+    if (haveTrackConflict(left, right))
+      return true;
+    if (haveTrackCEMatch(left, right))
+      return false;
     return left.conflictingTrackIDs.includes(right.trackID) ||
-      right.conflictingTrackIDs.includes(left.trackID) ||
-      haveTrackConflict(left, right);
+      right.conflictingTrackIDs.includes(left.trackID);
   }
 
   private mergeTrackGroup(tracks: DurableInstanceTrackState[]): DurableInstanceTrackState {
