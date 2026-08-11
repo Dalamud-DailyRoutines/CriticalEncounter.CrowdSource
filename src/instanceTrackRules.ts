@@ -1,8 +1,20 @@
-import type { DurableInstanceTrackState, ReportEvent } from "./models";
+import type { DurableEventState, DurableInstanceTrackState, ReportEvent } from "./models";
 
 export const CE_SPLIT_INTERVAL_SECONDS = 5 * 60;
 export const TOWER_REPEAT_INTERVAL_SECONDS = 3_600;
 export const TOWER_CE_IDS = new Set([48, 64]);
+
+function eventsConflict(
+  left: Pick<DurableEventState, "eventType" | "eventID" | "lastSpawnedAt">,
+  right: Pick<DurableEventState, "eventType" | "eventID" | "lastSpawnedAt">
+): boolean {
+  if (left.eventType !== "CE" || right.eventType !== "CE")
+    return false;
+  const difference = Math.abs(left.lastSpawnedAt - right.lastSpawnedAt);
+  if (left.eventID !== right.eventID)
+    return difference < CE_SPLIT_INTERVAL_SECONDS;
+  return TOWER_CE_IDS.has(left.eventID) && difference > 0 && difference < TOWER_REPEAT_INTERVAL_SECONDS;
+}
 
 export function hasTrackConflict(
   track: DurableInstanceTrackState,
@@ -11,15 +23,45 @@ export function hasTrackConflict(
 ): boolean {
   for (const event of events) {
     for (const existing of Object.values(track.eventLastSeen)) {
-      if (existing.territoryID !== territoryID)
+      if (existing.territoryID !== territoryID ||
+          existing.firstReceivedAt < track.conflictDetectionStartedAt)
         continue;
-      const difference = Math.abs(existing.lastSpawnedAt - event.spawnedAt);
-      if (event.eventType === "CE" && existing.eventType === "CE" &&
-          existing.eventID !== event.eventID && difference < CE_SPLIT_INTERVAL_SECONDS)
+      if (eventsConflict(existing, {
+        eventType: event.eventType,
+        eventID: event.eventID,
+        lastSpawnedAt: event.spawnedAt
+      }))
         return true;
-      if (event.eventType === "CE" && existing.eventType === "CE" &&
-          event.eventID === existing.eventID && TOWER_CE_IDS.has(event.eventID) &&
-          difference > 0 && difference < TOWER_REPEAT_INTERVAL_SECONDS)
+    }
+  }
+  return false;
+}
+
+export function countTrackCEMatches(
+  track: DurableInstanceTrackState,
+  events: ReportEvent[],
+  territoryID: number
+): number {
+  return events.filter(event => {
+    if (event.eventType !== "CE")
+      return false;
+    const existing = track.eventLastSeen[`${territoryID}:CE:${event.eventID}`];
+    return existing?.lastSpawnedAt === event.spawnedAt;
+  }).length;
+}
+
+export function haveTrackConflict(
+  left: DurableInstanceTrackState,
+  right: DurableInstanceTrackState
+): boolean {
+  for (const leftEvent of Object.values(left.eventLastSeen)) {
+    if (leftEvent.firstReceivedAt < left.conflictDetectionStartedAt)
+      continue;
+    for (const rightEvent of Object.values(right.eventLastSeen)) {
+      if (rightEvent.firstReceivedAt < right.conflictDetectionStartedAt ||
+          leftEvent.territoryID !== rightEvent.territoryID)
+        continue;
+      if (eventsConflict(leftEvent, rightEvent))
         return true;
     }
   }

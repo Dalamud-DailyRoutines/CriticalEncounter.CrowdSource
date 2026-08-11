@@ -1,6 +1,6 @@
 import { DurableObject } from "cloudflare:workers";
 import { DATA_CENTERS, getAreaForTerritory } from "../catalog";
-import { hasTrackConflict } from "../instanceTrackRules";
+import { countTrackCEMatches, hasTrackConflict, haveTrackConflict } from "../instanceTrackRules";
 import type {
   DurableEventState,
   DurableAreaTrackCollection,
@@ -339,7 +339,9 @@ export class DataCenterState extends DurableObject<Env> {
       trackID,
       ordinal: 1,
       firstObservedAt: firstObservedAt,
-      lastReceivedAt: state.lastReceivedAt,
+      lastReceivedAt: firstObservedAt,
+      conflictDetectionStartedAt: firstObservedAt,
+      conflictingTrackIDs: [],
       eventLastSeen,
       sourceIDs: []
     };
@@ -360,7 +362,10 @@ export class DataCenterState extends DurableObject<Env> {
   ): DurableInstanceTrackState {
     const tracks = Object.values(areaTracks.tracks);
     const mappedTrackID = areaTracks.reporterTrackIDs[report.reporterEpochID];
-    const mappedTrack = mappedTrackID ? areaTracks.tracks[mappedTrackID] : undefined;
+    const activeTracks = tracks.filter(track => track.lastReceivedAt >= receivedAt - TRACK_ACTIVE_WINDOW_SECONDS);
+    const mappedTrack = mappedTrackID
+      ? activeTracks.find(track => track.trackID === mappedTrackID)
+      : undefined;
     const splitEnabled = getAreaForTerritory(report.territoryID)?.gameplay === "OccultCrescent";
 
     if (!splitEnabled) {
@@ -368,16 +373,32 @@ export class DataCenterState extends DurableObject<Env> {
       return track;
     }
 
+    const matchingTracks = activeTracks
+      .map(track => ({ track, matches: countTrackCEMatches(track, report.events, report.territoryID) }))
+      .filter(item => item.matches > 0)
+      .sort((left, right) => right.matches - left.matches || right.track.lastReceivedAt - left.track.lastReceivedAt);
+    if (matchingTracks.length > 0)
+      return matchingTracks[0].track;
+
     if (mappedTrack && !hasTrackConflict(mappedTrack, report.events, report.territoryID))
       return mappedTrack;
 
-    const compatibleTracks = tracks
-      .filter(track => !hasTrackConflict(track, report.events, report.territoryID))
+    const conflictingTracks = activeTracks.filter(track => hasTrackConflict(track, report.events, report.territoryID));
+    const compatibleTracks = activeTracks
+      .filter(track => !conflictingTracks.includes(track))
       .sort((left, right) => right.lastReceivedAt - left.lastReceivedAt);
-    if (compatibleTracks.length > 0)
-      return compatibleTracks[0];
+    const selectedTrack = compatibleTracks[0] ?? this.createTrack(areaTracks, areaCode, receivedAt);
 
-    return this.createTrack(areaTracks, areaCode, receivedAt);
+    for (const conflictingTrack of conflictingTracks) {
+      if (conflictingTrack.trackID === selectedTrack.trackID)
+        continue;
+      if (!conflictingTrack.conflictingTrackIDs.includes(selectedTrack.trackID))
+        conflictingTrack.conflictingTrackIDs.push(selectedTrack.trackID);
+      if (!selectedTrack.conflictingTrackIDs.includes(conflictingTrack.trackID))
+        selectedTrack.conflictingTrackIDs.push(conflictingTrack.trackID);
+    }
+
+    return selectedTrack;
   }
 
   private createTrack(
@@ -392,6 +413,8 @@ export class DataCenterState extends DurableObject<Env> {
       ordinal,
       firstObservedAt,
       lastReceivedAt: firstObservedAt,
+      conflictDetectionStartedAt: firstObservedAt,
+      conflictingTrackIDs: [],
       eventLastSeen: {},
       sourceIDs: []
     };
@@ -532,9 +555,7 @@ export class DataCenterState extends DurableObject<Env> {
     const eventLastSeen = this.toSnapshotEvents(state.eventLastSeen);
     const areaTracks = Object.fromEntries(Object.entries(state.areaTracks).map(([areaCode, collection]) => [
       areaCode,
-      Object.values(collection.tracks)
-        .filter(track => track.lastReceivedAt >= now - INSTANCE_RETENTION_SECONDS)
-        .map(track => this.toSnapshotTrack(track))
+      this.toSnapshotTracks(collection, now)
     ]));
 
     return {
@@ -546,6 +567,70 @@ export class DataCenterState extends DurableObject<Env> {
       areaTracks,
       updatedAt: state.updatedAt,
       expiresAt: state.lastReceivedAt + INSTANCE_RETENTION_SECONDS
+    };
+  }
+
+  private toSnapshotTracks(
+    collection: DurableAreaTrackCollection,
+    now: number
+  ): SnapshotInstanceTrack[] {
+    const tracks = Object.values(collection.tracks)
+      .filter(track => track.lastReceivedAt >= now - INSTANCE_RETENTION_SECONDS)
+      .sort((left, right) => left.ordinal - right.ordinal);
+    const groups: DurableInstanceTrackState[][] = [];
+
+    for (const track of tracks) {
+      const group = groups.find(candidate => candidate.every(member => !this.areTracksSeparated(member, track)));
+      if (group)
+        group.push(track);
+      else
+        groups.push([track]);
+    }
+
+    return groups.map(group => this.toSnapshotTrack(this.mergeTrackGroup(group)));
+  }
+
+  private areTracksSeparated(
+    left: DurableInstanceTrackState,
+    right: DurableInstanceTrackState
+  ): boolean {
+    return left.conflictingTrackIDs.includes(right.trackID) ||
+      right.conflictingTrackIDs.includes(left.trackID) ||
+      haveTrackConflict(left, right);
+  }
+
+  private mergeTrackGroup(tracks: DurableInstanceTrackState[]): DurableInstanceTrackState {
+    const canonical = tracks.slice().sort((left, right) => left.ordinal - right.ordinal)[0];
+    const eventLastSeen: Record<string, DurableEventState> = {};
+    const sourceIDs = new Set<string>();
+
+    for (const track of tracks.slice().sort((left, right) => left.lastReceivedAt - right.lastReceivedAt)) {
+      for (const sourceID of track.sourceIDs)
+        sourceIDs.add(sourceID);
+      for (const [key, event] of Object.entries(track.eventLastSeen)) {
+        const current = eventLastSeen[key];
+        if (!current || event.lastSpawnedAt > current.lastSpawnedAt) {
+          eventLastSeen[key] = {
+            ...event,
+            sourceIDs: [...event.sourceIDs]
+          };
+          continue;
+        }
+        if (event.lastSpawnedAt === current.lastSpawnedAt) {
+          const eventSources = new Set([...current.sourceIDs, ...event.sourceIDs]);
+          current.sourceIDs = [...eventSources];
+          current.sourceCount = eventSources.size > 1 ? 2 : 1;
+          current.observedState = event.observedState;
+        }
+      }
+    }
+
+    return {
+      ...canonical,
+      firstObservedAt: Math.min(...tracks.map(track => track.firstObservedAt)),
+      lastReceivedAt: Math.max(...tracks.map(track => track.lastReceivedAt)),
+      eventLastSeen,
+      sourceIDs: [...sourceIDs]
     };
   }
 
@@ -581,8 +666,19 @@ export class DataCenterState extends DurableObject<Env> {
     if (value) {
       try {
         const parsed = JSON.parse(value) as Record<string, DurableAreaTrackCollection>;
-        if (Object.keys(parsed).length > 0)
+        if (Object.keys(parsed).length > 0) {
+          for (const collection of Object.values(parsed)) {
+            for (const track of Object.values(collection.tracks)) {
+              track.conflictDetectionStartedAt = Number.isSafeInteger(track.conflictDetectionStartedAt)
+                ? track.conflictDetectionStartedAt
+                : track.lastReceivedAt;
+              track.conflictingTrackIDs = Array.isArray(track.conflictingTrackIDs)
+                ? track.conflictingTrackIDs.filter(trackID => typeof trackID === "string")
+                : [];
+            }
+          }
           return parsed;
+        }
       } catch (error) {
         console.warn(JSON.stringify({ event: "instance.area_tracks_parse_failed", error: String(error) }));
       }
@@ -605,6 +701,8 @@ export class DataCenterState extends DurableObject<Env> {
           ordinal: 1,
           firstObservedAt: lastReceivedAt,
           lastReceivedAt,
+          conflictDetectionStartedAt: lastReceivedAt,
+          conflictingTrackIDs: [],
           eventLastSeen: {},
           sourceIDs: []
         };

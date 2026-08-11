@@ -75,6 +75,8 @@ export interface DurableInstanceTrackState {
   ordinal: number;
   firstObservedAt: number;
   lastReceivedAt: number;
+  conflictDetectionStartedAt: number;
+  conflictingTrackIDs: string[];
   eventLastSeen: Record<string, DurableEventState>;
   sourceIDs: string[];
 }
