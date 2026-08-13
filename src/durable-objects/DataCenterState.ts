@@ -1,5 +1,5 @@
 import { DurableObject } from "cloudflare:workers";
-import { DATA_CENTERS, getAreaForTerritory } from "../catalog";
+import { DATA_CENTERS, canGameplayGenerateTracks, getAreaForTerritory } from "../catalog";
 import { countTrackCEMatches, hasTrackConflict, haveTrackCEMatch, haveTrackConflict } from "../instanceTrackRules";
 import type {
   DurableEventState,
@@ -369,7 +369,8 @@ export class DataCenterState extends DurableObject<Env> {
     const mappedTrack = mappedTrackID
       ? activeTracks.find(track => track.trackID === mappedTrackID)
       : undefined;
-    const splitEnabled = getAreaForTerritory(report.territoryID)?.gameplay === "OccultCrescent";
+    const area = getAreaForTerritory(report.territoryID);
+    const splitEnabled = area !== undefined && canGameplayGenerateTracks(area.gameplay);
 
     if (!splitEnabled) {
       const track = mappedTrack ?? tracks[0] ?? this.createTrack(areaTracks, areaCode, receivedAt);
