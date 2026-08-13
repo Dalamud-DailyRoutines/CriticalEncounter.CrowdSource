@@ -1,5 +1,5 @@
 import dataCenterData from "../web/public/assets/data-centers.json";
-import ceCatalog from "../web/public/assets/ce-catalog.json";
+import dynamicEventCatalog from "../web/public/assets/dynamic-event-catalog.json";
 import type { EventType } from "./models";
 
 interface WorldEntry {
@@ -62,7 +62,7 @@ interface GameplayEntry {
 }
 
 export const DATA_CENTERS = dataCenterData.dataCenters as DataCenterEntry[];
-export const EVENT_AREAS = (ceCatalog.areas as RawEventArea[]).map(area => ({
+export const EVENT_AREAS = (dynamicEventCatalog.areas as RawEventArea[]).map(area => ({
   ...area,
   events: [
     ...area.ces.map(ce => ({
@@ -82,7 +82,7 @@ export const EVENT_AREAS = (ceCatalog.areas as RawEventArea[]).map(area => ({
   ].sort((left, right) => left.order - right.order)
 }));
 
-export const GAMEPLAYS = ceCatalog.gameplays as GameplayEntry[];
+export const GAMEPLAYS = dynamicEventCatalog.gameplays as GameplayEntry[];
 
 const WORLD_TO_DATA_CENTER = new Map<number, number>();
 const TERRITORY_TO_AREA = new Map<number, EventArea>();

@@ -1,6 +1,6 @@
 import type { DurableEventState, DurableInstanceTrackState, ReportEvent } from "./models";
 
-export const CE_SPLIT_INTERVAL_SECONDS = 5 * 60;
+export const CE_SPLIT_INTERVAL_SECONDS = 3 * 60 - 1;
 export const CE_TIME_ALIGNMENT_SECONDS = 2 * 60;
 
 function eventsConflict(

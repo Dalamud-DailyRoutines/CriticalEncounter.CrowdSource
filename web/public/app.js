@@ -107,7 +107,7 @@ const copyConfiguration = {
 async function initialize() {
   const [dataCenters, catalog] = await Promise.all([
     fetch("/assets/data-centers.json").then(response => response.json()),
-    fetch("/assets/ce-catalog.json").then(response => response.json())
+    fetch("/assets/dynamic-event-catalog.json").then(response => response.json())
   ]);
 
   state.dataCenters = dataCenters.dataCenters;

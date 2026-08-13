@@ -23,6 +23,6 @@ npm run dev
 
 ## 数据目录
 
-`web/public/assets/data-centers.json` 收录国际服、国服和韩服的 Data Center 与 World，繁体中文服暂不收录。`web/public/assets/ce-catalog.json` 按 `gameplays`（特殊场景玩法）和 `areas`（玩法内的区域）收录紧急遭遇战与危命任务目录，包含简体中文、日文、英文、德文、法文和韩文文本。每个区域通过 `gameplay` 字段归属到一个玩法，新增玩法时在 `gameplays` 数组补充 `code`、`iconID` 与 `localizedNames`，再让对应区域的 `gameplay` 指向该 `code`。
+`web/public/assets/data-centers.json` 收录国际服、国服和韩服的 Data Center 与 World，繁体中文服暂不收录。`web/public/assets/dynamic-event-catalog.json` 按 `gameplays`（特殊场景玩法）和 `areas`（玩法内的区域）收录紧急遭遇战与危命任务目录，包含简体中文、日文、英文、德文、法文和韩文文本。每个区域通过 `gameplay` 字段归属到一个玩法，新增玩法时在 `gameplays` 数组补充 `code`、`iconID` 与 `localizedNames`，再让对应区域的 `gameplay` 指向该 `code`。
 
 语言与客户端数据依据 [FFCafe XIVAPI 差异说明](https://xivapi-v2.xivcdn.com/zh-cn/docs/guides/difference/) 和 [FFCafe 字符串检索](https://strings.ffcafe.cn/) 整理。
