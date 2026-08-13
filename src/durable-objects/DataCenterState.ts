@@ -1,5 +1,5 @@
 import { DurableObject } from "cloudflare:workers";
-import { DATA_CENTERS, canGameplayGenerateTracks, getAreaForTerritory } from "../catalog";
+import { DATA_CENTERS, getAreaForTerritory, getTrackResetWindowSeconds, type EventArea } from "../catalog";
 import { countTrackCEMatches, hasTrackConflict, haveTrackCEMatch, haveTrackConflict } from "../instanceTrackRules";
 import type {
   DurableEventState,
@@ -227,7 +227,7 @@ export class DataCenterState extends DurableObject<Env> {
     const area = getAreaForTerritory(report.territoryID);
     const areaCode = area?.code ?? `territory-${report.territoryID}`;
     const areaTracks = this.getOrCreateAreaTracks(state, areaCode, report.receivedAt);
-    const track = this.selectTrack(areaTracks, areaCode, report, report.receivedAt);
+    const track = this.selectTrack(state, areaTracks, areaCode, report, report.receivedAt);
     const previousTrackLastReceivedAt = track.lastReceivedAt;
     track.lastReceivedAt = report.receivedAt;
     if (!track.sourceIDs.includes(report.reporterEpochID))
@@ -356,6 +356,7 @@ export class DataCenterState extends DurableObject<Env> {
   }
 
   private selectTrack(
+    state: DurableInstanceState,
     areaTracks: DurableAreaTrackCollection,
     areaCode: string,
     report: NormalizedReport,
@@ -363,21 +364,126 @@ export class DataCenterState extends DurableObject<Env> {
   ): DurableInstanceTrackState {
     const tracks = Object.values(areaTracks.tracks);
     const mappedTrackID = areaTracks.reporterTrackIDs[report.reporterEpochID];
-    const activeTracks = tracks.filter(track =>
-      this.getTrackActivityAt(track) >= receivedAt - TRACK_ACTIVE_WINDOW_SECONDS
-    );
-    const mappedTrack = mappedTrackID
-      ? activeTracks.find(track => track.trackID === mappedTrackID)
-      : undefined;
     const area = getAreaForTerritory(report.territoryID);
-    const splitEnabled = area !== undefined && canGameplayGenerateTracks(area.gameplay);
 
-    if (!splitEnabled) {
-      const track = mappedTrack ?? tracks[0] ?? this.createTrack(areaTracks, areaCode, receivedAt);
-      return track;
+    if (!area) {
+      // Unknown territory: keep a single, never-splitting track.
+      const mappedTrack = mappedTrackID
+        ? tracks.find(track => track.trackID === mappedTrackID)
+        : undefined;
+      return mappedTrack ?? tracks[0] ?? this.createTrack(areaTracks, areaCode, receivedAt);
     }
 
-    const matchingTracks = activeTracks
+    const resetWindowSeconds = getTrackResetWindowSeconds(area.gameplay);
+    if (resetWindowSeconds <= 0) {
+      // Gameplay that never splits into multiple tracks.
+      const mappedTrack = mappedTrackID
+        ? tracks.find(track => track.trackID === mappedTrackID)
+        : undefined;
+      return mappedTrack ?? tracks[0] ?? this.createTrack(areaTracks, areaCode, receivedAt);
+    }
+
+    const recentTracks = tracks.filter(track =>
+      this.getTrackActivityAt(track) >= receivedAt - resetWindowSeconds
+    );
+
+    if (recentTracks.length === 0) {
+      // No track seen recently: the instance ID was reclaimed and reused. Wipe
+      // this area's tracks and instance-level events, then start fresh.
+      this.resetAreaTrackCollection(areaTracks);
+      this.rebuildAreaEventState(state, areaTracks, area);
+      return this.createTrack(areaTracks, areaCode, receivedAt);
+    }
+
+    const recentTrackIDs = new Set(recentTracks.map(track => track.trackID));
+    const staleTracks = tracks.filter(track => !recentTrackIDs.has(track.trackID));
+    if (staleTracks.length > 0) {
+      for (const track of staleTracks)
+        delete areaTracks.tracks[track.trackID];
+      this.pruneReporterTrackIDs(areaTracks);
+      this.rebuildAreaEventState(state, areaTracks, area);
+    }
+
+    if (recentTracks.length === 1) {
+      // A single recent track now represents this instance's copy: collapse to
+      // it and renumber it back to ordinal 1.
+      return this.renumberTrack(areaTracks, areaCode, recentTracks[0]);
+    }
+
+    // Two or more recent tracks coexist: keep them and route the report using
+    // the existing CE-match + conflict logic (ordinals are left untouched).
+    return this.routeTrack(areaTracks, areaCode, report, recentTracks, receivedAt);
+  }
+
+  private resetAreaTrackCollection(areaTracks: DurableAreaTrackCollection): void {
+    areaTracks.tracks = {};
+    areaTracks.reporterTrackIDs = {};
+    areaTracks.nextTrackOrdinal = 1;
+  }
+
+  private pruneReporterTrackIDs(areaTracks: DurableAreaTrackCollection): void {
+    for (const [reporterEpochID, trackID] of Object.entries(areaTracks.reporterTrackIDs)) {
+      if (!areaTracks.tracks[trackID])
+        delete areaTracks.reporterTrackIDs[reporterEpochID];
+    }
+  }
+
+  private renumberTrack(
+    areaTracks: DurableAreaTrackCollection,
+    areaCode: string,
+    track: DurableInstanceTrackState
+  ): DurableInstanceTrackState {
+    const previousTrackID = track.trackID;
+    const newTrackID = `${areaCode}-1`;
+    if (previousTrackID !== newTrackID) {
+      delete areaTracks.tracks[previousTrackID];
+      track.trackID = newTrackID;
+      areaTracks.tracks[newTrackID] = track;
+      for (const [reporterEpochID, trackID] of Object.entries(areaTracks.reporterTrackIDs)) {
+        if (trackID === previousTrackID)
+          areaTracks.reporterTrackIDs[reporterEpochID] = newTrackID;
+      }
+    }
+    track.ordinal = 1;
+    track.conflictingTrackIDs = [];
+    areaTracks.nextTrackOrdinal = 2;
+    return track;
+  }
+
+  private rebuildAreaEventState(
+    state: DurableInstanceState,
+    areaTracks: DurableAreaTrackCollection,
+    area: EventArea
+  ): void {
+    const territoryIDs = new Set(area.territoryIDs);
+    for (const key of Object.keys(state.eventLastSeen)) {
+      if (territoryIDs.has(Number(key.split(":")[0])))
+        delete state.eventLastSeen[key];
+    }
+    for (const track of Object.values(areaTracks.tracks)) {
+      for (const [key, event] of Object.entries(track.eventLastSeen)) {
+        if (!territoryIDs.has(Number(key.split(":")[0])))
+          continue;
+        const current = state.eventLastSeen[key];
+        if (!current || event.lastSpawnedAt > current.lastSpawnedAt)
+          state.eventLastSeen[key] = { ...event, sourceIDs: [...event.sourceIDs] };
+      }
+    }
+  }
+
+  private routeTrack(
+    areaTracks: DurableAreaTrackCollection,
+    areaCode: string,
+    report: NormalizedReport,
+    tracks: DurableInstanceTrackState[],
+    receivedAt: number
+  ): DurableInstanceTrackState {
+    const mappedTrackID = areaTracks.reporterTrackIDs[report.reporterEpochID];
+    const mappedTrack = mappedTrackID
+      ? tracks.find(track => track.trackID === mappedTrackID)
+      : undefined;
+
+    const matchingTracks = tracks
       .map(track => ({ track, matches: countTrackCEMatches(track, report.events, report.territoryID) }))
       .filter(item => item.matches > 0)
       .sort((left, right) => right.matches - left.matches || right.track.lastReceivedAt - left.track.lastReceivedAt);
@@ -387,8 +493,8 @@ export class DataCenterState extends DurableObject<Env> {
     if (mappedTrack && !hasTrackConflict(mappedTrack, report.events, report.territoryID))
       return mappedTrack;
 
-    const conflictingTracks = activeTracks.filter(track => hasTrackConflict(track, report.events, report.territoryID));
-    const compatibleTracks = activeTracks
+    const conflictingTracks = tracks.filter(track => hasTrackConflict(track, report.events, report.territoryID));
+    const compatibleTracks = tracks
       .filter(track => !conflictingTracks.includes(track))
       .sort((left, right) => right.lastReceivedAt - left.lastReceivedAt);
     const selectedTrack = compatibleTracks[0] ?? this.createTrack(areaTracks, areaCode, receivedAt);

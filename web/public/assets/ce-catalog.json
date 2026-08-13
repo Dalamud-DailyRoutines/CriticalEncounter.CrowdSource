@@ -3540,7 +3540,7 @@
   "gameplays": [
     {
       "code": "OccultCrescent",
-      "canGenerateTracks": true,
+      "trackResetWindowSeconds": 3600,
       "iconID": 61851,
       "localizedNames": {
         "CHS": "蜃景幻界新月岛",
@@ -3553,7 +3553,7 @@
     },
     {
       "code": "SaveTheQueen",
-      "canGenerateTracks": true,
+      "trackResetWindowSeconds": 7200,
       "iconID": 61838,
       "localizedNames": {
         "CHS": "天佑女王",
