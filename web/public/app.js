@@ -45,6 +45,7 @@ const elements = {
   instanceTrackSelector: document.querySelector("#instanceTrackSelector"),
   emptyState: document.querySelector("#emptyState"),
   emptyStateText: document.querySelector("#emptyStateText"),
+  guideLink: document.querySelector(".guide-link"),
   instanceCount: document.querySelector("#instanceCount"),
   instanceList: document.querySelector("#instanceList"),
   instanceMeta: document.querySelector("#instanceMeta"),
@@ -105,6 +106,8 @@ const copyConfiguration = {
 };
 
 async function initialize() {
+  state.articleID = syncView();
+
   const [dataCenters, catalog] = await Promise.all([
     fetch("/assets/data-centers.json").then(response => response.json()),
     fetch("/assets/dynamic-event-catalog.json").then(response => response.json())
@@ -145,7 +148,6 @@ async function initialize() {
   applyUILanguage();
   populateDataCenters();
   bindEvents();
-  state.articleID = syncView();
   if (state.articleID)
     renderArticle();
   else {
@@ -178,6 +180,14 @@ function bindUILanguageSelect(select) {
 function bindEvents() {
   bindUILanguageSelect(elements.uiLanguageSelect);
   bindUILanguageSelect(elements.articleLanguageSelect);
+
+  elements.guideLink.addEventListener("click", event => {
+    event.preventDefault();
+    disconnect();
+    history.pushState(null, "", elements.guideLink.getAttribute("href"));
+    state.articleID = syncView();
+    renderArticle();
+  });
 
   elements.dataCenterSelect.addEventListener("change", () => {
     state.selectedDataCenterID = Number(elements.dataCenterSelect.value);
