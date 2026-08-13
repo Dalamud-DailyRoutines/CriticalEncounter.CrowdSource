@@ -379,6 +379,7 @@
         },
         {
           "ceID": 48,
+          "canCoexist": true,
           "iconID": 63978,
           "localizedNames": {
             "CHS": "两歧塔 力之塔",
@@ -772,6 +773,7 @@
         },
         {
           "ceID": 64,
+          "canCoexist": true,
           "iconID": 63978,
           "localizedNames": {
             "CHS": "两歧塔 魔之塔",
@@ -854,6 +856,7 @@
       "ces": [
         {
           "ceID": 16,
+          "canCoexist": true,
           "iconID": 63912,
           "localizedNames": {
             "CHS": "帝国湖岸堡攻城战",
@@ -1227,6 +1230,7 @@
       "ces": [
         {
           "ceID": 32,
+          "canCoexist": true,
           "iconID": 63912,
           "localizedNames": {
             "CHS": "旗舰达尔里阿达号攻略战",

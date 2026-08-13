@@ -1,13 +1,17 @@
 import type { DurableEventState, DurableInstanceTrackState, ReportEvent } from "./models";
+import { canEventCoexist } from "./catalog";
 
 export const CE_SPLIT_INTERVAL_SECONDS = 3 * 60 - 1;
 export const CE_TIME_ALIGNMENT_SECONDS = 2 * 60;
 
 function eventsConflict(
-  left: Pick<DurableEventState, "eventType" | "eventID" | "lastSpawnedAt">,
-  right: Pick<DurableEventState, "eventType" | "eventID" | "lastSpawnedAt">
+  left: Pick<DurableEventState, "territoryID" | "eventType" | "eventID" | "lastSpawnedAt">,
+  right: Pick<DurableEventState, "territoryID" | "eventType" | "eventID" | "lastSpawnedAt">
 ): boolean {
   if (left.eventType !== "CE" || right.eventType !== "CE")
+    return false;
+  if (canEventCoexist(left.territoryID, left.eventType, left.eventID) ||
+      canEventCoexist(right.territoryID, right.eventType, right.eventID))
     return false;
   const difference = Math.abs(left.lastSpawnedAt - right.lastSpawnedAt);
   if (left.eventID !== right.eventID)
@@ -26,6 +30,7 @@ export function hasTrackConflict(
           existing.firstReceivedAt < track.conflictDetectionStartedAt)
         continue;
       if (eventsConflict(existing, {
+        territoryID,
         eventType: event.eventType,
         eventID: event.eventID,
         lastSpawnedAt: event.spawnedAt

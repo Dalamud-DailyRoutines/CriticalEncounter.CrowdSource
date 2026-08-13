@@ -21,6 +21,7 @@ interface CEEntry {
   iconID: number;
   order: number;
   localizedNames: Record<string, string>;
+  canCoexist?: boolean;
 }
 
 interface FATEEntry {
@@ -36,6 +37,7 @@ interface CatalogEventEntry {
   iconID: number;
   order: number;
   localizedNames: Record<string, string>;
+  canCoexist?: boolean;
 }
 
 interface RawEventArea {
@@ -70,7 +72,8 @@ export const EVENT_AREAS = (dynamicEventCatalog.areas as RawEventArea[]).map(are
       eventID: ce.ceID,
       iconID: ce.iconID,
       order: ce.order,
-      localizedNames: ce.localizedNames
+      localizedNames: ce.localizedNames,
+      canCoexist: ce.canCoexist
     })),
     ...area.fates.map(fate => ({
       eventType: "FATE" as const,
@@ -88,6 +91,7 @@ const WORLD_TO_DATA_CENTER = new Map<number, number>();
 const TERRITORY_TO_AREA = new Map<number, EventArea>();
 const TERRITORY_TO_EVENT_KEYS = new Map<number, Set<string>>();
 const GAMEPLAY_TRACK_RESET_WINDOW = new Map<string, number>();
+const COEXIST_EVENT_KEYS = new Set<string>();
 
 for (const dataCenter of DATA_CENTERS) {
   for (const world of dataCenter.worlds)
@@ -112,6 +116,15 @@ for (const gameplay of GAMEPLAYS)
       : 0
   );
 
+for (const area of EVENT_AREAS) {
+  for (const event of area.events) {
+    if (event.eventType === "CE" && event.canCoexist) {
+      for (const territoryID of area.territoryIDs)
+        COEXIST_EVENT_KEYS.add(`${territoryID}:${event.eventType}:${event.eventID}`);
+    }
+  }
+}
+
 export function getDataCenterForWorld(worldID: number): number | undefined {
   return WORLD_TO_DATA_CENTER.get(worldID);
 }
@@ -130,6 +143,10 @@ export function getAreaForTerritory(territoryID: number): EventArea | undefined 
 
 export function getTrackResetWindowSeconds(gameplayCode: string): number {
   return GAMEPLAY_TRACK_RESET_WINDOW.get(gameplayCode) ?? 0;
+}
+
+export function canEventCoexist(territoryID: number, eventType: EventType, eventID: number): boolean {
+  return COEXIST_EVENT_KEYS.has(`${territoryID}:${eventType}:${eventID}`);
 }
 
 export function hasEvent(territoryID: number, eventType: EventType, eventID: number): boolean {
