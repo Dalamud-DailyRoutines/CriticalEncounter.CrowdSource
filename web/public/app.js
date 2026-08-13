@@ -609,7 +609,9 @@ function createInstanceButton(instance, gameplayEventKeys) {
     const eventKeys = gameplayEventKeys.get(gameplay.code) ?? [];
     const hasData = hasInstanceGameplayData(instance, gameplay.code, eventKeys);
     const gameplayName = gameplay.localizedNames[getSelectedLanguage().code] ?? gameplay.localizedNames.CHS;
-    return `<img class="instance-gameplay-icon${hasData ? " has-data" : ""}" src="/assets/icons/${gameplay.iconID}.png" alt="${gameplayName}" title="${gameplayName}">`;
+    return `<span class="instance-gameplay" data-gameplay="${gameplay.code}" title="${gameplayName}">
+      <img class="instance-gameplay-icon${hasData ? " has-data" : ""}" src="/assets/icons/${gameplay.iconID}.png" alt="${gameplayName}">
+    </span>`;
   }).join("");
   button.innerHTML = `
     <span class="instance-content">
@@ -622,15 +624,37 @@ function createInstanceButton(instance, gameplayEventKeys) {
         <time class="instance-time" data-relative-time="${instance.lastReceivedAt}">${formatRelativeTime(instance.lastReceivedAt)}</time>
       </span>
     </span>`;
-  button.addEventListener("click", () => {
-    state.selectedZoneServerID = instance.zoneServerID;
-    state.selectedTrackIDs.clear();
-    state.areaSelectorOpen = false;
-    updateURL();
-    renderInstances();
-    renderDetails();
+  button.addEventListener("click", event => {
+    const gameplay = event.target.closest(".instance-gameplay");
+    selectInstance(instance, gameplay ? gameplay.dataset.gameplay : null);
   });
   return button;
+}
+
+function selectInstance(instance, gameplayCode = null) {
+  state.selectedZoneServerID = instance.zoneServerID;
+  state.selectedTrackIDs.clear();
+  state.areaSelectorOpen = false;
+
+  const serverGroup = getSelectedDataCenter().serverGroup;
+  const areas = state.catalog.areas.filter(area => area.serverGroups.includes(serverGroup));
+
+  if (gameplayCode !== null) {
+    const area = findLatestArea(instance, areas, gameplayCode);
+    if (area)
+      state.selectedAreaCode = area.code;
+  } else {
+    const currentArea = areas.find(area => area.code === state.selectedAreaCode);
+    if (!currentArea || getAreaLatestActivity(instance, currentArea.code) === 0) {
+      const area = findLatestArea(instance, areas);
+      if (area)
+        state.selectedAreaCode = area.code;
+    }
+  }
+
+  updateURL();
+  renderInstances();
+  renderDetails();
 }
 
 function hasInstanceGameplayData(instance, gameplayCode, eventKeys) {
@@ -640,6 +664,34 @@ function hasInstanceGameplayData(instance, gameplayCode, eventKeys) {
   if (areaTracks.length > 0)
     return areaTracks.some(track => [...eventKeys].some(key => track.eventLastSeen[key]));
   return [...eventKeys].some(key => instance.eventLastSeen[key]);
+}
+
+function getAreaLatestActivity(instance, areaCode) {
+  let latest = 0;
+  for (const track of instance.areaTracks?.[areaCode] ?? []) {
+    if (track.lastReceivedAt > latest)
+      latest = track.lastReceivedAt;
+    for (const event of Object.values(track.eventLastSeen ?? {})) {
+      if (event.lastSpawnedAt > latest)
+        latest = event.lastSpawnedAt;
+    }
+  }
+  return latest;
+}
+
+function findLatestArea(instance, areas, gameplayCode = null) {
+  let best = null;
+  let bestTime = -Infinity;
+  for (const area of areas) {
+    if (gameplayCode !== null && area.gameplay !== gameplayCode)
+      continue;
+    const time = getAreaLatestActivity(instance, area.code);
+    if (time > bestTime) {
+      bestTime = time;
+      best = area;
+    }
+  }
+  return best;
 }
 
 function getSelectedAreaTrack(instance, areaCode) {

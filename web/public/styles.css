@@ -534,6 +534,12 @@ select:focus-visible,
   gap: 4px;
 }
 
+.instance-gameplay {
+  display: flex;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .instance-gameplay-icon {
   display: block;
   width: 24px;
@@ -544,6 +550,10 @@ select:focus-visible,
 }
 
 .instance-gameplay-icon.has-data {
+  opacity: 1;
+}
+
+.instance-gameplay:hover .instance-gameplay-icon {
   opacity: 1;
 }
 
