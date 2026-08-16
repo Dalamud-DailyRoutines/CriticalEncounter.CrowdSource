@@ -9,6 +9,7 @@ window.uiTranslations.de = {
     sortRecent: "Zuletzt aktualisiert",
     sortServer: "Instanz-ID",
     instanceGuideLink: "Wie erhalte ich die Instanz-ID?",
+    githubLink: "GitHub-Repository",
     articleLoadError: "Der Artikel konnte nicht geladen werden",
     activeInstances: "Aktive Instanzen",
     lastUpdate: "Letzte Aktualisierung",

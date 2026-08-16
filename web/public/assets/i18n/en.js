@@ -9,6 +9,7 @@ window.uiTranslations.en = {
     sortRecent: "Recently Updated",
     sortServer: "Instance ID",
     instanceGuideLink: "How to Get the Instance ID",
+    githubLink: "GitHub Repository",
     articleLoadError: "Failed to load the article",
     activeInstances: "Active Instances",
     lastUpdate: "Last Updated",

@@ -9,6 +9,7 @@ window.uiTranslations.zh = {
     sortRecent: "最近更新",
     sortServer: "副本实例 ID",
     instanceGuideLink: "如何获取副本实例 ID？",
+    githubLink: "GitHub 仓库",
     articleLoadError: "文章加载失败",
     activeInstances: "活跃实例",
     lastUpdate: "更新时间",

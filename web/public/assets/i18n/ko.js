@@ -9,6 +9,7 @@ window.uiTranslations.ko = {
     sortRecent: "최근 업데이트",
     sortServer: "인스턴스 ID",
     instanceGuideLink: "인스턴스 ID 확인 방법",
+    githubLink: "GitHub 저장소",
     articleLoadError: "문서를 불러오지 못했습니다",
     activeInstances: "활성 인스턴스",
     lastUpdate: "마지막 업데이트",

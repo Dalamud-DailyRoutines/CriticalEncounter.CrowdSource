@@ -9,6 +9,7 @@ window.uiTranslations.fr = {
     sortRecent: "Récemment mis à jour",
     sortServer: "ID d'instance",
     instanceGuideLink: "Comment obtenir l'ID d'instance ?",
+    githubLink: "Dépôt GitHub",
     articleLoadError: "Échec du chargement de l'article",
     activeInstances: "Instances actives",
     lastUpdate: "Dernière mise à jour",
