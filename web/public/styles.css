@@ -121,6 +121,7 @@ select {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-left: auto;
 }
 
 .guide-link {
@@ -161,6 +162,38 @@ select {
   width: 1px;
   height: 22px;
   background: var(--line);
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  margin-left: 14px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.github-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.github-link:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.github-icon {
+  width: 18px;
+  height: 18px;
 }
 
 .connection {
