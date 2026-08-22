@@ -4,6 +4,8 @@
   font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
   font-synthesis: none;
   letter-spacing: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   --surface: #ffffff;
   --surface-muted: #eef1ed;
   --line: #d9ded8;
@@ -29,6 +31,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .copy-toast {
@@ -1372,6 +1375,49 @@ select:focus-visible,
 }
 
 @media (max-width: 900px) {
+  .brand p {
+    display: none;
+  }
+
+  .brand h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .connection {
+    min-height: 28px;
+    padding: 0 9px;
+    gap: 0;
+  }
+
+  .status-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .status-time {
+    display: none;
+  }
+
+  .topbar {
+    min-height: 60px;
+    padding: calc(12px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 12px max(16px, env(safe-area-inset-left));
+  }
+
   .control-band {
     align-items: stretch;
     flex-wrap: wrap;
@@ -1447,16 +1493,6 @@ select:focus-visible,
 
   .topbar {
     align-items: flex-start;
-    min-height: 82px;
-    padding: 14px 16px;
-  }
-
-  .brand p {
-    max-width: 170px;
-  }
-
-  .status-time {
-    display: none;
   }
 
   .topbar-actions {
@@ -1465,6 +1501,7 @@ select:focus-visible,
 
   .guide-link {
     width: 36px;
+    height: 36px;
     padding: 0;
     justify-content: center;
   }
@@ -1486,7 +1523,7 @@ select:focus-visible,
   }
 
   main {
-    padding: 18px 16px 36px;
+    padding: 18px max(16px, env(safe-area-inset-right)) calc(36px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
   }
 
   .control-band {
@@ -1513,5 +1550,58 @@ select:focus-visible,
 
   .empty-state {
     padding: 80px 18px;
+  }
+
+  .github-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  select {
+    font-size: 16px;
+  }
+
+  .instance-search input {
+    min-height: 40px;
+    font-size: 16px;
+  }
+
+  .region-option {
+    min-height: 36px;
+  }
+
+  .instance-track-option {
+    min-height: 36px;
+  }
+
+  .ce-table {
+    min-width: 540px;
+  }
+
+  .ce-map-link {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .ce-copy-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .summary dt,
+  .instance-time,
+  .area-header-count {
+    font-size: 12px;
+  }
+
+  .instance-state {
+    font-size: 11px;
+  }
+
+  .ce-table th,
+  .ce-absolute,
+  .ce-trigger {
+    font-size: 12px;
   }
 }
