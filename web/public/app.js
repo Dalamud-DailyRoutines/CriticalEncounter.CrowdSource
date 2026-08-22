@@ -13,7 +13,7 @@ const state = {
   serverOffsetMS: 0,
   lastUpdateAt: 0,
   sort: "recent",
-  eventSort: "default",
+  eventSort: "desc",
   instanceSearch: "",
   articleID: null,
   selectedAreaCode: null,
