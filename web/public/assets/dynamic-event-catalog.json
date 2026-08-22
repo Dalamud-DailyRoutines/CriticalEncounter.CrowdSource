@@ -19,12 +19,12 @@
           },
           "order": 1,
           "triggerDescriptions": {
-            "CHS": "15级 新月鬼鱼",
-            "DE": "Stufe 15 Kreszentia-Mönch",
-            "EN": "Level 15 crescent monk",
-            "FR": "Niveau 15 moine de Lunule",
-            "JA": "レベル15 クレセント・モンク",
-            "KO": "레벨 15 초승달 문어"
+            "CHS": "击杀 **15 级 新月鬼鱼**",
+            "DE": "Besiege **Stufe 15 Kreszentia-Mönch**",
+            "EN": "Defeat **Level 15 crescent monk**",
+            "FR": "Vaincre **Niveau 15 moine de Lunule**",
+            "JA": "**レベル15 クレセント・モンク** を討伐",
+            "KO": "**레벨 15 초승달 문어** 처치"
           }
         },
         {
@@ -44,12 +44,12 @@
           },
           "order": 2,
           "triggerDescriptions": {
-            "CHS": "14级 新月猎豹",
-            "DE": "Stufe 14 Kreszentia-Panther",
-            "EN": "Level 14 crescent panther",
-            "FR": "Niveau 14 coeurl de Lunule",
-            "JA": "レベル14 クレセント・パンサー",
-            "KO": "레벨 14 초승달 흑표범"
+            "CHS": "击杀 **14 级 新月猎豹**",
+            "DE": "Besiege **Stufe 14 Kreszentia-Panther**",
+            "EN": "Defeat **Level 14 crescent panther**",
+            "FR": "Vaincre **Niveau 14 coeurl de Lunule**",
+            "JA": "**レベル14 クレセント・パンサー** を討伐",
+            "KO": "**레벨 14 초승달 흑표범** 처치"
           }
         },
         {
@@ -69,12 +69,12 @@
           },
           "order": 3,
           "triggerDescriptions": {
-            "CHS": "17级 新月恶魔兵卒",
-            "DE": "Stufe 17 dämonischer Kreszentia-Schlächter",
-            "EN": "Level 17 crescent demon pawn",
-            "FR": "Niveau 17 pion démon de Lunule",
-            "JA": "レベル17 クレセント・デーモンポーン",
-            "KO": "레벨 17 초승달 악마 병졸"
+            "CHS": "击杀 **17 级 新月恶魔兵卒**",
+            "DE": "Besiege **Stufe 17 dämonischer Kreszentia-Schlächter**",
+            "EN": "Defeat **Level 17 crescent demon pawn**",
+            "FR": "Vaincre **Niveau 17 pion démon de Lunule**",
+            "JA": "**レベル17 クレセント・デーモンポーン** を討伐",
+            "KO": "**레벨 17 초승달 악마 병졸** 처치"
           }
         },
         {
@@ -94,12 +94,12 @@
           },
           "order": 4,
           "triggerDescriptions": {
-            "CHS": "16级 新月黑卫",
-            "DE": "Stufe 16 Kreszentia-Düsterwächter",
-            "EN": "Level 16 crescent blackguard",
-            "FR": "Niveau 16 garde noir de Lunule",
-            "JA": "レベル16 クレセント・ブラックガード",
-            "KO": "레벨 16 초승달 검은 파수꾼"
+            "CHS": "击杀 **16 级 新月黑卫**",
+            "DE": "Besiege **Stufe 16 Kreszentia-Düsterwächter**",
+            "EN": "Defeat **Level 16 crescent blackguard**",
+            "FR": "Vaincre **Niveau 16 garde noir de Lunule**",
+            "JA": "**レベル16 クレセント・ブラックガード** を討伐",
+            "KO": "**레벨 16 초승달 검은 파수꾼** 처치"
           }
         },
         {
@@ -119,12 +119,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "20级 新月墨渍",
-            "DE": "Stufe 20 Kreszentia-Tintenfleck",
-            "EN": "Level 20 crescent inkstain",
-            "FR": "Niveau 20 tache d'encre de Lunule",
-            "JA": "レベル20 クレセント・インクステイン",
-            "KO": "레벨 20 초승달 잉크 얼룩"
+            "CHS": "击杀 **20 级 新月墨渍**",
+            "DE": "Besiege **Stufe 20 Kreszentia-Tintenfleck**",
+            "EN": "Defeat **Level 20 crescent inkstain**",
+            "FR": "Vaincre **Niveau 20 tache d'encre de Lunule**",
+            "JA": "**レベル20 クレセント・インクステイン** を討伐",
+            "KO": "**레벨 20 초승달 잉크 얼룩** 처치"
           }
         },
         {
@@ -144,12 +144,12 @@
           },
           "order": 6,
           "triggerDescriptions": {
-            "CHS": "19级 新月巨钳虾",
-            "DE": "Stufe 19 Kreszentia-Lehmskorpion",
-            "EN": "Level 19 crescent claw",
-            "FR": "Niveau 19 griffe d'argile de Lunule",
-            "JA": "レベル19 クレセント・クレイクロウ",
-            "KO": "레벨 19 초승달 찰흙발톱"
+            "CHS": "击杀 **19 级 新月巨钳虾**",
+            "DE": "Besiege **Stufe 19 Kreszentia-Lehmskorpion**",
+            "EN": "Defeat **Level 19 crescent claw**",
+            "FR": "Vaincre **Niveau 19 griffe d'argile de Lunule**",
+            "JA": "**レベル19 クレセント・クレイクロウ** を討伐",
+            "KO": "**레벨 19 초승달 찰흙발톱** 처치"
           }
         },
         {
@@ -169,12 +169,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "13级 新月比布鲁斯",
-            "DE": "Stufe 13 Kreszentia-Byblos",
-            "EN": "Level 13 crescent Byblos",
-            "FR": "Niveau 13 byblos de Lunule",
-            "JA": "レベル13 クレセント・ビブロス",
-            "KO": "레벨 13 초승달 비블로스"
+            "CHS": "击杀 **13 级 新月比布鲁斯**",
+            "DE": "Besiege **Stufe 13 Kreszentia-Byblos**",
+            "EN": "Defeat **Level 13 crescent Byblos**",
+            "FR": "Vaincre **Niveau 13 byblos de Lunule**",
+            "JA": "**レベル13 クレセント・ビブロス** を討伐",
+            "KO": "**레벨 13 초승달 비블로스** 처치"
           }
         },
         {
@@ -194,12 +194,12 @@
           },
           "order": 8,
           "triggerDescriptions": {
-            "CHS": "4级 新月马洛里石",
-            "DE": "Stufe 4 Kreszentia-Marolith",
-            "EN": "Level 4 crescent marolith",
-            "FR": "Niveau 4 marolithe de Lunule",
-            "JA": "レベル4 クレセント・マロリス",
-            "KO": "레벨 4 초승달 마롤리스"
+            "CHS": "击杀 **4 级 新月马洛里石**",
+            "DE": "Besiege **Stufe 4 Kreszentia-Marolith**",
+            "EN": "Defeat **Level 4 crescent marolith**",
+            "FR": "Vaincre **Niveau 4 marolithe de Lunule**",
+            "JA": "**レベル4 クレセント・マロリス** を討伐",
+            "KO": "**레벨 4 초승달 마롤리스** 처치"
           }
         },
         {
@@ -219,12 +219,12 @@
           },
           "order": 9,
           "triggerDescriptions": {
-            "CHS": "7级 新月小瓣齿鲨",
-            "DE": "Stufe 7 niederer Kreszentia-Petalodus",
-            "EN": "Level 7 crescent petalodite",
-            "FR": "Niveau 7 petalodus inférieur de Lunule",
-            "JA": "レベル7 クレセント・レッサーペタロドゥス",
-            "KO": "레벨 7 초승달 작은 페탈로두스"
+            "CHS": "击杀 **7 级 新月小瓣齿鲨**",
+            "DE": "Besiege **Stufe 7 niederer Kreszentia-Petalodus**",
+            "EN": "Defeat **Level 7 crescent petalodite**",
+            "FR": "Vaincre **Niveau 7 petalodus inférieur de Lunule**",
+            "JA": "**レベル7 クレセント・レッサーペタロドゥス** を討伐",
+            "KO": "**레벨 7 초승달 작은 페탈로두스** 처치"
           }
         },
         {
@@ -244,12 +244,12 @@
           },
           "order": 10,
           "triggerDescriptions": {
-            "CHS": "5级 新月风扇",
-            "DE": "Stufe 5 Kreszentia-Ventilator",
-            "EN": "Level 5 crescent fan",
-            "FR": "Niveau 5 ventilateur de Lunule",
-            "JA": "レベル5 クレセント・ファン",
-            "KO": "레벨 5 초승달 선풍기"
+            "CHS": "击杀 **5 级 新月风扇**",
+            "DE": "Besiege **Stufe 5 Kreszentia-Ventilator**",
+            "EN": "Defeat **Level 5 crescent fan**",
+            "FR": "Vaincre **Niveau 5 ventilateur de Lunule**",
+            "JA": "**レベル5 クレセント・ファン** を討伐",
+            "KO": "**레벨 5 초승달 선풍기** 처치"
           }
         },
         {
@@ -269,12 +269,12 @@
           },
           "order": 11,
           "triggerDescriptions": {
-            "CHS": "8级 新月乌菊石",
-            "DE": "Stufe 8 Kreszentia-Uragnit",
-            "EN": "Level 8 crescent uragnite",
-            "FR": "Niveau 8 uragnite de Lunule",
-            "JA": "レベル8 クレセント・ウラグナイト",
-            "KO": "레벨 8 초승달 오징어조개"
+            "CHS": "击杀 **8 级 新月乌菊石**",
+            "DE": "Besiege **Stufe 8 Kreszentia-Uragnit**",
+            "EN": "Defeat **Level 8 crescent uragnite**",
+            "FR": "Vaincre **Niveau 8 uragnite de Lunule**",
+            "JA": "**レベル8 クレセント・ウラグナイト** を討伐",
+            "KO": "**레벨 8 초승달 오징어조개** 처치"
           }
         },
         {
@@ -294,12 +294,12 @@
           },
           "order": 12,
           "triggerDescriptions": {
-            "CHS": "1级 新月加鲁拉",
-            "DE": "Stufe 1 Kreszentia-Garula",
-            "EN": "Level 1 crescent Garula",
-            "FR": "Niveau 1 garula de Lunule",
-            "JA": "レベル1 クレセント・ガルラ",
-            "KO": "레벨 1 초승달 가루라"
+            "CHS": "击杀 **1 级 新月加鲁拉**",
+            "DE": "Besiege **Stufe 1 Kreszentia-Garula**",
+            "EN": "Defeat **Level 1 crescent Garula**",
+            "FR": "Vaincre **Niveau 1 garula de Lunule**",
+            "JA": "**レベル1 クレセント・ガルラ** を討伐",
+            "KO": "**레벨 1 초승달 가루라** 처치"
           }
         },
         {
@@ -319,12 +319,12 @@
           },
           "order": 13,
           "triggerDescriptions": {
-            "CHS": "7级 新月刻托斯",
-            "DE": "Stufe 7 Kreszentia-Cetus",
-            "EN": "Level 7 crescent Cetus",
-            "FR": "Niveau 7 cetus de Lunule",
-            "JA": "レベル7 クレセント・ケートス",
-            "KO": "레벨 7 초승달 케투스"
+            "CHS": "击杀 **7 级 新月刻托斯**",
+            "DE": "Besiege **Stufe 7 Kreszentia-Cetus**",
+            "EN": "Defeat **Level 7 crescent Cetus**",
+            "FR": "Vaincre **Niveau 7 cetus de Lunule**",
+            "JA": "**レベル7 クレセント・ケートス** を討伐",
+            "KO": "**레벨 7 초승달 케투스** 처치"
           }
         },
         {
@@ -344,12 +344,12 @@
           },
           "order": 14,
           "triggerDescriptions": {
-            "CHS": "20级 新月立狮",
-            "DE": "Stufe 20 Kreszentia-Steiger",
-            "EN": "Level 20 crescent lion statant",
-            "FR": "Niveau 20 lion passant de Lunule",
-            "JA": "レベル20 クレセント・ステータント",
-            "KO": "레벨 20 초승달 문장사자"
+            "CHS": "击杀 **20 级 新月立狮**",
+            "DE": "Besiege **Stufe 20 Kreszentia-Steiger**",
+            "EN": "Defeat **Level 20 crescent lion statant**",
+            "FR": "Vaincre **Niveau 20 lion passant de Lunule**",
+            "JA": "**レベル20 クレセント・ステータント** を討伐",
+            "KO": "**레벨 20 초승달 문장사자** 처치"
           }
         },
         {
@@ -369,12 +369,12 @@
           },
           "order": 15,
           "triggerDescriptions": {
-            "CHS": "11级 新月哈耳庇厄鸟妖",
-            "DE": "Stufe 11 Kreszentia-Harpuia",
-            "EN": "Level 11 crescent harpuia",
-            "FR": "Niveau 11 harpyia de Lunule",
-            "JA": "レベル11 クレセント・ハルピュイア",
-            "KO": "레벨 11 초승달 하르퓌아"
+            "CHS": "击杀 **11 级 新月哈耳庇厄鸟妖**",
+            "DE": "Besiege **Stufe 11 Kreszentia-Harpuia**",
+            "EN": "Defeat **Level 11 crescent harpuia**",
+            "FR": "Vaincre **Niveau 11 harpyia de Lunule**",
+            "JA": "**レベル11 クレセント・ハルピュイア** を討伐",
+            "KO": "**레벨 11 초승달 하르퓌아** 처치"
           }
         },
         {
@@ -477,12 +477,12 @@
           },
           "order": 1,
           "triggerDescriptions": {
-            "CHS": "46级 新月瓦魔蛾",
-            "DE": "Stufe 46 Kreszentia-Wamoura",
-            "EN": "Level 46 crescent wamoura",
-            "FR": "Niveau 46 wamoura de Lunule",
-            "JA": "レベル46 クレセント・ワモーラ",
-            "KO": "레벨 46 초승달 와무라"
+            "CHS": "击杀 **46 级 新月瓦魔蛾**",
+            "DE": "Besiege **Stufe 46 Kreszentia-Wamoura**",
+            "EN": "Defeat **Level 46 crescent wamoura**",
+            "FR": "Vaincre **Niveau 46 wamoura de Lunule**",
+            "JA": "**レベル46 クレセント・ワモーラ** を討伐",
+            "KO": "**레벨 46 초승달 와무라** 처치"
           }
         },
         {
@@ -502,12 +502,12 @@
           },
           "order": 2,
           "triggerDescriptions": {
-            "CHS": "39级 新月黑卫",
-            "DE": "Stufe 39 Kreszentia-Düsterwächter",
-            "EN": "Level 39 crescent blackguard",
-            "FR": "Niveau 39 garde noir de Lunule",
-            "JA": "レベル39 クレセント・ブラックガード",
-            "KO": "레벨 39 초승달 검은 파수꾼"
+            "CHS": "击杀 **39 级 新月黑卫**",
+            "DE": "Besiege **Stufe 39 Kreszentia-Düsterwächter**",
+            "EN": "Defeat **Level 39 crescent blackguard**",
+            "FR": "Vaincre **Niveau 39 garde noir de Lunule**",
+            "JA": "**レベル39 クレセント・ブラックガード** を討伐",
+            "KO": "**레벨 39 초승달 검은 파수꾼** 처치"
           }
         },
         {
@@ -527,12 +527,12 @@
           },
           "order": 3,
           "triggerDescriptions": {
-            "CHS": "38级 新月祸蛛蝎",
-            "DE": "Stufe 38 Kreszentia-Terrormilbe",
-            "EN": "Level 38 crescent banemite",
-            "FR": "Niveau 38 sarcopte de Lunule",
-            "JA": "レベル38 クレセント・ベーンマイト",
-            "KO": "레벨 38 초승달 독거미전갈"
+            "CHS": "击杀 **38 级 新月祸蛛蝎**",
+            "DE": "Besiege **Stufe 38 Kreszentia-Terrormilbe**",
+            "EN": "Defeat **Level 38 crescent banemite**",
+            "FR": "Vaincre **Niveau 38 sarcopte de Lunule**",
+            "JA": "**レベル38 クレセント・ベーンマイト** を討伐",
+            "KO": "**레벨 38 초승달 독거미전갈** 처치"
           }
         },
         {
@@ -569,12 +569,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "34级 新月大角牛",
-            "DE": "Stufe 34 Kreszentia-Großhorn",
-            "EN": "Level 34 crescent big horn",
-            "FR": "Niveau 34 encorné de Lunule",
-            "JA": "レベル34 クレセント・ビッグホーン",
-            "KO": "레벨 34 초승달 거대뿔"
+            "CHS": "击杀 **34 级 新月大角牛**",
+            "DE": "Besiege **Stufe 34 Kreszentia-Großhorn**",
+            "EN": "Defeat **Level 34 crescent big horn**",
+            "FR": "Vaincre **Niveau 34 encorné de Lunule**",
+            "JA": "**レベル34 クレセント・ビッグホーン** を討伐",
+            "KO": "**레벨 34 초승달 거대뿔** 처치"
           }
         },
         {
@@ -611,12 +611,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "38级 新月地狱犬",
-            "DE": "Stufe 38 Kreszentia-Höllenhund",
-            "EN": "Level 38 crescent hellhound",
-            "FR": "Niveau 38 limier de Lunule",
-            "JA": "レベル38 クレセント・ヘルハウンド",
-            "KO": "레벨 38 초승달 지옥견"
+            "CHS": "击杀 **38 级 新月地狱犬**",
+            "DE": "Besiege **Stufe 38 Kreszentia-Höllenhund**",
+            "EN": "Defeat **Level 38 crescent hellhound**",
+            "FR": "Vaincre **Niveau 38 limier de Lunule**",
+            "JA": "**レベル38 クレセント・ヘルハウンド** を討伐",
+            "KO": "**레벨 38 초승달 지옥견** 처치"
           }
         },
         {
@@ -687,12 +687,12 @@
           },
           "order": 11,
           "triggerDescriptions": {
-            "CHS": "29级 新月胡瓦西",
-            "DE": "Stufe 29 Kreszentia-Huwasi",
-            "EN": "Level 29 crescent huwasi",
-            "FR": "Niveau 29 huwasi de Lunule",
-            "JA": "レベル29 クレセント・フワシ",
-            "KO": "레벨 29 초승달 후와시"
+            "CHS": "击杀 **29 级 新月胡瓦西**",
+            "DE": "Besiege **Stufe 29 Kreszentia-Huwasi**",
+            "EN": "Defeat **Level 29 crescent huwasi**",
+            "FR": "Vaincre **Niveau 29 huwasi de Lunule**",
+            "JA": "**レベル29 クレセント・フワシ** を討伐",
+            "KO": "**레벨 29 초승달 후와시** 처치"
           }
         },
         {
@@ -729,12 +729,12 @@
           },
           "order": 13,
           "triggerDescriptions": {
-            "CHS": "27级 新月幽灵",
-            "DE": "Stufe 27 Kreszentia-Geist",
-            "EN": "Level 27 crescent wraith",
-            "FR": "Niveau 27 spectre de Lunule",
-            "JA": "レベル27 クレセント・レイス",
-            "KO": "레벨 27 초승달 망령"
+            "CHS": "击杀 **27 级 新月幽灵**",
+            "DE": "Besiege **Stufe 27 Kreszentia-Geist**",
+            "EN": "Defeat **Level 27 crescent wraith**",
+            "FR": "Vaincre **Niveau 27 spectre de Lunule**",
+            "JA": "**レベル27 クレセント・レイス** を討伐",
+            "KO": "**레벨 27 초승달 망령** 처치"
           }
         },
         {
@@ -885,12 +885,12 @@
           },
           "order": 2,
           "triggerDescriptions": {
-            "CHS": "华丽魔女的珍兽使者（冲突战）",
-            "DE": "Ungeheuerlich!",
-            "EN": "All Pets Are Off",
-            "FR": "Belles plantes",
-            "JA": "華麗なる珍獣使い",
-            "KO": "화려한 희귀마수 조련사"
+            "CHS": "完成冲突战 **华丽魔女的珍兽使者**",
+            "DE": "Scharmützel **Ungeheuerlich!** abschließen",
+            "EN": "Complete skirmish **All Pets Are Off**",
+            "FR": "Terminer l'escarmouche **Belles plantes**",
+            "JA": "スカーミッシュ **華麗なる珍獣使い** を達成",
+            "KO": "돌발교전 **화려한 희귀마수 조련사** 완료"
           }
         },
         {
@@ -927,12 +927,12 @@
           },
           "order": 4,
           "triggerDescriptions": {
-            "CHS": "迎击有人魔导兵器（冲突战）",
-            "DE": "Auf zum Gegenangriff",
-            "EN": "More Machine Now than Man",
-            "FR": "Machines aux trousses",
-            "JA": "有人魔導兵器の迎撃",
-            "KO": "유인 마도 병기 요격"
+            "CHS": "完成冲突战 **迎击有人魔导兵器**",
+            "DE": "Scharmützel **Auf zum Gegenangriff** abschließen",
+            "EN": "Complete skirmish **More Machine Now than Man**",
+            "FR": "Terminer l'escarmouche **Machines aux trousses**",
+            "JA": "スカーミッシュ **有人魔導兵器の迎撃** を達成",
+            "KO": "돌발교전 **유인 마도 병기 요격** 완료"
           }
         },
         {
@@ -952,12 +952,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "高火力陆战魔导兵器——守夜（紧急遭遇战）",
-            "DE": "Vigil, Feuerkraft hoch zehn",
-            "EN": "Vigil for the Lost",
-            "FR": "Vigile de feu",
-            "JA": "高火力陸戦魔導兵器「ヴィジル」",
-            "KO": "고화력 육지전 마도 병기 '비질'"
+            "CHS": "完成紧急遭遇战 **高火力陆战魔导兵器——守夜**",
+            "DE": "Kritisches Gefecht **Vigil, Feuerkraft hoch zehn** abschließen",
+            "EN": "Complete critical encounter **Vigil for the Lost**",
+            "FR": "Terminer l'affrontement crucial **Vigile de feu**",
+            "JA": "クリティカルエンカウント **高火力陸戦魔導兵器「ヴィジル」** を達成",
+            "KO": "비상교전 **고화력 육지전 마도 병기 '비질'** 완료"
           }
         },
         {
@@ -994,12 +994,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "洁白心的逃脱战（冲突战）",
-            "DE": "Llofii die Ausgebüxte",
-            "EN": "Unicorn Flakes",
-            "FR": "La licorne des plaines",
-            "JA": "潔白の脱走兵",
-            "KO": "결백한 탈주병"
+            "CHS": "完成冲突战 **洁白心的逃脱战**",
+            "DE": "Scharmützel **Llofii die Ausgebüxte** abschließen",
+            "EN": "Complete skirmish **Unicorn Flakes**",
+            "FR": "Terminer l'escarmouche **La licorne des plaines**",
+            "JA": "スカーミッシュ **潔白の脱走兵** を達成",
+            "KO": "돌발교전 **결백한 탈주병** 완료"
           }
         },
         {
@@ -1019,12 +1019,12 @@
           },
           "order": 8,
           "triggerDescriptions": {
-            "CHS": "兽性兽心与红色马鸟（冲突战）",
-            "DE": "Großes Federlassen",
-            "EN": "Red (Chocobo) Alert",
-            "FR": "Quand les chocobos voient rouge",
-            "JA": "豚面と赤い馬鳥",
-            "KO": "시크족과 붉은 초코보"
+            "CHS": "完成冲突战 **兽性兽心与红色马鸟**",
+            "DE": "Scharmützel **Großes Federlassen** abschließen",
+            "EN": "Complete skirmish **Red (Chocobo) Alert**",
+            "FR": "Terminer l'escarmouche **Quand les chocobos voient rouge**",
+            "JA": "スカーミッシュ **豚面と赤い馬鳥** を達成",
+            "KO": "돌발교전 **시크족과 붉은 초코보** 완료"
           }
         },
         {
@@ -1044,12 +1044,12 @@
           },
           "order": 9,
           "triggerDescriptions": {
-            "CHS": "红陆行鸟之王——红色彗星（紧急遭遇战）",
-            "DE": "Der Rote Meteor und seine Meute",
-            "EN": "The Hunt for Red Choctober",
-            "FR": "Une ruée en rouge",
-            "JA": "赤チョコボのヌシ「レッドコメット」",
-            "KO": "우두머리 초코보 '붉은 혜성'"
+            "CHS": "完成紧急遭遇战 **红陆行鸟之王——红色彗星**",
+            "DE": "Kritisches Gefecht **Der Rote Meteor und seine Meute** abschließen",
+            "EN": "Complete critical encounter **The Hunt for Red Choctober**",
+            "FR": "Terminer l'affrontement crucial **Une ruée en rouge**",
+            "JA": "クリティカルエンカウント **赤チョコボのヌシ「レッドコメット」** を達成",
+            "KO": "비상교전 **우두머리 초코보 '붉은 혜성'** 완료"
           }
         },
         {
@@ -1120,12 +1120,12 @@
           },
           "order": 13,
           "triggerDescriptions": {
-            "CHS": "钢铁魔兽——达因斯莱瓦（紧急遭遇战）",
-            "DE": "Dáinsleif, Bestie aus Eisen",
-            "EN": "Metal Fox Chaos",
-            "FR": "Le guerrier de métal",
-            "JA": "鋼鉄の魔獣「ダーインスレイヴ」",
-            "KO": "강철 마수 '다인슬라이프'"
+            "CHS": "完成紧急遭遇战 **钢铁魔兽——达因斯莱瓦**",
+            "DE": "Kritisches Gefecht **Dáinsleif, Bestie aus Eisen** abschließen",
+            "EN": "Complete critical encounter **Metal Fox Chaos**",
+            "FR": "Terminer l'affrontement crucial **Le guerrier de métal**",
+            "JA": "クリティカルエンカウント **鋼鉄の魔獣「ダーインスレイヴ」** を達成",
+            "KO": "비상교전 **강철 마수 '다인슬라이프'** 완료"
           }
         },
         {
@@ -1145,12 +1145,12 @@
           },
           "order": 14,
           "triggerDescriptions": {
-            "CHS": "南方战线的续战（冲突战）",
-            "DE": "Auf und ab",
-            "EN": "Of Steel and Flame",
-            "FR": "Le fer et le feu",
-            "JA": "続・燃え上がる南方戦線",
-            "KO": "타오르는 남부 전선 속편"
+            "CHS": "完成冲突战 **南方战线的续战**",
+            "DE": "Scharmützel **Auf und ab** abschließen",
+            "EN": "Complete skirmish **Of Steel and Flame**",
+            "FR": "Terminer l'escarmouche **Le fer et le feu**",
+            "JA": "スカーミッシュ **続・燃え上がる南方戦線** を達成",
+            "KO": "돌발교전 **타오르는 남부 전선 속편** 완료"
           }
         },
         {
@@ -1170,12 +1170,12 @@
           },
           "order": 15,
           "triggerDescriptions": {
-            "CHS": "破坏魔导劳工B型（冲突战）",
-            "DE": "Gewaltsame Arbeitsniederlegung - Plan B",
-            "EN": "I'm a Mechanical Man",
-            "FR": "Plan B",
-            "JA": "魔導レイバーB型破壊命令",
-            "KO": "마도 노동자 B형 파괴 명령"
+            "CHS": "完成冲突战 **破坏魔导劳工B型**",
+            "DE": "Scharmützel **Gewaltsame Arbeitsniederlegung - Plan B** abschließen",
+            "EN": "Complete skirmish **I'm a Mechanical Man**",
+            "FR": "Terminer l'escarmouche **Plan B**",
+            "JA": "スカーミッシュ **魔導レイバーB型破壊命令** を達成",
+            "KO": "돌발교전 **마도 노동자 B형 파괴 명령** 완료"
           }
         },
         {
@@ -1259,12 +1259,12 @@
           },
           "order": 2,
           "triggerDescriptions": {
-            "CHS": "无心无惭邪道术师（冲突战）",
-            "DE": "Ketzer Fabineau gibt sich die Ehre",
-            "EN": "An Immoral Dilemma",
-            "FR": "Malheureuses retrouvailles",
-            "JA": "傍白の外道術士",
-            "KO": "잔학한 마술사"
+            "CHS": "完成冲突战 **无心无惭邪道术师**",
+            "DE": "Scharmützel **Ketzer Fabineau gibt sich die Ehre** abschließen",
+            "EN": "Complete skirmish **An Immoral Dilemma**",
+            "FR": "Terminer l'escarmouche **Malheureuses retrouvailles**",
+            "JA": "スカーミッシュ **傍白の外道術士** を達成",
+            "KO": "돌발교전 **잔학한 마술사** 완료"
           }
         },
         {
@@ -1284,12 +1284,12 @@
           },
           "order": 3,
           "triggerDescriptions": {
-            "CHS": "强化兵部队的强袭（冲突战）",
-            "DE": "Verstärkung für die Mech-Einheit",
-            "EN": "Attack of the Supersoldiers",
-            "FR": "Il est plus d'un",
-            "JA": "強化兵部隊の強襲",
-            "KO": "강화병 부대의 강습"
+            "CHS": "完成冲突战 **强化兵部队的强袭**",
+            "DE": "Scharmützel **Verstärkung für die Mech-Einheit** abschließen",
+            "EN": "Complete skirmish **Attack of the Supersoldiers**",
+            "FR": "Terminer l'escarmouche **Il est plus d'un**",
+            "JA": "スカーミッシュ **強化兵部隊の強襲** を達成",
+            "KO": "돌발교전 **강화병 부대의 강습** 완료"
           }
         },
         {
@@ -1309,12 +1309,12 @@
           },
           "order": 4,
           "triggerDescriptions": {
-            "CHS": "复制统治者——第四军团哈修马利姆（紧急遭遇战）",
-            "DE": "Hashmallim der Einiger",
-            "EN": "A Familiar Face",
-            "FR": "Le Grand Ordonnateur",
-            "JA": "模造統制者「IVレギオン・ハシュマリム」",
-            "KO": "모조 통제자 'IV군단 하쉬말림'"
+            "CHS": "完成紧急遭遇战 **复制统治者——第四军团哈修马利姆**",
+            "DE": "Kritisches Gefecht **Hashmallim der Einiger** abschließen",
+            "EN": "Complete critical encounter **A Familiar Face**",
+            "FR": "Terminer l'affrontement crucial **Le Grand Ordonnateur**",
+            "JA": "クリティカルエンカウント **模造統制者「IVレギオン・ハシュマリム」** を達成",
+            "KO": "비상교전 **모조 통제자 'IV군단 하쉬말림'** 완료"
           }
         },
         {
@@ -1334,12 +1334,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "第四军团步兵",
-            "DE": "Infanterist[p] der IV. Legion",
-            "EN": "4th Legion infantry",
-            "FR": "fantassin de la 4 légion",
-            "JA": "IVレギオン・インファントリー",
-            "KO": "IV군단 보병"
+            "CHS": "击杀 **第四军团步兵**",
+            "DE": "Besiege **Infanterist[p] der IV. Legion**",
+            "EN": "Defeat **4th Legion infantry**",
+            "FR": "Vaincre **fantassin de la 4 légion**",
+            "JA": "**IVレギオン・インファントリー** を討伐",
+            "KO": "**IV군단 보병** 처치"
           }
         },
         {
@@ -1359,12 +1359,12 @@
           },
           "order": 6,
           "triggerDescriptions": {
-            "CHS": "第四军团魔导强猎手",
-            "DE": "Nimrod[p] der IV. Legion",
-            "EN": "4th Legion nimrod",
-            "FR": "nimrod de la 4e légion",
-            "JA": "IVレギオン・ニムロッド",
-            "KO": "IV군단 니므롯"
+            "CHS": "击杀 **第四军团魔导强猎手**",
+            "DE": "Besiege **Nimrod[p] der IV. Legion**",
+            "EN": "Defeat **4th Legion nimrod**",
+            "FR": "Vaincre **nimrod de la 4e légion**",
+            "JA": "**IVレギオン・ニムロッド** を討伐",
+            "KO": "**IV군단 니므롯** 처치"
           }
         },
         {
@@ -1384,12 +1384,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "仿制青龙壁的生命线（冲突战）",
-            "DE": "Energie für Seiryu Zwo",
-            "EN": "Tanking Up",
-            "FR": "Y a qu'à se baisser",
-            "JA": "疑似青龍壁の生命線",
-            "KO": "유사 청룡벽의 생명줄"
+            "CHS": "完成冲突战 **仿制青龙壁的生命线**",
+            "DE": "Scharmützel **Energie für Seiryu Zwo** abschließen",
+            "EN": "Complete skirmish **Tanking Up**",
+            "FR": "Terminer l'escarmouche **Y a qu'à se baisser**",
+            "JA": "スカーミッシュ **疑似青龍壁の生命線** を達成",
+            "KO": "돌발교전 **유사 청룡벽의 생명줄** 완료"
           }
         },
         {
@@ -1409,12 +1409,12 @@
           },
           "order": 8,
           "triggerDescriptions": {
-            "CHS": "邪恶冰狼——恶名苍狼（紧急遭遇战）",
-            "DE": "Eiswolf Hrodvitnir",
-            "EN": "Never Cry Wolf",
-            "FR": "Et n'y Hród'viens plus !",
-            "JA": "邪悪なる氷狼「フローズヴィトニル」",
-            "KO": "사악한 얼음늑대 '흐로드비트니르'"
+            "CHS": "完成紧急遭遇战 **邪恶冰狼——恶名苍狼**",
+            "DE": "Kritisches Gefecht **Eiswolf Hrodvitnir** abschließen",
+            "EN": "Complete critical encounter **Never Cry Wolf**",
+            "FR": "Terminer l'affrontement crucial **Et n'y Hród'viens plus !**",
+            "JA": "クリティカルエンカウント **邪悪なる氷狼「フローズヴィトニル」** を達成",
+            "KO": "비상교전 **사악한 얼음늑대 '흐로드비트니르'** 완료"
           }
         },
         {
@@ -1434,12 +1434,12 @@
           },
           "order": 9,
           "triggerDescriptions": {
-            "CHS": "第四军团辅助机甲",
-            "DE": "Satellit[p] der IV. Legion",
-            "EN": "4th Legion satellite",
-            "FR": "satellite de la 4e légion",
-            "JA": "IVレギオン・サテライト",
-            "KO": "IV군단 위성"
+            "CHS": "击杀 **第四军团辅助机甲**",
+            "DE": "Besiege **Satellit[p] der IV. Legion**",
+            "EN": "Defeat **4th Legion satellite**",
+            "FR": "Vaincre **satellite de la 4e légion**",
+            "JA": "**IVレギオン・サテライト** を討伐",
+            "KO": "**IV군단 위성** 처치"
           }
         },
         {
@@ -1459,12 +1459,12 @@
           },
           "order": 10,
           "triggerDescriptions": {
-            "CHS": "与邪道术师一决胜负（冲突战）",
-            "DE": "Endkampf mit dem Ketzer",
-            "EN": "An End to Atrocities",
-            "FR": "L'immaculée contre le malsain",
-            "JA": "外道術士との決着",
-            "KO": "잔학한 마술사와 결판내다"
+            "CHS": "完成冲突战 **与邪道术师一决胜负**",
+            "DE": "Scharmützel **Endkampf mit dem Ketzer** abschließen",
+            "EN": "Complete skirmish **An End to Atrocities**",
+            "FR": "Terminer l'escarmouche **L'immaculée contre le malsain**",
+            "JA": "スカーミッシュ **外道術士との決着** を達成",
+            "KO": "돌발교전 **잔학한 마술사와 결판내다** 완료"
           }
         },
         {
@@ -1484,12 +1484,12 @@
           },
           "order": 11,
           "triggerDescriptions": {
-            "CHS": "第四军团魔导巨兵",
-            "DE": "Colossus[p] der IV. Legion",
-            "EN": "4th Legion colossus",
-            "FR": "colosse de la 4e légion",
-            "JA": "IVレギオン・コロッサス",
-            "KO": "IV군단 콜로서스"
+            "CHS": "击杀 **第四军团魔导巨兵**",
+            "DE": "Besiege **Colossus[p] der IV. Legion**",
+            "EN": "Defeat **4th Legion colossus**",
+            "FR": "Vaincre **colosse de la 4e légion**",
+            "JA": "**IVレギオン・コロッサス** を討伐",
+            "KO": "**IV군단 콜로서스** 처치"
           }
         },
         {
@@ -1509,12 +1509,12 @@
           },
           "order": 12,
           "triggerDescriptions": {
-            "CHS": "第四军团地狱潜者",
-            "DE": "Höllentaucher[p] der IV. Legion",
-            "EN": "4th Legion helldiver",
-            "FR": "plongeur infernal de la 4e légion",
-            "JA": "IVレギオン・ヘルダイバー",
-            "KO": "IV군단 헬다이버"
+            "CHS": "击杀 **第四军团地狱潜者**",
+            "DE": "Besiege **Höllentaucher[p] der IV. Legion**",
+            "EN": "Defeat **4th Legion helldiver**",
+            "FR": "Vaincre **plongeur infernal de la 4e légion**",
+            "JA": "**IVレギオン・ヘルダイバー** を討伐",
+            "KO": "**IV군단 헬다이버** 처치"
           }
         },
         {
@@ -1534,12 +1534,12 @@
           },
           "order": 13,
           "triggerDescriptions": {
-            "CHS": "不屈不挠的我见我执（冲突战）",
-            "DE": "Die Allergrößte gibt nicht auf",
-            "EN": "The Beasts Are Back",
-            "FR": "Des bêtes en pagagaille",
-            "JA": "折れない我執",
-            "KO": "꺾이지 않는 아집"
+            "CHS": "完成冲突战 **不屈不挠的我见我执**",
+            "DE": "Scharmützel **Die Allergrößte gibt nicht auf** abschließen",
+            "EN": "Complete skirmish **The Beasts Are Back**",
+            "FR": "Terminer l'escarmouche **Des bêtes en pagagaille**",
+            "JA": "スカーミッシュ **折れない我執** を達成",
+            "KO": "돌발교전 **꺾이지 않는 아집** 완료"
           }
         },
         {
@@ -1559,12 +1559,12 @@
           },
           "order": 14,
           "triggerDescriptions": {
-            "CHS": "强化兵再度袭来（冲突战）",
-            "DE": "Rückkehr des Magitek-Soldaten",
-            "EN": "Another Pilot Episode",
-            "FR": "Dabog, soldat augmenté",
-            "JA": "再来の強化兵",
-            "KO": "다시 나타난 강화병"
+            "CHS": "完成冲突战 **强化兵再度袭来**",
+            "DE": "Scharmützel **Rückkehr des Magitek-Soldaten** abschließen",
+            "EN": "Complete skirmish **Another Pilot Episode**",
+            "FR": "Terminer l'escarmouche **Dabog, soldat augmenté**",
+            "JA": "スカーミッシュ **再来の強化兵** を達成",
+            "KO": "돌발교전 **다시 나타난 강화병** 완료"
           }
         },
         {
@@ -1584,12 +1584,12 @@
           },
           "order": 15,
           "triggerDescriptions": {
-            "CHS": "第四军团魔导骑兵",
-            "DE": "Reiter[p] der IV. Legion",
-            "EN": "4th Legion cavalry",
-            "FR": "cavalier de la 4e légion",
-            "JA": "IVレギオン・キャバルリー",
-            "KO": "IV군단 기마병"
+            "CHS": "击杀 **第四军团魔导骑兵**",
+            "DE": "Besiege **Reiter[p] der IV. Legion**",
+            "EN": "Defeat **4th Legion cavalry**",
+            "FR": "Vaincre **cavalier de la 4e légion**",
+            "JA": "**IVレギオン・キャバルリー** を討伐",
+            "KO": "**IV군단 기마병** 처치"
           }
         },
         {
@@ -1609,12 +1609,12 @@
           },
           "order": 16,
           "triggerDescriptions": {
-            "CHS": "试制型飞行型魔导装甲——黑色燃焰（紧急遭遇战）",
-            "DE": "Schwarzbrands Testflug",
-            "EN": "Feeling the Burn",
-            "FR": "On arrête le progrès",
-            "JA": "試作飛行型魔導アーマー「ブラックバーン」",
-            "KO": "시험작 비행형 마도 아머 '블랙번'"
+            "CHS": "完成紧急遭遇战 **试制型飞行型魔导装甲——黑色燃焰**",
+            "DE": "Kritisches Gefecht **Schwarzbrands Testflug** abschließen",
+            "EN": "Complete critical encounter **Feeling the Burn**",
+            "FR": "Terminer l'affrontement crucial **On arrête le progrès**",
+            "JA": "クリティカルエンカウント **試作飛行型魔導アーマー「ブラックバーン」** を達成",
+            "KO": "비상교전 **시험작 비행형 마도 아머 '블랙번'** 완료"
           }
         }
       ],
@@ -1669,12 +1669,12 @@
           },
           "order": 1,
           "triggerDescriptions": {
-            "CHS": "击杀：6级 仙人花",
-            "EN": "Level 6 flowering sabotender",
-            "DE": "Stufe 6 blühend[a] Kaktor",
-            "FR": "Niveau 6 pampa à fleurs",
-            "JA": "レベル6 フラワーテンダー",
-            "KO": "레벨 6 꽃텐더"
+            "CHS": "击杀 **6 级 仙人花**",
+            "DE": "Besiege **Stufe 6 blühend[a] Kaktor**",
+            "EN": "Defeat **Level 6 flowering sabotender**",
+            "FR": "Vaincre **Niveau 6 pampa à fleurs**",
+            "JA": "**レベル6 フラワーテンダー** を討伐",
+            "KO": "**레벨 6 꽃텐더** 처치"
           }
         },
         {
@@ -1694,12 +1694,12 @@
           },
           "order": 2,
           "triggerDescriptions": {
-            "CHS": "击杀：7级 海祭司",
-            "EN": "Level 7 sea bishop",
-            "DE": "Stufe 7 Seebischof",
-            "FR": "Niveau 7 évêque de mer",
-            "JA": "レベル7 シー・ビショップ",
-            "KO": "레벨 7 아네모스 표범문어"
+            "CHS": "击杀 **7 级 海祭司**",
+            "DE": "Besiege **Stufe 7 Seebischof**",
+            "EN": "Defeat **Level 7 sea bishop**",
+            "FR": "Vaincre **Niveau 7 évêque de mer**",
+            "JA": "**レベル7 シー・ビショップ** を討伐",
+            "KO": "**레벨 7 아네모스 표범문어** 처치"
           }
         },
         {
@@ -1719,12 +1719,12 @@
           },
           "order": 3,
           "triggerDescriptions": {
-            "CHS": "击杀：8级 常风哈佩亚鸟妖",
-            "EN": "Level 8 Anemos harpeia",
-            "DE": "Stufe 8 Anemos-Harpeia",
-            "FR": "Niveau 8 harpie Anemos",
-            "JA": "レベル8 アネモス・ハルペイア",
-            "KO": "레벨 8 아네모스 하르페이아"
+            "CHS": "击杀 **8 级 常风哈佩亚鸟妖**",
+            "DE": "Besiege **Stufe 8 Anemos-Harpeia**",
+            "EN": "Defeat **Level 8 Anemos harpeia**",
+            "FR": "Vaincre **Niveau 8 harpie Anemos**",
+            "JA": "**レベル8 アネモス・ハルペイア** を討伐",
+            "KO": "**레벨 8 아네모스 하르페이아** 처치"
           }
         },
         {
@@ -1744,12 +1744,12 @@
           },
           "order": 4,
           "triggerDescriptions": {
-            "CHS": "击杀：9级 晏蜓",
-            "EN": "Level 9 darner",
-            "DE": "Stufe 9 Königslibelle",
-            "FR": "Niveau 9 calopteryx",
-            "JA": "レベル9 ダーナー",
-            "KO": "레벨 9 큰잠자리"
+            "CHS": "击杀 **9 级 晏蜓**",
+            "DE": "Besiege **Stufe 9 Königslibelle**",
+            "EN": "Defeat **Level 9 darner**",
+            "FR": "Vaincre **Niveau 9 calopteryx**",
+            "JA": "**レベル9 ダーナー** を討伐",
+            "KO": "**레벨 9 큰잠자리** 처치"
           }
         },
         {
@@ -1769,12 +1769,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "击杀：10级 瓦尔巨熊",
-            "EN": "Level 10 Val bear",
-            "DE": "Stufe 10 Val-Bär",
-            "FR": "Niveau 10 ours de la Val",
-            "JA": "レベル10 バル・ベアー",
-            "KO": "레벨 10 발 곰"
+            "CHS": "击杀 **10 级 瓦尔巨熊**",
+            "DE": "Besiege **Stufe 10 Val-Bär**",
+            "EN": "Defeat **Level 10 Val bear**",
+            "FR": "Vaincre **Niveau 10 ours de la Val**",
+            "JA": "**レベル10 バル・ベアー** を討伐",
+            "KO": "**레벨 10 발 곰** 처치"
           }
         },
         {
@@ -1794,12 +1794,12 @@
           },
           "order": 6,
           "triggerDescriptions": {
-            "CHS": "击杀：11级 夺灵魔",
-            "EN": "Level 11 pneumaflayer",
-            "DE": "Stufe 11 Pneumaschinder",
-            "FR": "Niveau 11 flagelleur pneumatique",
-            "JA": "レベル11 ニューマフレア",
-            "KO": "레벨 11 정령지배자"
+            "CHS": "击杀 **11 级 夺灵魔**",
+            "DE": "Besiege **Stufe 11 Pneumaschinder**",
+            "EN": "Defeat **Level 11 pneumaflayer**",
+            "FR": "Vaincre **Niveau 11 flagelleur pneumatique**",
+            "JA": "**レベル11 ニューマフレア** を討伐",
+            "KO": "**레벨 11 정령지배자** 처치"
           }
         },
         {
@@ -1819,12 +1819,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "在强风天气下 击杀：12级 台风元精",
-            "EN": "Gales – Level 12 typhoon sprite",
-            "DE": "Stürmisch – Stufe 12 Taifun-Exergon",
-            "FR": "Vents violents – Niveau 12 élémentaire de typhon",
-            "JA": "暴風 – レベル12 タイフーンスプライト",
-            "KO": "폭풍 – 레벨 12 폭풍 정령"
+            "CHS": "在 **强风** 天气下，击杀 **12 级 台风元精**",
+            "DE": "Bei **Stürmisch**, besiege **Stufe 12 Taifun-Exergon**",
+            "EN": "During **Gales**, defeat **Level 12 typhoon sprite**",
+            "FR": "Sous **Vents violents**, vaincre **Niveau 12 élémentaire de typhon**",
+            "JA": "**暴風** 天候時に **レベル12 タイフーンスプライト** を討伐",
+            "KO": "**폭풍** 날씨에 **레벨 12 폭풍 정령** 처치"
           }
         },
         {
@@ -1844,12 +1844,12 @@
           },
           "order": 8,
           "triggerDescriptions": {
-            "CHS": "击杀：13级 阿卜拉克萨斯",
-            "EN": "Level 13 abraxas",
-            "DE": "Stufe 13 Abraxas",
-            "FR": "Niveau 13 abraxas",
-            "JA": "レベル13 アブラクサス",
-            "KO": "레벨 13 아브락사스"
+            "CHS": "击杀 **13 级 阿卜拉克萨斯**",
+            "DE": "Besiege **Stufe 13 Abraxas**",
+            "EN": "Defeat **Level 13 abraxas**",
+            "FR": "Vaincre **Niveau 13 abraxas**",
+            "JA": "**レベル13 アブラクサス** を討伐",
+            "KO": "**레벨 13 아브락사스** 처치"
           }
         },
         {
@@ -1869,12 +1869,12 @@
           },
           "order": 9,
           "triggerDescriptions": {
-            "CHS": "击杀：14级 追踪席兹",
-            "EN": "Level 14 stalker ziz",
-            "DE": "Stufe 14 schleichend[a] Ziz",
-            "FR": "Niveau 14 ziz traqueur",
-            "JA": "レベル14 ストーカー・ジズ",
-            "KO": "레벨 14 지즈 추적자"
+            "CHS": "击杀 **14 级 追踪席兹**",
+            "DE": "Besiege **Stufe 14 schleichend[a] Ziz**",
+            "EN": "Defeat **Level 14 stalker ziz**",
+            "FR": "Vaincre **Niveau 14 ziz traqueur**",
+            "JA": "**レベル14 ストーカー・ジズ** を討伐",
+            "KO": "**레벨 14 지즈 추적자** 처치"
           }
         },
         {
@@ -1894,12 +1894,12 @@
           },
           "order": 10,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：15级 古老贪吃鬼",
-            "EN": "At night – Level 15 traveling gourmand",
-            "DE": "Bei Nacht – Stufe 15 uralt[a] Gourmet",
-            "FR": "De nuit – Niveau 15 gourmand bourlingueur",
-            "JA": "夜間 – レベル15 オールド・グルマン",
-            "KO": "밤 – 레벨 15 고대 대식가"
+            "CHS": "在 **夜晚** 时段内，击杀 **15 级 古老贪吃鬼**",
+            "DE": "Bei **Nacht**, besiege **Stufe 15 uralt[a] Gourmet**",
+            "EN": "At **night**, defeat **Level 15 traveling gourmand**",
+            "FR": "De **nuit**, vaincre **Niveau 15 gourmand bourlingueur**",
+            "JA": "**夜間** に **レベル15 オールド・グルマン** を討伐",
+            "KO": "**밤** 시간대에 **레벨 15 고대 대식가** 처치"
           }
         },
         {
@@ -1919,12 +1919,12 @@
           },
           "order": 11,
           "triggerDescriptions": {
-            "CHS": "击杀：16级 河道巨钳虾",
-            "EN": "Level 16 khor claw",
-            "DE": "Stufe 16 Khor-Klaue",
-            "FR": "Niveau 16 griffe de khor",
-            "JA": "レベル16 コールクロウ",
-            "KO": "레벨 16 계곡 전갈"
+            "CHS": "击杀 **16 级 河道巨钳虾**",
+            "DE": "Besiege **Stufe 16 Khor-Klaue**",
+            "EN": "Defeat **Level 16 khor claw**",
+            "FR": "Vaincre **Niveau 16 griffe de khor**",
+            "JA": "**レベル16 コールクロウ** を討伐",
+            "KO": "**레벨 16 계곡 전갈** 처치"
           }
         },
         {
@@ -1944,12 +1944,12 @@
           },
           "order": 12,
           "triggerDescriptions": {
-            "CHS": "击杀：17级 天仙子",
-            "EN": "Level 17 henbane",
-            "DE": "Stufe 17 Bilsenkraut",
-            "FR": "Niveau 17 jusquiame noire",
-            "JA": "レベル17 ヘンベイン",
-            "KO": "레벨 17 사리풀"
+            "CHS": "击杀 **17 级 天仙子**",
+            "DE": "Besiege **Stufe 17 Bilsenkraut**",
+            "EN": "Defeat **Level 17 henbane**",
+            "FR": "Vaincre **Niveau 17 jusquiame noire**",
+            "JA": "**レベル17 ヘンベイン** を討伐",
+            "KO": "**레벨 17 사리풀** 처치"
           }
         },
         {
@@ -1969,12 +1969,12 @@
           },
           "order": 13,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：18级 黄昏无头骑士",
-            "EN": "At night – Level 18 duskfall dullahan",
-            "DE": "Bei Nacht – Stufe 18 Dämmer-Dullahan",
-            "FR": "De nuit – Niveau 18 dullahan nocturne",
-            "JA": "夜間 – レベル18 ナイト・デュラハン",
-            "KO": "밤 – 레벨 18 황혼 둘라한"
+            "CHS": "在 **夜晚** 时段内，击杀 **18 级 黄昏无头骑士**",
+            "DE": "Bei **Nacht**, besiege **Stufe 18 Dämmer-Dullahan**",
+            "EN": "At **night**, defeat **Level 18 duskfall dullahan**",
+            "FR": "De **nuit**, vaincre **Niveau 18 dullahan nocturne**",
+            "JA": "**夜間** に **レベル18 ナイト・デュラハン** を討伐",
+            "KO": "**밤** 시간대에 **레벨 18 황혼 둘라한** 처치"
           }
         },
         {
@@ -1994,12 +1994,12 @@
           },
           "order": 14,
           "triggerDescriptions": {
-            "CHS": "击杀：19级 独眼怪",
-            "EN": "Level 19 monoeye",
-            "DE": "Stufe 19 Einauge",
-            "FR": "Niveau 19 n'a-qu'un-œil",
-            "JA": "レベル19 モノアイ",
-            "KO": "레벨 19 외눈박이"
+            "CHS": "击杀 **19 级 独眼怪**",
+            "DE": "Besiege **Stufe 19 Einauge**",
+            "EN": "Defeat **Level 19 monoeye**",
+            "FR": "Vaincre **Niveau 19 n'a-qu'un-œil**",
+            "JA": "**レベル19 モノアイ** を討伐",
+            "KO": "**레벨 19 외눈박이** 처치"
           }
         },
         {
@@ -2019,12 +2019,12 @@
           },
           "order": 15,
           "triggerDescriptions": {
-            "CHS": "击杀：20级 旧世界祖",
-            "EN": "Level 20 Old World zu",
-            "DE": "Stufe 20 sharlayanisch[a] Zu",
-            "FR": "Niveau 20 zu du vieux continent",
-            "JA": "レベル20 オールドワールド・ズー",
-            "KO": "레벨 20 구세계 즈"
+            "CHS": "击杀 **20 级 旧世界祖**",
+            "DE": "Besiege **Stufe 20 sharlayanisch[a] Zu**",
+            "EN": "Defeat **Level 20 Old World zu**",
+            "FR": "Vaincre **Niveau 20 zu du vieux continent**",
+            "JA": "**レベル20 オールドワールド・ズー** を討伐",
+            "KO": "**레벨 20 구세계 즈** 처치"
           }
         },
         {
@@ -2044,12 +2044,12 @@
           },
           "order": 16,
           "triggerDescriptions": {
-            "CHS": "击杀：21级 常风阿那罗",
-            "EN": "Level 21 Anemos anala",
-            "DE": "Stufe 21 Anemos-Anala",
-            "FR": "Niveau 21 anala Anemos",
-            "JA": "レベル21 アネモス・アナラ",
-            "KO": "레벨 21 아네모스 아날라"
+            "CHS": "击杀 **21 级 常风阿那罗**",
+            "DE": "Besiege **Stufe 21 Anemos-Anala**",
+            "EN": "Defeat **Level 21 Anemos anala**",
+            "FR": "Vaincre **Niveau 21 anala Anemos**",
+            "JA": "**レベル21 アネモス・アナラ** を討伐",
+            "KO": "**레벨 21 아네모스 아날라** 처치"
           }
         },
         {
@@ -2069,12 +2069,12 @@
           },
           "order": 17,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：22级 龙化石",
-            "EN": "At night – Level 22 fossil dragon",
-            "DE": "Bei Nacht – Stufe 22 fossil[a] Drache",
-            "FR": "De nuit – Niveau 22 dragon fossile",
-            "JA": "夜間 – レベル22 ドラゴンフォシル",
-            "KO": "밤 – 레벨 22 화석용"
+            "CHS": "在 **夜晚** 时段内，击杀 **22 级 龙化石**",
+            "DE": "Bei **Nacht**, besiege **Stufe 22 fossil[a] Drache**",
+            "EN": "At **night**, defeat **Level 22 fossil dragon**",
+            "FR": "De **nuit**, vaincre **Niveau 22 dragon fossile**",
+            "JA": "**夜間** に **レベル22 ドラゴンフォシル** を討伐",
+            "KO": "**밤** 시간대에 **레벨 22 화석용** 처치"
           }
         },
         {
@@ -2094,12 +2094,12 @@
           },
           "order": 18,
           "triggerDescriptions": {
-            "CHS": "击杀：23级 虚无鳞龙",
-            "EN": "Level 23 voidscale",
-            "DE": "Stufe 23 Nichtsschuppe",
-            "FR": "Niveau 23 vidécailles",
-            "JA": "レベル23 ヴォイドスケイル",
-            "KO": "레벨 23 보이드비늘"
+            "CHS": "击杀 **23 级 虚无鳞龙**",
+            "DE": "Besiege **Stufe 23 Nichtsschuppe**",
+            "EN": "Defeat **Level 23 voidscale**",
+            "FR": "Vaincre **Niveau 23 vidécailles**",
+            "JA": "**レベル23 ヴォイドスケイル** を討伐",
+            "KO": "**레벨 23 보이드비늘** 처치"
           }
         },
         {
@@ -2119,12 +2119,12 @@
           },
           "order": 19,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：24级 瓦尔妖影",
-            "EN": "At night – Level 24 Val specter",
-            "DE": "Bei Nacht – Stufe 24 Val-Schemen",
-            "FR": "De nuit – Niveau 24 spector de la Val",
-            "JA": "夜間 – レベル24 バル・スペクター",
-            "KO": "밤 – 레벨 24 발 그림자요괴"
+            "CHS": "在 **夜晚** 时段内，击杀 **24 级 瓦尔妖影**",
+            "DE": "Bei **Nacht**, besiege **Stufe 24 Val-Schemen**",
+            "EN": "At **night**, defeat **Level 24 Val specter**",
+            "FR": "De **nuit**, vaincre **Niveau 24 spector de la Val**",
+            "JA": "**夜間** に **レベル24 バル・スペクター** を討伐",
+            "KO": "**밤** 시간대에 **레벨 24 발 그림자요괴** 처치"
           }
         },
         {
@@ -2144,12 +2144,12 @@
           },
           "order": 20,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：25级 暗影幽灵后 在强风天气下刷新",
-            "EN": "At night – Gales – Level 25 shadow wraith",
-            "DE": "Bei Nacht – Stürmisch – Stufe 25 Schatten-Geist",
-            "FR": "De nuit – Vents violents – Niveau 25 spectre des ombres",
-            "JA": "夜間 – 暴風 – レベル25 シャドウ・レイス",
-            "KO": "밤 – 폭풍 – 레벨 25 그림자 망령"
+            "CHS": "在 **夜晚** 时段内，击杀 **25 级 暗影幽灵** 后，在 **强风** 天气下刷新",
+            "DE": "Bei **Nacht**, besiege **Stufe 25 Schatten-Geist**, erscheint bei **Stürmisch**",
+            "EN": "At **night**, defeat **Level 25 shadow wraith**, spawns during **Gales**",
+            "FR": "De **nuit**, vaincre **Niveau 25 spectre des ombres**, apparaît sous **Vents violents**",
+            "JA": "**夜間** に **レベル25 シャドウ・レイス** を討伐後、**暴風** 天候時に出現",
+            "KO": "**밤** 시간대에 **레벨 25 그림자 망령** 처치 후 **폭풍** 날씨에 출현"
           }
         }
       ],
@@ -2236,12 +2236,12 @@
           },
           "order": 3,
           "triggerDescriptions": {
-            "CHS": "击杀：25级 雪童子",
-            "EN": "Level 25 yukinko",
-            "DE": "Stufe 25 Flöckchen",
-            "FR": "Niveau 25 yukinko",
-            "JA": "レベル25 ユキンコ",
-            "KO": "레벨 25 눈요정"
+            "CHS": "击杀 **25 级 雪童子**",
+            "DE": "Besiege **Stufe 25 Flöckchen**",
+            "EN": "Defeat **Level 25 yukinko**",
+            "FR": "Vaincre **Niveau 25 yukinko**",
+            "JA": "**レベル25 ユキンコ** を討伐",
+            "KO": "**레벨 25 눈요정** 처치"
           }
         },
         {
@@ -2261,12 +2261,12 @@
           },
           "order": 4,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：26级 珍卷恶魔",
-            "EN": "At night – Level 26 demon of the incunable",
-            "DE": "Bei Nacht – Stufe 26 Dämon[p] der Inkunabel",
-            "FR": "De nuit – Niveau 26 démon de l'incunable",
-            "JA": "夜間 – レベル26 デモン・オブ・レアブック",
-            "KO": "밤 – 레벨 26 희귀본 악마"
+            "CHS": "在 **夜晚** 时段内，击杀 **26 级 珍卷恶魔**",
+            "DE": "Bei **Nacht**, besiege **Stufe 26 Dämon[p] der Inkunabel**",
+            "EN": "At **night**, defeat **Level 26 demon of the incunable**",
+            "FR": "De **nuit**, vaincre **Niveau 26 démon de l'incunable**",
+            "JA": "**夜間** に **レベル26 デモン・オブ・レアブック** を討伐",
+            "KO": "**밤** 시간대에 **레벨 26 희귀본 악마** 처치"
           }
         },
         {
@@ -2286,12 +2286,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "击杀：27级 血魔",
-            "EN": "Level 27 blood demon",
-            "DE": "Stufe 27 Blutdämon",
-            "FR": "Niveau 27 démon de sang",
-            "JA": "レベル27 ブラッドデーモン",
-            "KO": "레벨 27 흡혈 악마"
+            "CHS": "击杀 **27 级 血魔**",
+            "DE": "Besiege **Stufe 27 Blutdämon**",
+            "EN": "Defeat **Level 27 blood demon**",
+            "FR": "Vaincre **Niveau 27 démon de sang**",
+            "JA": "**レベル27 ブラッドデーモン** を討伐",
+            "KO": "**레벨 27 흡혈 악마** 처치"
           }
         },
         {
@@ -2311,12 +2311,12 @@
           },
           "order": 6,
           "triggerDescriptions": {
-            "CHS": "击杀：28级 瓦尔巨虫",
-            "EN": "Level 28 Val worm",
-            "DE": "Stufe 28 Val-Wurm",
-            "FR": "Niveau 28 ver de la Val",
-            "JA": "レベル28 バル・ウォーム",
-            "KO": "레벨 28 발 지렁이"
+            "CHS": "击杀 **28 级 瓦尔巨虫**",
+            "DE": "Besiege **Stufe 28 Val-Wurm**",
+            "EN": "Defeat **Level 28 Val worm**",
+            "FR": "Vaincre **Niveau 28 ver de la Val**",
+            "JA": "**レベル28 バル・ウォーム** を討伐",
+            "KO": "**레벨 28 발 지렁이** 처치"
           }
         },
         {
@@ -2336,12 +2336,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "薄雾天气下 击杀：29级 融雪元精",
-            "EN": "Fog – Level 29 snowmelt sprite",
-            "DE": "Neblig – Stufe 29 Schneeschmelzen-Exergon",
-            "FR": "Brouillard – Niveau 29 élémentaire de neige fondue",
-            "JA": "霧 – レベル29 スノウメルトスプライト",
-            "KO": "안개 – 레벨 29 해빙 정령"
+            "CHS": "在 **薄雾** 天气下，击杀 **29 级 融雪元精**",
+            "DE": "Bei **Neblig**, besiege **Stufe 29 Schneeschmelzen-Exergon**",
+            "EN": "During **Fog**, defeat **Level 29 snowmelt sprite**",
+            "FR": "Sous **Brouillard**, vaincre **Niveau 29 élémentaire de neige fondue**",
+            "JA": "**霧** 天候時に **レベル29 スノウメルトスプライト** を討伐",
+            "KO": "**안개** 날씨에 **레벨 29 해빙 정령** 처치"
           }
         },
         {
@@ -2361,12 +2361,12 @@
           },
           "order": 8,
           "triggerDescriptions": {
-            "CHS": "击杀：30级 啜泣百目妖",
-            "EN": "Level 30 blubber eyes",
-            "DE": "Stufe 30 Tranauge",
-            "FR": "Niveau 30 onctueux oculaire",
-            "JA": "レベル30 ブラバーアイズ",
-            "KO": "레벨 30 흐느끼는 눈"
+            "CHS": "击杀 **30 级 啜泣百目妖**",
+            "DE": "Besiege **Stufe 30 Tranauge**",
+            "EN": "Defeat **Level 30 blubber eyes**",
+            "FR": "Vaincre **Niveau 30 onctueux oculaire**",
+            "JA": "**レベル30 ブラバーアイズ** を討伐",
+            "KO": "**레벨 30 흐느끼는 눈** 처치"
           }
         },
         {
@@ -2386,12 +2386,12 @@
           },
           "order": 9,
           "triggerDescriptions": {
-            "CHS": "击杀：31级 胡瓦西",
-            "EN": "Level 31 huwasi",
-            "DE": "Stufe 31 Huwasi",
-            "FR": "Niveau 31 huwasi",
-            "JA": "レベル31 フワシ",
-            "KO": "레벨 31 후와시"
+            "CHS": "击杀 **31 级 胡瓦西**",
+            "DE": "Besiege **Stufe 31 Huwasi**",
+            "EN": "Defeat **Level 31 huwasi**",
+            "FR": "Vaincre **Niveau 31 huwasi**",
+            "JA": "**レベル31 フワシ** を討伐",
+            "KO": "**레벨 31 후와시** 처치"
           }
         },
         {
@@ -2411,12 +2411,12 @@
           },
           "order": 10,
           "triggerDescriptions": {
-            "CHS": "击杀：32级 徘徊欧浦肯",
-            "EN": "Level 32 wandering opken",
-            "DE": "Stufe 32 wandernd[a] Opken",
-            "FR": "Niveau 32 opken errant",
-            "JA": "レベル32 ワンダリング・オプケン",
-            "KO": "레벨 32 떠도는 오프켄"
+            "CHS": "击杀 **32 级 徘徊欧浦肯**",
+            "DE": "Besiege **Stufe 32 wandernd[a] Opken**",
+            "EN": "Defeat **Level 32 wandering opken**",
+            "FR": "Vaincre **Niveau 32 opken errant**",
+            "JA": "**レベル32 ワンダリング・オプケン** を討伐",
+            "KO": "**레벨 32 떠도는 오프켄** 처치"
           }
         },
         {
@@ -2436,12 +2436,12 @@
           },
           "order": 11,
           "triggerDescriptions": {
-            "CHS": "击杀：33级 恒冰公山羊",
-            "EN": "Level 33 Pagos billygoat",
-            "DE": "Stufe 33 Pagos-Bock",
-            "FR": "Niveau 33 bouquetin Pagos",
-            "JA": "レベル33 パゴス・ビリー",
-            "KO": "레벨 33 파고스 숫염소"
+            "CHS": "击杀 **33 级 恒冰公山羊**",
+            "DE": "Besiege **Stufe 33 Pagos-Bock**",
+            "EN": "Defeat **Level 33 Pagos billygoat**",
+            "FR": "Vaincre **Niveau 33 bouquetin Pagos**",
+            "JA": "**レベル33 パゴス・ビリー** を討伐",
+            "KO": "**레벨 33 파고스 숫염소** 처치"
           }
         },
         {
@@ -2461,12 +2461,12 @@
           },
           "order": 12,
           "triggerDescriptions": {
-            "CHS": "击杀：34级 瓦尔利螯陆蟹后 在薄雾天气下刷新",
-            "EN": "Fog – Level 34 Val snipper",
-            "DE": "Neblig – Stufe 34 Val-Schnippler",
-            "FR": "Brouillard – Niveau 34 cisailleur de la Val",
-            "JA": "霧 – レベル34 バル・スニッパー",
-            "KO": "안개 – 레벨 34 발 싹둑게"
+            "CHS": "击杀 **34 级 瓦尔利螯陆蟹** 后，在 **薄雾** 天气下刷新",
+            "DE": "Besiege **Stufe 34 Val-Schnippler**, erscheint bei **Neblig**",
+            "EN": "Defeat **Level 34 Val snipper**, spawns during **Fog**",
+            "FR": "Vaincre **Niveau 34 cisailleur de la Val**, apparaît sous **Brouillard**",
+            "JA": "**レベル34 バル・スニッパー** を討伐後、**霧** 天候時に出現",
+            "KO": "**레벨 34 발 싹둑게** 처치 후 **안개** 날씨에 출현"
           }
         },
         {
@@ -2486,12 +2486,12 @@
           },
           "order": 13,
           "triggerDescriptions": {
-            "CHS": "击杀：35级 研究所弥诺陶洛斯",
-            "EN": "Level 35 lab minotaur",
-            "DE": "Stufe 35 experimentell[a] Minotaurus",
-            "FR": "Niveau 35 minotaure du laboratoire",
-            "JA": "レベル35 ラボラトリー・ミノタウロス",
-            "KO": "레벨 35 연구실 미노타우로스"
+            "CHS": "击杀 **35 级 研究所弥诺陶洛斯**",
+            "DE": "Besiege **Stufe 35 experimentell[a] Minotaurus**",
+            "EN": "Defeat **Level 35 lab minotaur**",
+            "FR": "Vaincre **Niveau 35 minotaure du laboratoire**",
+            "JA": "**レベル35 ラボラトリー・ミノタウロス** を討伐",
+            "KO": "**레벨 35 연구실 미노타우로스** 처치"
           }
         },
         {
@@ -2511,12 +2511,12 @@
           },
           "order": 14,
           "triggerDescriptions": {
-            "CHS": "击杀：36级 古老水牛",
-            "EN": "Level 36 elder buffalo",
-            "DE": "Stufe 36 alt[a] Büffel",
-            "FR": "Niveau 36 buffle ancien",
-            "JA": "レベル36 エルダーバッファロー",
-            "KO": "레벨 36 장로 물소"
+            "CHS": "击杀 **36 级 古老水牛**",
+            "DE": "Besiege **Stufe 36 alt[a] Büffel**",
+            "EN": "Defeat **Level 36 elder buffalo**",
+            "FR": "Vaincre **Niveau 36 buffle ancien**",
+            "JA": "**レベル36 エルダーバッファロー** を討伐",
+            "KO": "**레벨 36 장로 물소** 처치"
           }
         },
         {
@@ -2536,12 +2536,12 @@
           },
           "order": 15,
           "triggerDescriptions": {
-            "CHS": "击杀：37级 虚无小龙后 在打雷天气下刷新",
-            "EN": "Thunder – Level 37 lesser void dragon",
-            "DE": "Gewittrig – Stufe 37 nieder[a] Nichts-Drache",
-            "FR": "Orages – Niveau 37 dragon inférieur du néant",
-            "JA": "雷 – レベル37 ヴォイド・レッサードラゴン",
-            "KO": "번개 – 레벨 37 보이드 하급 드래곤"
+            "CHS": "击杀 **37 级 虚无小龙** 后，在 **打雷** 天气下刷新",
+            "DE": "Besiege **Stufe 37 nieder[a] Nichts-Drache**, erscheint bei **Gewittrig**",
+            "EN": "Defeat **Level 37 lesser void dragon**, spawns during **Thunder**",
+            "FR": "Vaincre **Niveau 37 dragon inférieur du néant**, apparaît sous **Orages**",
+            "JA": "**レベル37 ヴォイド・レッサードラゴン** を討伐後、**雷** 天候時に出現",
+            "KO": "**레벨 37 보이드 하급 드래곤** 처치 후 **번개** 날씨에 출현"
           }
         },
         {
@@ -2561,12 +2561,12 @@
           },
           "order": 16,
           "triggerDescriptions": {
-            "CHS": "击杀：38级 虚无薇薇尔飞龙后 在热浪天气下刷新",
-            "EN": "Heat Waves – Level 38 void vouivre",
-            "DE": "Gluthitze – Stufe 38 Nichts-Vivel",
-            "FR": "Torride – Niveau 38 vouivre du néant",
-            "JA": "灼熱波 – レベル38 ヴォイド・ヴィーヴル",
-            "KO": "작열파 – 레벨 38 보이드 뷔브르"
+            "CHS": "击杀 **38 级 虚无薇薇尔飞龙** 后，在 **热浪** 天气下刷新",
+            "DE": "Besiege **Stufe 38 Nichts-Vivel**, erscheint bei **Gluthitze**",
+            "EN": "Defeat **Level 38 void vouivre**, spawns during **Heat Waves**",
+            "FR": "Vaincre **Niveau 38 vouivre du néant**, apparaît sous **Torride**",
+            "JA": "**レベル38 ヴォイド・ヴィーヴル** を討伐後、**灼熱波** 天候時に出現",
+            "KO": "**레벨 38 보이드 뷔브르** 처치 후 **작열파** 날씨에 출현"
           }
         },
         {
@@ -2586,12 +2586,12 @@
           },
           "order": 17,
           "triggerDescriptions": {
-            "CHS": "击杀：39级 瞪视之眼",
-            "EN": "Level 39 gawper",
-            "DE": "Stufe 39 Glubscher",
-            "FR": "Niveau 39 ahuri",
-            "JA": "レベル39 ガウパー",
-            "KO": "레벨 39 주시자"
+            "CHS": "击杀 **39 级 瞪视之眼**",
+            "DE": "Besiege **Stufe 39 Glubscher**",
+            "EN": "Defeat **Level 39 gawper**",
+            "FR": "Vaincre **Niveau 39 ahuri**",
+            "JA": "**レベル39 ガウパー** を討伐",
+            "KO": "**레벨 39 주시자** 처치"
           }
         },
         {
@@ -2611,12 +2611,12 @@
           },
           "order": 18,
           "triggerDescriptions": {
-            "CHS": "击杀：40级 阿米雷戴后 在暴雪天气下刷新",
-            "EN": "Blizzards – Level 40 ameretat",
-            "DE": "Schneesturm – Stufe 40 Ameretat",
-            "FR": "Blizzard – Niveau 40 ameretât",
-            "JA": "吹雪 – レベル40 アムルタート",
-            "KO": "눈보라 – 레벨 40 아메레타트"
+            "CHS": "击杀 **40 级 阿米雷戴** 后，在 **暴雪** 天气下刷新",
+            "DE": "Besiege **Stufe 40 Ameretat**, erscheint bei **Schneesturm**",
+            "EN": "Defeat **Level 40 ameretat**, spawns during **Blizzards**",
+            "FR": "Vaincre **Niveau 40 ameretât**, apparaît sous **Blizzard**",
+            "JA": "**レベル40 アムルタート** を討伐後、**吹雪** 天候時に出現",
+            "KO": "**레벨 40 아메레타트** 처치 후 **눈보라** 날씨에 출현"
           }
         },
         {
@@ -2636,12 +2636,12 @@
           },
           "order": 19,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：40级 瓦尔腐尸",
-            "EN": "At night – Level 40 Val corpse",
-            "DE": "Bei Nacht – Stufe 40 Val-Leiche",
-            "FR": "De nuit – Niveau 40 cadavre de la Val",
-            "JA": "夜間 – レベル40 バル・コープス",
-            "KO": "밤 – 레벨 40 발 송장"
+            "CHS": "在 **夜晚** 时段内，击杀 **40 级 瓦尔腐尸**",
+            "DE": "Bei **Nacht**, besiege **Stufe 40 Val-Leiche**",
+            "EN": "At **night**, defeat **Level 40 Val corpse**",
+            "FR": "De **nuit**, vaincre **Niveau 40 cadavre de la Val**",
+            "JA": "**夜間** に **レベル40 バル・コープス** を討伐",
+            "KO": "**밤** 시간대에 **레벨 40 발 송장** 처치"
           }
         }
       ],
@@ -2728,12 +2728,12 @@
           },
           "order": 3,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：40级 涌火浮灵",
-            "EN": "At night – Level 40 Pyros bhoot",
-            "DE": "Bei Nacht – Stufe 40 Pyros-Bhut",
-            "FR": "De nuit – Niveau 40 bhut Pyros",
-            "JA": "夜間 – レベル40 ピューロス・ブフート",
-            "KO": "밤 – 레벨 40 피로스 브후트"
+            "CHS": "在 **夜晚** 时段内，击杀 **40 级 涌火浮灵**",
+            "DE": "Bei **Nacht**, besiege **Stufe 40 Pyros-Bhut**",
+            "EN": "At **night**, defeat **Level 40 Pyros bhoot**",
+            "FR": "De **nuit**, vaincre **Niveau 40 bhut Pyros**",
+            "JA": "**夜間** に **レベル40 ピューロス・ブフート** を討伐",
+            "KO": "**밤** 시간대에 **레벨 40 피로스 브후트** 처치"
           }
         },
         {
@@ -2753,12 +2753,12 @@
           },
           "order": 4,
           "triggerDescriptions": {
-            "CHS": "打雷天气下 击杀：41级 雷暴元精",
-            "EN": "Thunder – Level 41 thunderstorm sprite",
-            "DE": "Gewittrig – Stufe 41 Gewitter-Exergon",
-            "FR": "Orages – Niveau 41 élémentaire des tempêtes de foudre",
-            "JA": "雷 – レベル41 サンダーストームスプライト",
-            "KO": "번개 – 레벨 41 뇌우 정령"
+            "CHS": "在 **打雷** 天气下，击杀 **41 级 雷暴元精**",
+            "DE": "Bei **Gewittrig**, besiege **Stufe 41 Gewitter-Exergon**",
+            "EN": "During **Thunder**, defeat **Level 41 thunderstorm sprite**",
+            "FR": "Sous **Orages**, vaincre **Niveau 41 élémentaire des tempêtes de foudre**",
+            "JA": "**雷** 天候時に **レベル41 サンダーストームスプライト** を討伐",
+            "KO": "**번개** 날씨에 **레벨 41 뇌우 정령** 처치"
           }
         },
         {
@@ -2778,12 +2778,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "击杀：42级 涌火阿班达",
-            "EN": "Level 42 Pyros apanda",
-            "DE": "Stufe 42 Pyros-Apanda",
-            "FR": "Niveau 42 apanda Pyros",
-            "JA": "レベル42 ピューロス・アパンダ",
-            "KO": "레벨 42 피로스 아판다"
+            "CHS": "击杀 **42 级 涌火阿班达**",
+            "DE": "Besiege **Stufe 42 Pyros-Apanda**",
+            "EN": "Defeat **Level 42 Pyros apanda**",
+            "FR": "Vaincre **Niveau 42 apanda Pyros**",
+            "JA": "**レベル42 ピューロス・アパンダ** を討伐",
+            "KO": "**레벨 42 피로스 아판다** 처치"
           }
         },
         {
@@ -2803,12 +2803,12 @@
           },
           "order": 6,
           "triggerDescriptions": {
-            "CHS": "击杀：43级 瓦尔维京人偶",
-            "EN": "Level 43 Valking",
-            "DE": "Stufe 43 Val-Wikinger",
-            "FR": "Niveau 43 viking de la Val",
-            "JA": "レベル43 バル・バイキング",
-            "KO": "레벨 43 발 바이킹"
+            "CHS": "击杀 **43 级 瓦尔维京人偶**",
+            "DE": "Besiege **Stufe 43 Val-Wikinger**",
+            "EN": "Defeat **Level 43 Valking**",
+            "FR": "Vaincre **Niveau 43 viking de la Val**",
+            "JA": "**レベル43 バル・バイキング** を討伐",
+            "KO": "**레벨 43 발 바이킹** 처치"
           }
         },
         {
@@ -2828,12 +2828,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "击杀：44级 过期魔导书后 灵风天气下刷新",
-            "EN": "Umbral Wind – Level 44 overdue tome",
-            "DE": "Schattenwind – Stufe 44 überfällig[a] Buch",
-            "FR": "Vent ombral – Niveau 44 tome de la Grande bibliothèque",
-            "JA": "霊風 – レベル44 グブラトーム",
-            "KO": "그림자바람 – 레벨 44 구브라 학술서"
+            "CHS": "击杀 **44 级 过期魔导书** 后，在 **灵风** 天气下刷新",
+            "DE": "Besiege **Stufe 44 überfällig[a] Buch**, erscheint bei **Schattenwind**",
+            "EN": "Defeat **Level 44 overdue tome**, spawns during **Umbral Wind**",
+            "FR": "Vaincre **Niveau 44 tome de la Grande bibliothèque**, apparaît sous **Vent ombral**",
+            "JA": "**レベル44 グブラトーム** を討伐後、**霊風** 天候時に出現",
+            "KO": "**레벨 44 구브라 학술서** 처치 후 **그림자바람** 날씨에 출현"
           }
         },
         {
@@ -2853,12 +2853,12 @@
           },
           "order": 8,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：45级 暗黑行吟诗人",
-            "EN": "At night – Level 45 dark troubadour",
-            "DE": "Bei Nacht – Stufe 45 Dunkel-Troubadour",
-            "FR": "De nuit – Niveau 45 troubadour sombre",
-            "JA": "夜間 – レベル45 ダーク・トルバドゥール",
-            "KO": "밤 – 레벨 45 어둠의 음악가"
+            "CHS": "在 **夜晚** 时段内，击杀 **45 级 暗黑行吟诗人**",
+            "DE": "Bei **Nacht**, besiege **Stufe 45 Dunkel-Troubadour**",
+            "EN": "At **night**, defeat **Level 45 dark troubadour**",
+            "FR": "De **nuit**, vaincre **Niveau 45 troubadour sombre**",
+            "JA": "**夜間** に **レベル45 ダーク・トルバドゥール** を討伐",
+            "KO": "**밤** 시간대에 **레벨 45 어둠의 음악가** 처치"
           }
         },
         {
@@ -2878,12 +2878,12 @@
           },
           "order": 9,
           "triggerDescriptions": {
-            "CHS": "击杀：46级 瓦尔独爪妖禽",
-            "EN": "Level 46 Islandhander",
-            "DE": "Stufe 46 Val-Einhänder",
-            "FR": "Niveau 46 einhänder de la Val",
-            "JA": "レベル46 バル・アインハンダー",
-            "KO": "레벨 46 발 아인핸더"
+            "CHS": "击杀 **46 级 瓦尔独爪妖禽**",
+            "DE": "Besiege **Stufe 46 Val-Einhänder**",
+            "EN": "Defeat **Level 46 Islandhander**",
+            "FR": "Vaincre **Niveau 46 einhänder de la Val**",
+            "JA": "**レベル46 バル・アインハンダー** を討伐",
+            "KO": "**레벨 46 발 아인핸더** 처치"
           }
         },
         {
@@ -2903,12 +2903,12 @@
           },
           "order": 10,
           "triggerDescriptions": {
-            "CHS": "击杀：47级 食鸟者",
-            "EN": "Level 47 bird eater",
-            "DE": "Stufe 47 Vogelfresser",
-            "FR": "Niveau 47 dévoreur d'oiseaux",
-            "JA": "レベル47 バードイーター",
-            "KO": "레벨 47 새잡이전갈"
+            "CHS": "击杀 **47 级 食鸟者**",
+            "DE": "Besiege **Stufe 47 Vogelfresser**",
+            "EN": "Defeat **Level 47 bird eater**",
+            "FR": "Vaincre **Niveau 47 dévoreur d'oiseaux**",
+            "JA": "**レベル47 バードイーター** を討伐",
+            "KO": "**레벨 47 새잡이전갈** 처치"
           }
         },
         {
@@ -2928,12 +2928,12 @@
           },
           "order": 11,
           "triggerDescriptions": {
-            "CHS": "击杀：48级 涌火陆蟹",
-            "EN": "Level 48 Pyros crab",
-            "DE": "Stufe 48 Pyros-Krabbe",
-            "FR": "Niveau 48 crabe Pyros",
-            "JA": "レベル48 ピューロス・クラブ",
-            "KO": "레벨 48 피로스 게"
+            "CHS": "击杀 **48 级 涌火陆蟹**",
+            "DE": "Besiege **Stufe 48 Pyros-Krabbe**",
+            "EN": "Defeat **Level 48 Pyros crab**",
+            "FR": "Vaincre **Niveau 48 crabe Pyros**",
+            "JA": "**レベル48 ピューロス・クラブ** を討伐",
+            "KO": "**레벨 48 피로스 게** 처치"
           }
         },
         {
@@ -2953,12 +2953,12 @@
           },
           "order": 12,
           "triggerDescriptions": {
-            "CHS": "击杀：49级 北境盐蓝燕",
-            "EN": "Level 49 northern swallow",
-            "DE": "Stufe 49 nördlich[a] Schwalbe",
-            "FR": "Niveau 49 hirondelle du Nord",
-            "JA": "レベル49 ノーザンスワロー",
-            "KO": "레벨 49 북방 제비"
+            "CHS": "击杀 **49 级 北境盐蓝燕**",
+            "DE": "Besiege **Stufe 49 nördlich[a] Schwalbe**",
+            "EN": "Defeat **Level 49 northern swallow**",
+            "FR": "Vaincre **Niveau 49 hirondelle du Nord**",
+            "JA": "**レベル49 ノーザンスワロー** を討伐",
+            "KO": "**레벨 49 북방 제비** 처치"
           }
         },
         {
@@ -2978,12 +2978,12 @@
           },
           "order": 13,
           "triggerDescriptions": {
-            "CHS": "击杀：50级 青蓝之手逃亡者",
-            "EN": "Level 50 Illuminati escapee",
-            "DE": "Stufe 50 Indigohand-Ausbrecher",
-            "FR": "Niveau 50 échappé de la Main indigo",
-            "JA": "レベル50 ブルーハンド・エスケーピー",
-            "KO": "레벨 50 푸른손 도망자"
+            "CHS": "击杀 **50 级 青蓝之手逃亡者**",
+            "DE": "Besiege **Stufe 50 Indigohand-Ausbrecher**",
+            "EN": "Defeat **Level 50 Illuminati escapee**",
+            "FR": "Vaincre **Niveau 50 échappé de la Main indigo**",
+            "JA": "**レベル50 ブルーハンド・エスケーピー** を討伐",
+            "KO": "**레벨 50 푸른손 도망자** 처치"
           }
         },
         {
@@ -3003,12 +3003,12 @@
           },
           "order": 14,
           "triggerDescriptions": {
-            "CHS": "击杀：51级 遗弃象魔后 在打雷天气下刷新",
-            "EN": "Thunder – Level 51 Matanga castaway",
-            "DE": "Gewittrig – Stufe 51 Matanga-Vertrieben[a]",
-            "FR": "Orages – Niveau 51 Matanga égaré",
-            "JA": "雷 – レベル51 マタンガ・ドリフター",
-            "KO": "번개 – 레벨 51 표류하는 마탕가"
+            "CHS": "击杀 **51 级 遗弃象魔** 后，在 **打雷** 天气下刷新",
+            "DE": "Besiege **Stufe 51 Matanga-Vertrieben[a]**, erscheint bei **Gewittrig**",
+            "EN": "Defeat **Level 51 Matanga castaway**, spawns during **Thunder**",
+            "FR": "Vaincre **Niveau 51 Matanga égaré**, apparaît sous **Orages**",
+            "JA": "**レベル51 マタンガ・ドリフター** を討伐後、**雷** 天候時に出現",
+            "KO": "**레벨 51 표류하는 마탕가** 처치 후 **번개** 날씨에 출현"
           }
         },
         {
@@ -3028,12 +3028,12 @@
           },
           "order": 15,
           "triggerDescriptions": {
-            "CHS": "击杀：52级 涌火树精",
-            "EN": "Level 52 Pyros treant",
-            "DE": "Stufe 52 Pyros-Baumschrat",
-            "FR": "Niveau 52 tréant Pyros",
-            "JA": "レベル52 ピューロス・トレント",
-            "KO": "레벨 52 피로스 나무정령"
+            "CHS": "击杀 **52 级 涌火树精**",
+            "DE": "Besiege **Stufe 52 Pyros-Baumschrat**",
+            "EN": "Defeat **Level 52 Pyros treant**",
+            "FR": "Vaincre **Niveau 52 tréant Pyros**",
+            "JA": "**レベル52 ピューロス・トレント** を討伐",
+            "KO": "**레벨 52 피로스 나무정령** 처치"
           }
         },
         {
@@ -3053,12 +3053,12 @@
           },
           "order": 16,
           "triggerDescriptions": {
-            "CHS": "击杀：53级 瓦尔斯卡尼特",
-            "EN": "Level 53 Val skatene",
-            "DE": "Stufe 53 Val-Skatene",
-            "FR": "Niveau 53 skate'ne de la Val",
-            "JA": "レベル53 バル・スカネテ",
-            "KO": "레벨 53 발 스카네테"
+            "CHS": "击杀 **53 级 瓦尔斯卡尼特**",
+            "DE": "Besiege **Stufe 53 Val-Skatene**",
+            "EN": "Defeat **Level 53 Val skatene**",
+            "FR": "Vaincre **Niveau 53 skate'ne de la Val**",
+            "JA": "**レベル53 バル・スカネテ** を討伐",
+            "KO": "**레벨 53 발 스카네테** 처치"
           }
         },
         {
@@ -3078,12 +3078,12 @@
           },
           "order": 17,
           "triggerDescriptions": {
-            "CHS": "击杀：54级 涌火百目妖",
-            "EN": "Level 54 Pyros hecteyes",
-            "DE": "Stufe 54 Pyros-Hektokulus",
-            "FR": "Niveau 54 hectoculus Pyros",
-            "JA": "レベル54 ピューロス・ヘクトアイズ",
-            "KO": "레벨 54 피로스 백눈깔이"
+            "CHS": "击杀 **54 级 涌火百目妖**",
+            "DE": "Besiege **Stufe 54 Pyros-Hektokulus**",
+            "EN": "Defeat **Level 54 Pyros hecteyes**",
+            "FR": "Vaincre **Niveau 54 hectoculus Pyros**",
+            "JA": "**レベル54 ピューロス・ヘクトアイズ** を討伐",
+            "KO": "**레벨 54 피로스 백눈깔이** 처치"
           }
         },
         {
@@ -3103,12 +3103,12 @@
           },
           "order": 18,
           "triggerDescriptions": {
-            "CHS": "击杀：55级 涌火狗灵 后 在暴雪天气下刷新",
-            "EN": "Blizzards – Level 55 Pyros shuck",
-            "DE": "Schneesturm – Stufe 55 Pyros-Shuck",
-            "FR": "Blizzard – Niveau 55 shuck Pyros",
-            "JA": "吹雪 – レベル55 ピューロス・シャック",
-            "KO": "눈보라 – 레벨 55 피로스 번견"
+            "CHS": "击杀 **55 级 涌火狗灵** 后，在 **暴雪** 天气下刷新",
+            "DE": "Besiege **Stufe 55 Pyros-Shuck**, erscheint bei **Schneesturm**",
+            "EN": "Defeat **Level 55 Pyros shuck**, spawns during **Blizzards**",
+            "FR": "Vaincre **Niveau 55 shuck Pyros**, apparaît sous **Blizzard**",
+            "JA": "**レベル55 ピューロス・シャック** を討伐後、**吹雪** 天候時に出現",
+            "KO": "**레벨 55 피로스 번견** 처치 후 **눈보라** 날씨에 출현"
           }
         },
         {
@@ -3128,12 +3128,12 @@
           },
           "order": 19,
           "triggerDescriptions": {
-            "CHS": "击杀：55级 瓦尔血飞蛾后 在热浪天气下刷新",
-            "EN": "Heat Waves – Level 55 Val bloodglider",
-            "DE": "Gluthitze – Stufe 55 Val-Blutgleiter",
-            "FR": "Torride – Niveau 55 lunigère sanguine de la Val",
-            "JA": "灼熱波 – レベル55 バル・ブラッドグライダー",
-            "KO": "작열파 – 레벨 55 발 핏빛날개나방"
+            "CHS": "击杀 **55 级 瓦尔血飞蛾** 后，在 **热浪** 天气下刷新",
+            "DE": "Besiege **Stufe 55 Val-Blutgleiter**, erscheint bei **Gluthitze**",
+            "EN": "Defeat **Level 55 Val bloodglider**, spawns during **Heat Waves**",
+            "FR": "Vaincre **Niveau 55 lunigère sanguine de la Val**, apparaît sous **Torride**",
+            "JA": "**レベル55 バル・ブラッドグライダー** を討伐後、**灼熱波** 天候時に出現",
+            "KO": "**레벨 55 발 핏빛날개나방** 처치 후 **작열파** 날씨에 출현"
           }
         }
       ],
@@ -3203,12 +3203,12 @@
           },
           "order": 2,
           "triggerDescriptions": {
-            "CHS": "击杀：55级 左米特",
-            "EN": "Level 55 xzomit",
-            "DE": "Stufe 55 Xzomit",
-            "FR": "Niveau 55 xzomit",
-            "JA": "レベル55 ゾミト",
-            "KO": "레벨 55 조미트"
+            "CHS": "击杀 **55 级 左米特**",
+            "DE": "Besiege **Stufe 55 Xzomit**",
+            "EN": "Defeat **Level 55 xzomit**",
+            "FR": "Vaincre **Niveau 55 xzomit**",
+            "JA": "**レベル55 ゾミト** を討伐",
+            "KO": "**레벨 55 조미트** 처치"
           }
         },
         {
@@ -3228,12 +3228,12 @@
           },
           "order": 3,
           "triggerDescriptions": {
-            "CHS": "击杀：56级 丰水曙象",
-            "EN": "Level 56 Hydatos primelephas",
-            "DE": "Stufe 56 Hydatos-Primelephas",
-            "FR": "Niveau 56 primelephas d'Hydatos",
-            "JA": "レベル56 ヒュダトス・プリメレファス",
-            "KO": "레벨 56 히다토스 프리멜레파스"
+            "CHS": "击杀 **56 级 丰水曙象**",
+            "DE": "Besiege **Stufe 56 Hydatos-Primelephas**",
+            "EN": "Defeat **Level 56 Hydatos primelephas**",
+            "FR": "Vaincre **Niveau 56 primelephas d'Hydatos**",
+            "JA": "**レベル56 ヒュダトス・プリメレファス** を討伐",
+            "KO": "**레벨 56 히다토스 프리멜레파스** 처치"
           }
         },
         {
@@ -3253,12 +3253,12 @@
           },
           "order": 4,
           "triggerDescriptions": {
-            "CHS": "击杀：57级 瓦尔泥口花",
-            "EN": "Level 57 Val Nullchu",
-            "DE": "Stufe 57 Val-Nullchu",
-            "FR": "Niveau 57 nullchu de la Val",
-            "JA": "レベル57 バル・ヌルチュー",
-            "KO": "레벨 57 발 누루츄"
+            "CHS": "击杀 **57 级 瓦尔泥口花**",
+            "DE": "Besiege **Stufe 57 Val-Nullchu**",
+            "EN": "Defeat **Level 57 Val Nullchu**",
+            "FR": "Vaincre **Niveau 57 nullchu de la Val**",
+            "JA": "**レベル57 バル・ヌルチュー** を討伐",
+            "KO": "**레벨 57 발 누루츄** 처치"
           }
         },
         {
@@ -3278,12 +3278,12 @@
           },
           "order": 5,
           "triggerDescriptions": {
-            "CHS": "击杀：58级 多彩冠恐鸟",
-            "EN": "Level 58 vivid gastornis",
-            "DE": "Stufe 58 unberechenbar[a] Gastornis",
-            "FR": "Niveau 58 gastornis pétulant",
-            "JA": "レベル58 ヴィヴィット・ガストルニス",
-            "KO": "레벨 58 밝은 가스토르니스"
+            "CHS": "击杀 **58 级 多彩冠恐鸟**",
+            "DE": "Besiege **Stufe 58 unberechenbar[a] Gastornis**",
+            "EN": "Defeat **Level 58 vivid gastornis**",
+            "FR": "Vaincre **Niveau 58 gastornis pétulant**",
+            "JA": "**レベル58 ヴィヴィット・ガストルニス** を討伐",
+            "KO": "**레벨 58 밝은 가스토르니스** 처치"
           }
         },
         {
@@ -3303,12 +3303,12 @@
           },
           "order": 6,
           "triggerDescriptions": {
-            "CHS": "击杀：59级 北方猛虎",
-            "EN": "Level 59 northern tiger",
-            "DE": "Stufe 59 nördlich[a] Tiger",
-            "FR": "Niveau 59 tigre du Nord",
-            "JA": "レベル59 ノーザン・タイガー",
-            "KO": "레벨 59 북방 호랑이"
+            "CHS": "击杀 **59 级 北方猛虎**",
+            "DE": "Besiege **Stufe 59 nördlich[a] Tiger**",
+            "EN": "Defeat **Level 59 northern tiger**",
+            "FR": "Vaincre **Niveau 59 tigre du Nord**",
+            "JA": "**レベル59 ノーザン・タイガー** を討伐",
+            "KO": "**레벨 59 북방 호랑이** 처치"
           }
         },
         {
@@ -3328,12 +3328,12 @@
           },
           "order": 7,
           "triggerDescriptions": {
-            "CHS": "击杀：60级 暗黑虚无鬼鱼",
-            "EN": "Level 60 dark void monk",
-            "DE": "Stufe 60 finster[a] Nichtsmönch",
-            "FR": "Niveau 60 moine sombre du néant",
-            "JA": "レベル60 ダーク・ヴォイドモンク",
-            "KO": "레벨 60 어둠의 보이드 문어"
+            "CHS": "击杀 **60 级 暗黑虚无鬼鱼**",
+            "DE": "Besiege **Stufe 60 finster[a] Nichtsmönch**",
+            "EN": "Defeat **Level 60 dark void monk**",
+            "FR": "Vaincre **Niveau 60 moine sombre du néant**",
+            "JA": "**レベル60 ダーク・ヴォイドモンク** を討伐",
+            "KO": "**레벨 60 어둠의 보이드 문어** 처치"
           }
         },
         {
@@ -3353,12 +3353,12 @@
           },
           "order": 8,
           "triggerDescriptions": {
-            "CHS": "在夜晚时间 击杀：61级 丰水幽灵",
-            "EN": "At night – Level 61 Hydatos wraith",
-            "DE": "Bei Nacht – Stufe 61 Hydatos-Geist",
-            "FR": "De nuit – Niveau 61 spectre d'Hydatos",
-            "JA": "夜間 – レベル61 ヒュダトス・レイス",
-            "KO": "밤 – 레벨 61 히다토스 망령"
+            "CHS": "在 **夜晚** 时段内，击杀 **61 级 丰水幽灵**",
+            "DE": "Bei **Nacht**, besiege **Stufe 61 Hydatos-Geist**",
+            "EN": "At **night**, defeat **Level 61 Hydatos wraith**",
+            "FR": "De **nuit**, vaincre **Niveau 61 spectre d'Hydatos**",
+            "JA": "**夜間** に **レベル61 ヒュダトス・レイス** を討伐",
+            "KO": "**밤** 시간대에 **레벨 61 히다토스 망령** 처치"
           }
         },
         {
@@ -3378,12 +3378,12 @@
           },
           "order": 9,
           "triggerDescriptions": {
-            "CHS": "击杀：62级 虎鹰",
-            "EN": "Level 62 tigerhawk",
-            "DE": "Stufe 62 Tigerfalke",
-            "FR": "Niveau 62 faucon-tigre",
-            "JA": "レベル62 タイガーホーク",
-            "KO": "레벨 62 범매"
+            "CHS": "击杀 **62 级 虎鹰**",
+            "DE": "Besiege **Stufe 62 Tigerfalke**",
+            "EN": "Defeat **Level 62 tigerhawk**",
+            "FR": "Vaincre **Niveau 62 faucon-tigre**",
+            "JA": "**レベル62 タイガーホーク** を討伐",
+            "KO": "**레벨 62 범매** 처치"
           }
         },
         {
@@ -3403,12 +3403,12 @@
           },
           "order": 10,
           "triggerDescriptions": {
-            "CHS": "击杀：63级 研究所雄狮",
-            "EN": "Level 63 laboratory lion",
-            "DE": "Stufe 63 Laborlöwe",
-            "FR": "Niveau 63 lion de laboratoire",
-            "JA": "レベル63 ラボラトリー・ライオン",
-            "KO": "레벨 63 연구실 사자"
+            "CHS": "击杀 **63 级 研究所雄狮**",
+            "DE": "Besiege **Stufe 63 Laborlöwe**",
+            "EN": "Defeat **Level 63 laboratory lion**",
+            "FR": "Vaincre **Niveau 63 lion de laboratoire**",
+            "JA": "**レベル63 ラボラトリー・ライオン** を討伐",
+            "KO": "**레벨 63 연구실 사자** 처치"
           }
         },
         {
@@ -3428,12 +3428,12 @@
           },
           "order": 11,
           "triggerDescriptions": {
-            "CHS": "击杀：64级 丰水达菲妮",
-            "EN": "Level 64 Hydatos Delphyne",
-            "DE": "Stufe 64 Delphyne der Gezeiten",
-            "FR": "Niveau 64 Delphyné d'Hydatos",
-            "JA": "レベル64 ヒュダトス・デルピュネ",
-            "KO": "레벨 64 히다토스 델피네"
+            "CHS": "击杀 **64 级 丰水达菲妮**",
+            "DE": "Besiege **Stufe 64 Delphyne der Gezeiten**",
+            "EN": "Defeat **Level 64 Hydatos Delphyne**",
+            "FR": "Vaincre **Niveau 64 Delphyné d'Hydatos**",
+            "JA": "**レベル64 ヒュダトス・デルピュネ** を討伐",
+            "KO": "**레벨 64 히다토스 델피네** 처치"
           }
         },
         {
@@ -3453,12 +3453,12 @@
           },
           "order": 12,
           "triggerDescriptions": {
-            "CHS": "击杀：65级 水晶爪",
-            "EN": "Level 65 crystal claw",
-            "DE": "Stufe 65 Kristallklaue",
-            "FR": "Niveau 65 griffe de cristal",
-            "JA": "レベル65 クリスタルクロー",
-            "KO": "레벨 65 크리스탈 손아귀"
+            "CHS": "击杀 **65 级 水晶爪**",
+            "DE": "Besiege **Stufe 65 Kristallklaue**",
+            "EN": "Defeat **Level 65 crystal claw**",
+            "FR": "Vaincre **Niveau 65 griffe de cristal**",
+            "JA": "**レベル65 クリスタルクロー** を討伐",
+            "KO": "**레벨 65 크리스탈 손아귀** 처치"
           }
         },
         {

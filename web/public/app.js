@@ -862,7 +862,7 @@ function renderDetails() {
         : `<span class="ce-relative placeholder">-</span>`}</td>${copyEnabled ? `<td class="ce-actions"></td>` : ""}`;
     row.querySelector(".ce-name-text").textContent = name;
     if (triggerDescription)
-      row.querySelector(".ce-trigger").textContent = triggerDescription;
+      row.querySelector(".ce-trigger").innerHTML = marked.parseInline(triggerDescription);
     const mapButtonElement = row.querySelector(".ce-map-link");
     if (mapButtonElement) {
       mapButtonElement.setAttribute("aria-label", t("openMap"));
@@ -929,7 +929,7 @@ function createLinkedEventRows(area, group, instance, contentLanguageCode, copyE
       <td class="ce-last-seen"></td>${copyEnabled ? `<td class="ce-actions"></td>` : ""}`;
     row.querySelector(".ce-name-text").textContent = name;
     if (triggerDescription)
-      row.querySelector(".ce-trigger").textContent = triggerDescription;
+      row.querySelector(".ce-trigger").innerHTML = marked.parseInline(triggerDescription);
     const mapButton = row.querySelector(".ce-map-link");
     if (mapButton) {
       mapButton.setAttribute("aria-label", t("openMap"));
