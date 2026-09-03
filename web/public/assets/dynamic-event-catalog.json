@@ -420,12 +420,12 @@
             "y": 32.08
           },
           "localizedNames": {
-            "CHS": "被欺负的魔法罐（下）",
-            "DE": "Versteckt im Pott (Unten)",
-            "EN": "Daylight Pottery (Lower)",
-            "FR": "Cache-cache avec le pot (Bas)",
-            "JA": "隠されのマジックポット（下）",
-            "KO": "찾아다니는 마법 항아리（하）"
+            "CHS": "瑟瑟发抖的魔法罐（下）",
+            "DE": "Wunder im Pott (Unten)",
+            "EN": "Pleading Pots (Lower)",
+            "FR": "Mauvais œil pour les pots (Bas)",
+            "JA": "カチカチのマジックポット（下）",
+            "KO": "고집불통 마법 항아리（하）"
           },
           "order": 18
         }
