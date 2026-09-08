@@ -1319,6 +1319,26 @@ select:focus-visible,
   background: transparent;
 }
 
+.article-content table {
+  width: 100%;
+  margin: 0 0 14px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.article-content th,
+.article-content td {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-content th {
+  background: var(--surface-muted);
+  font-weight: 600;
+}
+
 .article-content a {
   color: #1b6fd0;
   text-decoration: underline;
