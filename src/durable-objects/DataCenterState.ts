@@ -1,12 +1,15 @@
 import { DurableObject } from "cloudflare:workers";
 import { DATA_CENTERS, getAreaForTerritory, getTrackResetWindowSeconds, type EventArea } from "../catalog";
 import { countTrackCEMatches, hasTrackConflict, haveTrackCEMatch, haveTrackConflict } from "../instanceTrackRules";
+import { EventSnapshots } from "../eventSnapshots";
+import { jsonError } from "../validation";
 import type {
   DurableEventState,
   DurableAreaTrackCollection,
   DurableInstanceState,
   DurableInstanceTrackState,
   Env,
+  EventHistory,
   InstanceExpiredMessage,
   InstanceUpdatedMessage,
   NormalizedReport,
@@ -15,7 +18,8 @@ import type {
   ReportEvent,
   SnapshotInstance,
   SnapshotInstanceTrack,
-  SnapshotResponse
+  SnapshotResponse,
+  SubscriptionRequest
 } from "../models";
 
 interface InstanceRow extends Record<string, SqlStorageValue> {
@@ -46,6 +50,7 @@ interface ActivityWindowRow extends Record<string, SqlStorageValue> {
 
 interface RequestWindowRow extends Record<string, SqlStorageValue> {
   request_count: number;
+  rows_written: number;
 }
 
 interface Metrics {
@@ -61,6 +66,7 @@ const INSTANCE_RETENTION_SECONDS = 86_400;
 
 export class DataCenterState extends DurableObject<Env> {
   private readonly sql: SqlStorage;
+  private readonly eventSnapshots: EventSnapshots;
   private dataCenterID = 0;
   private revision = 0;
   private metrics: Metrics = { accepted: 0, duplicate: 0, invalid: 0, stale: 0 };
@@ -127,6 +133,7 @@ export class DataCenterState extends DurableObject<Env> {
       (
         window_started_at INTEGER NOT NULL,
         request_count INTEGER NOT NULL,
+        rows_written INTEGER NOT NULL DEFAULT 0,
         PRIMARY KEY (window_started_at)
       ) WITHOUT ROWID;
     `);
@@ -134,6 +141,13 @@ export class DataCenterState extends DurableObject<Env> {
     const instanceColumns = Array.from(this.sql.exec<ColumnRow>("PRAGMA table_info(instance_state)"));
     if (!instanceColumns.some(column => column.name === "area_tracks_json"))
       this.sql.exec("ALTER TABLE instance_state ADD COLUMN area_tracks_json TEXT NOT NULL DEFAULT '{}'");
+
+    const requestColumns = Array.from(this.sql.exec<ColumnRow>("PRAGMA table_info(request_window)"));
+    if (!requestColumns.some(column => column.name === "rows_written"))
+      this.sql.exec("ALTER TABLE request_window ADD COLUMN rows_written INTEGER NOT NULL DEFAULT 0");
+
+    this.eventSnapshots = new EventSnapshots(ctx, env);
+    ctx.waitUntil(this.eventSnapshots.flush());
 
     const revisionRows = Array.from(this.sql.exec<RevisionRow>("SELECT COALESCE(MAX(revision), 0) AS revision FROM instance_state"));
     this.revision = revisionRows[0]?.revision ?? 0;
@@ -149,6 +163,9 @@ export class DataCenterState extends DurableObject<Env> {
 
     if (url.pathname === "/internal/reports" && request.method === "POST")
       return this.processReport(request);
+
+    if (url.pathname === "/internal/subscriptions" && request.method === "POST")
+      return this.subscribe(request);
 
     if (url.pathname.startsWith("/internal/realtime/") && request.headers.get("upgrade")?.toLowerCase() === "websocket")
       return this.acceptRealtime(request, url);
@@ -186,6 +203,12 @@ export class DataCenterState extends DurableObject<Env> {
     this.sql.exec("DELETE FROM activity_window WHERE window_started_at < ?", oldestWindow);
     this.sql.exec("DELETE FROM request_window WHERE window_started_at < ?", oldestWindow);
     this.sql.exec("DELETE FROM daily_metrics WHERE day < ?", new Date((now - 7 * 86_400) * 1000).toISOString().slice(0, 10));
+    this.eventSnapshots.prune(now);
+    for (const history of this.eventSnapshots.activeHistories) {
+      const state = this.loadInstance(history.instanceID);
+      this.eventSnapshots.stage(this.createEventHistory(history.dataCenterID, history.instanceID, history.territoryID, state), now);
+    }
+    await this.eventSnapshots.flush();
     await this.ctx.storage.setAlarm(this.getNextAlarm());
   }
 
@@ -194,16 +217,18 @@ export class DataCenterState extends DurableObject<Env> {
 
     try {
       const payload = JSON.parse(text) as { type?: string };
-      if (payload.type === "resync")
+      if (payload.type === "resync") {
+        const attachment = webSocket.deserializeAttachment() as { dataCenterID: number; lastResyncAt: number };
+        const now = Date.now();
+        if (now - attachment.lastResyncAt < 30_000) return;
+        this.dataCenterID = attachment.dataCenterID;
+        webSocket.serializeAttachment({ ...attachment, lastResyncAt: now });
         webSocket.send(JSON.stringify(this.createSnapshot()));
+      }
     } catch (error) {
       console.warn(JSON.stringify({ event: "websocket.invalid_message", error: String(error) }));
       webSocket.send(JSON.stringify({ type: "error", code: "invalid_message" }));
     }
-  }
-
-  async webSocketClose(webSocket: WebSocket, code: number, reason: string): Promise<void> {
-    webSocket.close(code, reason);
   }
 
   async webSocketError(webSocket: WebSocket, error: unknown): Promise<void> {
@@ -216,8 +241,7 @@ export class DataCenterState extends DurableObject<Env> {
     const requestID = request.headers.get("x-request-id") ?? crypto.randomUUID();
     this.dataCenterID = report.dataCenterID;
     const activityWindow = Math.floor(report.receivedAt / 3600) * 3600;
-    const requestCount = this.updateRequestWindow(activityWindow);
-    this.updateActivityWindow(activityWindow, report.reporterEpochID, report.zoneServerID);
+    let rowsWritten = this.updateActivityWindow(activityWindow, report.reporterEpochID, report.zoneServerID);
 
     const state = this.loadInstance(report.zoneServerID) ?? this.createInstanceState(report);
 
@@ -258,7 +282,12 @@ export class DataCenterState extends DurableObject<Env> {
       this.revision = Math.max(this.revision + 1, Date.now());
       state.revision = this.revision;
     }
-    this.saveInstance(state);
+    rowsWritten += this.saveInstance(state);
+    const requestWindow = this.updateRequestWindow(activityWindow, rowsWritten);
+    if (this.eventSnapshots.isActive(report.zoneServerID, report.territoryID, report.receivedAt)) {
+      this.eventSnapshots.stage(this.createEventHistory(report.dataCenterID, report.zoneServerID, report.territoryID, state), report.receivedAt);
+      this.ctx.waitUntil(this.eventSnapshots.flush());
+    }
 
     for (const result of results) {
       if (result.revision === 0)
@@ -295,8 +324,9 @@ export class DataCenterState extends DurableObject<Env> {
     const activeReporterCount = Math.max(1, reporterRows[0]?.count ?? 1);
     const activeInstanceCount = Math.max(1, activityRows[0]?.instance_count ?? 1);
     const elapsedWindowSeconds = Math.max(300, report.receivedAt - activityWindow + 1);
-    const reportRequestsPerHour = requestCount * 3600 / elapsedWindowSeconds;
-    const targetReporterCount = getTargetReporterCount(reportRequestsPerHour);
+    const reportRequestsPerHour = requestWindow.request_count * 3600 / elapsedWindowSeconds;
+    const sqlRowsWrittenPerHour = requestWindow.rows_written * 3600 / elapsedWindowSeconds;
+    const targetReporterCount = getTargetReporterCount(reportRequestsPerHour, sqlRowsWrittenPerHour);
     const samplingRate = Math.min(1, targetReporterCount / activeReporterCount);
     const response: ReportResponse = {
       requestID,
@@ -306,9 +336,57 @@ export class DataCenterState extends DurableObject<Env> {
       activeInstanceCount,
       targetReporterCount,
       reportRequestsPerHour,
+      sqlRowsWrittenPerHour,
       results
     };
     return Response.json(response);
+  }
+
+  private async subscribe(request: Request): Promise<Response> {
+    const body = await request.json<SubscriptionRequest>();
+    const now = Math.floor(Date.now() / 1000);
+    const states = new Map<number, DurableInstanceState>();
+    const histories: EventHistory[] = [];
+    for (const target of body.instances) {
+      const state = states.get(target.instanceID) ?? this.loadInstance(target.instanceID);
+      if (!state || state.lastReceivedAt < now - INSTANCE_RETENTION_SECONDS)
+        return jsonError("instance_not_found", 404);
+      states.set(target.instanceID, state);
+      histories.push(this.createEventHistory(body.dataCenterID, target.instanceID, target.territoryID, state));
+    }
+    const subscriptions = await this.eventSnapshots.renew(histories, now);
+    if (!subscriptions) {
+      const response = jsonError("subscription_capacity_reached", 429);
+      response.headers.set("retry-after", "900");
+      return response;
+    }
+    return Response.json({ dataCenterID: body.dataCenterID, serverTime: now, subscriptions });
+  }
+
+  private createEventHistory(
+    dataCenterID: number,
+    instanceID: number,
+    territoryID: number,
+    state: DurableInstanceState | undefined
+  ): EventHistory {
+    const area = getAreaForTerritory(territoryID)!;
+    const collection = state?.areaTracks[area.code];
+    const tracks = collection ? this.toSnapshotTracks(collection) : [];
+    return {
+      schemaVersion: 1,
+      dataCenterID,
+      instanceID,
+      territoryID,
+      instanceEpoch: state?.instanceEpoch ?? 0,
+      tracks: tracks.map(track => ({
+        trackID: track.trackID,
+        events: area.events.map(event => ({
+          eventType: event.eventType,
+          eventID: event.eventID,
+          lastSpawnedAt: track.eventLastSeen[`${territoryID}:${event.eventType}:${event.eventID}`]?.lastSpawnedAt ?? null
+        }))
+      }))
+    };
   }
 
   private createInstanceState(report: NormalizedReport): DurableInstanceState {
@@ -455,14 +533,13 @@ export class DataCenterState extends DurableObject<Env> {
     areaTracks: DurableAreaTrackCollection,
     area: EventArea
   ): void {
-    const territoryIDs = new Set(area.territoryIDs);
     for (const key of Object.keys(state.eventLastSeen)) {
-      if (territoryIDs.has(Number(key.split(":")[0])))
+      if (Number(key.split(":")[0]) === area.territoryID)
         delete state.eventLastSeen[key];
     }
     for (const track of Object.values(areaTracks.tracks)) {
       for (const [key, event] of Object.entries(track.eventLastSeen)) {
-        if (!territoryIDs.has(Number(key.split(":")[0])))
+        if (Number(key.split(":")[0]) !== area.territoryID)
           continue;
         const current = state.eventLastSeen[key];
         if (!current || event.lastSpawnedAt > current.lastSpawnedAt)
@@ -587,6 +664,7 @@ export class DataCenterState extends DurableObject<Env> {
     const client = pair[0];
     const server = pair[1];
     this.ctx.acceptWebSocket(server);
+    server.serializeAttachment({ dataCenterID: this.dataCenterID, lastResyncAt: Date.now() });
     server.send(JSON.stringify(this.createSnapshot()));
 
     return new Response(null, { status: 101, webSocket: client });
@@ -613,8 +691,8 @@ export class DataCenterState extends DurableObject<Env> {
     };
   }
 
-  private saveInstance(state: DurableInstanceState): void {
-    this.sql.exec(
+  private saveInstance(state: DurableInstanceState): number {
+    return this.sql.exec(
       `INSERT INTO instance_state
        (zone_server_id, instance_epoch, revision, last_received_at, ce_last_seen_json, area_tracks_json, updated_at)
        VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -632,7 +710,7 @@ export class DataCenterState extends DurableObject<Env> {
       JSON.stringify(state.eventLastSeen),
       JSON.stringify(state.areaTracks),
       state.updatedAt
-    );
+    ).rowsWritten;
   }
 
   private createSnapshot(): SnapshotResponse {
@@ -683,7 +761,7 @@ export class DataCenterState extends DurableObject<Env> {
 
   private toSnapshotTracks(
     collection: DurableAreaTrackCollection,
-    now: number
+    now = Math.floor(Date.now() / 1000)
   ): SnapshotInstanceTrack[] {
     const tracks = Object.values(collection.tracks)
       .filter(track => track.lastReceivedAt >= now - INSTANCE_RETENTION_SECONDS)
@@ -847,18 +925,18 @@ export class DataCenterState extends DurableObject<Env> {
     return { eventType, eventID, spawnedAt, status, revision };
   }
 
-  private updateActivityWindow(windowStartedAt: number, reporterEpochID: string, zoneServerID: number): void {
-    this.sql.exec(
+  private updateActivityWindow(windowStartedAt: number, reporterEpochID: string, zoneServerID: number): number {
+    let rowsWritten = this.sql.exec(
       `INSERT OR IGNORE INTO activity_window (window_started_at, reporter_count, instance_count)
        VALUES (?, 0, 0)`,
       windowStartedAt
-    );
-    this.sql.exec(
+    ).rowsWritten;
+    rowsWritten += this.sql.exec(
       `INSERT OR IGNORE INTO reporter_instance_count
        (window_started_at, zone_server_id, reporter_count) VALUES (?, ?, 0)`,
       windowStartedAt,
       zoneServerID
-    );
+    ).rowsWritten;
 
     const reporterRows = Array.from(this.sql.exec<CountRow>(
       `SELECT 1 AS count FROM reporter_instance_window
@@ -868,19 +946,19 @@ export class DataCenterState extends DurableObject<Env> {
       reporterEpochID
     ));
     if (reporterRows.length === 0) {
-      this.sql.exec(
+      rowsWritten += this.sql.exec(
         `INSERT INTO reporter_instance_window
          (window_started_at, zone_server_id, reporter_epoch_id) VALUES (?, ?, ?)`,
         windowStartedAt,
         zoneServerID,
         reporterEpochID
-      );
-      this.sql.exec(
+      ).rowsWritten;
+      rowsWritten += this.sql.exec(
         `UPDATE reporter_instance_count SET reporter_count = reporter_count + 1
          WHERE window_started_at = ? AND zone_server_id = ?`,
         windowStartedAt,
         zoneServerID
-      );
+      ).rowsWritten;
     }
 
     const instanceRows = Array.from(this.sql.exec<CountRow>(
@@ -890,29 +968,27 @@ export class DataCenterState extends DurableObject<Env> {
       zoneServerID
     ));
     if (instanceRows.length === 0) {
-      this.sql.exec(
+      rowsWritten += this.sql.exec(
         "INSERT INTO instance_window (window_started_at, zone_server_id) VALUES (?, ?)",
         windowStartedAt,
         zoneServerID
-      );
-      this.sql.exec(
+      ).rowsWritten;
+      rowsWritten += this.sql.exec(
         "UPDATE activity_window SET instance_count = instance_count + 1 WHERE window_started_at = ?",
         windowStartedAt
-      );
+      ).rowsWritten;
     }
+    return rowsWritten;
   }
 
-  private updateRequestWindow(windowStartedAt: number): number {
-    this.sql.exec(
-      `INSERT INTO request_window (window_started_at, request_count) VALUES (?, 1)
-       ON CONFLICT(window_started_at) DO UPDATE SET request_count = request_count + 1`,
-      windowStartedAt
-    );
-    const rows = Array.from(this.sql.exec<RequestWindowRow>(
-      "SELECT request_count FROM request_window WHERE window_started_at = ?",
-      windowStartedAt
-    ));
-    return rows[0]?.request_count ?? 1;
+  private updateRequestWindow(windowStartedAt: number, rowsWritten: number): RequestWindowRow {
+    return this.sql.exec<RequestWindowRow>(
+      `INSERT INTO request_window (window_started_at, request_count, rows_written) VALUES (?, 1, ?)
+       ON CONFLICT(window_started_at) DO UPDATE SET
+         request_count = request_count + 1, rows_written = rows_written + excluded.rows_written
+       RETURNING request_count, rows_written`,
+      windowStartedAt, rowsWritten + 1
+    ).one();
   }
 
   private broadcast(message: InstanceUpdatedMessage | InstanceExpiredMessage): void {
@@ -931,17 +1007,24 @@ export class DataCenterState extends DurableObject<Env> {
 
   private getNextAlarm(): number {
     const interval = 3_600_000;
-    return Math.ceil(Date.now() / interval) * interval;
+    const maintenanceAt = (Math.floor(Date.now() / interval) + 1) * interval;
+    return Math.min(maintenanceAt, this.eventSnapshots.nextRetryAt ?? maintenanceAt);
   }
 }
 
-function getTargetReporterCount(reportRequestsPerHour: number): number {
-  if (reportRequestsPerHour >= REPORT_REQUEST_BUDGET_PER_DATA_CENTER_HOUR)
+function getTargetReporterCount(reportRequestsPerHour: number, sqlRowsWrittenPerHour: number): number {
+  const utilization = Math.max(
+    reportRequestsPerHour / REPORT_REQUEST_BUDGET_PER_DATA_CENTER_HOUR,
+    sqlRowsWrittenPerHour / SQL_WRITE_BUDGET_PER_DATA_CENTER_HOUR
+  );
+  if (utilization >= 1)
     return 1;
-  if (reportRequestsPerHour >= REPORT_REQUEST_BUDGET_PER_DATA_CENTER_HOUR / 2)
+  if (utilization >= 0.5)
     return 2;
   return 3;
 }
 
 const DAILY_REPORT_REQUEST_BUDGET = 70_000;
 const REPORT_REQUEST_BUDGET_PER_DATA_CENTER_HOUR = DAILY_REPORT_REQUEST_BUDGET / DATA_CENTERS.length / 24;
+const DAILY_REPORT_SQL_WRITE_BUDGET = 70_000;
+const SQL_WRITE_BUDGET_PER_DATA_CENTER_HOUR = DAILY_REPORT_SQL_WRITE_BUDGET / DATA_CENTERS.length / 24;

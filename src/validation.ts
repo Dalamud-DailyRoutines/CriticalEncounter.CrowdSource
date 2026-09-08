@@ -41,7 +41,7 @@ function isObservedState(eventType: EventType, value: unknown): value is Observe
     : value === "Preparing" || value === "Running";
 }
 
-async function readBody(request: Request): Promise<string | undefined> {
+export async function readBody(request: Request): Promise<string | undefined> {
   if (!request.body) return "";
 
   const reader = request.body.getReader();

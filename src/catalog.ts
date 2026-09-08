@@ -47,7 +47,7 @@ interface RawEventArea {
   localizedNames: Record<string, string>;
   mapNames: Record<string, string>;
   serverGroups: string[];
-  territoryIDs: number[];
+  territoryID: number;
   ces: CEEntry[];
   fates: FATEEntry[];
 }
@@ -99,13 +99,11 @@ for (const dataCenter of DATA_CENTERS) {
 }
 
 for (const area of EVENT_AREAS) {
-  for (const territoryID of area.territoryIDs) {
-    TERRITORY_TO_AREA.set(territoryID, area);
-    TERRITORY_TO_EVENT_KEYS.set(
-      territoryID,
-      new Set(area.events.map(event => `${event.eventType}:${event.eventID}`))
-    );
-  }
+  TERRITORY_TO_AREA.set(area.territoryID, area);
+  TERRITORY_TO_EVENT_KEYS.set(
+    area.territoryID,
+    new Set(area.events.map(event => `${event.eventType}:${event.eventID}`))
+  );
 }
 
 for (const gameplay of GAMEPLAYS)
@@ -119,8 +117,7 @@ for (const gameplay of GAMEPLAYS)
 for (const area of EVENT_AREAS) {
   for (const event of area.events) {
     if (event.eventType === "CE" && event.canCoexist) {
-      for (const territoryID of area.territoryIDs)
-        COEXIST_EVENT_KEYS.add(`${territoryID}:${event.eventType}:${event.eventID}`);
+      COEXIST_EVENT_KEYS.add(`${area.territoryID}:${event.eventType}:${event.eventID}`);
     }
   }
 }

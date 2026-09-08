@@ -40,6 +40,7 @@ export interface ReportResponse {
   activeInstanceCount: number;
   targetReporterCount: number;
   reportRequestsPerHour: number;
+  sqlRowsWrittenPerHour: number;
   results: ReportResult[];
 }
 
@@ -122,8 +123,48 @@ export interface InstanceExpiredMessage {
 
 export type RealtimeMessage = SnapshotResponse | InstanceUpdatedMessage | InstanceExpiredMessage;
 
+export interface EventOccurrence {
+  eventType: EventType;
+  eventID: number;
+  lastSpawnedAt: number | null;
+}
+
+export interface EventHistory {
+  schemaVersion: 1;
+  dataCenterID: number;
+  instanceID: number;
+  territoryID: number;
+  instanceEpoch: number;
+  tracks: { trackID: string; events: EventOccurrence[] }[];
+}
+
+export interface EventHistorySnapshot extends EventHistory {
+  revision: string;
+  updatedAt: number;
+}
+
+export interface SubscriptionTarget {
+  instanceID: number;
+  territoryID: number;
+}
+
+export interface SubscriptionRequest {
+  dataCenterID: number;
+  instances: SubscriptionTarget[];
+}
+
+export interface EventSubscription extends SubscriptionTarget {
+  snapshotURL: string;
+  revision: string;
+  expiresAt: number;
+  renewAfter: number;
+}
+
 export interface Env {
   ASSETS: Fetcher;
   DATA_CENTER_STATE: DurableObjectNamespace;
   UPLOAD_API_KEY: string;
+  EVENT_SNAPSHOTS: R2Bucket;
+  SNAPSHOT_PUBLIC_URL: string;
+  SUBSCRIPTION_RATE_LIMITER: RateLimit;
 }

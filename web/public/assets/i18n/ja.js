@@ -9,6 +9,7 @@ window.uiTranslations.ja = {
     sortRecent: "最近の更新",
     sortServer: "インスタンス ID",
     instanceGuideLink: "インスタンス ID の取得方法",
+    apiGuideLink: "API 利用ガイド",
     githubLink: "GitHub リポジトリ",
     articleLoadError: "記事の読み込みに失敗しました",
     activeInstances: "アクティブなインスタンス",

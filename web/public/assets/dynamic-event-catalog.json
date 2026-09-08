@@ -453,9 +453,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        1252
-      ],
+      "territoryID": 1252,
       "gameplay": "OccultCrescent"
     },
     {
@@ -847,9 +845,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        1346
-      ],
+      "territoryID": 1346,
       "gameplay": "OccultCrescent"
     },
     {
@@ -1221,9 +1217,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        920
-      ],
+      "territoryID": 920,
       "gameplay": "SaveTheQueen"
     },
     {
@@ -1643,9 +1637,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        975
-      ],
+      "territoryID": 975,
       "gameplay": "SaveTheQueen"
     },
     {
@@ -2176,9 +2168,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        732
-      ],
+      "territoryID": 732,
       "gameplay": "Eureka"
     },
     {
@@ -2668,9 +2658,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        763
-      ],
+      "territoryID": 763,
       "gameplay": "Eureka"
     },
     {
@@ -3160,9 +3148,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        795
-      ],
+      "territoryID": 795,
       "gameplay": "Eureka"
     },
     {
@@ -3535,9 +3521,7 @@
         "China",
         "Korea"
       ],
-      "territoryIDs": [
-        827
-      ],
+      "territoryID": 827,
       "gameplay": "Eureka"
     }
   ],

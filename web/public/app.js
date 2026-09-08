@@ -45,7 +45,7 @@ const elements = {
   instanceTrackSelector: document.querySelector("#instanceTrackSelector"),
   emptyState: document.querySelector("#emptyState"),
   emptyStateText: document.querySelector("#emptyStateText"),
-  guideLink: document.querySelector(".guide-link"),
+  guideLinks: document.querySelectorAll(".guide-link"),
   instanceCount: document.querySelector("#instanceCount"),
   instanceList: document.querySelector("#instanceList"),
   instanceMeta: document.querySelector("#instanceMeta"),
@@ -181,13 +181,16 @@ function bindEvents() {
   bindUILanguageSelect(elements.uiLanguageSelect);
   bindUILanguageSelect(elements.articleLanguageSelect);
 
-  elements.guideLink.addEventListener("click", event => {
-    event.preventDefault();
-    disconnect();
-    history.pushState(null, "", elements.guideLink.getAttribute("href"));
-    state.articleID = syncView();
-    renderArticle();
-  });
+  for (const link of elements.guideLinks) {
+    link.addEventListener("click", event => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      disconnect();
+      history.pushState(null, "", link.getAttribute("href"));
+      state.articleID = syncView();
+      renderArticle();
+    });
+  }
 
   elements.dataCenterSelect.addEventListener("change", () => {
     state.selectedDataCenterID = Number(elements.dataCenterSelect.value);
@@ -562,9 +565,8 @@ function renderInstances() {
   for (const area of visibleAreas) {
     const eventKeys = gameplayEventKeys.get(area.gameplay);
     if (!eventKeys) continue;
-    for (const territoryID of area.territoryIDs)
-      for (const event of area.events)
-        eventKeys.add(`${territoryID}:${event.eventType}:${event.eventID}`);
+    for (const event of area.events)
+      eventKeys.add(`${area.territoryID}:${event.eventType}:${event.eventID}`);
   }
   const query = state.instanceSearch.trim();
   const instances = [...state.instances.values()].filter(instance =>
@@ -794,7 +796,7 @@ function renderDetails() {
   const section = document.createElement("section");
   section.className = "area-section";
   const observed = area.events.filter(event =>
-    viewInstance.eventLastSeen[`${area.territoryIDs[0]}:${event.eventType}:${event.eventID}`]).length;
+    viewInstance.eventLastSeen[`${area.territoryID}:${event.eventType}:${event.eventID}`]).length;
   const contentLanguageCode = getSelectedLanguage().code;
   const chapterName = area.localizedNames[contentLanguageCode] ?? area.name;
   const mapName = area.mapNames[contentLanguageCode] ?? area.mapNames.CHS;
@@ -841,7 +843,7 @@ function renderDetails() {
     }
 
     const event = viewInstance.eventLastSeen[
-      `${area.territoryIDs[0]}:${catalogEvent.eventType}:${catalogEvent.eventID}`
+      `${area.territoryID}:${catalogEvent.eventType}:${catalogEvent.eventID}`
     ];
     const row = document.createElement("tr");
     const name = catalogEvent.localizedNames[contentLanguageCode] ??
@@ -1136,7 +1138,7 @@ function createAreaPanel(instance, areas, contentLanguageCode) {
     for (const area of gameplayAreas) {
       const areaTrack = getSelectedAreaTrack(instance, area.code);
       const observed = area.events.filter(event =>
-        areaTrack.eventLastSeen[`${area.territoryIDs[0]}:${event.eventType}:${event.eventID}`]).length;
+        areaTrack.eventLastSeen[`${area.territoryID}:${event.eventType}:${event.eventID}`]).length;
       const selected = area.code === state.selectedAreaCode;
       const option = document.createElement("button");
       option.type = "button";
@@ -1223,7 +1225,7 @@ function getLinkedGroupEntries(area, group) {
 
 function getEventLastSeen(area, catalogEvent, instance) {
   return instance.eventLastSeen[
-    `${area.territoryIDs[0]}:${catalogEvent.eventType}:${catalogEvent.eventID}`
+    `${area.territoryID}:${catalogEvent.eventType}:${catalogEvent.eventID}`
   ];
 }
 

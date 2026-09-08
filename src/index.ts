@@ -2,6 +2,7 @@ import { DataCenterState } from "./durable-objects/DataCenterState";
 import type { Env } from "./models";
 import { handleRealtime } from "./realtime";
 import { handleUpload } from "./upload";
+import { handleSubscriptions } from "./subscriptions";
 import { jsonError } from "./validation";
 
 export { DataCenterState };
@@ -15,6 +16,9 @@ export default {
 
     if (url.pathname === "/v1/reports")
       return handleUpload(request, env);
+
+    if (url.pathname === "/v1/subscriptions")
+      return handleSubscriptions(request, env);
 
     const realtimeMatch = url.pathname.match(/^\/v1\/realtime\/(\d+)$/);
     if (realtimeMatch)
