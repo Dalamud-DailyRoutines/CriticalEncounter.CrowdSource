@@ -3,6 +3,7 @@ import type { Env } from "./models";
 import { handleRealtime } from "./realtime";
 import { handleUpload } from "./upload";
 import { handleSubscriptions } from "./subscriptions";
+import { handleSession } from "./session";
 import { jsonError } from "./validation";
 
 export { DataCenterState };
@@ -19,6 +20,9 @@ export default {
 
     if (url.pathname === "/v1/subscriptions")
       return handleSubscriptions(request, env);
+
+    if (url.pathname === "/v1/session")
+      return handleSession(request, env);
 
     const realtimeMatch = url.pathname.match(/^\/v1\/realtime\/(\d+)$/);
     if (realtimeMatch)

@@ -23,7 +23,8 @@ const state = {
   mapImageOverlay: null,
   mapMarker: null,
   mapRequestToken: 0,
-  copyToastTimer: 0
+  copyToastTimer: 0,
+  verificationWidgetId: null
 };
 
 const TRACK_ACTIVE_WINDOW_SECONDS = 20 * 60;
@@ -58,6 +59,10 @@ const elements = {
   sortSelect: document.querySelector("#sortSelect"),
   instanceSearch: document.querySelector("#instanceSearch"),
   uiLanguageSelect: document.querySelector("#uiLanguageSelect"),
+  verificationGate: document.querySelector("#verificationGate"),
+  verificationRetry: document.querySelector("#verificationRetry"),
+  verificationStatus: document.querySelector("#verificationStatus"),
+  verificationWidget: document.querySelector("#verificationWidget"),
   workspace: document.querySelector(".workspace")
 };
 
@@ -106,6 +111,13 @@ const copyConfiguration = {
 };
 
 async function initialize() {
+  elements.verificationRetry.addEventListener("click", () => {
+    elements.verificationRetry.hidden = true;
+    verifyAccess();
+  });
+
+  await verifyAccess();
+
   state.articleID = syncView();
 
   const [dataCenters, catalog] = await Promise.all([
@@ -161,6 +173,95 @@ async function initialize() {
     updateRelativeTimes();
     updateTrackConflictVisibility();
   }, 30_000);
+}
+
+async function verifyAccess() {
+  restoreUILanguage();
+  for (const element of elements.verificationGate.querySelectorAll("[data-i18n]"))
+    element.textContent = t(element.dataset.i18n);
+
+  const status = await readSessionStatus();
+  if (status.verified) {
+    elements.verificationGate.hidden = true;
+    return;
+  }
+  if (status.siteKey === "") {
+    showVerificationFailure();
+    return;
+  }
+  await runVerification(status.siteKey);
+}
+
+async function readSessionStatus() {
+  try {
+    const response = await fetch("/v1/session", {
+      headers: { accept: "application/json" },
+      cache: "no-store"
+    });
+    if (!response.ok)
+      throw new Error(`session_status_${response.status}`);
+    const payload = await response.json();
+    return {
+      verified: payload.verified === true,
+      siteKey: typeof payload.siteKey === "string" ? payload.siteKey : ""
+    };
+  } catch (error) {
+    console.warn("session status unavailable", error);
+    return { verified: false, siteKey: "" };
+  }
+}
+
+async function runVerification(siteKey) {
+  elements.verificationStatus.dataset.state = "running";
+  elements.verificationStatus.textContent = t("verificationRunning");
+  try {
+    const token = await requestTurnstileToken(siteKey);
+    const response = await fetch("/v1/session", {
+      method: "POST",
+      headers: { "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({ token })
+    });
+    if (!response.ok)
+      throw new Error(`session_rejected_${response.status}`);
+    elements.verificationGate.hidden = true;
+  } catch (error) {
+    console.warn("session verification failed", error);
+    showVerificationFailure();
+  }
+}
+
+function showVerificationFailure() {
+  elements.verificationStatus.dataset.state = "failed";
+  elements.verificationStatus.textContent = t("verificationError");
+  elements.verificationRetry.hidden = false;
+}
+
+async function requestTurnstileToken(siteKey) {
+  const turnstile = await waitForTurnstile();
+  if (state.verificationWidgetId !== null) {
+    turnstile.remove(state.verificationWidgetId);
+    state.verificationWidgetId = null;
+  }
+  return new Promise((resolve, reject) => {
+    state.verificationWidgetId = turnstile.render(elements.verificationWidget, {
+      sitekey: siteKey,
+      callback: resolve,
+      "error-callback": () => {
+        reject(new Error("turnstile_error"));
+        return true;
+      },
+      "expired-callback": () => reject(new Error("turnstile_expired"))
+    });
+  });
+}
+
+async function waitForTurnstile() {
+  for (let attempt = 0; attempt < 100; attempt++) {
+    if (window.turnstile)
+      return window.turnstile;
+    await new Promise(resolve => window.setTimeout(resolve, 100));
+  }
+  throw new Error("turnstile_unavailable");
 }
 
 function bindUILanguageSelect(select) {

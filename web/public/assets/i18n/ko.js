@@ -57,5 +57,10 @@ window.uiTranslations.ko = {
     mapLoading: "지도 불러오는 중",
     mapLoadError: "지도를 불러오지 못했습니다",
     noValidInstanceSelected: "유효한 인스턴스가 선택되지 않았습니다",
-    noValidInstances: "이 데이터 센터에 유효한 인스턴스가 없습니다"
+    noValidInstances: "이 데이터 센터에 유효한 인스턴스가 없습니다",
+    verificationTitle: "접속 확인",
+    verificationHint: "아래 확인을 완료하면 계속할 수 있습니다.",
+    verificationRunning: "확인 중",
+    verificationError: "확인에 실패했습니다. 다시 시도해 주세요.",
+    verificationRetry: "다시 시도"
 };

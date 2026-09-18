@@ -20,9 +20,19 @@
   <script src="/assets/vendor/eorzea-map/map.js" defer></script>
   <script src="/assets/vendor/marked/marked.umd.js" defer></script>
   <script src="/assets/vendor/marked-alert/index.umd.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
   <script src="/app.js" defer></script>
 </head>
 <body>
+  <div id="verificationGate" class="verification-gate">
+    <section class="verification-panel" aria-labelledby="verificationTitle">
+      <h2 id="verificationTitle" data-i18n="verificationTitle">访问验证</h2>
+      <p class="verification-hint" data-i18n="verificationHint">请完成下方验证后继续访问。</p>
+      <div id="verificationWidget" class="verification-widget"></div>
+      <p id="verificationStatus" class="verification-status" role="status" aria-live="polite" data-i18n="verificationRunning">正在验证</p>
+      <button id="verificationRetry" class="verification-retry" type="button" data-i18n="verificationRetry" hidden>重试</button>
+    </section>
+  </div>
   <div id="copyToast" class="copy-toast" role="status" aria-live="polite" aria-atomic="true" aria-hidden="true" data-i18n="copySuccess">复制区域事件信息成功</div>
   <header class="topbar">
     <a class="brand" href="/">

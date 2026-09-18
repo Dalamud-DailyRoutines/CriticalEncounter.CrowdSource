@@ -57,5 +57,10 @@ window.uiTranslations.zh = {
     mapLoading: "地图加载中",
     mapLoadError: "地图加载失败",
     noValidInstanceSelected: "尚未选择任一有效的副本实例",
-    noValidInstances: "当前大区尚无有效的副本实例"
+    noValidInstances: "当前大区尚无有效的副本实例",
+    verificationTitle: "访问验证",
+    verificationHint: "请完成下方验证后继续访问。",
+    verificationRunning: "正在验证",
+    verificationError: "验证未通过，请重试。",
+    verificationRetry: "重试"
 };
