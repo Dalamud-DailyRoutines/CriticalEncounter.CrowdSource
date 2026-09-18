@@ -6,8 +6,7 @@
   "workers_dev": false,
   "preview_urls": false,
   "vars": {
-    "SNAPSHOT_PUBLIC_URL": "https://ce-data.atmoomen.top",
-    "TURNSTILE_SITE_KEY": "0x4AAAAAAE7tp2tpqZ-EIr4E"
+    "SNAPSHOT_PUBLIC_URL": "https://ce-data.atmoomen.top"
   },
   "r2_buckets": [
     {

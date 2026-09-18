@@ -57,10 +57,5 @@ window.uiTranslations.fr = {
     mapLoading: "Chargement de la carte",
     mapLoadError: "Impossible de charger la carte",
     noValidInstanceSelected: "Aucune instance valide sélectionnée",
-    noValidInstances: "Aucune instance valide dans ce centre de données",
-    verificationTitle: "Vérification d'accès",
-    verificationHint: "Terminez la vérification ci-dessous pour continuer.",
-    verificationRunning: "Vérification en cours",
-    verificationError: "Échec de la vérification. Veuillez réessayer.",
-    verificationRetry: "Réessayer"
+    noValidInstances: "Aucune instance valide dans ce centre de données"
 };

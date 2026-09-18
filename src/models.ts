@@ -167,7 +167,4 @@ export interface Env {
   EVENT_SNAPSHOTS: R2Bucket;
   SNAPSHOT_PUBLIC_URL: string;
   SUBSCRIPTION_RATE_LIMITER: RateLimit;
-  TURNSTILE_SITE_KEY: string;
-  TURNSTILE_SECRET_KEY: string;
-  SESSION_SECRET: string;
 }

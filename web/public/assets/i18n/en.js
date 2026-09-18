@@ -57,10 +57,5 @@ window.uiTranslations.en = {
     mapLoading: "Loading map",
     mapLoadError: "Failed to load map",
     noValidInstanceSelected: "No valid instance selected",
-    noValidInstances: "No valid instances in this data center",
-    verificationTitle: "Access verification",
-    verificationHint: "Complete the check below to continue.",
-    verificationRunning: "Verifying",
-    verificationError: "Verification failed. Please try again.",
-    verificationRetry: "Retry"
+    noValidInstances: "No valid instances in this data center"
 };

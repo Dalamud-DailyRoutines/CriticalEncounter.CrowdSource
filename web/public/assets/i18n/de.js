@@ -57,10 +57,5 @@ window.uiTranslations.de = {
     mapLoading: "Karte wird geladen",
     mapLoadError: "Karte konnte nicht geladen werden",
     noValidInstanceSelected: "Keine gültige Instanz ausgewählt",
-    noValidInstances: "Keine gültigen Instanzen in diesem Datenzentrum",
-    verificationTitle: "Zugriffsprüfung",
-    verificationHint: "Schließen Sie die Prüfung unten ab, um fortzufahren.",
-    verificationRunning: "Wird geprüft",
-    verificationError: "Prüfung fehlgeschlagen. Bitte erneut versuchen.",
-    verificationRetry: "Erneut versuchen"
+    noValidInstances: "Keine gültigen Instanzen in diesem Datenzentrum"
 };

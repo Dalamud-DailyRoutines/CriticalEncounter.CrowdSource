@@ -57,10 +57,5 @@ window.uiTranslations.ja = {
     mapLoading: "地図を読み込んでいます",
     mapLoadError: "地図を読み込めませんでした",
     noValidInstanceSelected: "有効なインスタンスが選択されていません",
-    noValidInstances: "このデータセンターには有効なインスタンスがありません",
-    verificationTitle: "アクセス確認",
-    verificationHint: "以下の確認を完了すると続行できます。",
-    verificationRunning: "確認中",
-    verificationError: "確認に失敗しました。もう一度お試しください。",
-    verificationRetry: "再試行"
+    noValidInstances: "このデータセンターには有効なインスタンスがありません"
 };
